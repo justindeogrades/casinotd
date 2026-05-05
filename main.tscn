@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://chd8jqc305u8u" path="res://enemy_spawner.tscn" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://dwpw0farpj0m2" path="res://tiles.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ppa8e66lf7vx" path="res://player.gd" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://ct0pijroh7m73" path="res://damage_indicator_placer.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cxgm5ilq32svq" path="res://towers/tower_placer.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ccpmycj5vtnwl" path="res://gui_manager.tscn" id="5_lquwl"]
 
@@ -132,9 +133,10 @@ point_count = 16
 tile_map_data = PackedByteArray("AAAAAAEAAAADAAEAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAADAAEAAAAEAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAADAAEAAAAEAAUAAAACAAAAAAAFAAUAAAAEAAEAAAAFAAQAAAABAAAAAAAFAAMAAAADAAAAAAAGAAMAAAACAAAAAAAHAAMAAAAEAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAAHAAYAAAABAAAAAAAHAAcAAAADAAEAAAAIAAcAAAACAAAAAAAJAAcAAAACAAAAAAAKAAcAAAACAAAAAAALAAcAAAACAAAAAAAMAAcAAAAEAAEAAAAMAAYAAAADAAAAAAANAAYAAAAEAAEAAAANAAUAAAADAAAAAAAOAAUAAAACAAAAAAAPAAUAAAACAAAAAAAQAAUAAAAEAAAAAAAQAAYAAAADAAEAAAARAAYAAAAEAAAAAAARAAcAAAADAAEAAAASAAcAAAACAAAAAAATAAcAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 
-[node name="Player" type="Node" parent="." unique_id=1691355640 node_paths=PackedStringArray("gui_manager", "tower_placer")]
+[node name="Player" type="Node" parent="." unique_id=1691355640 node_paths=PackedStringArray("gui_manager", "damage_indicator_placer", "tower_placer")]
 script = ExtResource("2_1bvp3")
 gui_manager = NodePath("GUIManager")
+damage_indicator_placer = NodePath("DamageIndicatorPlacer")
 tower_placer = NodePath("TowerPlacer")
 
 [node name="EnemySpawner" parent="Player" unique_id=1451097180 node_paths=PackedStringArray("path") instance=ExtResource("1_0xm2m")]
@@ -150,5 +152,8 @@ track_polygon = NodePath("TrackPolygon")
 [node name="TrackPolygon" type="Polygon2D" parent="Player/TowerPlacer" unique_id=888714068]
 visible = false
 polygon = PackedVector2Array(0, 29, 128, 30, 128, 158, 159, 158, 160, 94, 257, 95, 256, 220, 382, 223, 384, 190, 414, 190, 414, 159, 543, 159, 544, 189, 575, 190, 577, 220, 649, 221, 649, 256, 546, 257, 543, 225, 510, 223, 510, 192, 448, 190, 447, 219, 416, 223, 416, 256, 223, 256, 224, 128, 193, 128, 192, 189, 95, 190, 97, 63, -12, 62)
+
+[node name="DamageIndicatorPlacer" type="Node" parent="Player" unique_id=1470036407]
+script = ExtResource("3_7mycd")
 
 [node name="GUIManager" parent="Player" unique_id=1782215696 instance=ExtResource("5_lquwl")]

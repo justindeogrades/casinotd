@@ -34,6 +34,7 @@ extends Node2D
 @export var data_panel_button : Button
 
 signal clicked(tower : Tower)
+signal damage_dealt(amount : int, crit : bool, pos : Vector2)
 
 #@onready var cooldown_seconds = 50 / attack_speed
 @onready var cooldown_seconds = 50 / attribute[G.att.ATTACK_SPEED]
@@ -109,14 +110,15 @@ func spawn_projectile(aim_direction : Vector2) -> void:
 	
 	projectile_instance.damage = attribute[G.att.DAMAGE]
 	if is_crit:
+		projectile_instance.is_crit = true
 		projectile_instance.damage *= attribute[G.att.CRIT_MULT]
 	projectile_instance.speed = attribute[G.att.PROJ_SPEED]
 	projectile_instance.remaining_pierces = attribute[G.att.PIERCE]
 	projectile_instance.direction = aim_direction
 	
-	add_child(projectile_instance)
+	projectile_instance.damage_dealt.connect(_on_projectile_damage_dealt)
 	
-	print("projectile spawned")
+	add_child(projectile_instance)
 
 func roll_crit() -> bool:
 	var challenge_num = randf_range(0, 100)
@@ -160,6 +162,10 @@ func _on_mousebox_mouse_entered() -> void:
 
 func _on_mousebox_mouse_exited() -> void:
 	mouseovered = false
+
+func _on_projectile_damage_dealt(a : int, c : bool, p : Vector2) -> void:
+	total_damage_dealt += a
+	damage_dealt.emit(a, c, p)
 
 func _draw() -> void:
 	if range_indicator_visible:

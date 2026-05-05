@@ -2,6 +2,7 @@ extends Node
 
 @export_category("HUD")
 @export var gui_manager : Control
+@export var damage_indicator_placer : Node
 @export_category("Stats")
 @export var max_lives : int = 100
 @export_category("Actions")
@@ -69,6 +70,8 @@ func _on_buy_button_pressed() -> void:
 
 func _on_tower_created(new_tower : Tower) -> void:
 	new_tower.clicked.connect(_on_tower_clicked)
+	new_tower.damage_dealt.connect(_on_tower_damage_dealt)
+	
 	placed_towers.append(new_tower)
 	gui_manager.hide_side_panel()
 	get_tree().paused = true
@@ -76,6 +79,9 @@ func _on_tower_created(new_tower : Tower) -> void:
 func _on_tower_placed() -> void:
 	gui_manager.show_side_panel()
 	get_tree().paused = false
+
+func _on_tower_damage_dealt(amount : int, is_crit : bool, pos : Vector2) -> void:
+	damage_indicator_placer.create_damage_indicator(amount, is_crit, pos)
 
 func is_any_tower_mouseovered() -> bool:
 	for tower_at in placed_towers:

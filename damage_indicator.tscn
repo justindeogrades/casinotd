@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://b3et3ajfji1nj"]
+
+[ext_resource type="Script" uid="uid://bi2fiuglbfse1" path="res://damage_indicator.gd" id="1_f72eu"]
+
+[sub_resource type="Animation" id="Animation_2su5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f72eu"]
+resource_name = "rise"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nibuy"]
+_data = {
+&"RESET": SubResource("Animation_2su5p"),
+&"rise": SubResource("Animation_f72eu")
+}
+
+[node name="DamageIndicator" type="Node2D" unique_id=634465355 node_paths=PackedStringArray("damage_label", "anim_player")]
+position = Vector2(0, -50)
+script = ExtResource("1_f72eu")
+damage_label = NodePath("HBoxContainer/DamageNumLabel")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=2112495893]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="CritLabel" type="Label" parent="HBoxContainer" unique_id=809658965]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "CRIT!"
+horizontal_alignment = 1
+
+[node name="DamageNumLabel" type="Label" parent="HBoxContainer" unique_id=1401738304]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "test"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1963354380]
+root_node = NodePath("../HBoxContainer/DamageNumLabel")
+libraries/ = SubResource("AnimationLibrary_nibuy")
