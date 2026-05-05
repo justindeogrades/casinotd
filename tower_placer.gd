@@ -1,0 +1,73 @@
+extends Node
+
+@export var track_polygon : Polygon2D
+
+var tower_preload = preload("res://towers/scenes/green_tower.tscn")
+var tower_ghost_preload = preload("res://tower_ghost.tscn")
+var tower_to_place : Tower = null
+var tower_ghost : Sprite2D
+var temp_tower : Tower = null
+
+signal tower_created(tower : Tower)
+signal tower_placed
+
+#func _ready() -> void:
+	#var tower = place_tower(Vector2(9999,9999))
+	#
+	#tower_ghost = tower_ghost_preload.instantiate()
+	#add_child(tower_ghost)
+	#tower_ghost.init(tower)
+
+func _process(delta : float) -> void:
+	if Input.is_action_just_pressed("place_tower") and tower_ghost != null:
+		place_tower(get_viewport().get_mouse_position())
+		#new_tower.mousebox/$CollisionShape2D.mouse_entered.connect(_on_tower_mouse_entered)
+		#new_tower.mousebox/$CollisionShape2D.mouse_exited.connect(_on_tower_mouse_exited)
+		#if new_tower != null:
+			#new_tower.clicked.connect(_on_tower_clicked)
+			#placed_towers.append(new_tower)
+
+func create_temp_tower() -> void:
+	temp_tower = create_tower(Vector2(9999,9999))
+	
+	tower_ghost = tower_ghost_preload.instantiate()
+	add_child(tower_ghost)
+	tower_ghost.init(temp_tower)
+	
+#func _process(delta: float) -> void:
+	#var mouse_pos = get_viewport().get_mouse_position()
+	#
+	#if Input.is_action_just_released("place_tower"):
+		#if not Geometry2D.is_point_in_polygon(mouse_pos, track_polygon.polygon):
+			#tower_to_place = tower_preload.instantiate()
+			#add_child(tower_to_place)
+			#tower_to_place.position = get_viewport().get_mouse_position()
+
+func create_tower(pos : Vector2):
+	if not Geometry2D.is_point_in_polygon(pos, track_polygon.polygon):
+		tower_to_place = tower_preload.instantiate()
+		add_child(tower_to_place)
+		tower_to_place.position = pos
+		tower_created.emit(tower_to_place)
+		return tower_to_place
+
+func place_tower(pos : Vector2) -> Tower:
+	#tower_to_place = tower_preload.instantiate()
+	#add_child(tower_to_place)
+	#tower_to_place.position = get_viewport().get_mouse_position()
+	#return tower_to_place
+	if get_parent().is_any_tower_mouseovered():
+		return null
+	
+	#if not Geometry2D.is_point_in_polygon(pos, track_polygon.polygon):
+		#tower_to_place = tower_preload.instantiate()
+		#add_child(tower_to_place)
+		#tower_to_place.position = pos
+		#return tower_to_place
+	
+	if not Geometry2D.is_point_in_polygon(pos, track_polygon.polygon):
+		temp_tower.position = pos
+		tower_ghost.queue_free()
+		tower_placed.emit()
+		return temp_tower
+	return null

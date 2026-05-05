@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d4khifhmpum45"]
+
+[ext_resource type="Script" uid="uid://2gqpjrk4kg3j" path="res://upgrade_panel.gd" id="1_sn7ge"]
+
+[node name="UpgradePanel" type="PanelContainer" unique_id=1179414208 node_paths=PackedStringArray("upgrade_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sn7ge")
+upgrade_button = [NodePath("HBoxContainer/Button"), NodePath("HBoxContainer/Button2"), NodePath("HBoxContainer/Button3")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=568001467]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=686865933]
+layout_mode = 2
+text = "+10 Range"
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=1567618164]
+layout_mode = 2
+text = "+20 AS"
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=1594715790]
+layout_mode = 2
+text = "+1 Pierce"

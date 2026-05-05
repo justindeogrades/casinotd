@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ccpmycj5vtnwl"]
+
+[ext_resource type="PackedScene" uid="uid://dkhn0cgms6lte" path="res://side_panel.tscn" id="1_joh0p"]
+[ext_resource type="Script" uid="uid://cirk3dm142bob" path="res://gui_manager.gd" id="1_u2v4l"]
+[ext_resource type="PackedScene" uid="uid://d4khifhmpum45" path="res://upgrade_panel.tscn" id="2_u2v4l"]
+
+[node name="GUIManager" type="Container" unique_id=1431720799 node_paths=PackedStringArray("side_panel", "upgrade_panel")]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u2v4l")
+side_panel = NodePath("SidePanel")
+upgrade_panel = NodePath("UpgradePanel")
+
+[node name="SidePanel" parent="." unique_id=841411776 instance=ExtResource("1_joh0p")]
+layout_direction = 1
+layout_mode = 2
+
+[node name="UpgradePanel" parent="." unique_id=1179414208 instance=ExtResource("2_u2v4l")]
+visible = false
+layout_mode = 2

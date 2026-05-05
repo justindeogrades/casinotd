@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxgm5ilq32svq"]
+
+[ext_resource type="Script" uid="uid://bwftf7vrxfath" path="res://tower_placer.gd" id="1_s1ypq"]
+
+[node name="TowerPlacer" type="Node"]
+script = ExtResource("1_s1ypq")

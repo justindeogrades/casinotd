@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://tdra0fec5mte"]
+
+[ext_resource type="Script" uid="uid://bvvcjay87mdrr" path="res://tower_ghost.gd" id="1_g1uyn"]
+
+[node name="TowerGhost" type="Sprite2D" unique_id=1986136480]
+script = ExtResource("1_g1uyn")

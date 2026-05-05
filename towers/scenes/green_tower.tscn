@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://crorj23ub5ab8"]
+
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_yf0e6"]
+[ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/tower.png" id="2_1jgo1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jgo1"]
+resource_local_to_scene = true
+
+[node name="GreenTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer")]
+process_mode = 1
+script = ExtResource("1_yf0e6")
+sprite = NodePath("Sprite2D")
+range_area = NodePath("Range")
+range_collision = NodePath("Range/CollisionShape2D")
+cooldown_timer = NodePath("Cooldown")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
+texture = ExtResource("2_1jgo1")
+
+[node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
+process_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mousebox" unique_id=1510036919]
+shape = SubResource("CircleShape2D_smaqy")
+
+[node name="Range" type="Area2D" parent="." unique_id=602552904]
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1742737776]
+shape = SubResource("CircleShape2D_1jgo1")
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1627493201]
+one_shot = true
+
+[connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
+[connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

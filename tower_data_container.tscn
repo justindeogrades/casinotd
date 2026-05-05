@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ccdrtrhyrswhl"]
+
+[ext_resource type="Script" uid="uid://6owfyw5x5cm6" path="res://tower_data_container.gd" id="1_07o6m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ahax"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.11764706)
+
+[sub_resource type="Theme" id="Theme_kcg5i"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_5ahax")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kcg5i"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_rfdo1"]
+font_size = 12
+
+[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("name_and_level_label", "total_damage_label", "attribute_names_label", "attribute_data_label", "upgrade_button")]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 95.0
+grow_vertical = 2
+theme = SubResource("Theme_kcg5i")
+script = ExtResource("1_07o6m")
+name_and_level_label = NodePath("NameAndLevel")
+total_damage_label = NodePath("TotalDamage")
+attribute_names_label = NodePath("HBoxContainer/AttributeNames")
+attribute_data_label = NodePath("HBoxContainer/AttributeData")
+upgrade_button = NodePath("UpgradeButton")
+
+[node name="NameAndLevel" type="Label" parent="." unique_id=1210408779]
+layout_mode = 2
+
+[node name="TotalDamage" type="Label" parent="." unique_id=676793867]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1058473074]
+layout_mode = 2
+
+[node name="AttributeNames" type="Label" parent="HBoxContainer" unique_id=63017018]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_kcg5i")
+
+[node name="AttributeData" type="Label" parent="HBoxContainer" unique_id=1418307144]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_rfdo1")
+
+[node name="UpgradeButton" type="Button" parent="." unique_id=1128259857]
+layout_mode = 2
+
+[connection signal="pressed" from="UpgradeButton" to="." method="_on_upgrade_button_pressed"]
