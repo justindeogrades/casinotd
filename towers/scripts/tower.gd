@@ -13,14 +13,6 @@ extends Node2D
 	0 #Pierce
 ]
 @export var tower_name : String = "Tower"
-#@export var damage : float = 10
-#@export var attack_speed : float = 200
-#@export var range : float = 100
-#@export var crit_percent_chance : float = 10
-#@export var crit_damage_multiplier : float = 3
-#@export var projectile_speed : float = 1000
-#@export var projectile_pierce : int = 0
-#@export var projectile_count : int
 #Angle between projectiles
 @export var angle_between_projectiles : float = PI / 12
 @export var rarity : int
@@ -43,6 +35,7 @@ var projectile_preload = preload("res://projectile.tscn")
 
 var level : int = 1
 var mobs_in_range : Array[Mob]
+var target_prio : int = G.prio.FIRST
 var kills : int = 0
 var total_damage_dealt : float = 0
 var upgrade_cost : int = 10
@@ -64,7 +57,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	#Targeting and shooting
 	if not mobs_in_range.is_empty():
-		var target = get_first_mob_in_range()
+		var target = get_target(target_prio)
 		var aim_direction = (target.global_position - position).normalized()
 		if cooldown_timer.is_stopped():
 			#Iterate once per projectile count, offsetting the angle a little every shot
@@ -138,7 +131,19 @@ func _on_range_area_entered(area: Area2D) -> void:
 func _on_range_area_exited(area: Area2D) -> void:
 	mobs_in_range.erase(area.get_parent())
 
-func get_first_mob_in_range() -> Mob:
+func get_target(prio : int) -> Mob:
+	match prio:
+		G.prio.FIRST:
+			return get_first_mob()
+		G.prio.LAST:
+			return get_last_mob()
+		G.prio.CLOSE:
+			return get_closest_mob()
+		_:
+			push_error("Invalid target priority!")
+			return null
+
+func get_first_mob() -> Mob:
 	if mobs_in_range.is_empty():
 		return null
 	else:
@@ -149,6 +154,36 @@ func get_first_mob_in_range() -> Mob:
 				first_mob = mob_i
 		
 		return first_mob
+
+func get_last_mob() -> Mob:
+	if mobs_in_range.is_empty():
+		return null
+	else:
+		var last_mob = mobs_in_range[0]
+		
+		for mob_i in mobs_in_range:
+			if mob_i.pathfollow.get_progress() < last_mob.pathfollow.get_progress():
+				last_mob = mob_i
+		
+		return last_mob
+
+func get_closest_mob() -> Mob:
+	if mobs_in_range.is_empty():
+		return null
+	else:
+		var close_mob = mobs_in_range[0]
+		
+		for mob_i in mobs_in_range:
+			if global_position.distance_to(close_mob.global_position) > global_position.distance_to(mob_i.global_position):
+				close_mob = mob_i
+		
+		return close_mob
+
+func get_target_priority() -> int:
+	return target_prio
+
+func set_target_priority(prio : int) -> void:
+	target_prio = prio
 
 func update_range() -> void:
 	range_collision.shape.radius = attribute[G.att.RANGE]

@@ -17,7 +17,7 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_rfdo1"]
 font_size = 12
 
-[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("name_and_level_label", "total_damage_label", "attribute_names_label", "attribute_data_label", "upgrade_button")]
+[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("name_and_level_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "upgrade_button")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 95.0
@@ -26,6 +26,7 @@ theme = SubResource("Theme_kcg5i")
 script = ExtResource("1_07o6m")
 name_and_level_label = NodePath("NameAndLevel")
 total_damage_label = NodePath("TotalDamage")
+priority_label = NodePath("TargetPrioContainer/PriorityLabel")
 attribute_names_label = NodePath("HBoxContainer/AttributeNames")
 attribute_data_label = NodePath("HBoxContainer/AttributeData")
 upgrade_button = NodePath("UpgradeButton")
@@ -35,6 +36,22 @@ layout_mode = 2
 
 [node name="TotalDamage" type="Label" parent="." unique_id=676793867]
 layout_mode = 2
+
+[node name="TargetPrioContainer" type="HBoxContainer" parent="." unique_id=1597427011]
+layout_mode = 2
+alignment = 1
+
+[node name="PrioBack" type="Button" parent="TargetPrioContainer" unique_id=89826114]
+layout_mode = 2
+text = "<"
+
+[node name="PriorityLabel" type="Label" parent="TargetPrioContainer" unique_id=745358909]
+layout_mode = 2
+text = "Priority"
+
+[node name="PrioForward" type="Button" parent="TargetPrioContainer" unique_id=2100885513]
+layout_mode = 2
+text = ">"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1058473074]
 layout_mode = 2
@@ -50,4 +67,6 @@ label_settings = SubResource("LabelSettings_rfdo1")
 [node name="UpgradeButton" type="Button" parent="." unique_id=1128259857]
 layout_mode = 2
 
+[connection signal="pressed" from="TargetPrioContainer/PrioBack" to="." method="_on_prio_back_pressed"]
+[connection signal="pressed" from="TargetPrioContainer/PrioForward" to="." method="_on_prio_forward_pressed"]
 [connection signal="pressed" from="UpgradeButton" to="." method="_on_upgrade_button_pressed"]

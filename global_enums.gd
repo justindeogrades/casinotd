@@ -19,6 +19,12 @@ enum face {
 	ACE
 }
 
+enum prio {
+	FIRST,
+	LAST,
+	CLOSE
+}
+
 #"Damage:",
 	#"Attack speed:",
 	#"Range:",

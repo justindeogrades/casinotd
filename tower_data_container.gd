@@ -2,6 +2,7 @@ extends Control
 
 @export var name_and_level_label : Label
 @export var total_damage_label : Label
+@export var priority_label : Label
 @export var attribute_names_label : Label
 @export var attribute_data_label : Label
 @export var upgrade_button : Button
@@ -12,9 +13,7 @@ var player : Node
 signal upgrade_tower
 
 #func _ready() -> void:
-	#call_deferred("set_global_position", Vector2(0,0))
-	#
-	#visible = false
+	#update_priority_label()
 
 func _process(delta: float) -> void:
 	refresh()
@@ -56,24 +55,37 @@ func refresh_with_new_tower(new_tower : Tower) -> void:
 	]
 	
 	upgrade_button.text = "Upgrade - $" + str(tower.upgrade_cost)
+	
+	update_priority_label()
 
-#func close() -> void:
-	#visible = false
-	#tower.set_range_indicator_visibility(false)
+func update_priority_label() -> void:
+	var prio = tower.get_target_priority()
+	priority_label.text = target_priority_to_string(prio)
 
+func target_priority_to_string(prio : int) -> String:
+	match prio:
+		G.prio.FIRST:
+			return "First"
+		G.prio.LAST:
+			return "Last"
+		G.prio.CLOSE:
+			return "Close"
+		_:
+			push_error("Invalid target priority!")
+			return ""
 
 func _on_upgrade_button_pressed() -> void:
-	#Terrible coding change later
-	#if player.spend_money(tower.upgrade_cost):
-		#tower.level += 1
-		#tower.upgrade_cost = tower.upgrade_cost ** 1.2
-		#
-		##Placeholder upgrades
-		#tower.attack_speed += 20
-		#tower.range += 10
-		#
-		#tower.update_range()
-		#tower.update_cooldown()
-		#
-		#refresh_with_new_tower(tower)
 	upgrade_tower.emit(tower)
+
+
+func _on_prio_back_pressed() -> void:
+	var new_prio = posmod(tower.get_target_priority() - 1, G.prio.size())
+	print_debug("setting target prio to " + str(new_prio))
+	tower.set_target_priority(new_prio)
+	update_priority_label()
+
+func _on_prio_forward_pressed() -> void:
+	var new_prio = posmod(tower.get_target_priority() + 1, G.prio.size())
+	print_debug("setting target prio to " + str(new_prio))
+	tower.set_target_priority(new_prio)
+	update_priority_label()
