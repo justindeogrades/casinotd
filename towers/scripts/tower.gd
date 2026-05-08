@@ -27,7 +27,7 @@ extends Node2D
 @export var anim_player : AnimationPlayer
 
 signal clicked(tower : Tower)
-signal damage_dealt(amount : int, crit : bool, pos : Vector2)
+signal damage_dealt(amount : int, crit : int, pos : Vector2)
 
 #@onready var cooldown_seconds = 50 / attack_speed
 @onready var cooldown_seconds = 50 / attribute[G.att.ATTACK_SPEED]
@@ -92,22 +92,13 @@ func _process(delta: float) -> void:
 		pass
 
 func spawn_projectile(aim_direction : Vector2) -> void:
-	var is_crit = roll_crit()
+	var crit_level = roll_crit()
 	
-	#var projectile_instance = projectile_preload.instantiate()
 	var projectile_instance = load("res://projectile.tscn").instantiate()
-	
-	#projectile_instance.damage = damage
-	#if is_crit:
-		#projectile_instance.damage *= crit_damage_multiplier
-	#projectile_instance.speed = projectile_speed
-	#projectile_instance.remaining_pierces = projectile_pierce
-	#projectile_instance.direction = aim_direction
-	
+
 	projectile_instance.damage = attribute[G.att.DAMAGE]
-	if is_crit:
-		projectile_instance.is_crit = true
-		projectile_instance.damage *= attribute[G.att.CRIT_MULT]
+	projectile_instance.crit_level = crit_level
+	projectile_instance.damage *= attribute[G.att.CRIT_MULT] ** crit_level
 	projectile_instance.speed = attribute[G.att.PROJ_SPEED]
 	projectile_instance.remaining_pierces = attribute[G.att.PIERCE]
 	projectile_instance.direction = aim_direction
@@ -116,12 +107,29 @@ func spawn_projectile(aim_direction : Vector2) -> void:
 	
 	add_child(projectile_instance)
 
-func roll_crit() -> bool:
-	var challenge_num = randf_range(0, 100)
+#Roll crit function with crit as a binary
+#func roll_crit() -> bool:
+	#var challenge_num = randf_range(0, 100)
+	#
+	#if attribute[G.att.CRIT_CHANCE] >= challenge_num:
+		#return true
+	#return false
+
+#Roll crit with crit as a level
+func roll_crit() -> int:
+	var crit_level = 0
+	var challenge_failed = false
+	var i = 1
 	
-	if attribute[G.att.CRIT_CHANCE] >= challenge_num:
-		return true
-	return false
+	while not challenge_failed:
+		var challenge_num = randf_range(0, 100)
+		if attribute[G.att.CRIT_CHANCE] / i >= challenge_num:
+			crit_level += 1
+			i += 1
+		else:
+			challenge_failed = true
+	
+	return crit_level
 
 func upgrade_attribute(att : int, amount : float) -> void:
 	attribute[att] += amount
@@ -201,7 +209,7 @@ func _on_mousebox_mouse_entered() -> void:
 func _on_mousebox_mouse_exited() -> void:
 	mouseovered = false
 
-func _on_projectile_damage_dealt(a : int, c : bool, p : Vector2) -> void:
+func _on_projectile_damage_dealt(a : int, c : int, p : Vector2) -> void:
 	total_damage_dealt += a
 	damage_dealt.emit(a, c, p)
 

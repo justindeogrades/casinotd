@@ -80,8 +80,8 @@ func _on_tower_placed() -> void:
 	gui_manager.show_side_panel()
 	get_tree().paused = false
 
-func _on_tower_damage_dealt(amount : int, is_crit : bool, pos : Vector2) -> void:
-	damage_indicator_placer.create_damage_indicator(amount, is_crit, pos)
+func _on_tower_damage_dealt(amount : int, crit_level : int, pos : Vector2) -> void:
+	damage_indicator_placer.create_damage_indicator(amount, crit_level, pos)
 
 func is_any_tower_mouseovered() -> bool:
 	for tower_at in placed_towers:

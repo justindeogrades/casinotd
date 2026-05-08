@@ -53,9 +53,10 @@ _data = {
 &"rise": SubResource("Animation_f72eu")
 }
 
-[node name="DamageIndicator" type="Node2D" unique_id=634465355 node_paths=PackedStringArray("damage_label", "anim_player")]
+[node name="DamageIndicator" type="Node2D" unique_id=634465355 node_paths=PackedStringArray("crit_label", "damage_label", "anim_player")]
 position = Vector2(0, -50)
 script = ExtResource("1_f72eu")
+crit_label = NodePath("HBoxContainer/CritLabel")
 damage_label = NodePath("HBoxContainer/DamageNumLabel")
 anim_player = NodePath("AnimationPlayer")
 
@@ -72,11 +73,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="CritLabel" type="Label" parent="HBoxContainer" unique_id=809658965]
-visible = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-text = "CRIT!"
+theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 
 [node name="DamageNumLabel" type="Label" parent="HBoxContainer" unique_id=1401738304]
