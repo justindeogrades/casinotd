@@ -24,6 +24,7 @@ extends Node2D
 @export var projectile : RigidBody2D
 @export var mousebox : Area2D
 @export var data_panel_button : Button
+@export var anim_player : AnimationPlayer
 
 signal clicked(tower : Tower)
 signal damage_dealt(amount : int, crit : bool, pos : Vector2)
@@ -56,35 +57,37 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	#Targeting and shooting
-	if not mobs_in_range.is_empty():
+	#Only executes code on the same frame as taking a shot
+	if not mobs_in_range.is_empty() and cooldown_timer.is_stopped():
 		var target = get_target(target_prio)
 		var aim_direction = (target.global_position - position).normalized()
-		if cooldown_timer.is_stopped():
-			#Iterate once per projectile count, offsetting the angle a little every shot
-			for i in attribute[G.att.PROJ_COUNT]:
-				var theta = angle_between_projectiles
+		
+		#Angle towards the target
+		#Currently snaps to targets position, maybe tween it later
+		#Don't know why rotating by pi/2 is necessary but don't change it
+		look_at(target.global_position)
+		rotate(PI / 2)
+		
+		#Iterate once per projectile count, offsetting the angle a little every shot
+		for i in attribute[G.att.PROJ_COUNT]:
+			var theta = angle_between_projectiles
+			
+			#Sequence asubn where an = (n+1)/2 if n is odd, and an = -n/2 if n is even
+			#Case i is even
+			if int(i) % 2 == 0:
+				theta *= -i / 2
+			#Case i is odd
+			else:
+				theta *= (i + 1) / 2
+			#Rotation matrix fuckshit
+			var aimprime_x = aim_direction.x * cos(theta) - aim_direction.y * sin(theta)
+			var aimprime_y = aim_direction.x * sin(theta) + aim_direction.y * cos(theta)
+			var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
 				
-				#Sequence asubn where an = (n+1)/2 if n is odd, and an = -n/2 if n is even
-				#Case i is even
-				if int(i) % 2 == 0:
-					theta *= -i / 2
-				#Case i is odd
-				else:
-					theta *= (i + 1) / 2
-				#if i == 0:
-					#theta = 0
-				#else:
-					#if int(i) % 2 == 0:
-						#theta *= -(i - 1)
-					#else:
-						#theta *= i
-				#Rotation matrix fuckshit
-				var aimprime_x = aim_direction.x * cos(theta) - aim_direction.y * sin(theta)
-				var aimprime_y = aim_direction.x * sin(theta) + aim_direction.y * cos(theta)
-				var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
-				
-				spawn_projectile(aimprime)
-			cooldown_timer.start(cooldown_seconds)
+			spawn_projectile(aimprime)
+		anim_player.play("shoot")
+		
+		cooldown_timer.start(cooldown_seconds)
 	else:
 		pass
 
