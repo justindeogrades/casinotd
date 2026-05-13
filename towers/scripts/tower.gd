@@ -2,16 +2,19 @@ class_name Tower
 extends Node2D
 
 @export_category("Attributes")
-@export var attribute : Array[float] = [
-	30, #Damage
-	100, #Attack speed
-	100, #Range
-	10, #Crit chance (percent)
-	3, #Crit damage multiplier
-	1000, #Projectile speed
-	1, #Projectile count
-	0 #Pierce
-]
+#Set to size 8 in inspector
+#"Default" stats are commented below
+@export var attribute : Array[float]
+#@export var attribute : Array[float] = [
+	#30, #Damage
+	#100, #Attack speed
+	#100, #Range
+	#10, #Crit chance (percent)
+	#3, #Crit damage multiplier
+	#1000, #Projectile speed
+	#1, #Projectile count
+	#0 #Pierce
+#]
 @export var tower_name : String = "Tower"
 #Angle between projectiles
 @export var angle_between_projectiles : float = PI / 12
@@ -85,6 +88,8 @@ func _process(delta: float) -> void:
 			var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
 				
 			spawn_projectile(aimprime)
+		
+		anim_player.stop()
 		anim_player.play("shoot")
 		
 		cooldown_timer.start(cooldown_seconds)

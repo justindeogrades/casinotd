@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://crorj23ub5ab8"]
+[gd_scene format=3 uid="uid://xyh7cq0sx8bg"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_yf0e6"]
-[ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/tower.png" id="2_1jgo1"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_54xxd"]
+[ext_resource type="Texture2D" uid="uid://chwjiw8w3gw11" path="res://towers/sprites/tower_legendary.png" id="2_54xxd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -46,9 +46,10 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="GreenTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "anim_player")]
+[node name="LegendaryTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "anim_player")]
 process_mode = 1
-script = ExtResource("1_yf0e6")
+script = ExtResource("1_54xxd")
+attribute = Array[float]([100.0, 40.0, 200.0, 25.0, 6.0, 1500.0, 1.0, 2.0])
 sprite = NodePath("Sprite2D")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
@@ -56,7 +57,7 @@ cooldown_timer = NodePath("Cooldown")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("2_1jgo1")
+texture = ExtResource("2_54xxd")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

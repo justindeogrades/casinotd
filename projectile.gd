@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+@export var life_timer : Timer
+@export var life_seconds : float
+
 var damage : float
 var remaining_pierces : int
 var speed : float
@@ -9,6 +12,7 @@ var crit_level : int
 signal damage_dealt(amount : int, crit : int, pos : Vector2)
 
 func _ready() -> void:
+	life_timer.start(life_seconds)
 	linear_velocity = direction * speed
 
 func _on_hitbox_area_entered(area : Area2D) -> void:
@@ -40,3 +44,8 @@ func _on_hitbox_area_entered(area : Area2D) -> void:
 	if remaining_pierces <= 0:
 		queue_free()
 	remaining_pierces -= 1
+
+
+func _on_lifetime_timeout() -> void:
+	print_debug("projectile timed out")
+	queue_free()
