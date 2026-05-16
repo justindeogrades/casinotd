@@ -3,12 +3,17 @@ extends Container
 @export var side_panel : PanelContainer
 @export var upgrade_panel : PanelContainer
 
+var slot_machine_preload = preload("res://slot_machine.tscn")
+
 var player : Node
+var slot_machine : Node
+
+signal tower_selected(tower : Tower)
 
 func _ready() -> void:
 	player = get_parent()
 	
-	side_panel
+	side_panel.buy_button.pressed.connect(_on_buy_button_pressed)
 	side_panel.tower_data_container.upgrade_tower.connect(_on_upgrade_button_pressed)
 	upgrade_panel.upgrade_selected.connect(_on_upgrade_selected)
 
@@ -20,7 +25,23 @@ func show_side_panel() -> void:
 func hide_upgrade_panel() -> void:
 	upgrade_panel.visible = false
 func show_upgrade_panel() -> void:
+	
 	upgrade_panel.visible = true
+
+func start_slot_machine() -> void:
+	#Re-enable 2D physics while the game is paused or Area2D will not detect collision
+	get_tree().paused = true
+	PhysicsServer2D.set_active(true)
+	
+	hide_side_panel()
+	hide_upgrade_panel()
+	
+	slot_machine = slot_machine_preload.instantiate()
+	slot_machine.tower_selected.connect(_on_slot_machine_tower_selected)
+	add_child(slot_machine)
+
+func _on_buy_button_pressed() -> void:
+	start_slot_machine()
 
 func _on_upgrade_button_pressed(tower : Tower) -> void:
 	if player.spend_money(tower.upgrade_cost):
@@ -39,4 +60,9 @@ func _on_upgrade_selected(tower : Tower, att : int, amount : float) -> void:
 	get_tree().paused = false
 	show_side_panel()
 	hide_upgrade_panel()
+
+func _on_slot_machine_tower_selected(tower : Tower):
+	get_tree().paused = false
 	
+	tower_selected.emit(tower)
+	slot_machine.queue_free()

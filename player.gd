@@ -20,9 +20,10 @@ var placed_towers : Array[Tower]
 func _ready() -> void:
 	side_panel = gui_manager.get_child(0)
 	
+	gui_manager.tower_selected.connect(_on_gui_manager_tower_selected)
+	
 	refresh_money_label()
 	refresh_lives_label()
-	side_panel.buy_button.pressed.connect(_on_buy_button_pressed)
 	tower_placer.tower_created.connect(_on_tower_created)
 	tower_placer.tower_placed.connect(_on_tower_placed)
 
@@ -58,7 +59,7 @@ func refresh_lives_label() -> void:
 func _on_tower_clicked(tower) -> void:
 	side_panel.tower_data_container.refresh_with_new_tower(tower)
 
-func _on_buy_button_pressed() -> void:
+func _on_gui_manager_tower_selected(tower : Tower) -> void:
 	if spend_money(tower_cost):
 		tower_cost = tower_cost ** 1.2
 		refresh_money_label()

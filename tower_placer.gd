@@ -2,7 +2,7 @@ extends Node
 
 @export var track_polygon : Polygon2D
 
-var tower_preload = preload("res://towers/scenes/rare_tower.tscn")
+var tower_preload = preload("res://towers/scenes/common_tower.tscn")
 var tower_ghost_preload = preload("res://tower_ghost.tscn")
 var tower_to_place : Tower = null
 var tower_ghost : Sprite2D
