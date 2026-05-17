@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://vb2ew6dh70pq" path="res://slot_machine.gd" id="1_agdmm"]
 
 [sub_resource type="Curve" id="Curve_agdmm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.8137932, -2.8137932, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_enabled = true
 
@@ -14,7 +14,9 @@ size = Vector2(1000, 1)
 process_mode = 3
 script = ExtResource("1_agdmm")
 base_speed = 5.0
-total_spin_time = 8.0
+base_spin_time = 8.0
+speed_randomness_range = 1.0
+spin_time_randomness_range = 0.5
 speed_curve = SubResource("Curve_agdmm")
 
 [node name="Line" type="Area2D" parent="." unique_id=1419603807]

@@ -41,7 +41,8 @@ func start_slot_machine() -> void:
 	add_child(slot_machine)
 
 func _on_buy_button_pressed() -> void:
-	start_slot_machine()
+	if player.spend_money(player.tower_cost):
+		start_slot_machine()
 
 func _on_upgrade_button_pressed(tower : Tower) -> void:
 	if player.spend_money(tower.upgrade_cost):

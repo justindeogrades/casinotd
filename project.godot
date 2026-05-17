@@ -26,6 +26,10 @@ window/size/viewport_height=540
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/justin/Documents/godot screen recordings/test.avi"
+
 [input]
 
 place_tower={

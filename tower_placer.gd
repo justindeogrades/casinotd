@@ -27,8 +27,8 @@ func _process(delta : float) -> void:
 			#new_tower.clicked.connect(_on_tower_clicked)
 			#placed_towers.append(new_tower)
 
-func create_temp_tower() -> void:
-	temp_tower = create_tower(Vector2(9999,9999))
+func create_temp_tower(t : Tower) -> void:
+	temp_tower = create_tower(t, Vector2(9999,9999))
 	
 	tower_ghost = tower_ghost_preload.instantiate()
 	add_child(tower_ghost)
@@ -43,9 +43,9 @@ func create_temp_tower() -> void:
 			#add_child(tower_to_place)
 			#tower_to_place.position = get_viewport().get_mouse_position()
 
-func create_tower(pos : Vector2):
+func create_tower(tower_to_place : Tower, pos : Vector2):
 	if not Geometry2D.is_point_in_polygon(pos, track_polygon.polygon):
-		tower_to_place = tower_preload.instantiate()
+		#tower_to_place = tower_preload.instantiate()
 		add_child(tower_to_place)
 		tower_to_place.position = pos
 		tower_created.emit(tower_to_place)

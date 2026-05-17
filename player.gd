@@ -60,14 +60,10 @@ func _on_tower_clicked(tower) -> void:
 	side_panel.tower_data_container.refresh_with_new_tower(tower)
 
 func _on_gui_manager_tower_selected(tower : Tower) -> void:
-	if spend_money(tower_cost):
-		tower_cost = tower_cost ** 1.2
-		refresh_money_label()
-		side_panel.refresh_buy_button()
-		tower_placer.create_temp_tower()
-		#Shift next two lines to a different function later
-		#gui_manager.hide_side_panel()
-		#get_tree().paused = true
+	tower_cost = tower_cost ** 1.2
+	refresh_money_label()
+	side_panel.refresh_buy_button()
+	tower_placer.create_temp_tower(tower)
 
 func _on_tower_created(new_tower : Tower) -> void:
 	new_tower.clicked.connect(_on_tower_clicked)

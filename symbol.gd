@@ -3,22 +3,21 @@ extends Node2D
 @export var sprite : Sprite2D
 @export var anim_player : AnimationPlayer
 
-var tower_preload = preload("res://towers/scenes/common_tower.tscn")
-var tower : Tower = tower_preload.instantiate()
+var tower : Tower
 
 signal mid_reached
 signal end_reached(s : Node2D)
 
 func _ready() -> void:
-	sprite.texture = tower.get_sprite_texture()
 	scale.y = 0
 
 #func _process(delta: float) -> void:
 	#print_debug(scale.y)
 
-func init(speed : float) -> void:
-	#sprite.texture = texture
+func init(speed : float, tower_preload : Resource) -> void:
 	anim_player.play("rotate", -1, speed)
+	tower = tower_preload.instantiate()
+	sprite.texture = tower.get_sprite_texture()
 
 #Called when the symbol reaches the point at which the next symbol should be created
 func mid() -> void:
