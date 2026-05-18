@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://da42xg3bwce4i"]
 
-[ext_resource type="PackedScene" uid="uid://chd8jqc305u8u" path="res://enemy_spawner.tscn" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://dwpw0farpj0m2" path="res://tiles.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ppa8e66lf7vx" path="res://player.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://ct0pijroh7m73" path="res://damage_indicator_placer.gd" id="3_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c7hv7onn8kjg6" path="res://waves/wave_manager.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cxgm5ilq32svq" path="res://towers/tower_placer.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ccpmycj5vtnwl" path="res://gui_manager.tscn" id="5_lquwl"]
 
@@ -139,10 +139,10 @@ gui_manager = NodePath("GUIManager")
 damage_indicator_placer = NodePath("DamageIndicatorPlacer")
 tower_placer = NodePath("TowerPlacer")
 
-[node name="EnemySpawner" parent="Player" unique_id=1451097180 node_paths=PackedStringArray("path") instance=ExtResource("1_0xm2m")]
+[node name="WaveManager" parent="Player" unique_id=1820962353 node_paths=PackedStringArray("path") instance=ExtResource("3_272bh")]
 path = NodePath("Path2D")
 
-[node name="Path2D" type="Path2D" parent="Player/EnemySpawner" unique_id=2077986435]
+[node name="Path2D" type="Path2D" parent="Player/WaveManager" unique_id=2077986435]
 curve = SubResource("Curve2D_h2yge")
 
 [node name="TowerPlacer" parent="Player" unique_id=1119818633 node_paths=PackedStringArray("track_polygon") instance=ExtResource("3_h2yge")]

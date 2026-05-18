@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ckan168pt1jmg"]
+
+[ext_resource type="Script" uid="uid://js7hjxb680wv" path="res://waves/wave.gd" id="1_kvphc"]
+[ext_resource type="Script" uid="uid://bya4jcpwx7ot5" path="res://waves/wave_segment.gd" id="2_54rml"]
+[ext_resource type="PackedScene" uid="uid://cfbefdvcqdcm1" path="res://mobs/scenes/red_mob.tscn" id="3_gv5ke"]
+
+[sub_resource type="Resource" id="Resource_qwg05"]
+resource_local_to_scene = true
+script = ExtResource("2_54rml")
+mob_preload = ExtResource("3_gv5ke")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_gv5ke"]
+script = ExtResource("2_54rml")
+mob_preload = ExtResource("3_gv5ke")
+mob_count = 10
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[node name="Wave0" type="Node" unique_id=1681385698 node_paths=PackedStringArray("interval_timer")]
+script = ExtResource("1_kvphc")
+segments = Array[ExtResource("2_54rml")]([SubResource("Resource_qwg05"), SubResource("Resource_gv5ke")])
+interval_timer = NodePath("IntervalTimer")
+metadata/_custom_type_script = "uid://js7hjxb680wv"
+
+[node name="IntervalTimer" type="Timer" parent="." unique_id=758364709]
+
+[connection signal="timeout" from="IntervalTimer" to="." method="_on_interval_timer_timeout"]

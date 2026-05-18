@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c7hv7onn8kjg6"]
+
+[ext_resource type="Script" uid="uid://8tc4k5v7gub6" path="res://waves/wave_manager.gd" id="1_244l3"]
+[ext_resource type="PackedScene" uid="uid://ckan168pt1jmg" path="res://waves/scenes/wave_0.tscn" id="2_1872v"]
+[ext_resource type="Script" uid="uid://bya4jcpwx7ot5" path="res://waves/wave_segment.gd" id="3_2vcsd"]
+[ext_resource type="PackedScene" uid="uid://cfbefdvcqdcm1" path="res://mobs/scenes/red_mob.tscn" id="4_2xtue"]
+
+[sub_resource type="Resource" id="Resource_2vcsd"]
+resource_local_to_scene = true
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("4_2xtue")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_gv5ke"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("4_2xtue")
+mob_count = 10
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[node name="WaveManager" type="Node" unique_id=1820962353 node_paths=PackedStringArray("waves")]
+script = ExtResource("1_244l3")
+waves = [NodePath("Wave0")]
+
+[node name="Wave0" parent="." unique_id=1681385698 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_2vcsd"), SubResource("Resource_gv5ke")])
