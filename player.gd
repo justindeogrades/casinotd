@@ -7,6 +7,7 @@ extends Node
 @export var max_lives : int = 100
 @export_category("Actions")
 @export var tower_placer : Node
+@export var wave_manager : Node
 
 var side_panel : PanelContainer
 
@@ -21,6 +22,7 @@ func _ready() -> void:
 	side_panel = gui_manager.get_child(0)
 	
 	gui_manager.tower_selected.connect(_on_gui_manager_tower_selected)
+	gui_manager.next_wave_pressed.connect(_on_next_wave_pressed)
 	
 	refresh_money_label()
 	refresh_lives_label()
@@ -79,6 +81,9 @@ func _on_tower_placed() -> void:
 
 func _on_tower_damage_dealt(amount : int, crit_level : int, pos : Vector2) -> void:
 	damage_indicator_placer.create_damage_indicator(amount, crit_level, pos)
+
+func _on_next_wave_pressed() -> void:
+	wave_manager.start_next_wave()
 
 func is_any_tower_mouseovered() -> bool:
 	for tower_at in placed_towers:

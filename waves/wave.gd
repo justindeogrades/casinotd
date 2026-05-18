@@ -4,15 +4,18 @@ class_name Wave
 @export var segments : Array[WaveSegment]
 @export var interval_timer : Timer
 
-#We count segments starting from 0 but mobs from 1
 var segment_at : int = 0
 var mob_at : int = 0
 
 signal spawn_reached(mob : Mob)
+signal wave_ended
 
 func start() -> void:
 	spawn_mob(segments[segment_at].mob_preload.instantiate())
+#Wave ends when the last mob is spawned. May want to change it to when the last mob is defeated later
 func end() -> void:
+	interval_timer.stop()
+	wave_ended.emit()
 	print_debug("wave ended!")
 
 func spawn_mob(mob : Mob):

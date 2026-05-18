@@ -4,6 +4,7 @@ extends PanelContainer
 @export var lives_label : Label
 @export var tower_data_container : VBoxContainer
 @export var buy_button : Button
+@export var next_wave_button : Button
 
 var player : Node
 

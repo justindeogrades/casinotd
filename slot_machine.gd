@@ -90,4 +90,3 @@ func _on_symbol_end_reached(s : Node2D) -> void:
 
 func _on_line_area_entered(area: Area2D) -> void:
 	selected_symbol = area.get_parent()
-	print_debug("area entered")

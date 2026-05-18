@@ -133,11 +133,12 @@ point_count = 16
 tile_map_data = PackedByteArray("AAAAAAEAAAADAAEAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAADAAEAAAAEAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAADAAEAAAAEAAUAAAACAAAAAAAFAAUAAAAEAAEAAAAFAAQAAAABAAAAAAAFAAMAAAADAAAAAAAGAAMAAAACAAAAAAAHAAMAAAAEAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAAHAAYAAAABAAAAAAAHAAcAAAADAAEAAAAIAAcAAAACAAAAAAAJAAcAAAACAAAAAAAKAAcAAAACAAAAAAALAAcAAAACAAAAAAAMAAcAAAAEAAEAAAAMAAYAAAADAAAAAAANAAYAAAAEAAEAAAANAAUAAAADAAAAAAAOAAUAAAACAAAAAAAPAAUAAAACAAAAAAAQAAUAAAAEAAAAAAAQAAYAAAADAAEAAAARAAYAAAAEAAAAAAARAAcAAAADAAEAAAASAAcAAAACAAAAAAATAAcAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 
-[node name="Player" type="Node" parent="." unique_id=1691355640 node_paths=PackedStringArray("gui_manager", "damage_indicator_placer", "tower_placer")]
+[node name="Player" type="Node" parent="." unique_id=1691355640 node_paths=PackedStringArray("gui_manager", "damage_indicator_placer", "tower_placer", "wave_manager")]
 script = ExtResource("2_1bvp3")
 gui_manager = NodePath("GUIManager")
 damage_indicator_placer = NodePath("DamageIndicatorPlacer")
 tower_placer = NodePath("TowerPlacer")
+wave_manager = NodePath("WaveManager")
 
 [node name="WaveManager" parent="Player" unique_id=1820962353 node_paths=PackedStringArray("path") instance=ExtResource("3_272bh")]
 path = NodePath("Path2D")

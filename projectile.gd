@@ -47,5 +47,4 @@ func _on_hitbox_area_entered(area : Area2D) -> void:
 
 
 func _on_lifetime_timeout() -> void:
-	print_debug("projectile timed out")
 	queue_free()

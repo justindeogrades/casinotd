@@ -9,12 +9,14 @@ var player : Node
 var slot_machine : Node
 
 signal tower_selected(tower : Tower)
+signal next_wave_pressed
 
 func _ready() -> void:
 	player = get_parent()
 	
 	side_panel.buy_button.pressed.connect(_on_buy_button_pressed)
 	side_panel.tower_data_container.upgrade_tower.connect(_on_upgrade_button_pressed)
+	side_panel.next_wave_button.pressed.connect(_on_next_wave_button_pressed)
 	upgrade_panel.upgrade_selected.connect(_on_upgrade_selected)
 
 func hide_side_panel() -> void:
@@ -67,3 +69,6 @@ func _on_slot_machine_tower_selected(tower : Tower):
 	
 	tower_selected.emit(tower)
 	slot_machine.queue_free()
+
+func _on_next_wave_button_pressed() -> void:
+	next_wave_pressed.emit()
