@@ -3,6 +3,7 @@ extends PanelContainer
 @export var money_label : Label
 @export var lives_label : Label
 @export var tower_data_container : VBoxContainer
+@export var quick_spins_box : CheckBox
 @export var buy_button : Button
 @export var next_wave_button : Button
 

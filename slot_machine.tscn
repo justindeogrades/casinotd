@@ -13,7 +13,7 @@ size = Vector2(1000, 1)
 [node name="SlotMachine" type="Node" unique_id=885076926]
 process_mode = 3
 script = ExtResource("1_agdmm")
-base_speed = 5.0
+base_speed = 6.0
 base_spin_time = 8.0
 speed_randomness_range = 1.0
 spin_time_randomness_range = 0.5

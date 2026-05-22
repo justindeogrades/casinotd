@@ -8,12 +8,16 @@ var slot_machine_preload = preload("res://slot_machine.tscn")
 var player : Node
 var slot_machine : Node
 
+var quick_spins_enabled : bool = false
+
 signal tower_selected(tower : Tower)
 signal next_wave_pressed
 
 func _ready() -> void:
 	player = get_parent()
 	
+	side_panel.quick_spins_box.pressed.connect(_on_quick_spins_box_pressed.bind(side_panel.quick_spins_box))
+	#side_panel.quick_spins_box.button_up.connect(_on_quick_spins_box_up)
 	side_panel.buy_button.pressed.connect(_on_buy_button_pressed)
 	side_panel.tower_data_container.upgrade_tower.connect(_on_upgrade_button_pressed)
 	side_panel.next_wave_button.pressed.connect(_on_next_wave_button_pressed)
@@ -41,7 +45,18 @@ func start_slot_machine() -> void:
 	
 	slot_machine = slot_machine_preload.instantiate()
 	slot_machine.tower_selected.connect(_on_slot_machine_tower_selected)
+	slot_machine.init(quick_spins_enabled)
 	add_child(slot_machine)
+
+#func _on_quick_spins_box_down() -> void:
+	#quick_spins_enabled = true
+	#print_debug(quick_spins_enabled)
+#func _on_quick_spins_box_up() -> void:
+	#quick_spins_enabled = false
+	#print_debug(quick_spins_enabled)
+func _on_quick_spins_box_pressed(box : CheckBox) -> void:
+	quick_spins_enabled = box.button_pressed
+	print_debug(quick_spins_enabled)
 
 func _on_buy_button_pressed() -> void:
 	if player.spend_money(player.tower_cost):

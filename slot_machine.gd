@@ -16,6 +16,8 @@ var legendary_preload = preload("res://towers/scenes/legendary_tower.tscn")
 var speed : float
 var spin_time : float
 
+var quick_spins_time_mult : float = 0.25
+
 var frames_since_start : float = 0
 var next_rarity : int = 0
 
@@ -24,9 +26,22 @@ var selected_symbol : Node2D = null
 
 signal tower_selected(tower : Tower)
 
-func _ready() -> void:
+#func _ready() -> void:
+	#speed = randomize_speed(base_speed, speed_randomness_range)
+	#spin_time = randomize_time(base_spin_time, spin_time_randomness_range)
+	#create_symbol()
+
+func init(quick_spins : bool) -> void:
 	speed = randomize_speed(base_speed, speed_randomness_range)
+	if quick_spins:
+		speed *= 1 / quick_spins_time_mult
 	spin_time = randomize_time(base_spin_time, spin_time_randomness_range)
+	if quick_spins:
+		spin_time *= quick_spins_time_mult
+	
+	print_debug("final speed: " + str(speed))
+	print_debug("final spin time: " + str(spin_time))
+	
 	create_symbol()
 
 
@@ -44,8 +59,6 @@ func _process(delta: float) -> void:
 	
 	if x >= 1:
 		tower_selected.emit(selected_symbol.get_tower())
-	
-	print_debug(selected_symbol)
 
 #Is it necessary to have two of the exact same function?
 func randomize_speed(base : float, range : float) -> float:
