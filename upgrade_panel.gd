@@ -2,6 +2,7 @@ extends PanelContainer
 
 #CHANGING THE NAME OF THE ARRAY RESETS THE EXPORT
 @export var upgrade_button : Array[Button]
+@export var reroll_button : Button
 
 var upgrade_data : Array[Array]
 
@@ -11,7 +12,11 @@ var face_probabilities : Array[float] = [50, 30, 15, 5]
 var tower_to_upgrade : Tower
 var upgrade_option : Array[Vector2] = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
 
+var reroll_cost : int
+var rerolls_remaining : int
+
 signal upgrade_selected
+signal reroll_pressed
 
 func _ready() -> void:
 	initialize_buttons()
@@ -37,6 +42,7 @@ func initialize_upgrade_data_array() -> void:
 func initialize_buttons() -> void:
 	for i in upgrade_button:
 		i.pressed.connect(_on_upgrade_selected.bind(i))
+	reroll_button.pressed.connect(_on_reroll_button_pressed)
 
 func generate_upgrade_options() -> void:
 	var upgrade_vector = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
@@ -79,6 +85,17 @@ func roll_face() -> int:
 	if challenge < face_probabilities[G.face.ACE] + face_probabilities[G.face.QUEEN]:
 		return G.face.QUEEN
 	return G.face.JACK
+
+func refresh_reroll_button(with_new_tower : bool) -> void:
+	if with_new_tower:
+		rerolls_remaining = tower_to_upgrade.level
+	reroll_cost = tower_to_upgrade.upgrade_cost * 0.2
+	reroll_button.text = "Reroll - $" + str(reroll_cost) + " (" + str(rerolls_remaining) + " remaining)"
+
+func _on_reroll_button_pressed() -> void:
+	if rerolls_remaining > 0:
+		rerolls_remaining -= 1
+		reroll_pressed.emit()
 
 func _on_upgrade_selected(b : Button) -> void:
 	var button_index = upgrade_button.find(b)

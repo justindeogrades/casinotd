@@ -18,6 +18,7 @@ func _ready() -> void:
 	side_panel.tower_data_container.upgrade_tower.connect(_on_upgrade_button_pressed)
 	side_panel.next_wave_button.pressed.connect(_on_next_wave_button_pressed)
 	upgrade_panel.upgrade_selected.connect(_on_upgrade_selected)
+	upgrade_panel.reroll_pressed.connect(_on_reroll_pressed)
 
 func hide_side_panel() -> void:
 	side_panel.visible = false
@@ -48,16 +49,21 @@ func _on_buy_button_pressed() -> void:
 
 func _on_upgrade_button_pressed(tower : Tower) -> void:
 	if player.spend_money(tower.upgrade_cost):
-		tower.upgrade_cost = tower.upgrade_cost ** 1.2
-		
 		get_tree().paused = true
 		hide_side_panel()
 		upgrade_panel.tower_to_upgrade = tower
+		upgrade_panel.refresh_reroll_button(true)
 		upgrade_panel.generate_upgrade_options()
 		show_upgrade_panel()
 
+func _on_reroll_pressed() -> void:
+	if player.spend_money(upgrade_panel.reroll_cost):
+		upgrade_panel.refresh_reroll_button(false)
+		upgrade_panel.generate_upgrade_options()
+
 func _on_upgrade_selected(tower : Tower, att : int, amount : float) -> void:
 	tower.upgrade_attribute(att, amount)
+	tower.upgrade_cost = tower.upgrade_cost ** 1.2
 	side_panel.tower_data_container.refresh_with_new_tower(tower)
 	
 	get_tree().paused = false
