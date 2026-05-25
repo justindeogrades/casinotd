@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cvecyj0d83nfj"]
+
+[ext_resource type="Script" uid="uid://bs630ldcawgsd" path="res://tower_selected_panel.gd" id="1_36mrh"]
+[ext_resource type="Texture2D" uid="uid://cf1o1mbpew40i" path="res://icon.svg" id="1_41bj4"]
+
+[node name="TowerSelectedPanel" type="PanelContainer" unique_id=2137036721 node_paths=PackedStringArray("accept_button", "reroll_button", "name_label", "description_label", "text_rect")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -95.0
+offset_right = 77.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36mrh")
+accept_button = NodePath("VBoxContainer/HBoxContainer/AcceptButton")
+reroll_button = NodePath("VBoxContainer/HBoxContainer/RerollButton")
+name_label = NodePath("VBoxContainer/TowerNameLabel")
+description_label = NodePath("VBoxContainer/TowerDescLabel")
+text_rect = NodePath("VBoxContainer/TowerTextureRect")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1014052483]
+layout_mode = 2
+
+[node name="TowerNameLabel" type="Label" parent="VBoxContainer" unique_id=1957847180]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tower name"
+horizontal_alignment = 1
+
+[node name="TowerDescLabel" type="Label" parent="VBoxContainer" unique_id=1469220483]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="TowerTextureRect" type="TextureRect" parent="VBoxContainer" unique_id=644430276]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_41bj4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1016170974]
+layout_mode = 2
+alignment = 1
+
+[node name="AcceptButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=989045164]
+layout_mode = 2
+text = "Accept"
+
+[node name="RerollButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=116455840]
+layout_mode = 2
+text = "Reroll"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RerollButton" to="." method="_on_reroll_button_pressed"]

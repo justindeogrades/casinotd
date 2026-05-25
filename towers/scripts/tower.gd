@@ -15,7 +15,9 @@ extends Node2D
 	#1, #Projectile count
 	#0 #Pierce
 #]
+#Getter is get_tower_name cause get_name is built in fucking weirdos
 @export var tower_name : String = "Tower"
+@export var tower_description : String = "A tower."
 #Angle between projectiles
 @export var angle_between_projectiles : float = PI / 12
 @export var rarity : int
@@ -198,6 +200,15 @@ func get_closest_mob() -> Mob:
 func get_target_priority() -> int:
 	return target_prio
 
+func get_tower_name() -> String:
+	return tower_name
+
+func get_tower_description() -> String:
+	return tower_description
+
+func get_sprite_texture() -> Texture2D:
+	return sprite.texture
+
 func set_target_priority(prio : int) -> void:
 	target_prio = prio
 
@@ -228,6 +239,3 @@ func set_range_indicator_visibility(new_visibility : bool) -> void:
 
 func _on_data_panel_button_pressed() -> void:
 	clicked.emit(self)
-
-func get_sprite_texture() -> Texture2D:
-	return sprite.texture

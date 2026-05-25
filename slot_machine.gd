@@ -16,6 +16,7 @@ var legendary_preload = preload("res://towers/scenes/legendary_tower.tscn")
 var speed : float
 var spin_time : float
 
+var quick_spins : bool = false
 var quick_spins_time_mult : float = 0.25
 
 var frames_since_start : float = 0
@@ -31,12 +32,14 @@ signal tower_selected(tower : Tower)
 	#spin_time = randomize_time(base_spin_time, spin_time_randomness_range)
 	#create_symbol()
 
-func init(quick_spins : bool) -> void:
-	speed = randomize_speed(base_speed, speed_randomness_range)
-	if quick_spins:
-		speed *= 1 / quick_spins_time_mult
+func init(quick_spins_enabled : bool) -> void:
+	#Does nothing because speed is set every frame?
+	#speed = randomize_speed(base_speed, speed_randomness_range)
+	
+	quick_spins = quick_spins_enabled
+	
 	spin_time = randomize_time(base_spin_time, spin_time_randomness_range)
-	if quick_spins:
+	if quick_spins_enabled:
 		spin_time *= quick_spins_time_mult
 	
 	print_debug("final speed: " + str(speed))
@@ -50,6 +53,8 @@ func _process(delta: float) -> void:
 	var x = frames_since_start / (spin_time * 60)
 	
 	speed = speed_curve.sample(x) * base_speed
+	if quick_spins:
+		speed *= 1 / quick_spins_time_mult
 	
 	if not symbol.is_empty():
 		for i in symbol:
