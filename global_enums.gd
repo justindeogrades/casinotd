@@ -25,6 +25,12 @@ enum prio {
 	CLOSE
 }
 
+enum type {
+	VOLLEY,
+	FAN,
+	SURROUND
+}
+
 #"Damage:",
 	#"Attack speed:",
 	#"Range:",

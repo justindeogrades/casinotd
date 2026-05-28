@@ -42,8 +42,8 @@ func init(quick_spins_enabled : bool) -> void:
 	if quick_spins_enabled:
 		spin_time *= quick_spins_time_mult
 	
-	print_debug("final speed: " + str(speed))
-	print_debug("final spin time: " + str(spin_time))
+	#print_debug("final speed: " + str(speed))
+	#print_debug("final spin time: " + str(spin_time))
 	
 	create_symbol()
 

@@ -52,6 +52,7 @@ script = ExtResource("1_cddq2")
 attribute = Array[float]([25.0, 200.0, 80.0, 10.0, 3.0, 1000.0, 3.0, 0.0])
 tower_name = "Red Tower"
 tower_description = "OP as shit"
+shot_type = 2
 sprite = NodePath("Sprite2D")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")

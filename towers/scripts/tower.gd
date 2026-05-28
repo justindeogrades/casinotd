@@ -18,6 +18,7 @@ extends Node2D
 #Getter is get_tower_name cause get_name is built in fucking weirdos
 @export var tower_name : String = "Tower"
 @export var tower_description : String = "A tower."
+@export_enum("Volley", "Fan", "Surround") var shot_type : int = G.type.FAN
 #Angle between projectiles
 @export var angle_between_projectiles : float = PI / 12
 @export var rarity : int
@@ -26,6 +27,7 @@ extends Node2D
 @export var range_area : Area2D
 @export var range_collision : CollisionShape2D
 @export var cooldown_timer : Timer
+@export var volley_cooldown_timer : Timer
 @export var projectile : RigidBody2D
 @export var mousebox : Area2D
 @export var data_panel_button : Button
@@ -49,12 +51,20 @@ var upgrade_cost : int = 10
 #signal mouse_hovering
 var mouseovered : bool = false
 
+var volley_dir : Vector2
+var volley_shots_remaining : int
+#Hardcoding 0.1 second interval for now, should scale with attack speed later
+var volley_cooldown_seconds : float = 0.1
+
 var range_indicator_visible : bool = false
 
 func _ready() -> void:
 	#Make a unique shape so updating it doesn't update all shapes
 	#range_collision.shape = range_collision.shape.duplicate(true)
 	update_range()
+	
+	if shot_type == G.type.VOLLEY:
+		volley_cooldown_timer.timeout.connect(_on_volley_cooldown_timer_timeout)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and mouseovered:
@@ -67,29 +77,15 @@ func _process(delta: float) -> void:
 		var target = get_target(target_prio)
 		var aim_direction = (target.global_position - position).normalized()
 		
+		shoot(shot_type, aim_direction)
+		
 		#Angle towards the target
 		#Currently snaps to targets position, maybe tween it later
 		#Don't know why rotating by pi/2 is necessary but don't change it
 		look_at(target.global_position)
 		rotate(PI / 2)
 		
-		#Iterate once per projectile count, offsetting the angle a little every shot
-		for i in attribute[G.att.PROJ_COUNT]:
-			var theta = angle_between_projectiles
-			
-			#Sequence asubn where an = (n+1)/2 if n is odd, and an = -n/2 if n is even
-			#Case i is even
-			if int(i) % 2 == 0:
-				theta *= -i / 2
-			#Case i is odd
-			else:
-				theta *= (i + 1) / 2
-			#Rotation matrix fuckshit
-			var aimprime_x = aim_direction.x * cos(theta) - aim_direction.y * sin(theta)
-			var aimprime_y = aim_direction.x * sin(theta) + aim_direction.y * cos(theta)
-			var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
-				
-			spawn_projectile(aimprime)
+		
 		
 		anim_player.stop()
 		anim_player.play("shoot")
@@ -97,6 +93,45 @@ func _process(delta: float) -> void:
 		cooldown_timer.start(cooldown_seconds)
 	else:
 		pass
+
+func shoot(type : int, dir : Vector2) -> void:
+	match type:
+		G.type.VOLLEY:
+			if attribute[G.att.PROJ_COUNT] > 1:
+				volley_dir = dir
+				volley_shots_remaining = attribute[G.att.PROJ_COUNT] - 1
+				volley_cooldown_seconds = cooldown_seconds / (2 * attribute[G.att.PROJ_COUNT])
+				volley_cooldown_timer.start(volley_cooldown_seconds)
+			spawn_projectile(dir)
+		G.type.FAN:
+			#Iterate once per projectile count, offsetting the angle a little every shot
+			for i in attribute[G.att.PROJ_COUNT]:
+				var theta = angle_between_projectiles
+			
+				#Sequence asubn where an = (n+1)/2 if n is odd, and an = -n/2 if n is even
+				#Case i is even
+				if int(i) % 2 == 0:
+					theta *= -i / 2
+				#Case i is odd
+				else:
+					theta *= (i + 1) / 2
+				#Rotation matrix fuckshit
+				var dirprime_x = dir.x * cos(theta) - dir.y * sin(theta)
+				var dirprime_y = dir.x * sin(theta) + dir.y * cos(theta)
+				var dirprime = Vector2(dirprime_x, dirprime_y).normalized()
+					
+				spawn_projectile(dirprime)
+		G.type.SURROUND:
+			#Iterate once per projectile count, offsetting the angle a little every shot
+			for i in attribute[G.att.PROJ_COUNT]:
+				var theta = (2 * PI * i) / attribute[G.att.PROJ_COUNT]
+
+				#Rotation matrix fuckshit
+				var aimprime_x = dir.x * cos(theta) - dir.y * sin(theta)
+				var aimprime_y = dir.x * sin(theta) + dir.y * cos(theta)
+				var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
+					
+				spawn_projectile(aimprime)
 
 func spawn_projectile(aim_direction : Vector2) -> void:
 	var crit_level = roll_crit()
@@ -148,6 +183,12 @@ func _on_range_area_entered(area: Area2D) -> void:
 
 func _on_range_area_exited(area: Area2D) -> void:
 	mobs_in_range.erase(area.get_parent())
+
+func _on_volley_cooldown_timer_timeout() -> void:
+	if volley_shots_remaining >= 1:
+		spawn_projectile(volley_dir)
+		volley_shots_remaining -= 1
+		volley_cooldown_timer.start(volley_cooldown_seconds)
 
 func get_target(prio : int) -> Mob:
 	match prio:

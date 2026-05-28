@@ -46,16 +46,18 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="CommonTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "anim_player")]
+[node name="CommonTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "anim_player")]
 process_mode = 1
 script = ExtResource("1_8r2yw")
 attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
 tower_name = "Green Tower"
 tower_description = "This tower sucks"
+shot_type = 0
 sprite = NodePath("Sprite2D")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
+volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
@@ -79,6 +81,8 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=798912892]
 libraries/ = SubResource("AnimationLibrary_e607b")
+
+[node name="VolleyCooldownTimer" type="Timer" parent="." unique_id=2027241245]
 
 [connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
 [connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]

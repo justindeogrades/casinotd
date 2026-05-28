@@ -16,11 +16,11 @@ func start() -> void:
 func end() -> void:
 	interval_timer.stop()
 	wave_ended.emit()
-	print_debug("wave ended!")
+	#print_debug("wave ended!")
 
 func spawn_mob(mob : Mob):
 	spawn_reached.emit(mob)
-	print_debug("Spawning mob " + str(mob_at) + " in segment " + str(segment_at))
+	#print_debug("Spawning mob " + str(mob_at) + " in segment " + str(segment_at))
 	mob_at += 1
 	interval_timer.start(segments[segment_at].spawn_interval)
 
