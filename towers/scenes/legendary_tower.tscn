@@ -46,7 +46,7 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="LegendaryTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "anim_player")]
+[node name="LegendaryTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_54xxd")
 attribute = Array[float]([100.0, 40.0, 200.0, 25.0, 6.0, 1500.0, 1.0, 2.0])
@@ -58,6 +58,7 @@ range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
 volley_cooldown_timer = NodePath("VolleyCooldown")
+projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
@@ -84,6 +85,8 @@ libraries/ = SubResource("AnimationLibrary_e607b")
 
 [node name="VolleyCooldown" type="Timer" parent="." unique_id=548023231]
 one_shot = true
+
+[node name="ProjectileParent" type="Node" parent="." unique_id=1131005881]
 
 [connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
 [connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]

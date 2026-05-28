@@ -1,19 +1,33 @@
 extends RigidBody2D
 
-@export var life_timer : Timer
-@export var life_seconds : float
-
+var tower : Tower
 var damage : float
 var remaining_pierces : int
 var speed : float
 var direction : Vector2
 var crit_level : int
+var max_dist_from_tower : float
 
 signal damage_dealt(amount : int, crit : int, pos : Vector2)
 
 func _ready() -> void:
-	life_timer.start(life_seconds)
 	linear_velocity = direction * speed
+
+func _process(delta : float) -> void:
+	if position.distance_to(tower.position) > max_dist_from_tower:
+		queue_free()
+
+func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : float, dir : Vector2, pos : Vector2) -> void:
+	tower = t
+	damage = d
+	crit_level = cl
+	speed = ps
+	remaining_pierces = p
+	direction = dir
+	position = pos
+	
+	damage *= cm ** cl
+	max_dist_from_tower = r * 2
 
 func _on_hitbox_area_entered(area : Area2D) -> void:
 	var target = area.get_parent()
@@ -44,7 +58,3 @@ func _on_hitbox_area_entered(area : Area2D) -> void:
 	if remaining_pierces <= 0:
 		queue_free()
 	remaining_pierces -= 1
-
-
-func _on_lifetime_timeout() -> void:
-	queue_free()

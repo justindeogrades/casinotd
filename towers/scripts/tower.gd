@@ -29,6 +29,7 @@ extends Node2D
 @export var cooldown_timer : Timer
 @export var volley_cooldown_timer : Timer
 @export var projectile : RigidBody2D
+@export var projectile_parent : Node
 @export var mousebox : Area2D
 @export var data_panel_button : Button
 @export var anim_player : AnimationPlayer
@@ -137,17 +138,20 @@ func spawn_projectile(aim_direction : Vector2) -> void:
 	var crit_level = roll_crit()
 	
 	var projectile_instance = load("res://projectile.tscn").instantiate()
-
-	projectile_instance.damage = attribute[G.att.DAMAGE]
-	projectile_instance.crit_level = crit_level
-	projectile_instance.damage *= attribute[G.att.CRIT_MULT] ** crit_level
-	projectile_instance.speed = attribute[G.att.PROJ_SPEED]
-	projectile_instance.remaining_pierces = attribute[G.att.PIERCE]
-	projectile_instance.direction = aim_direction
 	
+	#Replacing all ts with an init function
+	#projectile_instance.damage = attribute[G.att.DAMAGE]
+	#projectile_instance.crit_level = crit_level
+	#projectile_instance.damage *= attribute[G.att.CRIT_MULT] ** crit_level
+	#projectile_instance.speed = attribute[G.att.PROJ_SPEED]
+	#projectile_instance.remaining_pierces = attribute[G.att.PIERCE]
+	#projectile_instance.direction = aim_direction
+	#projectile_instance.position = position
+	
+	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position)
 	projectile_instance.damage_dealt.connect(_on_projectile_damage_dealt)
 	
-	add_child(projectile_instance)
+	projectile_parent.add_child(projectile_instance)
 
 #Roll crit function with crit as a binary
 #func roll_crit() -> bool:
