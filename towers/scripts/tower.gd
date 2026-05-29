@@ -66,6 +66,9 @@ func _ready() -> void:
 	
 	if shot_type == G.type.VOLLEY:
 		volley_cooldown_timer.timeout.connect(_on_volley_cooldown_timer_timeout)
+	
+	#So tower ghosts dont overlap
+	set_z_index(1)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and mouseovered:

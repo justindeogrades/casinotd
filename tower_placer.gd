@@ -9,7 +9,7 @@ var tower_ghost : Sprite2D
 var temp_tower : Tower = null
 
 signal tower_created(tower : Tower)
-signal tower_placed
+signal tower_placed(tower : Tower)
 
 #func _ready() -> void:
 	#var tower = place_tower(Vector2(9999,9999))
@@ -51,6 +51,7 @@ func create_tower(tower_to_place : Tower, pos : Vector2):
 		tower_created.emit(tower_to_place)
 		return tower_to_place
 
+#Why does this return a value?
 func place_tower(pos : Vector2) -> Tower:
 	#tower_to_place = tower_preload.instantiate()
 	#add_child(tower_to_place)
@@ -68,6 +69,6 @@ func place_tower(pos : Vector2) -> Tower:
 	if not Geometry2D.is_point_in_polygon(pos, track_polygon.polygon):
 		temp_tower.position = pos
 		tower_ghost.queue_free()
-		tower_placed.emit()
+		tower_placed.emit(temp_tower)
 		return temp_tower
 	return null

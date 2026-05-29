@@ -17,3 +17,6 @@ func _ready() -> void:
 
 func refresh_buy_button() -> void:
 	buy_button.text = "Buy tower - $" + str(player.tower_cost)
+
+func set_tower_data_container_visible(vis : bool) -> void:
+	tower_data_container.visible = vis

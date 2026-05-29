@@ -23,10 +23,11 @@ func refresh() -> void:
 		total_damage_label.text = str(tower.total_damage_dealt) + " damage dealt"
 
 func refresh_with_new_tower(new_tower : Tower) -> void:
-	if tower != null:
-		tower.set_range_indicator_visibility(false)
+	#Setting tower's range visibility has been delegated to the Player object
+	#if tower != null:
+		#tower.set_range_indicator_visibility(false)
 	tower = new_tower
-	tower.set_range_indicator_visibility(true)
+	#tower.set_range_indicator_visibility(true)
 	
 	name_and_level_label.text = "Level " + str(tower.level) + " " + str(tower.tower_name)
 	total_damage_label.text = str(tower.total_damage_dealt) + " damage dealt"

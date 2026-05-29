@@ -26,6 +26,8 @@ func _ready() -> void:
 	side_panel.next_wave_button.pressed.connect(_on_next_wave_button_pressed)
 	upgrade_panel.upgrade_selected.connect(_on_upgrade_selected)
 	upgrade_panel.reroll_pressed.connect(_on_reroll_pressed)
+	
+	set_z_index(1000)
 
 func hide_side_panel() -> void:
 	side_panel.visible = false

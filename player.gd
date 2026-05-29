@@ -18,6 +18,8 @@ var tower_cost : int = 20
 
 var placed_towers : Array[Tower]
 
+var selected_tower : Tower = null
+
 func _ready() -> void:
 	side_panel = gui_manager.get_child(0)
 	
@@ -37,6 +39,12 @@ func _ready() -> void:
 		#if new_tower != null:
 			#new_tower.clicked.connect(_on_tower_clicked)
 			#placed_towers.append(new_tower)
+
+func _unhandled_input(event: InputEvent) -> void:
+	#if Input.is_action_just_released("place_tower") and not is_any_tower_mouseovered() and selected_tower != null:
+		#deselect_tower(selected_tower)
+	if Input.is_action_just_pressed("place_tower") and not is_tower_mouseovered(selected_tower) and selected_tower != null:
+		deselect_tower(selected_tower)
 
 func spend_money(amount : int) -> bool:
 	if money >= amount:
@@ -58,8 +66,28 @@ func update_lives(amount : int) -> void:
 func refresh_lives_label() -> void:
 	side_panel.lives_label.text = "Lives: " + str(lives)
 
-func _on_tower_clicked(tower) -> void:
+#Currently the selected tower will be displayed over other towers
+func select_tower(tower : Tower) -> void:
+	if selected_tower != null:
+		deselect_tower(selected_tower)
+	
+	selected_tower = tower
+	
+	side_panel.set_tower_data_container_visible(true)
+	tower.set_range_indicator_visibility(true)
 	side_panel.tower_data_container.refresh_with_new_tower(tower)
+	
+	tower.set_z_index(0)
+func deselect_tower(tower : Tower) -> void:
+	selected_tower = null
+	
+	side_panel.set_tower_data_container_visible(false)
+	tower.set_range_indicator_visibility(false)
+	
+	tower.set_z_index(1)
+func _on_tower_clicked(tower : Tower) -> void:
+	select_tower(tower)
+	#call_deferred("select_tower", tower)
 
 func _on_gui_manager_tower_selected(tower : Tower) -> void:
 	tower_cost = tower_cost ** 1.2
@@ -75,9 +103,11 @@ func _on_tower_created(new_tower : Tower) -> void:
 	gui_manager.hide_side_panel()
 	get_tree().paused = true
 
-func _on_tower_placed() -> void:
+func _on_tower_placed(new_tower : Tower) -> void:
 	gui_manager.show_side_panel()
 	get_tree().paused = false
+	
+	select_tower(new_tower)
 
 func _on_tower_damage_dealt(amount : int, crit_level : int, pos : Vector2) -> void:
 	damage_indicator_placer.create_damage_indicator(amount, crit_level, pos)
@@ -85,8 +115,18 @@ func _on_tower_damage_dealt(amount : int, crit_level : int, pos : Vector2) -> vo
 func _on_next_wave_pressed() -> void:
 	wave_manager.start_next_wave()
 
+func is_tower_mouseovered(tower : Tower) -> bool:
+	if tower != null:
+		return tower.mouseovered
+	return false
 func is_any_tower_mouseovered() -> bool:
 	for tower_at in placed_towers:
 		if tower_at.mouseovered:
 			return true
 	return false
+
+#func get_mouseovered_tower() -> Tower:
+	#for tower_at in placed_towers:
+		#if tower_at.mouseovered:
+			#return tower_at
+	#return null

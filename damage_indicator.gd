@@ -7,7 +7,6 @@ extends Node2D
 var crit_col : Color = Color.YELLOW
 
 func init(amount : int, crit_level : int, pos : Vector2):
-	
 	damage_label.text = str(amount)
 	if crit_level >= 1:
 		#Set colours to crit colour, then decide text based on crit level
@@ -23,3 +22,5 @@ func init(amount : int, crit_level : int, pos : Vector2):
 			crit_label.text = str(crit_level) + "x CRIT!!!"
 	global_position = pos
 	anim_player.play("rise")
+	
+	set_z_index(2 + crit_level)
