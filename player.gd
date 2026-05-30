@@ -10,6 +10,7 @@ extends Node
 @export var wave_manager : Node
 
 var side_panel : PanelContainer
+var tower_data_container : VBoxContainer
 
 var money : int = 500
 var lives : int = max_lives
@@ -22,6 +23,8 @@ var selected_tower : Tower = null
 
 func _ready() -> void:
 	side_panel = gui_manager.get_child(0)
+	tower_data_container = side_panel.tower_data_container
+	tower_data_container.set_enabled(false)
 	
 	gui_manager.tower_selected.connect(_on_gui_manager_tower_selected)
 	gui_manager.next_wave_pressed.connect(_on_next_wave_pressed)
@@ -73,7 +76,8 @@ func select_tower(tower : Tower) -> void:
 	
 	selected_tower = tower
 	
-	side_panel.set_tower_data_container_visible(true)
+	#side_panel.set_tower_data_container_visible(true)
+	tower_data_container.set_enabled(true)
 	tower.set_range_indicator_visibility(true)
 	side_panel.tower_data_container.refresh_with_new_tower(tower)
 	
@@ -81,7 +85,8 @@ func select_tower(tower : Tower) -> void:
 func deselect_tower(tower : Tower) -> void:
 	selected_tower = null
 	
-	side_panel.set_tower_data_container_visible(false)
+	#side_panel.set_tower_data_container_visible(false)
+	tower_data_container.set_enabled(false)
 	tower.set_range_indicator_visibility(false)
 	
 	tower.set_z_index(1)

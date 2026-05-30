@@ -35,7 +35,6 @@ layout_mode = 2
 text = "Lives"
 
 [node name="TowerDataPanel" parent="VBoxContainer" unique_id=1955728977 instance=ExtResource("1_3e5kq")]
-visible = false
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=725296658]

@@ -17,7 +17,7 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_rfdo1"]
 font_size = 12
 
-[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("name_and_level_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "upgrade_button")]
+[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("name_and_level_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "prio_forward_button", "prio_back_button", "upgrade_button")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 95.0
@@ -29,13 +29,17 @@ total_damage_label = NodePath("TotalDamage")
 priority_label = NodePath("TargetPrioContainer/PriorityLabel")
 attribute_names_label = NodePath("HBoxContainer/AttributeNames")
 attribute_data_label = NodePath("HBoxContainer/AttributeData")
+prio_forward_button = NodePath("TargetPrioContainer/PrioForward")
+prio_back_button = NodePath("TargetPrioContainer/PrioBack")
 upgrade_button = NodePath("UpgradeButton")
 
 [node name="NameAndLevel" type="Label" parent="." unique_id=1210408779]
 layout_mode = 2
+text = "Placeholder"
 
 [node name="TotalDamage" type="Label" parent="." unique_id=676793867]
 layout_mode = 2
+text = "Placeholder"
 
 [node name="TargetPrioContainer" type="HBoxContainer" parent="." unique_id=1597427011]
 layout_mode = 2
@@ -58,6 +62,14 @@ layout_mode = 2
 
 [node name="AttributeNames" type="Label" parent="HBoxContainer" unique_id=63017018]
 layout_mode = 2
+text = "Placeholder
+Placeholder
+Placeholder
+Placeholder
+Placeholder
+Placeholder
+Placeholder
+Placeholder"
 label_settings = SubResource("LabelSettings_kcg5i")
 
 [node name="AttributeData" type="Label" parent="HBoxContainer" unique_id=1418307144]
@@ -66,6 +78,7 @@ label_settings = SubResource("LabelSettings_rfdo1")
 
 [node name="UpgradeButton" type="Button" parent="." unique_id=1128259857]
 layout_mode = 2
+text = "Placeholder"
 
 [connection signal="pressed" from="TargetPrioContainer/PrioBack" to="." method="_on_prio_back_pressed"]
 [connection signal="pressed" from="TargetPrioContainer/PrioForward" to="." method="_on_prio_forward_pressed"]

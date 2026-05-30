@@ -5,10 +5,14 @@ extends Control
 @export var priority_label : Label
 @export var attribute_names_label : Label
 @export var attribute_data_label : Label
+@export var prio_forward_button : Button
+@export var prio_back_button : Button
 @export var upgrade_button : Button
 
 var tower : Tower = null
 var player : Node
+
+@onready var buttons : Array[Button] = [prio_forward_button, prio_back_button, upgrade_button]
 
 signal upgrade_tower
 
@@ -43,6 +47,7 @@ func refresh_with_new_tower(new_tower : Tower) -> void:
 	"Projectile count:",
 	"Pierce:"
 	]
+	
 	var format_attribute_data_string = "%.1f\n%.1f\n%.1f\n%.1f%%\n%.1fx\n%.1f\n%.f\n%.f"
 	attribute_data_label.text = format_attribute_data_string % [
 		tower.attribute[G.att.DAMAGE],
@@ -90,3 +95,9 @@ func _on_prio_forward_pressed() -> void:
 	print_debug("setting target prio to " + str(new_prio))
 	tower.set_target_priority(new_prio)
 	update_priority_label()
+
+func set_enabled(show : bool) -> void:
+	modulate = Color(1, 1, 1, show)
+	
+	for i in buttons:
+		i.disabled = not(show)
