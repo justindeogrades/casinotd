@@ -50,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/vatman.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
 
 func spend_money(amount : int) -> bool:
 	if money >= amount:

@@ -52,7 +52,7 @@ var upgrade_cost : int = 10
 var mouseovered : bool = false
 
 var volley_dir : Vector2
-var volley_target : Mob
+var volley_target_pos : Vector2
 var volley_shots_remaining : int
 #Hardcoding 0.1 second interval for now, should scale with attack speed later
 var volley_cooldown_seconds : float = 0.1
@@ -103,11 +103,11 @@ func shoot(type : int, dir : Vector2, target : Mob) -> void:
 		G.type.VOLLEY:
 			if attribute[G.att.PROJ_COUNT] > 1:
 				volley_dir = dir
-				volley_target = target
+				volley_target_pos = target.global_position
 				volley_shots_remaining = attribute[G.att.PROJ_COUNT] - 1
 				volley_cooldown_seconds = cooldown_seconds / (2 * attribute[G.att.PROJ_COUNT])
 				volley_cooldown_timer.start(volley_cooldown_seconds)
-			spawn_projectile(dir, target)
+			spawn_projectile(dir, target.global_position)
 		G.type.FAN:
 			#Iterate once per projectile count, offsetting the angle a little every shot
 			for i in attribute[G.att.PROJ_COUNT]:
@@ -125,7 +125,7 @@ func shoot(type : int, dir : Vector2, target : Mob) -> void:
 				var dirprime_y = dir.x * sin(theta) + dir.y * cos(theta)
 				var dirprime = Vector2(dirprime_x, dirprime_y).normalized()
 					
-				spawn_projectile(dirprime, target)
+				spawn_projectile(dirprime, target.global_position)
 		G.type.SURROUND:
 			#Iterate once per projectile count, offsetting the angle a little every shot
 			for i in attribute[G.att.PROJ_COUNT]:
@@ -136,9 +136,9 @@ func shoot(type : int, dir : Vector2, target : Mob) -> void:
 				var aimprime_y = dir.x * sin(theta) + dir.y * cos(theta)
 				var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
 					
-				spawn_projectile(aimprime, target)
+				spawn_projectile(aimprime, target.global_position)
 
-func spawn_projectile(aim_direction : Vector2, target : Mob) -> void:
+func spawn_projectile(aim_direction : Vector2, target_pos : Vector2) -> void:
 	var crit_level = roll_crit()
 	
 	var projectile_instance = projectile_preload.instantiate()
@@ -152,7 +152,7 @@ func spawn_projectile(aim_direction : Vector2, target : Mob) -> void:
 	#projectile_instance.direction = aim_direction
 	#projectile_instance.position = position
 	
-	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position, position.distance_to(target.global_position))
+	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position, position.distance_to(target_pos))
 	projectile_instance.damage_dealt.connect(_on_projectile_damage_dealt)
 	
 	projectile_parent.add_child(projectile_instance)
@@ -194,7 +194,7 @@ func _on_range_area_exited(area: Area2D) -> void:
 
 func _on_volley_cooldown_timer_timeout() -> void:
 	if volley_shots_remaining >= 1:
-		spawn_projectile(volley_dir, volley_target)
+		spawn_projectile(volley_dir, volley_target_pos)
 		volley_shots_remaining -= 1
 		volley_cooldown_timer.start(volley_cooldown_seconds)
 
