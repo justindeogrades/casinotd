@@ -50,10 +50,9 @@ _data = {
 [node name="Vatman" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_lv1jq")
-attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 1.0, 1.0])
+attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 3.0, 1.0])
 tower_name = "Vatman"
 tower_description = "This tower sucks"
-shot_type = 0
 sprite = NodePath("Sprite2D")
 projectile_preload = ExtResource("2_lv1jq")
 range_area = NodePath("Range")
@@ -68,8 +67,6 @@ texture = ExtResource("3_lv1jq")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3
-collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mousebox" unique_id=1510036919]
 shape = SubResource("CircleShape2D_smaqy")

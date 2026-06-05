@@ -40,6 +40,8 @@ func _physics_process(delta : float) -> void:
 
 func _on_tower_box_area_entered(area: Area2D) -> void:
 	if exited_tower:
-		queue_free()
+		#Hideous but i dont fucking care bro
+		if area.get_parent() == get_parent().get_parent():
+			queue_free()
 func _on_tower_box_area_exited(area: Area2D) -> void:
 	exited_tower = true

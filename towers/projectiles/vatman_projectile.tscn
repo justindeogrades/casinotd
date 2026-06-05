@@ -27,8 +27,6 @@ shape = SubResource("CircleShape2D_qxf0c")
 [node name="Lifetime" type="Timer" parent="." unique_id=1142131269]
 
 [node name="TowerBox" type="Area2D" parent="." unique_id=1049037829]
-collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerBox" unique_id=1840454436]
 shape = SubResource("CircleShape2D_wpylj")
