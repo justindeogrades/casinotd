@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xyh7cq0sx8bg"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_54xxd"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_3famc"]
 [ext_resource type="Texture2D" uid="uid://chwjiw8w3gw11" path="res://towers/sprites/tower_legendary.png" id="2_54xxd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
@@ -54,6 +55,7 @@ tower_name = "Yellow Tower"
 tower_description = "Rare pull! (exactly the same as the others)"
 shot_type = 0
 sprite = NodePath("Sprite2D")
+projectile_preload = ExtResource("2_3famc")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")

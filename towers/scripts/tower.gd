@@ -24,6 +24,7 @@ extends Node2D
 @export var rarity : int
 @export_category("Children")
 @export var sprite : Sprite2D
+@export var projectile_preload : Resource
 @export var range_area : Area2D
 @export var range_collision : CollisionShape2D
 @export var cooldown_timer : Timer
@@ -40,8 +41,6 @@ signal damage_dealt(amount : int, crit : int, pos : Vector2)
 #@onready var cooldown_seconds = 50 / attack_speed
 @onready var cooldown_seconds = 50 / attribute[G.att.ATTACK_SPEED]
 
-var projectile_preload = preload("res://projectile.tscn")
-
 var level : int = 1
 var mobs_in_range : Array[Mob]
 var target_prio : int = G.prio.FIRST
@@ -53,6 +52,7 @@ var upgrade_cost : int = 10
 var mouseovered : bool = false
 
 var volley_dir : Vector2
+var volley_target : Mob
 var volley_shots_remaining : int
 #Hardcoding 0.1 second interval for now, should scale with attack speed later
 var volley_cooldown_seconds : float = 0.1
@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 		var target = get_target(target_prio)
 		var aim_direction = (target.global_position - position).normalized()
 		
-		shoot(shot_type, aim_direction)
+		shoot(shot_type, aim_direction, target)
 		
 		#Angle towards the target
 		#Currently snaps to targets position, maybe tween it later
@@ -98,15 +98,16 @@ func _process(delta: float) -> void:
 	else:
 		pass
 
-func shoot(type : int, dir : Vector2) -> void:
+func shoot(type : int, dir : Vector2, target : Mob) -> void:
 	match type:
 		G.type.VOLLEY:
 			if attribute[G.att.PROJ_COUNT] > 1:
 				volley_dir = dir
+				volley_target = target
 				volley_shots_remaining = attribute[G.att.PROJ_COUNT] - 1
 				volley_cooldown_seconds = cooldown_seconds / (2 * attribute[G.att.PROJ_COUNT])
 				volley_cooldown_timer.start(volley_cooldown_seconds)
-			spawn_projectile(dir)
+			spawn_projectile(dir, target)
 		G.type.FAN:
 			#Iterate once per projectile count, offsetting the angle a little every shot
 			for i in attribute[G.att.PROJ_COUNT]:
@@ -124,7 +125,7 @@ func shoot(type : int, dir : Vector2) -> void:
 				var dirprime_y = dir.x * sin(theta) + dir.y * cos(theta)
 				var dirprime = Vector2(dirprime_x, dirprime_y).normalized()
 					
-				spawn_projectile(dirprime)
+				spawn_projectile(dirprime, target)
 		G.type.SURROUND:
 			#Iterate once per projectile count, offsetting the angle a little every shot
 			for i in attribute[G.att.PROJ_COUNT]:
@@ -135,12 +136,12 @@ func shoot(type : int, dir : Vector2) -> void:
 				var aimprime_y = dir.x * sin(theta) + dir.y * cos(theta)
 				var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
 					
-				spawn_projectile(aimprime)
+				spawn_projectile(aimprime, target)
 
-func spawn_projectile(aim_direction : Vector2) -> void:
+func spawn_projectile(aim_direction : Vector2, target : Mob) -> void:
 	var crit_level = roll_crit()
 	
-	var projectile_instance = load("res://projectile.tscn").instantiate()
+	var projectile_instance = projectile_preload.instantiate()
 	
 	#Replacing all ts with an init function
 	#projectile_instance.damage = attribute[G.att.DAMAGE]
@@ -151,7 +152,7 @@ func spawn_projectile(aim_direction : Vector2) -> void:
 	#projectile_instance.direction = aim_direction
 	#projectile_instance.position = position
 	
-	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position)
+	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position, position.distance_to(target.global_position))
 	projectile_instance.damage_dealt.connect(_on_projectile_damage_dealt)
 	
 	projectile_parent.add_child(projectile_instance)
@@ -193,7 +194,7 @@ func _on_range_area_exited(area: Area2D) -> void:
 
 func _on_volley_cooldown_timer_timeout() -> void:
 	if volley_shots_remaining >= 1:
-		spawn_projectile(volley_dir)
+		spawn_projectile(volley_dir, volley_target)
 		volley_shots_remaining -= 1
 		volley_cooldown_timer.start(volley_cooldown_seconds)
 

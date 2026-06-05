@@ -1,4 +1,7 @@
 extends RigidBody2D
+class_name Projectile
+
+@export var init_angle_offset : float = 0
 
 var tower : Tower
 var damage : float
@@ -13,18 +16,24 @@ signal damage_dealt(amount : int, crit : int, pos : Vector2)
 func _ready() -> void:
 	linear_velocity = direction * speed
 
-func _process(delta : float) -> void:
+func _physics_process(delta : float) -> void:
 	if position.distance_to(tower.position) > max_dist_from_tower:
 		queue_free()
 
-func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : float, dir : Vector2, pos : Vector2) -> void:
+func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
 	tower = t
 	damage = d
 	crit_level = cl
 	speed = ps
 	remaining_pierces = p
-	direction = dir
 	position = pos
+	
+	#Rotation matrix fuckshit
+	var aimprime_x = dir.x * cos(init_angle_offset) - dir.y * sin(init_angle_offset)
+	var aimprime_y = dir.x * sin(init_angle_offset) + dir.y * cos(init_angle_offset)
+	var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
+	
+	direction = aimprime
 	
 	damage *= cm ** cl
 	max_dist_from_tower = r * 2

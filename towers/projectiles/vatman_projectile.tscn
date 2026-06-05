@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d2e0u02d1prh4"]
+
+[ext_resource type="Script" uid="uid://ca70mn3152al1" path="res://towers/projectiles/vatman_projectile.gd" id="1_wpylj"]
+[ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/tower_common.png" id="2_wpylj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpylj"]
+radius = 2.0
+
+[node name="Vatarang" type="RigidBody2D" unique_id=1139152246]
+gravity_scale = 0.0
+script = ExtResource("1_wpylj")
+init_angle_offset = -1.571
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125238622]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_wpylj")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1431316374]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1226380940]
+shape = SubResource("CircleShape2D_qxf0c")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=1142131269]
+
+[node name="TowerBox" type="Area2D" parent="." unique_id=1049037829]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerBox" unique_id=1840454436]
+shape = SubResource("CircleShape2D_wpylj")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
+[connection signal="area_entered" from="TowerBox" to="." method="_on_tower_box_area_entered"]
+[connection signal="area_exited" from="TowerBox" to="." method="_on_tower_box_area_exited"]

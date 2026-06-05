@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_sj5pv"]
 [ext_resource type="Texture2D" uid="uid://bmqf3lrjeo60u" path="res://towers/sprites/tower_uncommon.png" id="2_sj5pv"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_wx3vn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -53,6 +54,7 @@ attribute = Array[float]([36.0, 100.0, 140.0, 10.0, 3.5, 1100.0, 1.0, 0.0])
 tower_name = "Blue Tower"
 tower_description = "Better than green, still kinda shit tho"
 sprite = NodePath("Sprite2D")
+projectile_preload = ExtResource("2_wx3vn")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")

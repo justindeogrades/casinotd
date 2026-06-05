@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_8r2yw"]
 [ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/tower_common.png" id="2_4fqqb"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_jqn1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -54,6 +55,7 @@ tower_name = "Green Tower"
 tower_description = "This tower sucks"
 shot_type = 0
 sprite = NodePath("Sprite2D")
+projectile_preload = ExtResource("2_jqn1s")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")

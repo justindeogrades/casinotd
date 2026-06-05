@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bwxy0bgb1d6mp"]
+[gd_scene format=3 uid="uid://bo52qpwlltbry"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_cddq2"]
-[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_3wf24"]
-[ext_resource type="Texture2D" uid="uid://csmgavthvihud" path="res://towers/sprites/tower_rare.png" id="2_cddq2"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_lv1jq"]
+[ext_resource type="PackedScene" uid="uid://d2e0u02d1prh4" path="res://towers/projectiles/vatman_projectile.tscn" id="2_lv1jq"]
+[ext_resource type="Texture2D" uid="uid://dhj7eigqcuqfi" path="res://towers/sprites/vatman.png" id="3_lv1jq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -47,26 +47,29 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="RareTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Vatman" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_cddq2")
-attribute = Array[float]([25.0, 200.0, 80.0, 10.0, 3.0, 1000.0, 3.0, 0.0])
-tower_name = "Red Tower"
-tower_description = "OP as shit"
-shot_type = 2
+script = ExtResource("1_lv1jq")
+attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 1.0, 1.0])
+tower_name = "Vatman"
+tower_description = "This tower sucks"
+shot_type = 0
 sprite = NodePath("Sprite2D")
-projectile_preload = ExtResource("2_3wf24")
+projectile_preload = ExtResource("2_lv1jq")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
+volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("2_cddq2")
+texture = ExtResource("3_lv1jq")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mousebox" unique_id=1510036919]
 shape = SubResource("CircleShape2D_smaqy")
@@ -84,7 +87,9 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=798912892]
 libraries/ = SubResource("AnimationLibrary_e607b")
 
-[node name="ProjectileParent" type="Node" parent="." unique_id=316027096]
+[node name="VolleyCooldownTimer" type="Timer" parent="." unique_id=2027241245]
+
+[node name="ProjectileParent" type="Node" parent="." unique_id=1681410128]
 
 [connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
 [connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]
