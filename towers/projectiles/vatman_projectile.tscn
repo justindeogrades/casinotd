@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2e0u02d1prh4"]
 
 [ext_resource type="Script" uid="uid://ca70mn3152al1" path="res://towers/projectiles/vatman_projectile.gd" id="1_wpylj"]
-[ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/tower_common.png" id="2_wpylj"]
+[ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/overworld/tower_common.png" id="2_wpylj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
 radius = 2.0

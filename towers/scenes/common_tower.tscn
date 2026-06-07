@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://crorj23ub5ab8"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_8r2yw"]
-[ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/tower_common.png" id="2_4fqqb"]
+[ext_resource type="Texture2D" uid="uid://ctlh2bymvqury" path="res://towers/sprites/overworld/tower_common.png" id="2_4fqqb"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_jqn1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]

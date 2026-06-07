@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_lv1jq"]
 [ext_resource type="PackedScene" uid="uid://d2e0u02d1prh4" path="res://towers/projectiles/vatman_projectile.tscn" id="2_lv1jq"]
-[ext_resource type="Texture2D" uid="uid://dhj7eigqcuqfi" path="res://towers/sprites/vatman.png" id="3_lv1jq"]
+[ext_resource type="Texture2D" uid="uid://dhj7eigqcuqfi" path="res://towers/sprites/overworld/vatman.png" id="3_lv1jq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -50,7 +50,7 @@ _data = {
 [node name="Vatman" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_lv1jq")
-attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 3.0, 1.0])
+attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 5.0, 1.0])
 tower_name = "Vatman"
 tower_description = "This tower sucks"
 sprite = NodePath("Sprite2D")

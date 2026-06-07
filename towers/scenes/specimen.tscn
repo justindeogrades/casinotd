@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://bwxy0bgb1d6mp"]
+[gd_scene format=3 uid="uid://cg5yxoucge22i"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_cddq2"]
-[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_3wf24"]
-[ext_resource type="Texture2D" uid="uid://csmgavthvihud" path="res://towers/sprites/overworld/tower_rare.png" id="2_cddq2"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_tnpkm"]
+[ext_resource type="Texture2D" uid="uid://dvingu147j380" path="res://towers/sprites/portrait/specimen portrait coloured.png" id="2_1anln"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_etgam"]
+[ext_resource type="Texture2D" uid="uid://crqecmbomdb8h" path="res://towers/sprites/overworld/specimen overworld (shrunk).png" id="3_tnpkm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -47,23 +48,25 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="RareTower" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Specimen" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_cddq2")
-attribute = Array[float]([25.0, 200.0, 80.0, 10.0, 3.0, 1000.0, 3.0, 0.0])
-tower_name = "Red Tower"
-tower_description = "OP as shit"
-shot_type = 2
+script = ExtResource("1_tnpkm")
+attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
+tower_name = "Specimen-777"
+tower_description = "Left his planet to escape his galactic gambling debt"
+shot_type = 0
 sprite = NodePath("Sprite2D")
-projectile_preload = ExtResource("2_3wf24")
+portrait = ExtResource("2_1anln")
+projectile_preload = ExtResource("2_etgam")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
+volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("2_cddq2")
+texture = ExtResource("3_tnpkm")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3
@@ -84,7 +87,9 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=798912892]
 libraries/ = SubResource("AnimationLibrary_e607b")
 
-[node name="ProjectileParent" type="Node" parent="." unique_id=316027096]
+[node name="VolleyCooldownTimer" type="Timer" parent="." unique_id=2027241245]
+
+[node name="ProjectileParent" type="Node" parent="." unique_id=1681410128]
 
 [connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
 [connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]

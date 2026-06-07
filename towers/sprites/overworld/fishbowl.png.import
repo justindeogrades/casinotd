@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx2foerwkuvlp"
-path="res://.godot/imported/fishbowl.png-18d5aa7a0ed4c8fc4a6a41c8cfcec6c8.ctex"
+path="res://.godot/imported/fishbowl.png-20d3947d825b2650ef037dbbc23d10c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/sprites/fishbowl.png"
-dest_files=["res://.godot/imported/fishbowl.png-18d5aa7a0ed4c8fc4a6a41c8cfcec6c8.ctex"]
+source_file="res://towers/sprites/overworld/fishbowl.png"
+dest_files=["res://.godot/imported/fishbowl.png-20d3947d825b2650ef037dbbc23d10c7.ctex"]
 
 [params]
 

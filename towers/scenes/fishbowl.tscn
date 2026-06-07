@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b2ij05xinmsyf"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_b3s7n"]
+[ext_resource type="Texture2D" uid="uid://hu4f82x6aijq" path="res://towers/sprites/portrait/fishbowl portrait coloured.png" id="2_3twf3"]
 [ext_resource type="PackedScene" uid="uid://by17h5fu8hrun" path="res://towers/projectiles/fishbowl_projectile.tscn" id="2_b3s7n"]
-[ext_resource type="Texture2D" uid="uid://cx2foerwkuvlp" path="res://towers/sprites/fishbowl.png" id="3_b3s7n"]
+[ext_resource type="Texture2D" uid="uid://b748mmxri74lk" path="res://towers/sprites/overworld/fishbowl overworld (shrunk).png" id="3_b3s7n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -55,6 +56,7 @@ tower_name = "Fishbowl"
 tower_description = "This tower sucks"
 shot_type = 0
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_3twf3")
 projectile_preload = ExtResource("2_b3s7n")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")

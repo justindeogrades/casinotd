@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhj7eigqcuqfi"
-path="res://.godot/imported/vatman.png-31018e0d6d6193300fb03a8d9f1b7b8a.ctex"
+uid="uid://hu4f82x6aijq"
+path="res://.godot/imported/fishbowl portrait coloured.png-a667e9335d0945f6b9b1a6148fdce639.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/sprites/vatman.png"
-dest_files=["res://.godot/imported/vatman.png-31018e0d6d6193300fb03a8d9f1b7b8a.ctex"]
+source_file="res://towers/sprites/portrait/fishbowl portrait coloured.png"
+dest_files=["res://.godot/imported/fishbowl portrait coloured.png-a667e9335d0945f6b9b1a6148fdce639.ctex"]
 
 [params]
 

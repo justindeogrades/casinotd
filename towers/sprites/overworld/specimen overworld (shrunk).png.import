@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmqf3lrjeo60u"
-path="res://.godot/imported/tower_uncommon.png-d4ebd24a75ad96ab18dcc42e03930d62.ctex"
+uid="uid://crqecmbomdb8h"
+path="res://.godot/imported/specimen overworld (shrunk).png-2f67b35245831647a697912fbf19bbd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/sprites/tower_uncommon.png"
-dest_files=["res://.godot/imported/tower_uncommon.png-d4ebd24a75ad96ab18dcc42e03930d62.ctex"]
+source_file="res://towers/sprites/overworld/specimen overworld (shrunk).png"
+dest_files=["res://.godot/imported/specimen overworld (shrunk).png-2f67b35245831647a697912fbf19bbd0.ctex"]
 
 [params]
 

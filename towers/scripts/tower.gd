@@ -24,6 +24,7 @@ extends Node2D
 @export var rarity : int
 @export_category("Children")
 @export var sprite : Sprite2D
+@export var portrait : Texture2D
 @export var projectile_preload : Resource
 @export var range_area : Area2D
 @export var range_collision : CollisionShape2D
@@ -87,7 +88,7 @@ func _process(delta: float) -> void:
 		#Currently snaps to targets position, maybe tween it later
 		#Don't know why rotating by pi/2 is necessary but don't change it
 		look_at(target.global_position)
-		rotate(PI / 2)
+		#rotate(PI / 2)
 		
 		
 		
@@ -254,6 +255,9 @@ func get_tower_name() -> String:
 
 func get_tower_description() -> String:
 	return tower_description
+
+func get_portrait_texture() -> Resource:
+	return portrait
 
 func get_sprite_texture() -> Texture2D:
 	return sprite.texture

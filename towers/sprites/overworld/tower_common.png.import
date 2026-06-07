@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csmgavthvihud"
-path="res://.godot/imported/tower_rare.png-842a75136700978c22cab17faeec7e69.ctex"
+uid="uid://ctlh2bymvqury"
+path="res://.godot/imported/tower_common.png-1c6ad580971b89033373b62bc8b46386.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/sprites/tower_rare.png"
-dest_files=["res://.godot/imported/tower_rare.png-842a75136700978c22cab17faeec7e69.ctex"]
+source_file="res://towers/sprites/overworld/tower_common.png"
+dest_files=["res://.godot/imported/tower_common.png-1c6ad580971b89033373b62bc8b46386.ctex"]
 
 [params]
 

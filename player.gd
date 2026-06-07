@@ -49,8 +49,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("place_tower") and not is_tower_mouseovered(selected_tower) and selected_tower != null:
 		deselect_tower(selected_tower)
 	
-	if Input.is_action_just_pressed("cheat_tower"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/vatman.tscn").instantiate( ))
+	if Input.is_action_just_pressed("cheat_tower_1"):
+		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
+	if Input.is_action_just_pressed("cheat_tower_2"):
+		tower_placer.create_temp_tower(load("res://towers/scenes/specimen.tscn").instantiate( ))
 
 func spend_money(amount : int) -> bool:
 	if money >= amount:

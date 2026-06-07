@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_54xxd"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_3famc"]
-[ext_resource type="Texture2D" uid="uid://chwjiw8w3gw11" path="res://towers/sprites/tower_legendary.png" id="2_54xxd"]
+[ext_resource type="Texture2D" uid="uid://chwjiw8w3gw11" path="res://towers/sprites/overworld/tower_legendary.png" id="2_54xxd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
