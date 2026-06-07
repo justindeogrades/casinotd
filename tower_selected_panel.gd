@@ -17,7 +17,7 @@ func init(t : Tower, r : int) -> void:
 	reroll_cost = r
 	name_label.text = tower.get_tower_name()
 	description_label.text = tower.get_tower_description()
-	text_rect.texture = tower.get_sprite_texture()
+	text_rect.texture = tower.get_portrait_texture()
 	reroll_button.text = "Reroll - $" + str(reroll_cost) 
 
 func _on_accept_button_pressed() -> void:

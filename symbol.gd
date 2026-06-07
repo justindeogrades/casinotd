@@ -17,7 +17,7 @@ func _ready() -> void:
 func init(speed : float, tower_preload : Resource) -> void:
 	anim_player.play("rotate", -1, speed)
 	tower = tower_preload.instantiate()
-	sprite.texture = tower.get_sprite_texture()
+	sprite.texture = tower.get_portrait_texture()
 
 #Called when the symbol reaches the point at which the next symbol should be created
 func mid() -> void:

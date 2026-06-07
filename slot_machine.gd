@@ -2,10 +2,10 @@ extends Node
 
 var symbol_path = "res://symbol.tscn"
 
-var common_preload = preload("res://towers/scenes/common_tower.tscn")
-var uncommon_preload = preload("res://towers/scenes/uncommon_tower.tscn")
-var rare_preload = preload("res://towers/scenes/rare_tower.tscn")
-var legendary_preload = preload("res://towers/scenes/legendary_tower.tscn")
+var common_preload = preload("res://towers/scenes/specimen.tscn")
+var uncommon_preload = preload("res://towers/scenes/pirate.tscn")
+var rare_preload = preload("res://towers/scenes/fishbowl.tscn")
+var legendary_preload = preload("res://towers/scenes/mrmouse.tscn")
 
 @export var base_speed : float
 @export var base_spin_time : float

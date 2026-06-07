@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://b2ij05xinmsyf"]
+[gd_scene format=3 uid="uid://dvpoc35o6ng0s"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_b3s7n"]
-[ext_resource type="Texture2D" uid="uid://bbynu37v3nsed" path="res://towers/sprites/portrait/fishbowl portrait coloured (shrunk).png" id="2_3twf3"]
-[ext_resource type="PackedScene" uid="uid://by17h5fu8hrun" path="res://towers/projectiles/fishbowl_projectile.tscn" id="2_b3s7n"]
-[ext_resource type="Texture2D" uid="uid://b748mmxri74lk" path="res://towers/sprites/overworld/fishbowl overworld (shrunk).png" id="3_b3s7n"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_wy3k1"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_r2cxc"]
+[ext_resource type="Texture2D" uid="uid://bmyj38f531avk" path="res://towers/sprites/portrait/pirate portrait coloured (shrunk).png" id="2_s0qnp"]
+[ext_resource type="Texture2D" uid="uid://b2fj5m8qbch1" path="res://towers/sprites/overworld/pirate overworld shrunk.png" id="4_dj2ud"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -48,16 +48,16 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Fishbowl" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Pirate" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_b3s7n")
-attribute = Array[float]([10.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 10.0, 0.0])
-tower_name = "Fishbowl"
-tower_description = "Floats around"
+script = ExtResource("1_wy3k1")
+attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
+tower_name = "Whitebeard"
+tower_description = "The slot machines were a far more exciting treasure hunt"
 shot_type = 0
 sprite = NodePath("Sprite2D")
-portrait = ExtResource("2_3twf3")
-projectile_preload = ExtResource("2_b3s7n")
+portrait = ExtResource("2_s0qnp")
+projectile_preload = ExtResource("2_r2cxc")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -66,7 +66,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_b3s7n")
+texture = ExtResource("4_dj2ud")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

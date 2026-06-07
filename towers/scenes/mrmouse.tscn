@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://b2ij05xinmsyf"]
+[gd_scene format=3 uid="uid://dcxtoinimil64"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_b3s7n"]
-[ext_resource type="Texture2D" uid="uid://bbynu37v3nsed" path="res://towers/sprites/portrait/fishbowl portrait coloured (shrunk).png" id="2_3twf3"]
-[ext_resource type="PackedScene" uid="uid://by17h5fu8hrun" path="res://towers/projectiles/fishbowl_projectile.tscn" id="2_b3s7n"]
-[ext_resource type="Texture2D" uid="uid://b748mmxri74lk" path="res://towers/sprites/overworld/fishbowl overworld (shrunk).png" id="3_b3s7n"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_8bjts"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_jb1t3"]
+[ext_resource type="Texture2D" uid="uid://b42nstf7ktn03" path="res://towers/sprites/portrait/mrmouse portrait coloured (shrunk).png" id="2_vrjws"]
+[ext_resource type="Texture2D" uid="uid://ddr0rwkce8362" path="res://towers/sprites/overworld/mrmouse overworld shrunk.png" id="4_jb1t3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -48,16 +48,16 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Fishbowl" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="MrMouse" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_b3s7n")
-attribute = Array[float]([10.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 10.0, 0.0])
-tower_name = "Fishbowl"
-tower_description = "Floats around"
+script = ExtResource("1_8bjts")
+attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
+tower_name = "Mr. Mouse"
+tower_description = "gaming"
 shot_type = 0
 sprite = NodePath("Sprite2D")
-portrait = ExtResource("2_3twf3")
-projectile_preload = ExtResource("2_b3s7n")
+portrait = ExtResource("2_vrjws")
+projectile_preload = ExtResource("2_jb1t3")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -66,7 +66,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_b3s7n")
+texture = ExtResource("4_jb1t3")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3
