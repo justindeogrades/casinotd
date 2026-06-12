@@ -82,7 +82,7 @@ func roll_face() -> int:
 		return G.face.ACE
 	if challenge < face_probabilities[G.face.ACE] + face_probabilities[G.face.KING]:
 		return G.face.KING
-	if challenge < face_probabilities[G.face.ACE] + face_probabilities[G.face.QUEEN]:
+	if challenge < face_probabilities[G.face.ACE] + + face_probabilities[G.face.KING] + face_probabilities[G.face.QUEEN]:
 		return G.face.QUEEN
 	return G.face.JACK
 
