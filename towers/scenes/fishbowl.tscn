@@ -55,6 +55,7 @@ attribute = Array[float]([10.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 10.0, 0.0])
 tower_name = "Fishbowl"
 tower_description = "Floats around"
 shot_type = 0
+rarity = 2
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_3twf3")
 projectile_preload = ExtResource("2_b3s7n")

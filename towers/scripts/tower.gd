@@ -21,7 +21,7 @@ extends Node2D
 @export_enum("Volley", "Fan", "Surround") var shot_type : int = G.type.FAN
 #Angle between projectiles
 @export var angle_between_projectiles : float = PI / 12
-@export var rarity : int
+@export_enum("Common", "Uncommon", "Rare", "Legendary") var rarity : int = G.rarity.COMMON
 @export_category("Children")
 @export var sprite : Sprite2D
 @export var portrait : Texture2D

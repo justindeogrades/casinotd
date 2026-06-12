@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://g50nexn8yl2t"]
 
-[ext_resource type="Script" uid="uid://vb2ew6dh70pq" path="res://slot_machine.gd" id="1_agdmm"]
+[ext_resource type="Script" uid="uid://vb2ew6dh70pq" path="res://slot machine/slot_machine.gd" id="1_agdmm"]
 
 [sub_resource type="Curve" id="Curve_agdmm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.099999994, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(0.95, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
 metadata/_snap_enabled = true
+metadata/_snap_count = 100
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agdmm"]
 size = Vector2(1000, 1)
@@ -13,11 +14,14 @@ size = Vector2(1000, 1)
 [node name="SlotMachine" type="Node" unique_id=885076926]
 process_mode = 3
 script = ExtResource("1_agdmm")
-base_speed = 6.0
+base_speed = 80.0
 base_spin_time = 8.0
 speed_randomness_range = 1.0
 spin_time_randomness_range = 0.5
+symbol_count = 60
 speed_curve = SubResource("Curve_agdmm")
+
+[node name="SymbolParent" type="Node" parent="." unique_id=1325641683]
 
 [node name="Line" type="Area2D" parent="." unique_id=1419603807]
 process_mode = 3
@@ -29,10 +33,13 @@ collision_mask = 128
 shape = SubResource("RectangleShape2D_agdmm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1378782599]
-offset_right = 960.0
-offset_bottom = 540.0
-color = Color(0, 0, 0, 0.23529412)
-
-[node name="SymbolParent" type="Node" parent="." unique_id=1325641683]
+custom_minimum_size = Vector2(0, 1)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
 
 [connection signal="area_entered" from="Line" to="." method="_on_line_area_entered"]

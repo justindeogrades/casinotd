@@ -1,6 +1,13 @@
 extends Node
 class_name G
 
+enum rarity {
+	COMMON,
+	UNCOMMON,
+	RARE,
+	LEGENDARY
+}
+
 enum att {
 	DAMAGE,
 	ATTACK_SPEED,

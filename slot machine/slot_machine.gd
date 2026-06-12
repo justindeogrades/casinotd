@@ -1,6 +1,6 @@
 extends Node
 
-var symbol_path = "res://symbol.tscn"
+var symbol_path = "res://slot machine/symbol.tscn"
 
 var common_preload = preload("res://towers/scenes/specimen.tscn")
 var uncommon_preload = preload("res://towers/scenes/pirate.tscn")
@@ -11,6 +11,7 @@ var legendary_preload = preload("res://towers/scenes/mrmouse.tscn")
 @export var base_spin_time : float
 @export var speed_randomness_range : float
 @export var spin_time_randomness_range : float
+@export var symbol_count : int
 @export var speed_curve : Curve
 
 var speed : float
@@ -45,7 +46,12 @@ func init(quick_spins_enabled : bool) -> void:
 	#print_debug("final speed: " + str(speed))
 	#print_debug("final spin time: " + str(spin_time))
 	
-	create_symbol()
+	for i in symbol_count:
+		#360 is the symbol height
+		create_symbol(540 - 360 * i)
+	
+	#Ensures it appears in front of symbols
+	$ColorRect.set_z_index(3)
 
 
 
@@ -73,12 +79,12 @@ func randomize_time(base : float, range : float) -> float:
 	var offset = randf_range(-range, range)
 	return base + offset
 
-func create_symbol() -> void:
+func create_symbol(ypos : int) -> void:
 	#Choose tower preload to pass
 	var preload_to_pass = choose_tower_preload(next_rarity)
 	
 	var symbol_instance = load(symbol_path).instantiate()
-	symbol_instance.init(1, preload_to_pass)
+	symbol_instance.init(1, preload_to_pass, ypos)
 	symbol_instance.mid_reached.connect(_on_symbol_mid_reached)
 	symbol_instance.end_reached.connect(_on_symbol_end_reached)
 	symbol.append(symbol_instance)
@@ -101,7 +107,8 @@ func choose_tower_preload(rarity : int) -> Resource:
 			return null
 
 func _on_symbol_mid_reached() -> void:
-	create_symbol()
+	#create_symbol(symbol[symbol.size() - 1].position.y - 180)
+	pass
 
 func _on_symbol_end_reached(s : Node2D) -> void:
 	symbol.erase(s)

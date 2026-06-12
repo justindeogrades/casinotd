@@ -3,7 +3,7 @@ extends Container
 @export var side_panel : PanelContainer
 @export var upgrade_panel : PanelContainer
 
-var slot_machine_preload = preload("res://slot_machine.tscn")
+var slot_machine_preload = preload("res://slot machine/slot_machine.tscn")
 var tower_selected_panel_preload = preload("res://tower_selected_panel.tscn")
 
 var player : Node

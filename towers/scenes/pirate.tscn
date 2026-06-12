@@ -55,6 +55,7 @@ attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
 tower_name = "Whitebeard"
 tower_description = "The slot machines were a far more exciting treasure hunt"
 shot_type = 0
+rarity = 3
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_s0qnp")
 projectile_preload = ExtResource("2_r2cxc")

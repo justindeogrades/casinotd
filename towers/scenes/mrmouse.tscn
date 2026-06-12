@@ -55,6 +55,7 @@ attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
 tower_name = "Mr. Mouse"
 tower_description = "gaming"
 shot_type = 0
+rarity = 1
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_vrjws")
 projectile_preload = ExtResource("2_jb1t3")
