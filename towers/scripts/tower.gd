@@ -256,6 +256,9 @@ func get_tower_name() -> String:
 func get_tower_description() -> String:
 	return tower_description
 
+func get_rarity() -> int:
+	return rarity
+
 func get_portrait_texture() -> Resource:
 	return portrait
 

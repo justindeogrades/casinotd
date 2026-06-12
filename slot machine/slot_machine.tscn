@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://g50nexn8yl2t"]
 
 [ext_resource type="Script" uid="uid://vb2ew6dh70pq" path="res://slot machine/slot_machine.gd" id="1_agdmm"]
+[ext_resource type="PackedScene" uid="uid://b2ij05xinmsyf" path="res://towers/scenes/fishbowl.tscn" id="2_by4c8"]
+[ext_resource type="PackedScene" uid="uid://dcxtoinimil64" path="res://towers/scenes/mrmouse.tscn" id="3_wn12k"]
+[ext_resource type="PackedScene" uid="uid://dvpoc35o6ng0s" path="res://towers/scenes/pirate.tscn" id="4_m4ibu"]
+[ext_resource type="PackedScene" uid="uid://cg5yxoucge22i" path="res://towers/scenes/specimen.tscn" id="5_ayicq"]
+[ext_resource type="PackedScene" uid="uid://bo52qpwlltbry" path="res://towers/scenes/vatman.tscn" id="6_8hviq"]
 
 [sub_resource type="Curve" id="Curve_agdmm"]
 _data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.099999994, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(0.95, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -14,6 +19,7 @@ size = Vector2(1000, 1)
 [node name="SlotMachine" type="Node" unique_id=885076926]
 process_mode = 3
 script = ExtResource("1_agdmm")
+all_towers = Array[Resource]([ExtResource("2_by4c8"), ExtResource("3_wn12k"), ExtResource("4_m4ibu"), ExtResource("5_ayicq"), ExtResource("6_8hviq")])
 base_speed = 80.0
 base_spin_time = 8.0
 speed_randomness_range = 1.0
