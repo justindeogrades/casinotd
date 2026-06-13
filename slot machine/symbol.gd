@@ -3,13 +3,17 @@ extends Node2D
 @export var portrait_sprite : Sprite2D
 @export var back_sprite : Sprite2D
 @export var backsprites : Array[Texture2D]
-@export var anim_player : AnimationPlayer
+@export var hitbox : CollisionShape2D
 
 var tower : Tower
 var speed : float
 
 #signal mid_reached
 signal end_reached(s : Node2D)
+
+func _ready() -> void:
+	#Centers the symbols
+	position.x = get_viewport_rect().size.x / 2
 
 func _process(delta: float) -> void:
 	position.y += speed

@@ -6,82 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://bdaeb2xeq2pok" path="res://slot machine/backsprites/rare backsprite.png" id="4_raaf5"]
 [ext_resource type="Texture2D" uid="uid://bkrbuq20m82a3" path="res://slot machine/backsprites/legendary backsprite.png" id="5_xse2q"]
 
-[sub_resource type="Animation" id="Animation_vnigt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_tx7r8"]
-resource_name = "rotate"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-180.0, 720.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.333, 1),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"mid"
-}, {
-"args": [],
-"method": &"end"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fj73n"]
-_data = {
-&"RESET": SubResource("Animation_vnigt"),
-&"rotate": SubResource("Animation_tx7r8")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmcjm"]
-size = Vector2(40, 360)
+size = Vector2(40, 720)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27nhl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_color = Color(1, 0, 0, 1)
 
-[node name="Symbol" type="Node2D" unique_id=733689793 node_paths=PackedStringArray("portrait_sprite", "back_sprite", "anim_player")]
+[node name="Symbol" type="Node2D" unique_id=733689793 node_paths=PackedStringArray("portrait_sprite", "back_sprite", "hitbox")]
 process_mode = 3
-position = Vector2(480, 0)
 script = ExtResource("1_vauly")
 portrait_sprite = NodePath("Portrait")
 back_sprite = NodePath("BackSprite")
 backsprites = Array[Texture2D]([ExtResource("2_mu16g"), ExtResource("3_jn4n7"), ExtResource("4_raaf5"), ExtResource("5_xse2q")])
-anim_player = NodePath("AnimationPlayer")
+hitbox = NodePath("Area2D/CollisionShape2D")
 
 [node name="BackSprite" type="Sprite2D" parent="." unique_id=1540175125]
 
 [node name="Portrait" type="Sprite2D" parent="." unique_id=1040272284]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1215696632]
-libraries/ = SubResource("AnimationLibrary_fj73n")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=402944312]
 process_mode = 3

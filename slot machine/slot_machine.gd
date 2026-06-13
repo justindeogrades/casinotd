@@ -37,12 +37,14 @@ var next_rarity : int = 0
 var symbol : Array[Node2D]
 var selected_symbol : Node2D = null
 
+var viewport_y = 1080
+var symbol_y_offset = 720
+
 signal tower_selected(tower : Tower)
 
-#func _ready() -> void:
-	#speed = randomize_speed(base_speed, speed_randomness_range)
-	#spin_time = randomize_time(base_spin_time, spin_time_randomness_range)
-	#create_symbol()
+func _ready() -> void:
+	#Centers the line
+	$Line.position.y = $Line.get_viewport_rect().size.y / 2
 
 func init(quick_spins_enabled : bool) -> void:
 	#Does nothing because speed is set every frame?
@@ -61,7 +63,8 @@ func init(quick_spins_enabled : bool) -> void:
 	
 	for i in symbol_count:
 		#360 is the symbol height
-		create_symbol(540 - 360 * i)
+		#create_symbol(540 - 360 * i)
+		create_symbol(viewport_y - symbol_y_offset * i)
 	
 	#Ensures it appears in front of symbols
 	$ColorRect.set_z_index(3)
