@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dcxtoinimil64"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_8bjts"]
-[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_jb1t3"]
 [ext_resource type="Texture2D" uid="uid://b42nstf7ktn03" path="res://towers/sprites/portrait/mrmouse portrait coloured (shrunk).png" id="2_vrjws"]
+[ext_resource type="PackedScene" uid="uid://dwn1w7kcii81k" path="res://towers/projectiles/mrmouse_projectile.tscn" id="3_jb1t3"]
 [ext_resource type="Texture2D" uid="uid://ddr0rwkce8362" path="res://towers/sprites/overworld/mrmouse overworld shrunk.png" id="4_jb1t3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
@@ -51,14 +51,14 @@ _data = {
 [node name="MrMouse" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_8bjts")
-attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
+attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 1.0, 4.0])
 tower_name = "Mr. Mouse"
 tower_description = "gaming"
 shot_type = 0
 rarity = 1
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_vrjws")
-projectile_preload = ExtResource("2_jb1t3")
+projectile_preload = ExtResource("3_jb1t3")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")

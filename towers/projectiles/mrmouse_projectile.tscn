@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dwn1w7kcii81k"]
+
+[ext_resource type="Script" uid="uid://di1a6b046iu5g" path="res://towers/projectiles/mrmouse_projectile.gd" id="1_jpv4b"]
+[ext_resource type="Texture2D" uid="uid://bog7qk5gkp2ox" path="res://mobs/sprites/mob.png" id="2_b8acn"]
+
+[sub_resource type="Curve" id="Curve_b8acn"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.99547035), 0.0, 0.0, 0, 0, Vector2(0.5, 1.4901161e-08), -6.1303177, -6.1303177, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+radius = 2.0
+
+[node name="Projectile" type="RigidBody2D" unique_id=1139152246]
+gravity_scale = 0.0
+script = ExtResource("1_jpv4b")
+speed_curve = SubResource("Curve_b8acn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125238622]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_b8acn")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1431316374]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1226380940]
+shape = SubResource("CircleShape2D_qxf0c")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=1142131269]
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
