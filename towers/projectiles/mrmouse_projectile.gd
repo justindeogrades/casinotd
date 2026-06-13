@@ -1,9 +1,11 @@
 extends Projectile
 
 @export var speed_curve : Curve
+@export var line : Line2D
 
 var seconds_to_target : float
 var frames_alive : float = 0
+var tower_pos : Vector2
 
 func _ready() -> void:
 	super()
@@ -12,6 +14,7 @@ func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : flo
 	super(t, d, cm, cl, ps, p, r, dir, pos, dist)
 	seconds_to_target = dist / ps
 	#print_debug("seconds to target: " + str(seconds_to_target))
+	tower_pos = t.global_position
 
 func _physics_process(delta : float) -> void:
 	var seconds_alive = frames_alive / 60
@@ -24,3 +27,8 @@ func _physics_process(delta : float) -> void:
 	
 	if x >= 1:
 		queue_free()
+	
+	#I dont know why point 1 needs to be updated every frame but it does
+	line.points[0] = line.to_local(global_position)
+	line.points[1] = line.to_local(tower_pos)
+	#print_debug(global_position)
