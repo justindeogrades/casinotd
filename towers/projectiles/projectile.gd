@@ -4,7 +4,7 @@ class_name Projectile
 @export var init_angle_offset : float = 0
 
 var tower : Tower
-var damage : float
+var damage : int
 var remaining_pierces : int
 var speed : float
 var direction : Vector2

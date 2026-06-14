@@ -1,27 +1,37 @@
 class_name Mob
 extends Node2D
 
-@export var hp : float
+@export_category("Stats")
+@export var max_hp : int
 ## The path progress made per frame
 @export var speed : float
 @export var min_bounty : int
 @export var max_bounty : int
 @export var is_boss : bool
+@export_category("Components")
+@export var hp_label : Label
 @export var anim_player : AnimationPlayer
 
 var player : Node
 var pathfollow : PathFollow2D
 var bounty : int
 
+@onready var hp = max_hp
+
 func _ready() -> void:
 	pathfollow = get_pathfollow()
 	bounty = roll_bounty()
+	
+	#hp_label.position = Vector2(0, 15)
+	update_hp_label()
 
-func take_damage(damage : float) -> void:
+func take_damage(damage : int) -> void:
 	hp -= damage
 	
 	if hp <= 0:
 		death()
+	
+	update_hp_label()
 	
 	anim_player.play("hitflash")
 
@@ -46,3 +56,12 @@ func leak() -> void:
 
 func roll_bounty() -> int:
 	return randi_range(min_bounty, max_bounty)
+
+func update_hp_label() -> void:
+	hp_label.text = "HP: " + str(hp) + " / " + str(max_hp)
+
+
+func _on_detection_box_mouse_entered() -> void:
+	hp_label.visible = true
+func _on_detection_box_mouse_exited() -> void:
+	hp_label.visible = false
