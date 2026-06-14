@@ -11,9 +11,9 @@ func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : flo
 	var time = (PI * dist) / (2 * speed / 60)
 	theta = PI / time
 	
-	print_debug("dist: " + str(dist))
-	print_debug("time: " + str(time))
-	print_debug("theta: " + str(theta))
+	#print_debug("dist: " + str(dist))
+	#print_debug("time: " + str(time))
+	#print_debug("theta: " + str(theta))
 
 func _physics_process(delta : float) -> void:
 	super(delta)

@@ -16,6 +16,8 @@ var player : Node
 var pathfollow : PathFollow2D
 var bounty : int
 
+signal deleted
+
 @onready var hp = max_hp
 
 func _ready() -> void:
@@ -37,7 +39,8 @@ func take_damage(damage : int) -> void:
 
 func death() -> void:
 	player.update_money(bounty)
-	queue_free()
+	deleted.emit(self)
+	pathfollow.queue_free()
 
 #Make this not fucking stupid later
 func get_pathfollow() -> PathFollow2D:
@@ -52,6 +55,7 @@ func _process(delta: float) -> void:
 #Called when mob reaches the exit, just deletes the pathfollow for now
 func leak() -> void:
 	player.update_lives(-1)
+	deleted.emit(self)
 	pathfollow.queue_free()
 
 func roll_bounty() -> int:
