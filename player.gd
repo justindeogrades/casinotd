@@ -110,11 +110,13 @@ func _on_tower_created(new_tower : Tower) -> void:
 	new_tower.damage_dealt.connect(_on_tower_damage_dealt)
 	
 	placed_towers.append(new_tower)
-	gui_manager.hide_side_panel()
+	#gui_manager.hide_side_panel()
+	side_panel.set_all_buttons_disabled(true)
 	get_tree().paused = true
 
 func _on_tower_placed(new_tower : Tower) -> void:
-	gui_manager.show_side_panel()
+	#gui_manager.show_side_panel()
+	side_panel.set_all_buttons_disabled(false)
 	get_tree().paused = false
 	
 	select_tower(new_tower)

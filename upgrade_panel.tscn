@@ -3,11 +3,9 @@
 [ext_resource type="Script" uid="uid://2gqpjrk4kg3j" path="res://upgrade_panel.gd" id="1_sn7ge"]
 
 [node name="UpgradePanel" type="PanelContainer" unique_id=1179414208 node_paths=PackedStringArray("upgrade_button", "reroll_button")]
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.8
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_sn7ge")
 upgrade_button = [NodePath("VBoxContainer/HBoxContainer/Button"), NodePath("VBoxContainer/HBoxContainer/Button2"), NodePath("VBoxContainer/HBoxContainer/Button3")]
 reroll_button = NodePath("VBoxContainer/RerollButton")

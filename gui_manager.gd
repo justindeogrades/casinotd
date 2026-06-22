@@ -29,10 +29,11 @@ func _ready() -> void:
 	
 	set_z_index(1000)
 
-func hide_side_panel() -> void:
-	side_panel.visible = false
-func show_side_panel() -> void:
-	side_panel.visible = true
+#Redundant
+#func hide_side_panel() -> void:
+	#side_panel.visible = false
+#func show_side_panel() -> void:
+	#side_panel.visible = true
 
 func hide_upgrade_panel() -> void:
 	upgrade_panel.visible = false
@@ -45,8 +46,10 @@ func start_slot_machine(is_reroll : bool) -> void:
 	get_tree().paused = true
 	PhysicsServer2D.set_active(true)
 	
-	hide_side_panel()
-	hide_upgrade_panel()
+	#Switching hiding the side panel for disabling its buttons
+	#hide_side_panel()
+	#hide_upgrade_panel()
+	side_panel.set_all_buttons_disabled(true)
 	
 	slot_machine = slot_machine_preload.instantiate()
 	slot_machine.tower_selected.connect(_on_slot_machine_tower_selected)
@@ -83,7 +86,8 @@ func _on_buy_button_pressed() -> void:
 func _on_upgrade_button_pressed(tower : Tower) -> void:
 	if player.spend_money(tower.upgrade_cost):
 		get_tree().paused = true
-		hide_side_panel()
+		#hide_side_panel()
+		side_panel.set_all_buttons_disabled(true)
 		upgrade_panel.tower_to_upgrade = tower
 		upgrade_panel.refresh_reroll_button(true)
 		upgrade_panel.generate_upgrade_options()
@@ -101,7 +105,8 @@ func _on_upgrade_selected(tower : Tower, att : int, amount : float) -> void:
 	side_panel.tower_data_container.refresh_with_new_tower(tower)
 	
 	get_tree().paused = false
-	show_side_panel()
+	side_panel.set_all_buttons_disabled(false)
+	#show_side_panel()
 	hide_upgrade_panel()
 
 func _on_slot_machine_tower_selected(tower : Tower):

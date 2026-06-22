@@ -21,6 +21,7 @@ func _ready() -> void:
 	for i in waves:
 		i.spawn_reached.connect(_on_wave_spawn_reached)
 		i.wave_ended.connect(_on_wave_ended)
+	
 
 func start_next_wave() -> void:
 	if not wave_active:
