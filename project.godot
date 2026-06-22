@@ -16,13 +16,15 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="casinotd"
 run/main_scene="uid://da42xg3bwce4i"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 

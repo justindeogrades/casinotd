@@ -51,7 +51,7 @@ _data = {
 [node name="Pirate" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_wy3k1")
-attribute = Array[float]([30.0, 100.0, 100.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
+attribute = Array[float]([30.0, 100.0, 100.0, 1000.0, 3.0, 1000.0, 1.0, 0.0])
 tower_name = "Whitebeard"
 tower_description = "The slot machines were a far more exciting treasure hunt"
 shot_type = 0
