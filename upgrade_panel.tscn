@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://d4khifhmpum45"]
 
 [ext_resource type="Script" uid="uid://2gqpjrk4kg3j" path="res://upgrade_panel.gd" id="1_sn7ge"]
+[ext_resource type="PackedScene" uid="uid://ddaemipr5nqv0" path="res://upgrade_button.tscn" id="2_q6t7t"]
 
 [node name="UpgradePanel" type="PanelContainer" unique_id=1179414208 node_paths=PackedStringArray("upgrade_button", "reroll_button")]
 anchors_preset = -1
 anchor_right = 0.8
 anchor_bottom = 1.0
 script = ExtResource("1_sn7ge")
-upgrade_button = [NodePath("VBoxContainer/HBoxContainer/Button"), NodePath("VBoxContainer/HBoxContainer/Button2"), NodePath("VBoxContainer/HBoxContainer/Button3")]
+upgrade_button = [NodePath("VBoxContainer/HBoxContainer/UpgradeButton"), NodePath("VBoxContainer/HBoxContainer/UpgradeButton2"), NodePath("VBoxContainer/HBoxContainer/UpgradeButton3")]
 reroll_button = NodePath("VBoxContainer/RerollButton")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=448866194]
@@ -19,19 +20,16 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 100
+theme_override_constants/separation = 55
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=686865933]
+[node name="UpgradeButton" parent="VBoxContainer/HBoxContainer" unique_id=113980835 instance=ExtResource("2_q6t7t")]
 layout_mode = 2
-text = "+10 Range"
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1567618164]
+[node name="UpgradeButton2" parent="VBoxContainer/HBoxContainer" unique_id=1976349564 instance=ExtResource("2_q6t7t")]
 layout_mode = 2
-text = "+20 AS"
 
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1594715790]
+[node name="UpgradeButton3" parent="VBoxContainer/HBoxContainer" unique_id=815318834 instance=ExtResource("2_q6t7t")]
 layout_mode = 2
-text = "+1 Pierce"
 
 [node name="RerollButton" type="Button" parent="VBoxContainer" unique_id=1611209290]
 layout_mode = 2
