@@ -29,6 +29,7 @@ func _physics_process(delta : float) -> void:
 		queue_free()
 	
 	#I dont know why point 1 needs to be updated every frame but it does
-	line.points[0] = line.to_local(global_position)
-	line.points[1] = line.to_local(tower_pos)
-	#print_debug(global_position)
+	#line.points[0] = line.to_global(global_position)
+	#line.points[1] = line.to_global(tower_pos)
+	line.set_point_position(0, Vector2.ZERO)
+	line.set_point_position(1, tower_pos - global_position)

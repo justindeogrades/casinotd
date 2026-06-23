@@ -10,6 +10,7 @@ extends Node2D
 @export var is_boss : bool
 @export_category("Components")
 @export var hp_label : Label
+@export var sprite : AnimatedSprite2D
 @export var anim_player : AnimationPlayer
 
 var player : Node
@@ -23,6 +24,8 @@ signal deleted
 func _ready() -> void:
 	pathfollow = get_pathfollow()
 	bounty = roll_bounty()
+	
+	sprite.play()
 	
 	#hp_label.position = Vector2(0, 15)
 	update_hp_label()

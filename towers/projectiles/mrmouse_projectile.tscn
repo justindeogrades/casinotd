@@ -31,8 +31,8 @@ shape = SubResource("CircleShape2D_qxf0c")
 [node name="Lifetime" type="Timer" parent="." unique_id=1142131269]
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1657289465]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 2.0
+points = PackedVector2Array(50, 0, 0, 100)
+width = 4.0
 default_color = Color(0, 0, 0, 1)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

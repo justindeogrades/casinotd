@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://js7hjxb680wv" path="res://waves/wave.gd" id="1_kvphc"]
 [ext_resource type="Script" uid="uid://bya4jcpwx7ot5" path="res://waves/wave_segment.gd" id="2_54rml"]
-[ext_resource type="PackedScene" uid="uid://cfbefdvcqdcm1" path="res://mobs/scenes/red_mob.tscn" id="3_gv5ke"]
+[ext_resource type="PackedScene" uid="uid://bk424x52xlkap" path="res://mobs/scenes/red_jogger.tscn" id="3_gv5ke"]
 
 [sub_resource type="Resource" id="Resource_qwg05"]
 resource_local_to_scene = true

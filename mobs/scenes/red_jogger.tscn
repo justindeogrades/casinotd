@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bk424x52xlkap"]
+
+[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/mob.gd" id="1_6657v"]
+[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="2_xlvhl"]
+[ext_resource type="Texture2D" uid="uid://rr5gatqw5rpw" path="res://mobs/sprites/red jogger sheet.png" id="3_6657v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_py72f"]
+resource_local_to_scene = true
+shader = ExtResource("2_xlvhl")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlvhl"]
+atlas = ExtResource("3_6657v")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5m8t"]
+atlas = ExtResource("3_6657v")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yixu"]
+atlas = ExtResource("3_6657v")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cjqg"]
+atlas = ExtResource("3_6657v")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlvhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5m8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yixu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cjqg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07xu4"]
+radius = 30.0
+
+[sub_resource type="Animation" id="Animation_0spg5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_icwh5"]
+resource_name = "hitflash"
+length = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g38m2"]
+_data = {
+&"RESET": SubResource("Animation_0spg5"),
+&"hitflash": SubResource("Animation_icwh5")
+}
+
+[node name="RedJogger" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
+script = ExtResource("1_6657v")
+max_hp = 100
+speed = 100.0
+min_bounty = 1
+max_bounty = 5
+hp_label = NodePath("Label")
+sprite = NodePath("AnimatedSprite2D")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239857319]
+material = SubResource("ShaderMaterial_py72f")
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.78606504
+
+[node name="DetectionBox" type="Area2D" parent="." unique_id=1312023931]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionBox" unique_id=746585878]
+shape = SubResource("CircleShape2D_07xu4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=387229234]
+root_node = NodePath("../AnimatedSprite2D")
+libraries/ = SubResource("AnimationLibrary_g38m2")
+
+[node name="Label" type="Label" parent="." unique_id=1649162742]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_right = 75.0
+offset_bottom = 53.0
+grow_horizontal = 2
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="DetectionBox" to="." method="_on_detection_box_mouse_entered"]
+[connection signal="mouse_exited" from="DetectionBox" to="." method="_on_detection_box_mouse_exited"]
