@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="2_xlvhl"]
 [ext_resource type="Texture2D" uid="uid://rr5gatqw5rpw" path="res://mobs/sprites/red jogger sheet.png" id="3_6657v"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_py72f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6657v"]
 resource_local_to_scene = true
 shader = ExtResource("2_xlvhl")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
@@ -63,6 +63,134 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:self_modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xlvhl"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("..:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"delete_self"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_icwh5"]
 resource_name = "hitflash"
@@ -83,6 +211,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g38m2"]
 _data = {
 &"RESET": SubResource("Animation_0spg5"),
+&"death": SubResource("Animation_xlvhl"),
 &"hitflash": SubResource("Animation_icwh5")
 }
 
@@ -97,7 +226,7 @@ sprite = NodePath("AnimatedSprite2D")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239857319]
-material = SubResource("ShaderMaterial_py72f")
+material = SubResource("ShaderMaterial_6657v")
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 frame_progress = 0.78606504
 

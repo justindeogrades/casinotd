@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxm61b5mbdck6" path="res://main.gd" id="1_272bh"]
 [ext_resource type="Script" uid="uid://ppa8e66lf7vx" path="res://player.gd" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://bpyes76t26lql" path="res://track placeholder.png" id="2_272bh"]
+[ext_resource type="Texture2D" uid="uid://cdag832xqvjc3" path="res://track placeholder alt.png" id="2_272bh"]
 [ext_resource type="Script" uid="uid://ct0pijroh7m73" path="res://damage_indicator_placer.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c7hv7onn8kjg6" path="res://waves/wave_manager.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cxgm5ilq32svq" path="res://towers/tower_placer.tscn" id="3_h2yge"]

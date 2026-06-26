@@ -80,22 +80,26 @@ func _process(delta: float) -> void:
 	#Only executes code on the same frame as taking a shot
 	if not mobs_in_range.is_empty() and cooldown_timer.is_stopped():
 		var target = get_target(target_prio)
-		var aim_direction = (target.global_position - position).normalized()
+		if target != null:
+			#print_debug("target dying = " + str(target.is_dying()))
+			var aim_direction = (target.global_position - position).normalized()
 		
-		shoot(shot_type, aim_direction, target)
+			shoot(shot_type, aim_direction, target)
+			
+			#Angle towards the target
+			#Currently snaps to targets position, maybe tween it later
+			#Don't know why rotating by pi/2 is necessary but don't change it
+			look_at(target.global_position)
+			#rotate(PI / 2)
 		
-		#Angle towards the target
-		#Currently snaps to targets position, maybe tween it later
-		#Don't know why rotating by pi/2 is necessary but don't change it
-		look_at(target.global_position)
-		#rotate(PI / 2)
 		
 		
-		
-		anim_player.stop()
-		anim_player.play("shoot")
-		
-		cooldown_timer.start(cooldown_seconds)
+			anim_player.stop()
+			anim_player.play("shoot")
+			
+			cooldown_timer.start(cooldown_seconds)
+		else:
+			print_debug("null target!")
 	else:
 		pass
 
@@ -215,22 +219,37 @@ func get_first_mob() -> Mob:
 	if mobs_in_range.is_empty():
 		return null
 	else:
-		var first_mob = mobs_in_range[0]
+		var first_mob = get_mob_that_isnt_dying()
 		
+		if first_mob == null:
+			return null
+		#var i = 0
+		
+		#Make sure dying mob isnt the only possible target
+		#while first_mob.is_dying():
+			#first_mob = mobs_in_range[i]
+			#i += 1
+			#
+			#if i >= mobs_in_range.size():
+				#return null
+		#
 		for mob_i in mobs_in_range:
-			if mob_i.pathfollow.get_progress() > first_mob.pathfollow.get_progress():
+			if mob_i.pathfollow.get_progress() > first_mob.pathfollow.get_progress() and not mob_i.is_dying():
 				first_mob = mob_i
-		
+	
 		return first_mob
 
 func get_last_mob() -> Mob:
 	if mobs_in_range.is_empty():
 		return null
 	else:
-		var last_mob = mobs_in_range[0]
+		var last_mob = get_mob_that_isnt_dying()
+		
+		if last_mob == null:
+			return null
 		
 		for mob_i in mobs_in_range:
-			if mob_i.pathfollow.get_progress() < last_mob.pathfollow.get_progress():
+			if mob_i.pathfollow.get_progress() < last_mob.pathfollow.get_progress() and not mob_i.is_dying():
 				last_mob = mob_i
 		
 		return last_mob
@@ -239,13 +258,28 @@ func get_closest_mob() -> Mob:
 	if mobs_in_range.is_empty():
 		return null
 	else:
-		var close_mob = mobs_in_range[0]
+		var close_mob = get_mob_that_isnt_dying()
+		
+		if close_mob == null:
+			return null
 		
 		for mob_i in mobs_in_range:
-			if global_position.distance_to(close_mob.global_position) > global_position.distance_to(mob_i.global_position):
+			if global_position.distance_to(close_mob.global_position) > global_position.distance_to(mob_i.global_position) and not mob_i.is_dying():
 				close_mob = mob_i
 		
 		return close_mob
+
+func get_mob_that_isnt_dying() -> Mob:
+	var i = 0
+	var mob_to_return = mobs_in_range[0]
+	
+	while mob_to_return.is_dying():
+		mob_to_return = mobs_in_range[i]
+		i += 1
+		
+		if i >= mobs_in_range.size():
+			return null
+	return mob_to_return
 
 func get_target_priority() -> int:
 	return target_prio

@@ -17,6 +17,8 @@ var player : Node
 var pathfollow : PathFollow2D
 var bounty : int
 
+var dying : bool = false
+
 signal deleted
 
 @onready var hp = max_hp
@@ -35,13 +37,20 @@ func take_damage(damage : int) -> void:
 	
 	if hp <= 0:
 		death()
+	else:
+		anim_player.play("hitflash")
 	
 	update_hp_label()
-	
-	anim_player.play("hitflash")
 
 func death() -> void:
+	dying = true
+	speed = 0
+	
 	player.update_money(bounty)
+	anim_player.play("death")
+
+func delete_self() -> void:
+	#Deleted signal just allows the wave to end
 	deleted.emit(self)
 	pathfollow.queue_free()
 
@@ -65,8 +74,15 @@ func roll_bounty() -> int:
 	return randi_range(min_bounty, max_bounty)
 
 func update_hp_label() -> void:
-	hp_label.text = "HP: " + str(hp) + " / " + str(max_hp)
+	var hp_to_display = hp
+	
+	if hp_to_display < 0:
+		hp_to_display = 0
+	
+	hp_label.text = "HP: " + str(hp_to_display) + " / " + str(max_hp)
 
+func is_dying() -> bool:
+	return dying
 
 func _on_detection_box_mouse_entered() -> void:
 	hp_label.visible = true
