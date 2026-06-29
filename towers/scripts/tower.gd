@@ -90,7 +90,7 @@ func _process(delta: float) -> void:
 			#Currently snaps to targets position, maybe tween it later
 			#Don't know why rotating by pi/2 is necessary but don't change it
 			look_at(target.global_position)
-			#rotate(PI / 2)
+			rotate(PI / 2)
 		
 		
 		
