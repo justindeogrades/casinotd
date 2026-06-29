@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxm61b5mbdck6" path="res://main.gd" id="1_272bh"]
 [ext_resource type="Script" uid="uid://ppa8e66lf7vx" path="res://player.gd" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://cdag832xqvjc3" path="res://track placeholder alt.png" id="2_272bh"]
+[ext_resource type="Texture2D" uid="uid://bpyes76t26lql" path="res://track placeholder.png" id="2_272bh"]
 [ext_resource type="Script" uid="uid://ct0pijroh7m73" path="res://damage_indicator_placer.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c7hv7onn8kjg6" path="res://waves/wave_manager.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cxgm5ilq32svq" path="res://towers/tower_placer.tscn" id="3_h2yge"]
@@ -10,9 +10,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -31, 282, 0, 0, 0, 0, 1162, 290, 0, 0, 0, 0, 1166, 618, 0, 0, 0, 0, 378, 610, 0, 0, 0, 0, 372, 468, 0, 0, 0, 0, 203, 475, 0, 0, 0, 0, 199, 750, 0, 0, 0, 0, 1324, 756, 0, 0, 0, 0, 1324, 607, 0, 0, 0, 0, 1554, 603)
+"points": PackedVector2Array(0, 0, 0, 0, -59, 355, 0, 0, 0, 0, 517, 357, 0, 0, 0, 0, 519, 191, 0, 0, 0, 0, 682, 191, 0, 0, 0, 0, 680, 354, 0, 0, 0, 0, 1082, 354, 0, 0, 0, 0, 1077, 673, 0, 0, 0, 0, 839, 678, 0, 0, 0, 0, 837, 760, 0, 0, 0, 0, 602, 761, 0, 0, 0, 0, 598, 675, 0, 0, 0, 0, 444, 673, 0, 0, 0, 0, 437, 747, 0, 0, 0, 0, 276, 751, 0, 0, 0, 0, 274, 510, 0, 0, 0, 0, 1587, 505)
 }
-point_count = 10
+point_count = 16
 
 [node name="Main" type="Node2D" unique_id=1374250404]
 script = ExtResource("1_272bh")
@@ -41,7 +41,7 @@ track_polygon = NodePath("TrackPolygon")
 
 [node name="TrackPolygon" type="Polygon2D" parent="Player/TowerPlacer" unique_id=888714068]
 visible = false
-polygon = PackedVector2Array(1, 260, 1200, 260, 1197, 642, 342, 646, 344, 508, 236, 505, 234, 722, 1293, 723, 1293, 581, 1537, 582, 1537, 645, 1356, 644, 1356, 788, 170, 785, 171, 444, 410, 442, 410, 577, 1133, 579, 1132, 324, 1, 324)
+polygon = PackedVector2Array(0, 320, 480, 320, 480, 160, 721, 160, 721, 320, 1120, 320, 1121, 480, 1536, 480, 1536, 560, 1120, 560, 1120, 720, 880, 720, 880, 800, 560, 800, 560, 720, 480, 720, 480, 800, 240, 800, 240, 480, 1039, 480, 1039, 560, 320, 560, 320, 720, 400, 720, 400, 640, 640, 640, 640, 720, 800, 721, 800, 640, 1040, 640, 1040, 560, 1040, 480, 1040, 400, 640, 400, 640, 240, 560, 240, 560, 400, 0, 400)
 
 [node name="DamageIndicatorPlacer" type="Node" parent="Player" unique_id=1470036407]
 script = ExtResource("3_7mycd")
