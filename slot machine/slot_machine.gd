@@ -67,7 +67,7 @@ func init(quick_spins_enabled : bool) -> void:
 		create_symbol(viewport_y - symbol_y_offset * i)
 	
 	#Ensures it appears in front of symbols
-	$ColorRect.set_z_index(3)
+	$TextureRect.set_z_index(3)
 
 
 

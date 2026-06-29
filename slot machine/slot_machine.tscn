@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvpoc35o6ng0s" path="res://towers/scenes/pirate.tscn" id="4_m4ibu"]
 [ext_resource type="PackedScene" uid="uid://cg5yxoucge22i" path="res://towers/scenes/specimen.tscn" id="5_ayicq"]
 [ext_resource type="PackedScene" uid="uid://bo52qpwlltbry" path="res://towers/scenes/vatman.tscn" id="6_8hviq"]
+[ext_resource type="Texture2D" uid="uid://drpvadd0ol5fh" path="res://slot machine/slot machine.png" id="7_wn12k"]
 
 [sub_resource type="Curve" id="Curve_agdmm"]
 _data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.099999994, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(0.95, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -27,6 +28,14 @@ spin_time_randomness_range = 0.5
 symbol_count = 60
 speed_curve = SubResource("Curve_agdmm")
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1860699894]
+anchors_preset = -1
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
 [node name="SymbolParent" type="Node" parent="." unique_id=1325641683]
 
 [node name="Line" type="Area2D" parent="." unique_id=1419603807]
@@ -38,14 +47,9 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line" unique_id=214305740]
 shape = SubResource("RectangleShape2D_agdmm")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1378782599]
-custom_minimum_size = Vector2(0, 1)
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=111770196]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_wn12k")
 
 [connection signal="area_entered" from="Line" to="." method="_on_line_area_entered"]

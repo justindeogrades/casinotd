@@ -11,6 +11,9 @@ bg_color = Color(0, 0, 0, 0.11764706)
 [sub_resource type="Theme" id="Theme_kcg5i"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_5ahax")
 
+[sub_resource type="LabelSettings" id="LabelSettings_6657v"]
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_kcg5i"]
 font_size = 12
 
@@ -36,6 +39,7 @@ upgrade_button = NodePath("UpgradeButton")
 [node name="NameAndLevel" type="Label" parent="." unique_id=1210408779]
 layout_mode = 2
 text = "Placeholder"
+label_settings = SubResource("LabelSettings_6657v")
 
 [node name="TotalDamage" type="Label" parent="." unique_id=676793867]
 layout_mode = 2

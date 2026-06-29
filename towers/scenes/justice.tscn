@@ -50,9 +50,9 @@ _data = {
 [node name="Justice" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_erqdl")
-attribute = Array[float]([15.0, 100.0, 150.0, 15.0, 4.0, 1000.0, 6.0, 0.0])
-tower_name = "Green Tower"
-tower_description = "This tower sucks"
+attribute = Array[float]([20.0, 50.0, 150.0, 15.0, 4.0, 1000.0, 6.0, 0.0])
+tower_name = "Justice"
+tower_description = "He is the law"
 shot_type = 0
 sprite = NodePath("Sprite2D")
 projectile_preload = ExtResource("2_m1l8l")
