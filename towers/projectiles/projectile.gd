@@ -59,11 +59,13 @@ func _on_hitbox_area_entered(area : Area2D) -> void:
 	#Counts overkill damage
 	if target.hp > 0:
 		damage_dealt.emit(damage, crit_level, global_position)
+		
+		target.take_damage(damage)
+	
+		if remaining_pierces <= 0:
+			queue_free()
+		remaining_pierces -= 1
 	else:
 		push_error("Dealing damage to target with hp = " + str(target.hp))
 	
-	target.take_damage(damage)
 	
-	if remaining_pierces <= 0:
-		queue_free()
-	remaining_pierces -= 1
