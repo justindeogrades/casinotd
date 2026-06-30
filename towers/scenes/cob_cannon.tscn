@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://breqs2w5ar3pk"]
+[gd_scene format=3 uid="uid://cdl8t1171gsij"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_8c8dx"]
-[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_k273i"]
-[ext_resource type="Texture2D" uid="uid://b7dmmfjpwlbu3" path="res://towers/sprites/overworld/debt wizard overworld.png" id="3_8c8dx"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_hk0bd"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_btwuv"]
+[ext_resource type="Texture2D" uid="uid://byauj3cccwuh" path="res://towers/sprites/overworld/cob cannon overworld.png" id="3_hk0bd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -47,14 +47,15 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="DebtWizard" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="CobCannon" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_8c8dx")
-attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 1.0, 0.0])
-tower_name = "Debt Wizard"
-tower_description = "This tower sucks"
+script = ExtResource("1_hk0bd")
+attribute = Array[float]([315.0, 25.0, 300.0, 5.0, 1.5, 300.0, 1.0, 0.0])
+tower_name = "Cob Cannon"
+tower_description = "Literally just the cob cannon from PvZ. Come fuck with me Mohammed bin Salman"
+shot_type = 0
 sprite = NodePath("Sprite2D")
-projectile_preload = ExtResource("2_k273i")
+projectile_preload = ExtResource("2_btwuv")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -63,7 +64,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_8c8dx")
+texture = ExtResource("3_hk0bd")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

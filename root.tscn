@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b55d7sd4m6nvu"]
+
+[ext_resource type="Script" uid="uid://bxm61b5mbdck6" path="res://root.gd" id="1_vyht1"]
+[ext_resource type="PackedScene" uid="uid://c33p1etseljd8" path="res://main_menu.tscn" id="2_pyidc"]
+[ext_resource type="PackedScene" uid="uid://da42xg3bwce4i" path="res://map.tscn" id="3_vvh5c"]
+
+[node name="Root" type="Node" unique_id=281001711]
+script = ExtResource("1_vyht1")
+main_menu = ExtResource("2_pyidc")
+map = ExtResource("3_vvh5c")

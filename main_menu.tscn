@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c33p1etseljd8"]
+
+[ext_resource type="Script" uid="uid://dnolrhksnqfqg" path="res://main_menu.gd" id="1_06t4h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 64
+
+[node name="MainMenu" type="PanelContainer" unique_id=383456029 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+play_button = NodePath("VBoxContainer/Button")
+settings_button = NodePath("VBoxContainer/Button2")
+credits_button = NodePath("VBoxContainer/Button3")
+quit_button = NodePath("VBoxContainer/Button4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=799274812]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=543394127]
+layout_mode = 2
+text = "Triplecrit Casino"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=892382361]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=236772801]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1716488311]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=977555569]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"

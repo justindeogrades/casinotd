@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="casinotd"
-run/main_scene="uid://da42xg3bwce4i"
+run/main_scene="uid://b55d7sd4m6nvu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
