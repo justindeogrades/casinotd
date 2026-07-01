@@ -27,13 +27,19 @@ func init_map() -> void:
 	
 	map_instance = map.instantiate()
 	add_child(map_instance)
+	
+	#map_instance/$Player.game_over.connect(_on_game_over)
+	map_instance.get_node("Player").game_over.connect(_on_game_over)
 
 func remove_all_children() -> void:
 	for i in get_children():
-		remove_child(i)
+		i.queue_free()
 
 func _on_play_button_pressed() -> void:
 	init_map()
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_game_over() -> void:
+	init_main_menu()

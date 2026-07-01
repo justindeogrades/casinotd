@@ -218,7 +218,7 @@ _data = {
 [node name="RedJogger" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
 script = ExtResource("1_6657v")
 max_hp = 100
-speed = 100.0
+speed = 2000.0
 min_bounty = 1
 max_bounty = 5
 hp_label = NodePath("Label")

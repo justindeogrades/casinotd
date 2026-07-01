@@ -4,7 +4,7 @@ extends Node
 @export var gui_manager : Control
 @export var damage_indicator_placer : Node
 @export_category("Stats")
-@export var max_lives : int = 100
+@export var max_lives : int = 1
 @export_category("Actions")
 @export var tower_placer : Node
 @export var wave_manager : Node
@@ -21,6 +21,8 @@ var placed_towers : Array[Tower]
 
 var selected_tower : Tower = null
 
+signal game_over
+
 func _ready() -> void:
 	side_panel = gui_manager.get_child(0)
 	tower_data_container = side_panel.tower_data_container
@@ -28,6 +30,7 @@ func _ready() -> void:
 	
 	gui_manager.tower_selected.connect(_on_gui_manager_tower_selected)
 	gui_manager.next_wave_pressed.connect(_on_next_wave_pressed)
+	gui_manager.game_over_confirmed.connect(_on_game_over_confirmed)
 	
 	refresh_money_label()
 	refresh_lives_label()
@@ -70,6 +73,9 @@ func refresh_money_label() -> void:
 func update_lives(amount : int) -> void:
 	lives += amount
 	refresh_lives_label()
+	
+	if lives <= 0:
+		gui_manager.init_game_over()
 
 func refresh_lives_label() -> void:
 	side_panel.lives_label.text = "Lives: " + str(lives)
@@ -126,6 +132,10 @@ func _on_tower_damage_dealt(amount : int, crit_level : int, pos : Vector2) -> vo
 
 func _on_next_wave_pressed() -> void:
 	wave_manager.start_next_wave()
+
+func _on_game_over_confirmed() -> void:
+	get_tree().paused = false
+	game_over.emit()
 
 func is_tower_mouseovered(tower : Tower) -> bool:
 	if tower != null:

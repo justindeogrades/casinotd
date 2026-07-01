@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://drdnfmqh4cgyc"]
+
+[ext_resource type="Script" uid="uid://tavrr3vmc0d" path="res://game_over_panel.gd" id="1_gj7sw"]
+
+[node name="GameOverPanel" type="PanelContainer" unique_id=1062773904 node_paths=PackedStringArray("confirm_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -11.5
+offset_right = 83.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gj7sw")
+confirm_button = NodePath("VBoxContainer/ConfirmButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1720083171]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer" unique_id=368627776]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Game over (you suck)"
+horizontal_alignment = 1
+
+[node name="WavesLabel" type="Label" parent="VBoxContainer" unique_id=1507934032]
+layout_mode = 2
+text = "Waves survived:"
+
+[node name="DamageLabel" type="Label" parent="VBoxContainer" unique_id=1725326937]
+layout_mode = 2
+text = "Total damage dealt:"
+
+[node name="MoneyLabel" type="Label" parent="VBoxContainer" unique_id=689801379]
+layout_mode = 2
+text = "Total money earned:"
+
+[node name="ConfirmButton" type="Button" parent="VBoxContainer" unique_id=567200367]
+layout_mode = 2
+text = "Confirm"

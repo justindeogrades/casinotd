@@ -3,18 +3,22 @@ extends Container
 @export var side_panel : PanelContainer
 @export var upgrade_panel : PanelContainer
 
+@export var game_over_panel_resource : Resource
+
 var slot_machine_preload = preload("res://slot machine/slot_machine.tscn")
 var tower_selected_panel_preload = preload("res://tower_selected_panel.tscn")
 
 var player : Node
 var slot_machine : Node
 var tower_selected_panel : PanelContainer
+var game_over_panel : PanelContainer
 
 var reroll_cost_mult : float = 0.25
 var quick_spins_enabled : bool = false
 
 signal tower_selected(tower : Tower)
 signal next_wave_pressed
+signal game_over_confirmed
 
 func _ready() -> void:
 	player = get_parent()
@@ -40,6 +44,13 @@ func hide_upgrade_panel() -> void:
 func show_upgrade_panel() -> void:
 	
 	upgrade_panel.visible = true
+
+func init_game_over() -> void:
+	get_tree().paused = true
+	
+	game_over_panel = game_over_panel_resource.instantiate()
+	game_over_panel.confirm_button.pressed.connect(_on_game_over_confirm_button_pressed)
+	add_child(game_over_panel)
 
 func start_slot_machine(is_reroll : bool) -> void:
 	#Re-enable 2D physics while the game is paused or Area2D will not detect collision
@@ -129,3 +140,6 @@ func _on_tower_selected_panel_rerolled(reroll_cost : float) -> void:
 
 func _on_next_wave_button_pressed() -> void:
 	next_wave_pressed.emit()
+
+func _on_game_over_confirm_button_pressed() -> void:
+	game_over_confirmed.emit()
