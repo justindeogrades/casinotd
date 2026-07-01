@@ -94,6 +94,9 @@ func _on_quick_spins_box_pressed(box : CheckBox) -> void:
 func _on_buy_button_pressed() -> void:
 	if player.spend_money(player.tower_cost):
 		start_slot_machine(false)
+	#Get rid of this later lmao
+	else:
+		side_panel.buy_button.text = "try again when u get some money, buddy"
 
 func _on_upgrade_button_pressed(tower : Tower) -> void:
 	if player.spend_money(tower.upgrade_cost):

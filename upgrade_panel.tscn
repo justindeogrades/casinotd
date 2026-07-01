@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://2gqpjrk4kg3j" path="res://upgrade_panel.gd" id="1_sn7ge"]
 [ext_resource type="PackedScene" uid="uid://ddaemipr5nqv0" path="res://upgrade_button.tscn" id="2_q6t7t"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_tnm5o"]
+
+[sub_resource type="Theme" id="Theme_61ynj"]
+default_base_scale = 1.0
+default_font = ExtResource("3_tnm5o")
+default_font_size = 32
 
 [node name="UpgradePanel" type="PanelContainer" unique_id=1179414208 node_paths=PackedStringArray("upgrade_button", "reroll_button")]
 anchors_preset = -1
@@ -24,12 +30,15 @@ theme_override_constants/separation = 55
 
 [node name="UpgradeButton" parent="VBoxContainer/HBoxContainer" unique_id=113980835 instance=ExtResource("2_q6t7t")]
 layout_mode = 2
+theme = SubResource("Theme_61ynj")
 
 [node name="UpgradeButton2" parent="VBoxContainer/HBoxContainer" unique_id=1976349564 instance=ExtResource("2_q6t7t")]
 layout_mode = 2
+theme = SubResource("Theme_61ynj")
 
 [node name="UpgradeButton3" parent="VBoxContainer/HBoxContainer" unique_id=815318834 instance=ExtResource("2_q6t7t")]
 layout_mode = 2
+theme = SubResource("Theme_61ynj")
 
 [node name="RerollButton" type="Button" parent="VBoxContainer" unique_id=1611209290]
 layout_mode = 2

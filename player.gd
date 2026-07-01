@@ -12,7 +12,7 @@ extends Node
 var side_panel : PanelContainer
 var tower_data_container : VBoxContainer
 
-var money : int = 500
+var money : int = 200
 var lives : int = max_lives
 
 var tower_cost : int = 20
@@ -53,7 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/debt_wizard.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/specimen.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/justice.tscn").instantiate( ))
 

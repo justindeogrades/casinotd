@@ -1,6 +1,7 @@
 extends Control
 
-@export var name_and_level_label : Label
+@export var level_label : Label
+@export var name_label : Label
 @export var total_damage_label : Label
 @export var priority_label : Label
 @export var attribute_names_label : Label
@@ -33,7 +34,8 @@ func refresh_with_new_tower(new_tower : Tower) -> void:
 	tower = new_tower
 	#tower.set_range_indicator_visibility(true)
 	
-	name_and_level_label.text = "Level " + str(tower.level) + " " + str(tower.tower_name)
+	level_label.text = "Level " + str(tower.level)
+	name_label.text = tower.tower_name
 	total_damage_label.text = str(tower.total_damage_dealt) + " damage dealt"
 	
 	var format_attribute_names_string = "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccdrtrhyrswhl"]
 
 [ext_resource type="Script" uid="uid://6owfyw5x5cm6" path="res://tower_data_container.gd" id="1_07o6m"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="2_61ynj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ahax"]
 content_margin_left = 10.0
@@ -12,7 +13,10 @@ bg_color = Color(0, 0, 0, 0.11764706)
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_5ahax")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6657v"]
+font = ExtResource("2_61ynj")
 font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kcg5i"]
 font_size = 12
@@ -20,14 +24,15 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_rfdo1"]
 font_size = 12
 
-[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("name_and_level_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "prio_forward_button", "prio_back_button", "upgrade_button")]
+[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("level_label", "name_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "prio_forward_button", "prio_back_button", "upgrade_button")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 95.0
 grow_vertical = 2
 theme = SubResource("Theme_kcg5i")
 script = ExtResource("1_07o6m")
-name_and_level_label = NodePath("NameAndLevel")
+level_label = NodePath("Level")
+name_label = NodePath("Name")
 total_damage_label = NodePath("TotalDamage")
 priority_label = NodePath("TargetPrioContainer/PriorityLabel")
 attribute_names_label = NodePath("HBoxContainer/AttributeNames")
@@ -36,13 +41,19 @@ prio_forward_button = NodePath("TargetPrioContainer/PrioForward")
 prio_back_button = NodePath("TargetPrioContainer/PrioBack")
 upgrade_button = NodePath("UpgradeButton")
 
-[node name="NameAndLevel" type="Label" parent="." unique_id=1210408779]
+[node name="Level" type="Label" parent="." unique_id=379655162]
+layout_mode = 2
+text = "Placeholder"
+label_settings = SubResource("LabelSettings_6657v")
+
+[node name="Name" type="Label" parent="." unique_id=1210408779]
 layout_mode = 2
 text = "Placeholder"
 label_settings = SubResource("LabelSettings_6657v")
 
 [node name="TotalDamage" type="Label" parent="." unique_id=676793867]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61ynj")
 text = "Placeholder"
 
 [node name="TargetPrioContainer" type="HBoxContainer" parent="." unique_id=1597427011]
@@ -55,6 +66,7 @@ text = "<"
 
 [node name="PriorityLabel" type="Label" parent="TargetPrioContainer" unique_id=745358909]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61ynj")
 text = "Priority"
 
 [node name="PrioForward" type="Button" parent="TargetPrioContainer" unique_id=2100885513]
@@ -82,6 +94,7 @@ label_settings = SubResource("LabelSettings_rfdo1")
 
 [node name="UpgradeButton" type="Button" parent="." unique_id=1128259857]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61ynj")
 text = "Placeholder"
 
 [connection signal="pressed" from="TargetPrioContainer/PrioBack" to="." method="_on_prio_back_pressed"]
