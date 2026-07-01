@@ -47,6 +47,7 @@ func show_upgrade_panel() -> void:
 
 func init_game_over() -> void:
 	get_tree().paused = true
+	side_panel.set_all_buttons_disabled(true)
 	
 	game_over_panel = game_over_panel_resource.instantiate()
 	game_over_panel.confirm_button.pressed.connect(_on_game_over_confirm_button_pressed)

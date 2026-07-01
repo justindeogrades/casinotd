@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ccdrtrhyrswhl" path="res://tower_data_container.tscn" id="1_3e5kq"]
 [ext_resource type="Script" uid="uid://b5i7806biqy3k" path="res://side_panel.gd" id="1_4mnfi"]
+[ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_3aion"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivcjy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="SidePanel" type="PanelContainer" unique_id=841411776 node_paths=PackedStringArray("money_label", "lives_label", "tower_data_container", "quick_spins_box", "buy_button", "next_wave_button")]
 anchors_preset = -1
@@ -10,46 +14,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ivcjy")
 script = ExtResource("1_4mnfi")
-money_label = NodePath("VBoxContainer/VBoxContainer/MoneyLabel")
-lives_label = NodePath("VBoxContainer/VBoxContainer/LivesLabel")
-tower_data_container = NodePath("VBoxContainer/TowerDataPanel")
-quick_spins_box = NodePath("VBoxContainer/VBoxContainer2/QuickSpins")
-buy_button = NodePath("VBoxContainer/VBoxContainer2/BuyButton")
-next_wave_button = NodePath("VBoxContainer/NextWaveButton")
+money_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/MoneyLabel")
+lives_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/LivesLabel")
+tower_data_container = NodePath("MarginContainer/VBoxContainer/TowerDataPanel")
+quick_spins_box = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/QuickSpins")
+buy_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/BuyButton")
+next_wave_button = NodePath("MarginContainer/VBoxContainer/NextWaveButton")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1023522280]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=229654833]
+layout_mode = 2
+texture = ExtResource("2_3aion")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1018796889]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1023522280]
 layout_mode = 2
 theme_override_constants/separation = 35
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1760351751]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1760351751]
 layout_mode = 2
 
-[node name="MoneyLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1158617949]
+[node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1158617949]
 layout_mode = 2
 text = "Money"
 
-[node name="LivesLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1194718420]
+[node name="LivesLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1194718420]
 layout_mode = 2
 text = "Lives"
 
-[node name="TowerDataPanel" parent="VBoxContainer" unique_id=1955728977 instance=ExtResource("1_3e5kq")]
+[node name="TowerDataPanel" parent="MarginContainer/VBoxContainer" unique_id=1955728977 instance=ExtResource("1_3e5kq")]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=725296658]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=725296658]
 layout_mode = 2
 
-[node name="QuickSpins" type="CheckBox" parent="VBoxContainer/VBoxContainer2" unique_id=764066361]
+[node name="QuickSpins" type="CheckBox" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=764066361]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Quick spins"
 
-[node name="BuyButton" type="Button" parent="VBoxContainer/VBoxContainer2" unique_id=678389016]
+[node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=678389016]
 layout_mode = 2
 text = "Buy tower"
 
-[node name="NextWaveButton" type="Button" parent="VBoxContainer" unique_id=2064955684]
+[node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2064955684]
 layout_mode = 2
 text = "Next Wave"
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer2/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/BuyButton" to="." method="_on_buy_button_pressed"]

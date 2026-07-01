@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://drdnfmqh4cgyc"]
 
 [ext_resource type="Script" uid="uid://tavrr3vmc0d" path="res://game_over_panel.gd" id="1_gj7sw"]
+[ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_vkad1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aion"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="GameOverPanel" type="PanelContainer" unique_id=1062773904 node_paths=PackedStringArray("confirm_button")]
 anchors_preset = 8
@@ -14,30 +18,46 @@ offset_right = 83.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3aion")
 script = ExtResource("1_gj7sw")
-confirm_button = NodePath("VBoxContainer/ConfirmButton")
+confirm_button = NodePath("MarginContainer/VBoxContainer/ConfirmButton")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1720083171]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=809813411]
+layout_mode = 2
+texture = ExtResource("2_vkad1")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=71553772]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1720083171]
 layout_mode = 2
 
-[node name="GameOverLabel" type="Label" parent="VBoxContainer" unique_id=368627776]
+[node name="GameOverLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=368627776]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Game over (you suck)"
 horizontal_alignment = 1
 
-[node name="WavesLabel" type="Label" parent="VBoxContainer" unique_id=1507934032]
+[node name="WavesLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1507934032]
 layout_mode = 2
 text = "Waves survived:"
 
-[node name="DamageLabel" type="Label" parent="VBoxContainer" unique_id=1725326937]
+[node name="DamageLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1725326937]
 layout_mode = 2
 text = "Total damage dealt:"
 
-[node name="MoneyLabel" type="Label" parent="VBoxContainer" unique_id=689801379]
+[node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=689801379]
 layout_mode = 2
 text = "Total money earned:"
 
-[node name="ConfirmButton" type="Button" parent="VBoxContainer" unique_id=567200367]
+[node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=567200367]
 layout_mode = 2
 text = "Confirm"
