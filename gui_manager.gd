@@ -140,7 +140,7 @@ func _on_tower_selected_panel_accepted(tower : Tower) -> void:
 func _on_tower_selected_panel_rerolled(reroll_cost : float) -> void:
 	if player.spend_money(int(reroll_cost)):
 		start_slot_machine(true)
-	tower_selected_panel.queue_free()
+		tower_selected_panel.queue_free()
 
 func _on_next_wave_button_pressed() -> void:
 	next_wave_pressed.emit()

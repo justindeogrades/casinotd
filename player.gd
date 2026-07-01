@@ -12,7 +12,7 @@ extends Node
 var side_panel : PanelContainer
 var tower_data_container : VBoxContainer
 
-var money : int = 200
+var money : int = 20
 var lives : int = max_lives
 
 var tower_cost : int = 20
