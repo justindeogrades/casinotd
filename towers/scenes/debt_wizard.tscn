@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_8c8dx"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_k273i"]
 [ext_resource type="Texture2D" uid="uid://b7dmmfjpwlbu3" path="res://towers/sprites/overworld/debt wizard overworld.png" id="3_8c8dx"]
+[ext_resource type="Texture2D" uid="uid://tegg1sdpyfdk" path="res://towers/projectiles/sprites/debt wizard projectile.png" id="3_k273i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -55,6 +56,7 @@ tower_name = "Debt Wizard"
 tower_description = "This tower sucks"
 sprite = NodePath("Sprite2D")
 projectile_preload = ExtResource("2_k273i")
+projectile_texture = ExtResource("3_k273i")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")

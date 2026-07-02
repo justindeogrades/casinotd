@@ -52,7 +52,7 @@ _data = {
 [node name="Rock" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_d5ojh")
-attribute = Array[float]([78.0, 50.0, 150.0, 8.0, 2.8, 400.0, 5.0, 0.0])
+attribute = Array[float]([78.0, 50.0, 200.0, 8.0, 2.8, 400.0, 5.0, 0.0])
 tower_name = "1.2 Ton Rock"
 tower_description = "Getting dangerously close to my lateral raise"
 shot_type = 2
