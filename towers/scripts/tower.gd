@@ -19,7 +19,8 @@ extends Node2D
 @export var tower_name : String = "Tower"
 @export var tower_description : String = "A tower."
 @export_enum("Volley", "Fan", "Surround") var shot_type : int = G.type.FAN
-#Angle between projectiles
+#Radians per second
+@export var projectile_rotation_speed : float = 0
 @export var angle_between_projectiles : float = PI / 12
 @export_enum("Common", "Uncommon", "Rare", "Legendary") var rarity : int = G.rarity.COMMON
 @export_category("Children")
@@ -304,6 +305,9 @@ func get_sprite_texture() -> Texture2D:
 
 func get_projectile_texture() -> Texture2D:
 	return projectile_texture
+
+func get_projectile_rotation_speed() -> float:
+	return projectile_rotation_speed
 
 func set_target_priority(prio : int) -> void:
 	target_prio = prio
