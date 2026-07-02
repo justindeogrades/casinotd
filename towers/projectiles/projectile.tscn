@@ -1,20 +1,15 @@
 [gd_scene format=3 uid="uid://djxqhi15t6mar"]
 
 [ext_resource type="Script" uid="uid://xm0cetlar3mu" path="res://towers/projectiles/projectile.gd" id="1_qxf0c"]
-[ext_resource type="Texture2D" uid="uid://bog7qk5gkp2ox" path="res://mobs/sprites/mob.png" id="2_dgwo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
 radius = 2.0
 
-[node name="Projectile" type="RigidBody2D" unique_id=1139152246 node_paths=PackedStringArray("life_timer")]
+[node name="Projectile" type="RigidBody2D" unique_id=1139152246]
 gravity_scale = 0.0
 script = ExtResource("1_qxf0c")
-life_timer = NodePath("Lifetime")
-life_seconds = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125238622]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_dgwo2")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1431316374]
 collision_mask = 2

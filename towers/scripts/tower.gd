@@ -26,6 +26,7 @@ extends Node2D
 @export var sprite : Sprite2D
 @export var portrait : Texture2D
 @export var projectile_preload : Resource
+@export var projectile_texture : Texture2D
 @export var range_area : Area2D
 @export var range_collision : CollisionShape2D
 @export var cooldown_timer : Timer
@@ -89,8 +90,8 @@ func _process(delta: float) -> void:
 			#Angle towards the target
 			#Currently snaps to targets position, maybe tween it later
 			#Don't know why rotating by pi/2 is necessary but don't change it
-			look_at(target.global_position)
-			rotate(PI / 2)
+			sprite.look_at(target.global_position)
+			sprite.rotate(PI / 2)
 		
 		
 		
@@ -158,6 +159,8 @@ func spawn_projectile(aim_direction : Vector2, target_pos : Vector2) -> void:
 	#projectile_instance.position = position
 	
 	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position, position.distance_to(target_pos))
+	projectile_instance.look_at(target_pos)
+	projectile_instance.rotate(PI / 2)
 	projectile_instance.damage_dealt.connect(_on_projectile_damage_dealt)
 	
 	projectile_parent.add_child(projectile_instance)
@@ -298,6 +301,9 @@ func get_portrait_texture() -> Resource:
 
 func get_sprite_texture() -> Texture2D:
 	return sprite.texture
+
+func get_projectile_texture() -> Texture2D:
+	return projectile_texture
 
 func set_target_priority(prio : int) -> void:
 	target_prio = prio

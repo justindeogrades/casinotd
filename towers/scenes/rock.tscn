@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://ibt7janhqfy5"]
+[gd_scene format=3 uid="uid://67o0jcapm02m"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_erqdl"]
-[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_m1l8l"]
-[ext_resource type="Texture2D" uid="uid://6x6loaf1186i" path="res://towers/sprites/overworld/justice overworld.png" id="3_erqdl"]
-[ext_resource type="Texture2D" uid="uid://mx0m5oxdwbsl" path="res://towers/projectiles/sprites/justice projectile.png" id="3_m1l8l"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_d5ojh"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_kfcc2"]
+[ext_resource type="Texture2D" uid="uid://cuc0hobjgsrq6" path="res://towers/projectiles/sprites/rock projectile.png" id="3_5s86v"]
+[ext_resource type="Texture2D" uid="uid://c7wip2j62xjwb" path="res://towers/sprites/overworld/rock cracks.png" id="3_kfcc2"]
+[ext_resource type="Texture2D" uid="uid://btvt7shdu2wrv" path="res://towers/sprites/overworld/rock overworld.png" id="4_5s86v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -48,17 +49,17 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Justice" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Rock" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_erqdl")
-attribute = Array[float]([18.0, 40.0, 150.0, 15.0, 4.0, 1000.0, 6.0, 0.0])
-tower_name = "Justice"
-tower_description = "He is the law"
-shot_type = 0
-rarity = 2
+script = ExtResource("1_d5ojh")
+attribute = Array[float]([78.0, 50.0, 150.0, 8.0, 2.8, 400.0, 5.0, 0.0])
+tower_name = "1.2 Ton Rock"
+tower_description = "Getting dangerously close to my lateral raise"
+shot_type = 2
+rarity = 1
 sprite = NodePath("Sprite2D")
-projectile_preload = ExtResource("2_m1l8l")
-projectile_texture = ExtResource("3_m1l8l")
+projectile_preload = ExtResource("2_kfcc2")
+projectile_texture = ExtResource("3_5s86v")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -66,8 +67,11 @@ volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
+[node name="Cracks" type="Sprite2D" parent="." unique_id=1858050715]
+texture = ExtResource("3_kfcc2")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_erqdl")
+texture = ExtResource("4_5s86v")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

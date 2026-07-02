@@ -28,6 +28,8 @@ func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : flo
 	remaining_pierces = p
 	position = pos
 	
+	$Sprite2D.texture = t.get_projectile_texture()
+	
 	#Rotation matrix fuckshit
 	var aimprime_x = dir.x * cos(init_angle_offset) - dir.y * sin(init_angle_offset)
 	var aimprime_y = dir.x * sin(init_angle_offset) + dir.y * cos(init_angle_offset)
