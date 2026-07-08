@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_lv1jq"]
 [ext_resource type="PackedScene" uid="uid://d2e0u02d1prh4" path="res://towers/projectiles/vatman_projectile.tscn" id="2_lv1jq"]
-[ext_resource type="Texture2D" uid="uid://dhj7eigqcuqfi" path="res://towers/sprites/overworld/vatman.png" id="3_lv1jq"]
+[ext_resource type="Texture2D" uid="uid://d144itg0s32ut" path="res://towers/projectiles/sprites/vatman projectile.png" id="3_bghyw"]
+[ext_resource type="Texture2D" uid="uid://5xq7vvv1ulqb" path="res://towers/sprites/overworld/vatman overworld.png" id="4_4il3b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -50,11 +51,13 @@ _data = {
 [node name="Vatman" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_lv1jq")
-attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 1.0, 1.0])
+attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 900.0, 1.0, 1.0])
 tower_name = "Vatman"
 tower_description = "This tower sucks"
+projectile_rotation_speed = 8.0
 sprite = NodePath("Sprite2D")
 projectile_preload = ExtResource("2_lv1jq")
+projectile_texture = ExtResource("3_bghyw")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -63,7 +66,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_lv1jq")
+texture = ExtResource("4_4il3b")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

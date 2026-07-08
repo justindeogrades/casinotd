@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_b3s7n"]
 [ext_resource type="Texture2D" uid="uid://bbynu37v3nsed" path="res://towers/sprites/portrait/fishbowl portrait coloured (shrunk).png" id="2_3twf3"]
 [ext_resource type="PackedScene" uid="uid://by17h5fu8hrun" path="res://towers/projectiles/fishbowl_projectile.tscn" id="2_b3s7n"]
-[ext_resource type="Texture2D" uid="uid://b748mmxri74lk" path="res://towers/sprites/overworld/fishbowl overworld (shrunk).png" id="3_b3s7n"]
+[ext_resource type="Texture2D" uid="uid://corjy7ip3wpcd" path="res://towers/sprites/overworld/fishbowl overworld.png" id="4_3twf3"]
+[ext_resource type="Texture2D" uid="uid://bn120e4ykmm66" path="res://towers/projectiles/sprites/fishbowl projectile.png" id="4_tmnoa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 50.0
@@ -59,6 +60,7 @@ rarity = 2
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_3twf3")
 projectile_preload = ExtResource("2_b3s7n")
+projectile_texture = ExtResource("4_tmnoa")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -67,7 +69,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_b3s7n")
+texture = ExtResource("4_3twf3")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

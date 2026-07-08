@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_tnpkm"]
 [ext_resource type="Texture2D" uid="uid://bhhu5xie1xpmv" path="res://towers/sprites/portrait/specimen portrait coloured (shrunk).png" id="2_1anln"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_etgam"]
-[ext_resource type="Texture2D" uid="uid://crqecmbomdb8h" path="res://towers/sprites/overworld/specimen overworld (shrunk).png" id="3_tnpkm"]
+[ext_resource type="Texture2D" uid="uid://dup81qef2ll5c" path="res://towers/projectiles/sprites/specimen projectile.png" id="4_1anln"]
+[ext_resource type="Texture2D" uid="uid://bpxu00d2uthc3" path="res://towers/sprites/overworld/specimen overworld.png" id="5_5wwcg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 50.0
@@ -58,6 +59,7 @@ shot_type = 0
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_1anln")
 projectile_preload = ExtResource("2_etgam")
+projectile_texture = ExtResource("4_1anln")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -66,7 +68,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_tnpkm")
+texture = ExtResource("5_5wwcg")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

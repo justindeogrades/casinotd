@@ -16,10 +16,9 @@ radius = 2.0
 gravity_scale = 0.0
 script = ExtResource("1_jpv4b")
 speed_curve = SubResource("Curve_b8acn")
-line = NodePath("Line2D")
+line = NodePath("Node/Line2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125238622]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_b8acn")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1431316374]
@@ -30,8 +29,10 @@ shape = SubResource("CircleShape2D_qxf0c")
 
 [node name="Lifetime" type="Timer" parent="." unique_id=1142131269]
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1657289465]
-points = PackedVector2Array(50, 0, 0, 100)
+[node name="Node" type="Node" parent="." unique_id=2105542125]
+
+[node name="Line2D" type="Line2D" parent="Node" unique_id=1657289465]
+points = PackedVector2Array(0, 0, 0, 0)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 

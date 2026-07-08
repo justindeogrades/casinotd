@@ -11,7 +11,6 @@ gravity_scale = 0.0
 script = ExtResource("1_lbfxa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125238622]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_ppsym")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1431316374]
