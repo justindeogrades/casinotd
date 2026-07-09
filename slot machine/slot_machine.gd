@@ -3,7 +3,7 @@ extends Node
 var symbol_path = "res://slot machine/symbol.tscn"
 
 var common_preload = preload("res://towers/scenes/specimen.tscn")
-var uncommon_preload = preload("res://towers/scenes/pirate.tscn")
+var uncommon_preload = preload("res://towers/scenes/whitebeard.tscn")
 var rare_preload = preload("res://towers/scenes/fishbowl.tscn")
 var legendary_preload = preload("res://towers/scenes/mrmouse.tscn")
 

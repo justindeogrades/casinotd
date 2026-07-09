@@ -53,11 +53,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/specimen.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/whitebeard.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/mrmouse.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/debt_sage.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/debt_prophet.tscn").instantiate( ))
 
 func spend_money(amount : int) -> bool:
 	if money >= amount:

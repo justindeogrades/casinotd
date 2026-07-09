@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://dvpoc35o6ng0s"]
+[gd_scene format=3 uid="uid://boheqemit8vx"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_wy3k1"]
-[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_r2cxc"]
-[ext_resource type="Texture2D" uid="uid://bmyj38f531avk" path="res://towers/sprites/portrait/pirate portrait coloured (shrunk).png" id="2_s0qnp"]
-[ext_resource type="Texture2D" uid="uid://b2fj5m8qbch1" path="res://towers/sprites/overworld/pirate overworld shrunk.png" id="4_dj2ud"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_0plqt"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_m6loj"]
+[ext_resource type="Texture2D" uid="uid://tegg1sdpyfdk" path="res://towers/projectiles/sprites/debt wizard projectile.png" id="3_7sbgs"]
+[ext_resource type="Texture2D" uid="uid://dsy1xxgm7ra2" path="res://towers/sprites/overworld/debt sage overworld.png" id="4_0plqt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
-radius = 50.0
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jgo1"]
 resource_local_to_scene = true
@@ -48,17 +48,16 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Pirate" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="DebtSage" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_wy3k1")
-attribute = Array[float]([25.0, 150.0, 100.0, 30.0, 5.0, 1000.0, 1.0, 1.0])
-tower_name = "Whitebeard"
-tower_description = "The slot machines were a far more exciting treasure hunt"
-shot_type = 0
-rarity = 3
+script = ExtResource("1_0plqt")
+attribute = Array[float]([30.0, 100.0, 200.0, 22.0, 3.4, 1000.0, 1.0, 0.0])
+tower_name = "Debt Wizard"
+tower_description = "He offers much wisdom, but no financial advice"
+rarity = 1
 sprite = NodePath("Sprite2D")
-portrait = ExtResource("2_s0qnp")
-projectile_preload = ExtResource("2_r2cxc")
+projectile_preload = ExtResource("2_m6loj")
+projectile_texture = ExtResource("3_7sbgs")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -67,7 +66,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("4_dj2ud")
+texture = ExtResource("4_0plqt")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

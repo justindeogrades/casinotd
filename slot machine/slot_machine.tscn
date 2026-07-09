@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://vb2ew6dh70pq" path="res://slot machine/slot_machine.gd" id="1_agdmm"]
 [ext_resource type="PackedScene" uid="uid://b2ij05xinmsyf" path="res://towers/scenes/fishbowl.tscn" id="2_by4c8"]
 [ext_resource type="PackedScene" uid="uid://dcxtoinimil64" path="res://towers/scenes/mrmouse.tscn" id="3_wn12k"]
-[ext_resource type="PackedScene" uid="uid://dvpoc35o6ng0s" path="res://towers/scenes/pirate.tscn" id="4_m4ibu"]
+[ext_resource type="PackedScene" uid="uid://dvpoc35o6ng0s" path="res://towers/scenes/whitebeard.tscn" id="4_m4ibu"]
 [ext_resource type="PackedScene" uid="uid://cg5yxoucge22i" path="res://towers/scenes/specimen.tscn" id="5_ayicq"]
 [ext_resource type="PackedScene" uid="uid://bo52qpwlltbry" path="res://towers/scenes/vatman.tscn" id="6_8hviq"]
 [ext_resource type="Texture2D" uid="uid://drpvadd0ol5fh" path="res://slot machine/slot machine.png" id="7_wn12k"]
