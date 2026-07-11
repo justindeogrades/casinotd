@@ -1,14 +1,12 @@
-[gd_scene format=3 uid="uid://dvpoc35o6ng0s"]
+[gd_scene format=3 uid="uid://bd746m6w46bt8"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_a0hxs"]
-[ext_resource type="Texture2D" uid="uid://bmyj38f531avk" path="res://towers/sprites/portrait/pirate portrait coloured (shrunk).png" id="2_jhu30"]
-[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="3_20a7r"]
-[ext_resource type="Texture2D" uid="uid://b301gur5rnej2" path="res://towers/projectiles/sprites/whitebeard projectile.png" id="4_jhu30"]
-[ext_resource type="Texture2D" uid="uid://bwoq16c1br7an" path="res://towers/sprites/overworld/whitebeard overworld.png" id="4_x3qac"]
-[ext_resource type="Texture2D" uid="uid://0bqiqlde8f8j" path="res://towers/whitebeard-Sheet.png" id="5_1y4t1"]
+[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_xy4ha"]
+[ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_qxj1j"]
+[ext_resource type="Texture2D" uid="uid://d0nroy2uakhsc" path="res://towers/projectiles/sprites/agatha projectile.png" id="3_qxj1j"]
+[ext_resource type="Texture2D" uid="uid://bbgqb7xo4btjo" path="res://towers/sprites/overworld/agatha overworld.png" id="4_w4irv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
-radius = 50.0
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jgo1"]
 resource_local_to_scene = true
@@ -50,40 +48,16 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v740x"]
-atlas = ExtResource("5_1y4t1")
-region = Rect2(0, 0, 144, 144)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5i5bs"]
-atlas = ExtResource("5_1y4t1")
-region = Rect2(144, 0, 144, 144)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v740x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5i5bs")
-}],
-"loop": 1,
-"name": &"new_animation",
-"speed": 5.0
-}]
-
-[node name="Whitebeard" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Agatha" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_a0hxs")
-attribute = Array[float]([25.0, 150.0, 80.0, 30.0, 5.0, 1000.0, 1.0, 5.0])
-tower_name = "Whitebeard & Quilly"
-tower_description = "The slot machines were a far more exciting treasure hunt"
+script = ExtResource("1_xy4ha")
+attribute = Array[float]([34.0, 60.0, 180.0, 8.0, 2.2, 600.0, 1.0, 5.0])
+tower_name = "Agatha"
+tower_description = "This tower sucks"
 shot_type = 0
-rarity = 3
 sprite = NodePath("Sprite2D")
-portrait = ExtResource("2_jhu30")
-projectile_preload = ExtResource("3_20a7r")
-projectile_texture = ExtResource("4_jhu30")
+projectile_preload = ExtResource("2_qxj1j")
+projectile_texture = ExtResource("3_qxj1j")
 range_area = NodePath("Range")
 range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
@@ -92,7 +66,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("4_x3qac")
+texture = ExtResource("4_w4irv")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3
@@ -116,13 +90,6 @@ libraries/ = SubResource("AnimationLibrary_e607b")
 [node name="VolleyCooldownTimer" type="Timer" parent="." unique_id=2027241245]
 
 [node name="ProjectileParent" type="Node" parent="." unique_id=1681410128]
-
-[node name="Bird" type="AnimatedSprite2D" parent="." unique_id=176090685]
-position = Vector2(53, 11)
-sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"new_animation"
-autoplay = "new_animation"
-speed_scale = 3.0
 
 [connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
 [connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]

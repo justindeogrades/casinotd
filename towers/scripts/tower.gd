@@ -143,7 +143,8 @@ func shoot(type : int, dir : Vector2, target : Mob) -> void:
 				var aimprime_y = dir.x * sin(theta) + dir.y * cos(theta)
 				var aimprime = Vector2(aimprime_x, aimprime_y).normalized()
 					
-				spawn_projectile(aimprime, target.global_position)
+				#spawn_projectile(aimprime, target.global_position)
+				spawn_projectile(aimprime, aimprime)
 
 func spawn_projectile(aim_direction : Vector2, target_pos : Vector2) -> void:
 	var crit_level = roll_crit()
@@ -160,8 +161,8 @@ func spawn_projectile(aim_direction : Vector2, target_pos : Vector2) -> void:
 	#projectile_instance.position = position
 	
 	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position, position.distance_to(target_pos))
-	projectile_instance.look_at(target_pos)
-	projectile_instance.rotate(PI / 2)
+	#projectile_instance.look_at(target_pos)
+	#projectile_instance.rotate(PI / 2)
 	projectile_instance.damage_dealt.connect(_on_projectile_damage_dealt)
 	
 	projectile_parent.add_child(projectile_instance)

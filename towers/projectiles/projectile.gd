@@ -16,6 +16,8 @@ signal damage_dealt(amount : int, crit : int, pos : Vector2)
 
 func _ready() -> void:
 	linear_velocity = direction * speed
+	$Sprite2D.look_at(position + direction)
+	$Sprite2D.rotate(PI / 2)
 
 func _physics_process(delta : float) -> void:
 	if position.distance_to(tower.position) > max_dist_from_tower:
