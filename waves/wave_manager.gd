@@ -9,6 +9,8 @@ extends Node
 var wave_at : int = 0
 var wave_active : bool = false
 
+signal wave_ended
+
 #func _on_spawn_interval_timeout() -> void:
 	#var pathfollow = PathFollow2D.new()
 	#pathfollow.loop = false
@@ -39,3 +41,5 @@ func _on_wave_spawn_reached(mob : Mob) -> void:
 func _on_wave_ended() -> void:
 	wave_active = false
 	wave_at += 1
+	
+	wave_ended.emit()

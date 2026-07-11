@@ -1,9 +1,45 @@
 [gd_scene format=3 uid="uid://dyc8x7cvxgyi5"]
 
-[ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_2y1kh"]
+[ext_resource type="Script" uid="uid://cg7neimbgwxvd" path="res://towers/scenes/photocopier.gd" id="1_qkpo7"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_qkpo7"]
 [ext_resource type="Texture2D" uid="uid://88ncp3hfoitg" path="res://towers/projectiles/sprites/photocopier projectile.png" id="3_qkpo7"]
-[ext_resource type="Texture2D" uid="uid://cn05astxbwxsc" path="res://towers/sprites/overworld/photocopier overworld.png" id="4_qqq2h"]
+[ext_resource type="Texture2D" uid="uid://d07mu5mlqvtm4" path="res://towers/sprites/overworld/photocopier sheet.png" id="4_qkpo7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqq2h"]
+atlas = ExtResource("4_qkpo7")
+region = Rect2(0, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w616r"]
+atlas = ExtResource("4_qkpo7")
+region = Rect2(144, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3t1o"]
+atlas = ExtResource("4_qkpo7")
+region = Rect2(288, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlu8h"]
+atlas = ExtResource("4_qkpo7")
+region = Rect2(432, 0, 144, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqq2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w616r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3t1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlu8h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -25,6 +61,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1c225"]
+resource_name = "print"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9333333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [&"default", 1.0, true],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [0, 0.0],
+"method": &"set_frame_and_progress"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_smaqy"]
 resource_name = "shoot"
@@ -45,18 +129,33 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e607b"]
 _data = {
 &"RESET": SubResource("Animation_1jgo1"),
+&"print": SubResource("Animation_1c225"),
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="CounterfeitMachine" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yf5fn"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+angle_min = -89.99999
+angle_max = 90.000015
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+
+[node name="CounterfeitMachine" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("anim_sprite", "sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
-script = ExtResource("1_2y1kh")
+script = ExtResource("1_qkpo7")
+anim_sprite = NodePath("Sprite2D")
 attribute = Array[float]([9.0, 50.0, 150.0, 6.0, 2.0, 600.0, 1.0, 0.0])
-tower_name = "Counterfeit Mahcine"
+tower_name = "Counterfeit Machine"
 tower_description = "Literally just a photocopier (it really is that easy!)"
 shot_type = 0
 projectile_rotation_speed = 1.0
-sprite = NodePath("Sprite2D")
+sprite = NodePath("")
 projectile_preload = ExtResource("2_qkpo7")
 projectile_texture = ExtResource("3_qkpo7")
 range_area = NodePath("Range")
@@ -66,8 +165,8 @@ volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("4_qqq2h")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1755012685]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3
@@ -91,6 +190,12 @@ libraries/ = SubResource("AnimationLibrary_e607b")
 [node name="VolleyCooldownTimer" type="Timer" parent="." unique_id=2027241245]
 
 [node name="ProjectileParent" type="Node" parent="." unique_id=1681410128]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=603303998]
+emitting = false
+amount = 20
+texture = ExtResource("3_qkpo7")
+process_material = SubResource("ParticleProcessMaterial_yf5fn")
 
 [connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
 [connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]

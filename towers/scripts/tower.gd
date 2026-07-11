@@ -91,8 +91,7 @@ func _process(delta: float) -> void:
 			#Angle towards the target
 			#Currently snaps to targets position, maybe tween it later
 			#Don't know why rotating by pi/2 is necessary but don't change it
-			sprite.look_at(target.global_position)
-			sprite.rotate(PI / 2)
+			rotate_sprite_to_target(target.global_position)
 		
 		
 		
@@ -104,6 +103,10 @@ func _process(delta: float) -> void:
 			print_debug("null target!")
 	else:
 		pass
+
+func rotate_sprite_to_target(target : Vector2) -> void:
+	sprite.look_at(target)
+	sprite.rotate(PI / 2)
 
 func shoot(type : int, dir : Vector2, target : Mob) -> void:
 	match type:

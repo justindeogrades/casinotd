@@ -24,6 +24,8 @@ var selected_tower : Tower = null
 signal game_over
 
 func _ready() -> void:
+	wave_manager.wave_ended.connect(_on_wave_ended)
+	
 	side_panel = gui_manager.get_child(0)
 	tower_data_container = side_panel.tower_data_container
 	tower_data_container.set_enabled(false)
@@ -53,7 +55,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/agatha.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/cob_cannon.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/tree.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
@@ -134,6 +136,15 @@ func _on_tower_damage_dealt(amount : int, crit_level : int, pos : Vector2) -> vo
 
 func _on_next_wave_pressed() -> void:
 	wave_manager.start_next_wave()
+
+func _on_wave_ended() -> void:
+	print_debug("called")
+	
+	for t in placed_towers:
+		#FIND A BETTER WAY TO DO THIS AT SOME POINT
+		if t.tower_name == "Counterfeit Machine":
+			update_money(200)
+			t.anim_player.play("print")
 
 func _on_game_over_confirmed() -> void:
 	get_tree().paused = false

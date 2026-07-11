@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c6s2r6m62chsx"]
+
+[ext_resource type="Script" uid="uid://dugpau1aovrdr" path="res://cob_cannon_projectile.gd" id="1_ffc7n"]
+[ext_resource type="Texture2D" uid="uid://cbjuw6u8v2i6s" path="res://towers/projectiles/sprites/cob cannon projectile.png" id="2_vq4jy"]
+[ext_resource type="Texture2D" uid="uid://bttt0j7xelhef" path="res://towers/explosion sheet.png" id="3_r6r6n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvlpl"]
+atlas = ExtResource("3_r6r6n")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptqx4"]
+atlas = ExtResource("3_r6r6n")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmee3"]
+atlas = ExtResource("3_r6r6n")
+region = Rect2(480, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrspe"]
+atlas = ExtResource("3_r6r6n")
+region = Rect2(720, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vq4jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvlpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptqx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmee3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrspe")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+resource_local_to_scene = true
+radius = 2.0
+
+[node name="Cob" type="RigidBody2D" unique_id=1139152246 node_paths=PackedStringArray("hitbox_shape")]
+gravity_scale = 0.0
+script = ExtResource("1_ffc7n")
+hitbox_shape = NodePath("Hitbox/CollisionShape2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1923851924]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1431316374]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1226380940]
+shape = SubResource("CircleShape2D_qxf0c")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=1142131269]
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
