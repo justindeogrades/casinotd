@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dcxtoinimil64"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_8bjts"]
-[ext_resource type="Texture2D" uid="uid://b42nstf7ktn03" path="res://towers/sprites/portrait/mrmouse portrait coloured (shrunk).png" id="2_vrjws"]
+[ext_resource type="Texture2D" uid="uid://p1mq64shg4jl" path="res://towers/sprites/icon (portrait)/mrmouse icon.png" id="2_vrjws"]
 [ext_resource type="PackedScene" uid="uid://dwn1w7kcii81k" path="res://towers/projectiles/mrmouse_projectile.tscn" id="3_jb1t3"]
 [ext_resource type="Texture2D" uid="uid://4coatvy1v32k" path="res://towers/projectiles/sprites/mr mouse projectile.png" id="4_vrjws"]
 [ext_resource type="Texture2D" uid="uid://bekxs381tvqp6" path="res://towers/sprites/overworld/mr mouse overworld.png" id="5_kdv3w"]

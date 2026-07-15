@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcwxiuy45gikx"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_01ksj"]
+[ext_resource type="Texture2D" uid="uid://bydr3hlox8ih5" path="res://towers/sprites/icon (portrait)/tree icon.png" id="2_5h3sb"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_c0td6"]
 [ext_resource type="Texture2D" uid="uid://cqefgcj8ea632" path="res://towers/projectiles/sprites/tree projectile.png" id="3_c0td6"]
 [ext_resource type="Texture2D" uid="uid://br7urjblxs3j3" path="res://towers/sprites/overworld/tree overworld.png" id="4_5h3sb"]
@@ -57,6 +58,7 @@ tower_description = "Agatha's potted plant"
 shot_type = 2
 rarity = 3
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_5h3sb")
 projectile_preload = ExtResource("2_c0td6")
 projectile_texture = ExtResource("3_c0td6")
 range_area = NodePath("Range")

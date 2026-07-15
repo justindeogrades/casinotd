@@ -38,7 +38,7 @@ var symbol : Array[Node2D]
 var selected_symbol : Node2D = null
 
 var viewport_y = 1080
-var symbol_y_offset = 720
+var symbol_y_offset = 500
 
 signal tower_selected(tower : Tower)
 

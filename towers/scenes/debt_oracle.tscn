@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dynpbxincjk0q"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_ddm65"]
+[ext_resource type="Texture2D" uid="uid://uyl4hfneky2i" path="res://towers/sprites/icon (portrait)/debt oracle icon.png" id="2_dwtdo"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_nigq7"]
 [ext_resource type="Texture2D" uid="uid://tegg1sdpyfdk" path="res://towers/projectiles/sprites/debt wizard projectile.png" id="3_dwtdo"]
 [ext_resource type="Texture2D" uid="uid://g6gvqmp4a02a" path="res://towers/sprites/overworld/debt oracle overworld.png" id="4_ddm65"]
@@ -53,8 +54,9 @@ process_mode = 1
 script = ExtResource("1_ddm65")
 attribute = Array[float]([30.0, 100.0, 200.0, 40.0, 3.8, 1000.0, 1.0, 0.0])
 tower_name = "Debt Oracle"
-rarity = 1
+rarity = 2
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_dwtdo")
 projectile_preload = ExtResource("2_nigq7")
 projectile_texture = ExtResource("3_dwtdo")
 range_area = NodePath("Range")

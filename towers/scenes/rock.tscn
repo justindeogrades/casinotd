@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://67o0jcapm02m"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_d5ojh"]
+[ext_resource type="Texture2D" uid="uid://bs426fyslk07w" path="res://towers/sprites/icon (portrait)/rock icon.png" id="2_a55rh"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_kfcc2"]
 [ext_resource type="Texture2D" uid="uid://cuc0hobjgsrq6" path="res://towers/projectiles/sprites/rock projectile.png" id="3_5s86v"]
 [ext_resource type="Texture2D" uid="uid://c7wip2j62xjwb" path="res://towers/sprites/overworld/rock cracks.png" id="3_kfcc2"]
@@ -59,6 +60,7 @@ shot_type = 2
 projectile_rotation_speed = 1.0
 rarity = 1
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_a55rh")
 projectile_preload = ExtResource("2_kfcc2")
 projectile_texture = ExtResource("3_5s86v")
 range_area = NodePath("Range")

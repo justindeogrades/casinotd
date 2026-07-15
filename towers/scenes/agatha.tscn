@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_xy4ha"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_qxj1j"]
+[ext_resource type="Texture2D" uid="uid://cruu3v7xosdpj" path="res://towers/sprites/icon (portrait)/agatha icon.png" id="2_w4irv"]
 [ext_resource type="Texture2D" uid="uid://d0nroy2uakhsc" path="res://towers/projectiles/sprites/agatha projectile.png" id="3_qxj1j"]
 [ext_resource type="Texture2D" uid="uid://bbgqb7xo4btjo" path="res://towers/sprites/overworld/agatha overworld.png" id="4_w4irv"]
 
@@ -56,6 +57,7 @@ tower_name = "Agatha"
 tower_description = "This tower sucks"
 shot_type = 0
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_w4irv")
 projectile_preload = ExtResource("2_qxj1j")
 projectile_texture = ExtResource("3_qxj1j")
 range_area = NodePath("Range")

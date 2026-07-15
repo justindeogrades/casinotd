@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b2ij05xinmsyf"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_b3s7n"]
-[ext_resource type="Texture2D" uid="uid://bbynu37v3nsed" path="res://towers/sprites/portrait/fishbowl portrait coloured (shrunk).png" id="2_3twf3"]
 [ext_resource type="PackedScene" uid="uid://by17h5fu8hrun" path="res://towers/projectiles/fishbowl_projectile.tscn" id="2_b3s7n"]
+[ext_resource type="Texture2D" uid="uid://b4rln8eq6b56k" path="res://towers/sprites/icon (portrait)/fishbowl icon.png" id="2_tmnoa"]
 [ext_resource type="Texture2D" uid="uid://corjy7ip3wpcd" path="res://towers/sprites/overworld/fishbowl overworld.png" id="4_3twf3"]
 [ext_resource type="Texture2D" uid="uid://bn120e4ykmm66" path="res://towers/projectiles/sprites/fishbowl projectile.png" id="4_tmnoa"]
 
@@ -58,7 +58,7 @@ tower_description = "Floats around"
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")
-portrait = ExtResource("2_3twf3")
+portrait = ExtResource("2_tmnoa")
 projectile_preload = ExtResource("2_b3s7n")
 projectile_texture = ExtResource("4_tmnoa")
 range_area = NodePath("Range")

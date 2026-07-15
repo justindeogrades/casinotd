@@ -1,12 +1,23 @@
 [gd_scene format=3 uid="uid://g50nexn8yl2t"]
 
 [ext_resource type="Script" uid="uid://vb2ew6dh70pq" path="res://slot machine/slot_machine.gd" id="1_agdmm"]
+[ext_resource type="PackedScene" uid="uid://bd746m6w46bt8" path="res://towers/scenes/agatha.tscn" id="2_80ex4"]
 [ext_resource type="PackedScene" uid="uid://b2ij05xinmsyf" path="res://towers/scenes/fishbowl.tscn" id="2_by4c8"]
+[ext_resource type="PackedScene" uid="uid://b5ebspkyaf3tq" path="res://towers/scenes/bubba.tscn" id="3_to7mw"]
 [ext_resource type="PackedScene" uid="uid://dcxtoinimil64" path="res://towers/scenes/mrmouse.tscn" id="3_wn12k"]
+[ext_resource type="PackedScene" uid="uid://cdl8t1171gsij" path="res://towers/scenes/cob_cannon.tscn" id="4_77381"]
 [ext_resource type="PackedScene" uid="uid://dvpoc35o6ng0s" path="res://towers/scenes/whitebeard.tscn" id="4_m4ibu"]
-[ext_resource type="PackedScene" uid="uid://cg5yxoucge22i" path="res://towers/scenes/specimen.tscn" id="5_ayicq"]
-[ext_resource type="PackedScene" uid="uid://bo52qpwlltbry" path="res://towers/scenes/vatman.tscn" id="6_8hviq"]
+[ext_resource type="PackedScene" uid="uid://dynpbxincjk0q" path="res://towers/scenes/debt_oracle.tscn" id="5_yyrfw"]
+[ext_resource type="PackedScene" uid="uid://c02g38f14wcnw" path="res://towers/scenes/debt_prophet.tscn" id="6_1mhi3"]
+[ext_resource type="PackedScene" uid="uid://dyc8x7cvxgyi5" path="res://towers/scenes/photocopier.tscn" id="7_m4ibu"]
+[ext_resource type="PackedScene" uid="uid://boheqemit8vx" path="res://towers/scenes/debt_sage.tscn" id="7_m5w0t"]
 [ext_resource type="Texture2D" uid="uid://drpvadd0ol5fh" path="res://slot machine/slot machine.png" id="7_wn12k"]
+[ext_resource type="PackedScene" uid="uid://breqs2w5ar3pk" path="res://towers/scenes/debt_wizard.tscn" id="8_3fmpb"]
+[ext_resource type="PackedScene" uid="uid://ibt7janhqfy5" path="res://towers/scenes/justice.tscn" id="10_r1c5y"]
+[ext_resource type="PackedScene" uid="uid://67o0jcapm02m" path="res://towers/scenes/rock.tscn" id="13_lbft1"]
+[ext_resource type="PackedScene" uid="uid://cg5yxoucge22i" path="res://towers/scenes/specimen.tscn" id="14_8riac"]
+[ext_resource type="PackedScene" uid="uid://bcwxiuy45gikx" path="res://towers/scenes/tree.tscn" id="15_2cifo"]
+[ext_resource type="PackedScene" uid="uid://bo52qpwlltbry" path="res://towers/scenes/vatman.tscn" id="16_gcmh8"]
 
 [sub_resource type="Curve" id="Curve_agdmm"]
 _data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.099999994, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(0.95, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -20,7 +31,7 @@ size = Vector2(1000, 1)
 [node name="SlotMachine" type="Node" unique_id=885076926]
 process_mode = 3
 script = ExtResource("1_agdmm")
-all_towers = Array[Resource]([ExtResource("2_by4c8"), ExtResource("3_wn12k"), ExtResource("4_m4ibu"), ExtResource("5_ayicq"), ExtResource("6_8hviq")])
+all_towers = Array[Resource]([ExtResource("2_80ex4"), ExtResource("3_to7mw"), ExtResource("4_77381"), ExtResource("5_yyrfw"), ExtResource("6_1mhi3"), ExtResource("7_m5w0t"), ExtResource("8_3fmpb"), ExtResource("2_by4c8"), ExtResource("10_r1c5y"), ExtResource("3_wn12k"), ExtResource("7_m4ibu"), ExtResource("13_lbft1"), ExtResource("14_8riac"), ExtResource("15_2cifo"), ExtResource("16_gcmh8"), ExtResource("4_m4ibu")])
 base_speed = 80.0
 base_spin_time = 8.0
 speed_randomness_range = 1.0

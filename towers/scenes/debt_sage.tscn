@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boheqemit8vx"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_0plqt"]
+[ext_resource type="Texture2D" uid="uid://b54aqqtsk46oe" path="res://towers/sprites/icon (portrait)/debt sage.png" id="2_7sbgs"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_m6loj"]
 [ext_resource type="Texture2D" uid="uid://tegg1sdpyfdk" path="res://towers/projectiles/sprites/debt wizard projectile.png" id="3_7sbgs"]
 [ext_resource type="Texture2D" uid="uid://dsy1xxgm7ra2" path="res://towers/sprites/overworld/debt sage overworld.png" id="4_0plqt"]
@@ -56,6 +57,7 @@ tower_name = "Debt Wizard"
 tower_description = "He offers much wisdom, but no financial advice"
 rarity = 1
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_7sbgs")
 projectile_preload = ExtResource("2_m6loj")
 projectile_texture = ExtResource("3_7sbgs")
 range_area = NodePath("Range")

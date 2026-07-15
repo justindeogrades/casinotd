@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bo52qpwlltbry"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_lv1jq"]
+[ext_resource type="Texture2D" uid="uid://8jel283ylmmu" path="res://towers/sprites/icon (portrait)/vatman icon.png" id="2_4il3b"]
 [ext_resource type="PackedScene" uid="uid://d2e0u02d1prh4" path="res://towers/projectiles/vatman_projectile.tscn" id="2_lv1jq"]
 [ext_resource type="Texture2D" uid="uid://d144itg0s32ut" path="res://towers/projectiles/sprites/vatman projectile.png" id="3_bghyw"]
 [ext_resource type="Texture2D" uid="uid://5xq7vvv1ulqb" path="res://towers/sprites/overworld/vatman overworld.png" id="4_4il3b"]
@@ -55,7 +56,9 @@ attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 900.0, 1.0, 1.0])
 tower_name = "Vatman"
 tower_description = "This tower sucks"
 projectile_rotation_speed = 8.0
+rarity = 1
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_4il3b")
 projectile_preload = ExtResource("2_lv1jq")
 projectile_texture = ExtResource("3_bghyw")
 range_area = NodePath("Range")

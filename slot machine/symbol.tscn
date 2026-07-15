@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkrbuq20m82a3" path="res://slot machine/backsprites/legendary backsprite.png" id="5_xse2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmcjm"]
-size = Vector2(40, 720)
+size = Vector2(40, 499)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27nhl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

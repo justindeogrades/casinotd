@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_erqdl"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_m1l8l"]
+[ext_resource type="Texture2D" uid="uid://dulf4nqg8cgxe" path="res://towers/sprites/icon (portrait)/justice icon.png" id="2_xls0t"]
 [ext_resource type="Texture2D" uid="uid://6x6loaf1186i" path="res://towers/sprites/overworld/justice overworld.png" id="3_erqdl"]
 [ext_resource type="Texture2D" uid="uid://mx0m5oxdwbsl" path="res://towers/projectiles/sprites/justice projectile.png" id="3_m1l8l"]
 
@@ -57,6 +58,7 @@ tower_description = "He is the law"
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("2_xls0t")
 projectile_preload = ExtResource("2_m1l8l")
 projectile_texture = ExtResource("3_m1l8l")
 range_area = NodePath("Range")
