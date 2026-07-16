@@ -106,6 +106,7 @@ func _on_upgrade_button_pressed(tower : Tower) -> void:
 		upgrade_panel.tower_to_upgrade = tower
 		upgrade_panel.refresh_reroll_button(true)
 		upgrade_panel.generate_upgrade_options()
+		upgrade_panel.enter_cards()
 		show_upgrade_panel()
 
 #This is for rerolling upgrades
@@ -113,6 +114,7 @@ func _on_reroll_pressed() -> void:
 	if player.spend_money(upgrade_panel.reroll_cost):
 		upgrade_panel.refresh_reroll_button(false)
 		upgrade_panel.generate_upgrade_options()
+		upgrade_panel.enter_cards()
 
 func _on_upgrade_selected(tower : Tower, att : int, amount : float) -> void:
 	tower.upgrade_attribute(att, amount)

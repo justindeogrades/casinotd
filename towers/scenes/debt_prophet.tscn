@@ -71,7 +71,6 @@ process_mode = 1
 script = ExtResource("1_riva6")
 attribute = Array[float]([30.0, 100.0, 200.0, 60.0, 4.0, 1000.0, 3.0, 0.0])
 tower_name = "Debt prophet"
-tower_description = "This tower sucks"
 rarity = 3
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_mr0g2")

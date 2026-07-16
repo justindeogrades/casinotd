@@ -54,7 +54,6 @@ process_mode = 1
 script = ExtResource("1_b3s7n")
 attribute = Array[float]([10.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 10.0, 0.0])
 tower_name = "Fishbowl"
-tower_description = "Floats around"
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")

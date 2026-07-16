@@ -42,7 +42,15 @@ func initialize_upgrade_data_array() -> void:
 func initialize_buttons() -> void:
 	for i in upgrade_button:
 		i.pressed.connect(_on_upgrade_selected.bind(i))
+		i.entered.connect(_on_upgrade_button_entered.bind(i))
 	reroll_button.pressed.connect(_on_reroll_button_pressed)
+
+func enter_cards() -> void:
+	for i in upgrade_button:
+		i.visible = false
+		i.disabled = true
+	
+	upgrade_button[0].enter()
 
 func generate_upgrade_options() -> void:
 	var upgrade_vector = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
@@ -112,6 +120,15 @@ func _on_upgrade_selected(b : Button) -> void:
 			#upgrade_selected.emit(tower_to_upgrade, G.att.PIERCE, 1) 
 		#_:
 			#push_error("Button index out of bounds")
+
+func _on_upgrade_button_entered(b : Button) -> void:
+	var index = upgrade_button.find(b)
+	
+	if index < upgrade_button.size() - 1:
+		upgrade_button[index + 1].enter()
+	else:
+		for i in upgrade_button:
+			i.disabled = false
 
 func attribute_to_string(att : int) -> String:
 	match att:

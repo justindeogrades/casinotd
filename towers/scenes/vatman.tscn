@@ -54,7 +54,6 @@ process_mode = 1
 script = ExtResource("1_lv1jq")
 attribute = Array[float]([30.0, 100.0, 200.0, 10.0, 3.0, 900.0, 1.0, 1.0])
 tower_name = "Vatman"
-tower_description = "This tower sucks"
 projectile_rotation_speed = 8.0
 rarity = 1
 sprite = NodePath("Sprite2D")

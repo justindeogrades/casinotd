@@ -2,13 +2,26 @@ extends Button
 
 @export var anim_player : AnimationPlayer
 
+signal entered
+
+func enter() -> void:
+	anim_player.play("enter")
+
+func emit_entered() -> void:
+	entered.emit()
+
 
 
 func _on_mouse_entered() -> void:
-	anim_player.play("select")
+	if not disabled:
+		anim_player.play("select")
+		print_debug("mouseovered and enabled")
+	else:
+		print_debug("mouseovered and disabled")
 
 
 
 
 func _on_mouse_exited() -> void:
-	anim_player.play("deselect")
+	if not disabled:
+		anim_player.play("deselect")
