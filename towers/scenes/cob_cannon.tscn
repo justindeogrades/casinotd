@@ -52,7 +52,7 @@ _data = {
 [node name="CobCannon" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_hk0bd")
-attribute = Array[float]([315.0, 25.0, 300.0, 5.0, 1.5, 300.0, 1.0, 0.0])
+attribute = Array[float]([315.0, 25.0, 300.0, 5.0, 1.5, 200.0, 1.0, 0.0])
 tower_name = "Cob Cannon"
 tower_description = "Literally just the cob cannon from PvZ. Come fuck with me Mohammed bin Salman"
 shot_type = 0

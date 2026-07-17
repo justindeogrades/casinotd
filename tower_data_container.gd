@@ -50,7 +50,7 @@ func refresh_with_new_tower(new_tower : Tower) -> void:
 	"Pierce:"
 	]
 	
-	var format_attribute_data_string = "%.1f\n%.1f\n%.1f\n%.1f%%\n%.1fx\n%.1f\n%.f\n%.f"
+	var format_attribute_data_string = "%.f\n%.f\n%.f\n%.1f%%\n%.1fx\n%.f\n%.f\n%.f"
 	attribute_data_label.text = format_attribute_data_string % [
 		tower.attribute[G.att.DAMAGE],
 		tower.attribute[G.att.ATTACK_SPEED],

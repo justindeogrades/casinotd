@@ -14,6 +14,7 @@ var tower_data_container : VBoxContainer
 
 var money : int = 500
 var lives : int = max_lives
+var total_money_earned : int = 0
 
 var tower_cost : int = 20
 
@@ -69,6 +70,10 @@ func spend_money(amount : int) -> bool:
 
 func update_money(amount : int) -> void:
 	money += amount
+	
+	if amount > 0:
+		total_money_earned += amount
+	
 	refresh_money_label()
 
 func refresh_money_label() -> void:
@@ -79,7 +84,7 @@ func update_lives(amount : int) -> void:
 	refresh_lives_label()
 	
 	if lives <= 0:
-		gui_manager.init_game_over()
+		gui_manager.init_game_over(get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
 
 func refresh_lives_label() -> void:
 	side_panel.lives_label.text = "Lives: " + str(lives)
@@ -105,6 +110,30 @@ func deselect_tower(tower : Tower) -> void:
 	tower.set_range_indicator_visibility(false)
 	
 	tower.set_z_index(1)
+
+func get_total_damage_dealt() -> int:
+	var total : int = 0
+	
+	for t in placed_towers:
+		total += t.total_damage_dealt
+	
+	return total
+
+func get_wave_at() -> int:
+	return wave_manager.wave_at
+
+func get_mvp_tower() -> Tower:
+	if not placed_towers.is_empty():
+		var mvp : Tower = placed_towers[0]
+		
+		for t in placed_towers:
+			if t.total_damage_dealt > mvp.total_damage_dealt:
+				mvp = t
+		
+		return mvp
+	else:
+		return null
+
 func _on_tower_clicked(tower : Tower) -> void:
 	select_tower(tower)
 	#call_deferred("select_tower", tower)

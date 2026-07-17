@@ -78,6 +78,7 @@ layout_mode = 2
 
 [node name="AttributeNames" type="Label" parent="HBoxContainer" unique_id=63017018]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Placeholder
 Placeholder
 Placeholder
@@ -90,7 +91,17 @@ label_settings = SubResource("LabelSettings_kcg5i")
 
 [node name="AttributeData" type="Label" parent="HBoxContainer" unique_id=1418307144]
 layout_mode = 2
+size_flags_horizontal = 3
+text = "Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo"
 label_settings = SubResource("LabelSettings_rfdo1")
+horizontal_alignment = 2
 
 [node name="UpgradeButton" type="Button" parent="." unique_id=1128259857]
 layout_mode = 2

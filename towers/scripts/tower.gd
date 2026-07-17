@@ -48,7 +48,7 @@ var level : int = 1
 var mobs_in_range : Array[Mob]
 var target_prio : int = G.prio.FIRST
 var kills : int = 0
-var total_damage_dealt : float = 0
+var total_damage_dealt : int = 0
 var upgrade_cost : int = 10
 
 #signal mouse_hovering

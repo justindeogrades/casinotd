@@ -45,11 +45,12 @@ func show_upgrade_panel() -> void:
 	
 	upgrade_panel.visible = true
 
-func init_game_over() -> void:
+func init_game_over(waves_survived : int, damage_dealt : int, money_earned : int, mvp : Tower) -> void:
 	get_tree().paused = true
 	side_panel.set_all_buttons_disabled(true)
 	
 	game_over_panel = game_over_panel_resource.instantiate()
+	game_over_panel.init(waves_survived, damage_dealt, money_earned, mvp)
 	game_over_panel.confirm_button.pressed.connect(_on_game_over_confirm_button_pressed)
 	add_child(game_over_panel)
 
