@@ -5,6 +5,11 @@ extends Container
 
 @export var game_over_panel_resource : Resource
 
+@export var ban_cost : int
+@export var ban_cost_mult : float
+
+var banned_towers : Array[Tower]
+
 var slot_machine_preload = preload("res://slot machine/slot_machine.tscn")
 var tower_selected_panel_preload = preload("res://tower_selected_panel.tscn")
 
@@ -66,21 +71,31 @@ func start_slot_machine(is_reroll : bool) -> void:
 	
 	slot_machine = slot_machine_preload.instantiate()
 	slot_machine.tower_selected.connect(_on_slot_machine_tower_selected)
-	slot_machine.init(quick_spins_enabled)
+	slot_machine.init(quick_spins_enabled, banned_towers)
 	add_child(slot_machine)
 
-func create_tower_selected_panel(tower : Tower) -> void:
+func create_tower_selected_panel(tower : Tower, bannable : bool) -> void:
 	var reroll_cost = compute_reroll_cost()
 	
 	tower_selected_panel = tower_selected_panel_preload.instantiate()
-	tower_selected_panel.init(tower, reroll_cost)
+	tower_selected_panel.init(tower, reroll_cost, ban_cost, bannable)
 	tower_selected_panel.accepted.connect(_on_tower_selected_panel_accepted)
 	tower_selected_panel.rerolled.connect(_on_tower_selected_panel_rerolled)
+	tower_selected_panel.banned.connect(_on_tower_selected_panel_banned)
 	add_child(tower_selected_panel)
 
+#For tower rerolls
 func compute_reroll_cost() -> int:
 	#Casting player tower cost to float for division then back to int cause i dont fucking care anymore
 	return int(float(player.tower_cost) * reroll_cost_mult)
+
+func update_ban_cost() -> void:
+	ban_cost = ban_cost ** ban_cost_mult
+
+func resolve_tower_selected_panel() -> void:
+	tower_selected_panel.queue_free()
+	get_tree().paused = false
+	side_panel.set_all_buttons_disabled(false)
 
 #func _on_quick_spins_box_down() -> void:
 	#quick_spins_enabled = true
@@ -127,13 +142,13 @@ func _on_upgrade_selected(tower : Tower, att : int, amount : float) -> void:
 	#show_side_panel()
 	hide_upgrade_panel()
 
-func _on_slot_machine_tower_selected(tower : Tower):
+func _on_slot_machine_tower_selected(tower : Tower, bannable : bool):
 	#We don't pause because we bring out the tower selected panel next
 	#Tower placer will pause too
 	#get_tree().paused = false
 	
 	slot_machine.queue_free()
-	create_tower_selected_panel(tower)
+	create_tower_selected_panel(tower, bannable)
 
 func _on_tower_selected_panel_accepted(tower : Tower) -> void:
 	tower_selected.emit(tower)
@@ -144,6 +159,12 @@ func _on_tower_selected_panel_rerolled(reroll_cost : float) -> void:
 	if player.spend_money(int(reroll_cost)):
 		start_slot_machine(true)
 		tower_selected_panel.queue_free()
+
+func _on_tower_selected_panel_banned(tower : Tower) -> void:
+	if player.spend_money(ban_cost):
+		banned_towers.append(tower)
+		update_ban_cost()
+		resolve_tower_selected_panel()
 
 func _on_next_wave_button_pressed() -> void:
 	next_wave_pressed.emit()

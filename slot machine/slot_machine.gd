@@ -20,10 +20,6 @@ var legendary_preload = preload("res://towers/scenes/mrmouse.tscn")
 
 #Initialize with 4 empty lists
 var sorted_towers : Array[Array] = [[], [], [], []]
-#var common_towers : Array[Resource]
-#var uncommon_towers : Array[Resource]
-#var rare_towers : Array[Resource]
-#var legendary_towers : Array[Resource]
 
 var speed : float
 var spin_time : float
@@ -40,17 +36,17 @@ var selected_symbol : Node2D = null
 var viewport_y = 1080
 var symbol_y_offset = 500
 
-signal tower_selected(tower : Tower)
+signal tower_selected(tower : Tower, bannable : bool)
 
 func _ready() -> void:
 	#Centers the line
 	$Line.position.y = $Line.get_viewport_rect().size.y / 2
 
-func init(quick_spins_enabled : bool) -> void:
+func init(quick_spins_enabled : bool, banned_towers : Array) -> void:
 	#Does nothing because speed is set every frame?
 	#speed = randomize_speed(base_speed, speed_randomness_range)
 	
-	sort_towers()
+	sort_towers(banned_towers)
 	
 	quick_spins = quick_spins_enabled
 	
@@ -85,12 +81,24 @@ func _process(delta: float) -> void:
 	frames_since_start += 1
 	
 	if x >= 1:
-		tower_selected.emit(selected_symbol.get_tower())
+		var selected_tower = selected_symbol.get_tower()
+		tower_selected.emit(selected_tower, is_tower_bannable(selected_tower))
 
-func sort_towers() -> void:
+func sort_towers(banned_towers : Array) -> void:
 	for i in all_towers:
 		var tower_instance = i.instantiate()
-		sorted_towers[tower_instance.get_rarity()].append(tower_instance)
+		if not is_tower_banned(tower_instance, banned_towers):
+			sorted_towers[tower_instance.get_rarity()].append(tower_instance)
+
+func is_tower_banned(tower : Tower, banned_towers : Array) -> bool:
+	for b in banned_towers:
+		if tower.tower_name == b.tower_name:
+			return true
+	return false
+func is_tower_bannable(tower : Tower) -> bool:
+	if sorted_towers[tower.get_rarity()].size() <= 1:
+		return false
+	return true
 
 #Is it necessary to have two of the exact same function?
 func randomize_speed(base : float, range : float) -> float:

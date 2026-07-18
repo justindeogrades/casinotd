@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3vdb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="TowerSelectedPanel" type="PanelContainer" unique_id=2137036721 node_paths=PackedStringArray("accept_button", "reroll_button", "name_label", "description_label", "text_rect")]
+[node name="TowerSelectedPanel" type="PanelContainer" unique_id=2137036721 node_paths=PackedStringArray("accept_button", "reroll_button", "ban_button", "name_label", "description_label", "text_rect")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -23,6 +23,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_c3vdb")
 script = ExtResource("1_36mrh")
 accept_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/AcceptButton")
 reroll_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/RerollButton")
+ban_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/BanButton")
 name_label = NodePath("MarginContainer/VBoxContainer/TowerNameLabel")
 description_label = NodePath("MarginContainer/VBoxContainer/TowerDescLabel")
 text_rect = NodePath("MarginContainer/VBoxContainer/TowerTextureRect")
@@ -75,5 +76,10 @@ text = "Accept"
 layout_mode = 2
 text = "Reroll"
 
+[node name="BanButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2010722326]
+layout_mode = 2
+text = "Ban"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RerollButton" to="." method="_on_reroll_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BanButton" to="." method="_on_ban_button_pressed"]
