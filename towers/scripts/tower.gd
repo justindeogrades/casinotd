@@ -318,6 +318,7 @@ func set_target_priority(prio : int) -> void:
 
 func update_range() -> void:
 	range_collision.shape.radius = attribute[G.att.RANGE]
+	queue_redraw()
 
 func update_cooldown() -> void:
 	cooldown_seconds = 50 / attribute[G.att.ATTACK_SPEED]
