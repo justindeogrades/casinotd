@@ -15,9 +15,6 @@ func emit_entered() -> void:
 func _on_mouse_entered() -> void:
 	if not disabled:
 		anim_player.play("select")
-		print_debug("mouseovered and enabled")
-	else:
-		print_debug("mouseovered and disabled")
 
 
 
