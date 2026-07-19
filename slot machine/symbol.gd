@@ -7,8 +7,9 @@ extends Node2D
 
 var tower : Tower
 var speed : float
+var passed_mid : bool = false
 
-#signal mid_reached
+signal mid_reached(s : Node2D)
 signal end_reached(s : Node2D)
 
 func _ready() -> void:
@@ -17,6 +18,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.y += speed
+	
+	if position.y >= (get_viewport_rect().size.y / 2) - 250 and not passed_mid:
+		passed_mid = true
+		mid_reached.emit(self)
 
 func init(s : float, t : Tower, ypos) -> void:
 	#anim_player.play("rotate", -1, speed)

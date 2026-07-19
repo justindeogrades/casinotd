@@ -62,7 +62,7 @@ func init_game_over(waves_survived : int, damage_dealt : int, money_earned : int
 func start_slot_machine(is_reroll : bool) -> void:
 	#Re-enable 2D physics while the game is paused or Area2D will not detect collision
 	get_tree().paused = true
-	PhysicsServer2D.set_active(true)
+	#PhysicsServer2D.set_active(true)
 	
 	#Switching hiding the side panel for disabling its buttons
 	#hide_side_panel()

@@ -6,44 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bdaeb2xeq2pok" path="res://slot machine/backsprites/rare backsprite.png" id="4_raaf5"]
 [ext_resource type="Texture2D" uid="uid://bkrbuq20m82a3" path="res://slot machine/backsprites/legendary backsprite.png" id="5_xse2q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmcjm"]
-size = Vector2(40, 499)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27nhl"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_color = Color(1, 0, 0, 1)
-
 [node name="Symbol" type="Node2D" unique_id=733689793 node_paths=PackedStringArray("portrait_sprite", "back_sprite", "hitbox")]
 process_mode = 3
 script = ExtResource("1_vauly")
 portrait_sprite = NodePath("Portrait")
 back_sprite = NodePath("BackSprite")
 backsprites = Array[Texture2D]([ExtResource("2_mu16g"), ExtResource("3_jn4n7"), ExtResource("4_raaf5"), ExtResource("5_xse2q")])
-hitbox = NodePath("Area2D/CollisionShape2D")
+hitbox = NodePath("")
 
 [node name="BackSprite" type="Sprite2D" parent="." unique_id=1540175125]
 
 [node name="Portrait" type="Sprite2D" parent="." unique_id=1040272284]
-
-[node name="Area2D" type="Area2D" parent="." unique_id=402944312]
-process_mode = 3
-collision_layer = 128
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1473165779]
-shape = SubResource("RectangleShape2D_pmcjm")
-
-[node name="Panel" type="Panel" parent="." unique_id=1845635478]
-custom_minimum_size = Vector2(200, 210)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_27nhl")

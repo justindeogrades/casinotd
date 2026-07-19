@@ -1,14 +1,8 @@
 extends Node
 
-var symbol_path = "res://slot machine/symbol.tscn"
-
-var common_preload = preload("res://towers/scenes/specimen.tscn")
-var uncommon_preload = preload("res://towers/scenes/whitebeard.tscn")
-var rare_preload = preload("res://towers/scenes/fishbowl.tscn")
-var legendary_preload = preload("res://towers/scenes/mrmouse.tscn")
-
 @export_category("Tower resources")
 @export var all_towers : Array[Resource]
+@export var symbol_resource : Resource
 @export_category("Values")
 @export var rarity_probabilities : Array[int] = [50, 30, 15, 5]
 @export var base_speed : float
@@ -40,7 +34,8 @@ signal tower_selected(tower : Tower, bannable : bool)
 
 func _ready() -> void:
 	#Centers the line
-	$Line.position.y = $Line.get_viewport_rect().size.y / 2
+	#$Line.position.y = $Line.get_viewport_rect().size.y / 2
+	pass
 
 func init(quick_spins_enabled : bool, banned_towers : Array) -> void:
 	#Does nothing because speed is set every frame?
@@ -62,6 +57,8 @@ func init(quick_spins_enabled : bool, banned_towers : Array) -> void:
 		#create_symbol(540 - 360 * i)
 		create_symbol(viewport_y - symbol_y_offset * i)
 	
+	#Ensures it appears in front of towers
+	$ColorRect.set_z_index(2)
 	#Ensures it appears in front of symbols
 	$TextureRect.set_z_index(3)
 
@@ -126,9 +123,9 @@ func create_symbol(ypos : int) -> void:
 	#Choose tower preload to pass
 	var tower = get_random_tower_with_rarity(get_random_rarity())
 	
-	var symbol_instance = load(symbol_path).instantiate()
+	var symbol_instance = symbol_resource.instantiate()
 	symbol_instance.init(1, tower, ypos)
-	#symbol_instance.mid_reached.connect(_on_symbol_mid_reached)
+	symbol_instance.mid_reached.connect(_on_symbol_mid_reached)
 	symbol_instance.end_reached.connect(_on_symbol_end_reached)
 	symbol.append(symbol_instance)
 	$SymbolParent.add_child(symbol_instance)
@@ -162,13 +159,11 @@ func get_random_tower_with_rarity(rarity : int) -> Tower:
 			#push_error("Invalid rarity in slot machine!")
 			#return null
 
-#Made redundant
-#func _on_symbol_mid_reached() -> void:
-	##create_symbol(symbol[symbol.size() - 1].position.y - 180)
-	#pass
+func _on_symbol_mid_reached(s : Node2D) -> void:
+	selected_symbol = s
 
 func _on_symbol_end_reached(s : Node2D) -> void:
 	symbol.erase(s)
 
-func _on_line_area_entered(area: Area2D) -> void:
-	selected_symbol = area.get_parent()
+#func _on_line_area_entered(area: Area2D) -> void:
+	#selected_symbol = area.get_parent()
