@@ -128,7 +128,7 @@ func _on_upgrade_button_entered(b : Button) -> void:
 		upgrade_button[index + 1].enter()
 	else:
 		for i in upgrade_button:
-			i.disabled = false
+			i.enable()
 
 func attribute_to_string(att : int) -> String:
 	match att:
