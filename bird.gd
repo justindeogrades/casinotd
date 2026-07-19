@@ -6,20 +6,19 @@ extends Projectile
 
 var theta : float
 
-func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
+func init(t : Tower, d : int, cm : float, cc : float, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
 	$Sprite2D.play()
 	
 	var radius : float = r * tower_range_mult
 	
 	tower = t
-	damage = d * tower_damage_mult
+	base_damage = d * tower_damage_mult
+	crit_multiplier = cm
+	crit_chance = cc
 	speed = ps * tower_projectile_speed_mult
 	remaining_pierces = 2
 	
 	position.x -= radius
-	
-	print_debug(t.global_position)
-	print_debug(global_position)
 	
 	var time = (60 * PI * radius) / speed
 	theta = PI / time

@@ -150,7 +150,7 @@ func shoot(type : int, dir : Vector2, target : Mob) -> void:
 				spawn_projectile(aimprime, aimprime)
 
 func spawn_projectile(aim_direction : Vector2, target_pos : Vector2) -> void:
-	var crit_level = roll_crit()
+	#var crit_level = roll_crit()
 	
 	var projectile_instance = projectile_preload.instantiate()
 	
@@ -163,7 +163,7 @@ func spawn_projectile(aim_direction : Vector2, target_pos : Vector2) -> void:
 	#projectile_instance.direction = aim_direction
 	#projectile_instance.position = position
 	
-	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], crit_level, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position, position.distance_to(target_pos))
+	projectile_instance.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], attribute[G.att.CRIT_CHANCE], attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], aim_direction, position, position.distance_to(target_pos))
 	#projectile_instance.look_at(target_pos)
 	#projectile_instance.rotate(PI / 2)
 	projectile_instance.damage_dealt.connect(_on_projectile_damage_dealt)
@@ -178,21 +178,22 @@ func spawn_projectile(aim_direction : Vector2, target_pos : Vector2) -> void:
 		#return true
 	#return false
 
+#Delegated to the projectile
 #Roll crit with crit as a level
-func roll_crit() -> int:
-	var crit_level = 0
-	var challenge_failed = false
-	var i = 1
-	
-	while not challenge_failed:
-		var challenge_num = randf_range(0, 100)
-		if attribute[G.att.CRIT_CHANCE] / i >= challenge_num:
-			crit_level += 1
-			i += 1
-		else:
-			challenge_failed = true
-	
-	return crit_level
+#func roll_crit() -> int:
+	#var crit_level = 0
+	#var challenge_failed = false
+	#var i = 1
+	#
+	#while not challenge_failed:
+		#var challenge_num = randf_range(0, 100)
+		#if attribute[G.att.CRIT_CHANCE] / i >= challenge_num:
+			#crit_level += 1
+			#i += 1
+		#else:
+			#challenge_failed = true
+	#
+	#return crit_level
 
 func upgrade_attribute(att : int, amount : float) -> void:
 	attribute[att] += amount

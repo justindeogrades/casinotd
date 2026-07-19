@@ -18,7 +18,7 @@ func reset_bird() -> void:
 	bird = bird_resource.instantiate()
 	bird.damage_dealt.connect(_on_projectile_damage_dealt)
 	add_child(bird)
-	bird.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], 0, attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], Vector2(0, -1), Vector2.ZERO, 0)
+	bird.init(self, attribute[G.att.DAMAGE], attribute[G.att.CRIT_MULT], attribute[G.att.CRIT_CHANCE], attribute[G.att.PROJ_SPEED], attribute[G.att.PIERCE], attribute[G.att.RANGE], Vector2(0, -1), Vector2.ZERO, 0)
 
 func upgrade_attribute(att : int, amount : float) -> void:
 	super(att, amount)

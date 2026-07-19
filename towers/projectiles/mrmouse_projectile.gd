@@ -10,8 +10,8 @@ var tower_pos : Vector2
 func _ready() -> void:
 	super()
 
-func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
-	super(t, d, cm, cl, ps, p, r, dir, pos, dist)
+func init(t : Tower, d : int, cm : float, cc : float, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
+	super(t, d, cm, cc, ps, p, r, dir, pos, dist)
 	seconds_to_target = dist / ps
 	#print_debug("seconds to target: " + str(seconds_to_target))
 	tower_pos = t.global_position

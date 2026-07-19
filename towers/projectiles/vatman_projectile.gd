@@ -5,8 +5,8 @@ var exited_tower : bool = false
 var theta : float = PI / 20
 #var theta : float
 
-func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
-	super(t, d, cm, cl, ps, p, r, dir, pos, dist)
+func init(t : Tower, d : int, cm : float, cc : float, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
+	super(t, d, cm, cc, ps, p, r, dir, pos, dist)
 	
 	var time = (PI * dist) / (2 * speed / 60)
 	theta = PI / time

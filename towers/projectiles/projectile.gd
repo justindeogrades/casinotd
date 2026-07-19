@@ -4,12 +4,13 @@ class_name Projectile
 @export var init_angle_offset : float = 0
 
 var tower : Tower
-var damage : int
+var base_damage : int
+var crit_multiplier : float
 var remaining_pierces : int
 var speed : float
 var direction : Vector2
 var rotation_speed : float
-var crit_level : int
+var crit_chance : float
 var max_dist_from_tower : float
 
 signal damage_dealt(amount : int, crit : int, pos : Vector2)
@@ -25,10 +26,12 @@ func _physics_process(delta : float) -> void:
 	
 	$Sprite2D.rotate(rotation_speed)
 
-func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
+func init(t : Tower, d : int, cm : float, cc : float, ps : float, p : int, r : float, dir : Vector2, pos : Vector2, dist : float) -> void:
 	tower = t
-	damage = d
-	crit_level = cl
+	base_damage = d
+	crit_multiplier = cm
+	#crit_level = cl
+	crit_chance = cc
 	speed = ps
 	remaining_pierces = p
 	position = pos
@@ -44,12 +47,30 @@ func init(t : Tower, d : int, cm : float, cl : int, ps : float, p : int, r : flo
 	
 	direction = aimprime
 	
-	damage *= cm ** cl
+	#damage *= cm ** cl
 	max_dist_from_tower = r * 2
+
+func roll_crit() -> int:
+	var crit_level = 0
+	var challenge_failed = false
+	var i = 1
+	
+	while not challenge_failed:
+		var challenge_num = randf_range(0, 100)
+		if crit_chance / i >= challenge_num:
+			crit_level += 1
+			i += 1
+		else:
+			challenge_failed = true
+	
+	return crit_level
 
 func _on_hitbox_area_entered(area : Area2D) -> void:
 	var target = area.get_parent()
 	
+	var crit_level = roll_crit()
+	
+	var damage = base_damage * (crit_multiplier ** crit_level)
 	#Calculate damage dealt and increment tower's total damage dealt
 	#Does not count overkill damage
 	#if damage > target.hp:
