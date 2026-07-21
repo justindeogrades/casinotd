@@ -61,8 +61,6 @@ static func face_to_letter(f : int) -> String:
 			return " "
 
 static func rarity_to_colour(r : int) -> Color:
-	
-	
 	match r:
 		rarity.COMMON:
 			return Color.LIME_GREEN
@@ -75,3 +73,17 @@ static func rarity_to_colour(r : int) -> Color:
 		_:
 			push_error("Attempting to convert invalid rarity to colour!")
 			return Color.WHITE
+
+static func rarity_to_string(r : int) -> String:
+	match r:
+		rarity.COMMON:
+			return "Common"
+		rarity.UNCOMMON:
+			return "Uncommon"
+		rarity.RARE:
+			return "Rare"
+		rarity.LEGENDARY:
+			return "Legendary"
+		_:
+			push_error("Attempting to convert invalid rarity to colour!")
+			return " "

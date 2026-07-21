@@ -28,7 +28,8 @@ func init(s : float, t : Tower, ypos) -> void:
 	speed = s
 	tower = t
 	portrait_sprite.texture = tower.get_portrait_texture()
-	back_sprite.texture = backsprites[tower.rarity]
+	#back_sprite.texture = backsprites[tower.rarity]
+	back_sprite.modulate = G.rarity_to_colour(tower.get_rarity())
 	position.y = ypos
 	
 	#Ensures it appears in front of towers

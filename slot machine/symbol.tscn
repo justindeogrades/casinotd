@@ -5,15 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://csbglmahllph4" path="res://slot machine/backsprites/uncommon backsprite.png" id="3_jn4n7"]
 [ext_resource type="Texture2D" uid="uid://bdaeb2xeq2pok" path="res://slot machine/backsprites/rare backsprite.png" id="4_raaf5"]
 [ext_resource type="Texture2D" uid="uid://bkrbuq20m82a3" path="res://slot machine/backsprites/legendary backsprite.png" id="5_xse2q"]
+[ext_resource type="Texture2D" uid="uid://cq2kdlfyefj44" path="res://slot machine/backsprites/uncoloured backsprite.png" id="6_jn4n7"]
 
-[node name="Symbol" type="Node2D" unique_id=733689793 node_paths=PackedStringArray("portrait_sprite", "back_sprite", "hitbox")]
+[node name="Symbol" type="Node2D" unique_id=733689793 node_paths=PackedStringArray("portrait_sprite", "back_sprite")]
 process_mode = 3
 script = ExtResource("1_vauly")
 portrait_sprite = NodePath("Portrait")
 back_sprite = NodePath("BackSprite")
 backsprites = Array[Texture2D]([ExtResource("2_mu16g"), ExtResource("3_jn4n7"), ExtResource("4_raaf5"), ExtResource("5_xse2q")])
-hitbox = NodePath("")
 
 [node name="BackSprite" type="Sprite2D" parent="." unique_id=1540175125]
+texture = ExtResource("6_jn4n7")
 
 [node name="Portrait" type="Sprite2D" parent="." unique_id=1040272284]

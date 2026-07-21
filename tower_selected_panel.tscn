@@ -3,11 +3,18 @@
 [ext_resource type="Script" uid="uid://bs630ldcawgsd" path="res://tower_selected_panel.gd" id="1_36mrh"]
 [ext_resource type="Texture2D" uid="uid://cf1o1mbpew40i" path="res://icon.svg" id="1_41bj4"]
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_ivcjy"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_8ib3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3vdb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="TowerSelectedPanel" type="PanelContainer" unique_id=2137036721 node_paths=PackedStringArray("accept_button", "reroll_button", "ban_button", "name_label", "description_label", "text_rect")]
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("3_8ib3p")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TowerSelectedPanel" type="PanelContainer" unique_id=2137036721 node_paths=PackedStringArray("accept_button", "reroll_button", "ban_button", "rarity_label", "name_label", "description_label", "text_rect")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -24,6 +31,7 @@ script = ExtResource("1_36mrh")
 accept_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/AcceptButton")
 reroll_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/RerollButton")
 ban_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/BanButton")
+rarity_label = NodePath("MarginContainer/VBoxContainer/RarityLabel")
 name_label = NodePath("MarginContainer/VBoxContainer/TowerNameLabel")
 description_label = NodePath("MarginContainer/VBoxContainer/TowerDescLabel")
 text_rect = NodePath("MarginContainer/VBoxContainer/TowerTextureRect")
@@ -45,6 +53,12 @@ theme_override_constants/margin_bottom = 48
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1014052483]
 layout_mode = 2
+
+[node name="RarityLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=41560989]
+layout_mode = 2
+text = "Rarity"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
 
 [node name="TowerNameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1957847180]
 layout_mode = 2
