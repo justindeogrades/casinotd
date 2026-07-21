@@ -33,7 +33,9 @@ func start_next_wave() -> void:
 func _on_wave_spawn_reached(mob : Mob) -> void:
 	var pathfollow = PathFollow2D.new()
 	pathfollow.loop = false
-	pathfollow.rotates = false
+	#Rotating the top view mobs
+	#pathfollow.rotates = false
+	pathfollow.rotates = true
 	path.add_child(pathfollow)
 	mob.player = get_parent()
 	pathfollow.add_child(mob)

@@ -10,6 +10,7 @@ func enter() -> void:
 	anim_player.play("enter")
 
 func emit_entered() -> void:
+	print_debug(modulate.a)
 	entered.emit()
 
 func enable() -> void:

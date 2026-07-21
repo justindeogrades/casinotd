@@ -47,7 +47,8 @@ func initialize_buttons() -> void:
 
 func enter_cards() -> void:
 	for i in upgrade_button:
-		i.visible = false
+		#i.visible = false
+		i.modulate.a = 0
 		i.disabled = true
 	
 	upgrade_button[0].enter()

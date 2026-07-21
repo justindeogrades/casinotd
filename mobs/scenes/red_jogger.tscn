@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/mob.gd" id="1_6657v"]
 [ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="2_xlvhl"]
-[ext_resource type="Texture2D" uid="uid://rr5gatqw5rpw" path="res://mobs/sprites/red jogger sheet.png" id="3_6657v"]
+[ext_resource type="Texture2D" uid="uid://c25os5koamas8" path="res://mobs/sprites/red_jogger_sheet.png" id="3_6657v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6657v"]
 resource_local_to_scene = true

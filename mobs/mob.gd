@@ -67,8 +67,7 @@ func _process(delta: float) -> void:
 #Called when mob reaches the exit, just deletes the pathfollow for now
 func leak() -> void:
 	player.update_lives(-1)
-	deleted.emit(self)
-	pathfollow.queue_free()
+	delete_self()
 
 func roll_bounty() -> int:
 	return randi_range(min_bounty, max_bounty)
