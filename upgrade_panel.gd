@@ -74,6 +74,9 @@ func generate_upgrade_options() -> void:
 		var amount = upgrade_data[att][face]
 		
 		upgrade_button[i].text = face_string + " of " + att_string + ":\n+" + str(amount) + " " + att_string
+		for j in upgrade_button[i].value_labels:
+			j.text = G.face_to_letter(face)
+			j.set("theme_override_colors/font_color", G.rarity_to_colour(face))
 		
 		upgrade_option[i] = Vector2(att, amount)
 

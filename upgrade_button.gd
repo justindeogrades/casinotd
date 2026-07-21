@@ -1,6 +1,7 @@
 extends Button
 
 @export var anim_player : AnimationPlayer
+@export var value_labels : Array[Label]
 
 signal entered
 

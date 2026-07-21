@@ -2,6 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://bk6wtixi48142" path="res://card base.png" id="1_gwg2v"]
 [ext_resource type="Script" uid="uid://c81s30m0o77e5" path="res://upgrade_button.gd" id="2_lcpy1"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_lcpy1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcpy1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21fsu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2cuk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1atmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uunqy"]
 
 [sub_resource type="Animation" id="Animation_21fsu"]
 length = 0.001
@@ -244,7 +255,7 @@ _data = {
 &"select": SubResource("Animation_1atmq")
 }
 
-[node name="UpgradeButton" type="Button" unique_id=113980835 node_paths=PackedStringArray("anim_player")]
+[node name="UpgradeButton" type="Button" unique_id=113980835 node_paths=PackedStringArray("anim_player", "value_labels")]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,15 +268,52 @@ theme_override_colors/font_hover_color = Color(0.011203093, 0.011203093, 0.01120
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lcpy1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_21fsu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m2cuk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1atmq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uunqy")
 disabled = true
 text = "Upgrade"
 icon = ExtResource("1_gwg2v")
 icon_alignment = 1
 script = ExtResource("2_lcpy1")
 anim_player = NodePath("AnimationPlayer")
+value_labels = [NodePath("FaceLabel"), NodePath("FaceLabel2")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=157345319]
 libraries/ = SubResource("AnimationLibrary_uunqy")
+
+[node name="FaceLabel" type="Label" parent="." unique_id=616226132]
+custom_minimum_size = Vector2(40, 72)
+custom_maximum_size = Vector2(40, 72)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 72.0
+offset_bottom = 104.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lcpy1")
+theme_override_font_sizes/font_size = 64
+text = "A"
+horizontal_alignment = 1
+
+[node name="FaceLabel2" type="Label" parent="." unique_id=2132266476]
+custom_minimum_size = Vector2(40, 72)
+custom_maximum_size = Vector2(40, 72)
+layout_mode = 0
+offset_left = 368.0
+offset_top = 635.0
+offset_right = 408.0
+offset_bottom = 707.0
+rotation = 3.1415927
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lcpy1")
+theme_override_font_sizes/font_size = 64
+text = "A"
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
