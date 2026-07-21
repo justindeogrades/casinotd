@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dj0ibanees3qc" path="res://towers/scenes/whitebeard.gd" id="1_a0hxs"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="3_20a7r"]
+[ext_resource type="Texture2D" uid="uid://tgyy21sl7ms4" path="res://towers/sprites/icon (portrait)/whitebeard icon.png" id="3_jhu30"]
 [ext_resource type="Texture2D" uid="uid://b301gur5rnej2" path="res://towers/projectiles/sprites/whitebeard projectile.png" id="4_jhu30"]
 [ext_resource type="Texture2D" uid="uid://bwoq16c1br7an" path="res://towers/sprites/overworld/whitebeard overworld.png" id="4_x3qac"]
 [ext_resource type="PackedScene" uid="uid://bhlirsi2w8ux" path="res://towers/bird.tscn" id="5_a0hxs"]
@@ -49,17 +50,17 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Whitebeard" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("bird", "sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Whitebeard" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_a0hxs")
 bird_resource = ExtResource("5_a0hxs")
-bird = NodePath("")
 attribute = Array[float]([25.0, 150.0, 80.0, 30.0, 5.0, 1000.0, 1.0, 5.0])
 tower_name = "Whitebeard & Quilly"
 tower_description = "The slot machines were a far more exciting treasure hunt"
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")
+portrait = ExtResource("3_jhu30")
 projectile_preload = ExtResource("3_20a7r")
 projectile_texture = ExtResource("4_jhu30")
 range_area = NodePath("Range")
