@@ -44,7 +44,7 @@ anchor_right = 0.8
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
+color = Color(0, 0, 0, 0.5882353)
 
 [node name="SymbolParent" type="Node" parent="." unique_id=1325641683]
 

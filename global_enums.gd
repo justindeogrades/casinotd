@@ -63,13 +63,13 @@ static func face_to_letter(f : int) -> String:
 static func rarity_to_colour(r : int) -> Color:
 	match r:
 		rarity.COMMON:
-			return Color.LIME_GREEN
+			return Color.from_rgba8(90, 197, 79)
 		rarity.UNCOMMON:
-			return Color.DEEP_SKY_BLUE
+			return Color.from_rgba8(12, 241, 255)
 		rarity.RARE:
-			return Color.ORANGE_RED
+			return Color.from_rgba8(196, 36, 48)
 		rarity.LEGENDARY:
-			return Color.YELLOW
+			return Color.from_rgba8(255, 200, 37)
 		_:
 			push_error("Attempting to convert invalid rarity to colour!")
 			return Color.WHITE
