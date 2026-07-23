@@ -99,8 +99,8 @@ func _process(delta: float) -> void:
 			anim_player.play("shoot")
 			
 			cooldown_timer.start(cooldown_seconds)
-		else:
-			print_debug("null target!")
+		#else:
+			#print_debug("null target!")
 	else:
 		pass
 

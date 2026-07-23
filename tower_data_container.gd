@@ -21,13 +21,13 @@ signal upgrade_tower
 	#update_priority_label()
 
 func _process(delta: float) -> void:
-	refresh()
+	update()
 
-func refresh() -> void:
+func update() -> void:
 	if tower != null:
 		total_damage_label.text = str(tower.total_damage_dealt) + " damage dealt"
 
-func refresh_with_new_tower(new_tower : Tower) -> void:
+func update_with_new_tower(new_tower : Tower) -> void:
 	#Setting tower's range visibility has been delegated to the Player object
 	#if tower != null:
 		#tower.set_range_indicator_visibility(false)
@@ -62,9 +62,18 @@ func refresh_with_new_tower(new_tower : Tower) -> void:
 		tower.attribute[G.att.PIERCE]
 	]
 	
-	upgrade_button.text = "Upgrade - $" + str(tower.upgrade_cost)
+	update_upgrade_button()
 	
 	update_priority_label()
+
+func update_upgrade_button() -> void:
+	if tower != null:
+		upgrade_button.text = "Upgrade - $" + str(tower.upgrade_cost)
+		
+		if tower.upgrade_cost <= player.money:
+			upgrade_button.disabled = false
+		else:
+			upgrade_button.disabled = true
 
 func update_priority_label() -> void:
 	var prio = tower.get_target_priority()

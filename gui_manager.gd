@@ -128,6 +128,8 @@ func _on_upgrade_button_pressed(tower : Tower) -> void:
 #This is for rerolling upgrades
 func _on_reroll_pressed() -> void:
 	if player.spend_money(upgrade_panel.reroll_cost):
+		#Disable all buttons again because spending money triggers a full side panel update
+		side_panel.set_all_buttons_disabled(true)
 		upgrade_panel.refresh_reroll_button(false)
 		upgrade_panel.generate_upgrade_options()
 		upgrade_panel.enter_cards()
@@ -135,7 +137,7 @@ func _on_reroll_pressed() -> void:
 func _on_upgrade_selected(tower : Tower, att : int, amount : float) -> void:
 	tower.upgrade_attribute(att, amount)
 	tower.upgrade_cost = tower.upgrade_cost ** 1.2
-	side_panel.tower_data_container.refresh_with_new_tower(tower)
+	side_panel.tower_data_container.update_with_new_tower(tower)
 	
 	get_tree().paused = false
 	side_panel.set_all_buttons_disabled(false)

@@ -12,7 +12,7 @@ extends Node
 var side_panel : PanelContainer
 var tower_data_container : VBoxContainer
 
-var money : int = 500
+var money : int = 100
 var lives : int = max_lives
 var total_money_earned : int = 0
 
@@ -28,6 +28,7 @@ func _ready() -> void:
 	wave_manager.wave_ended.connect(_on_wave_ended)
 	
 	side_panel = gui_manager.get_child(0)
+	side_panel.update_requested.connect(_on_side_panel_update_requested)
 	tower_data_container = side_panel.tower_data_container
 	tower_data_container.set_enabled(false)
 	
@@ -35,8 +36,7 @@ func _ready() -> void:
 	gui_manager.next_wave_pressed.connect(_on_next_wave_pressed)
 	gui_manager.game_over_confirmed.connect(_on_game_over_confirmed)
 	
-	refresh_money_label()
-	refresh_lives_label()
+	update_side_panel()
 	tower_placer.tower_created.connect(_on_tower_created)
 	tower_placer.tower_placed.connect(_on_tower_placed)
 
@@ -62,6 +62,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("cheat_tower_3"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/photocopier.tscn").instantiate( ))
 
+func update_side_panel() -> void:
+	side_panel.update_all(money, lives, tower_cost, wave_manager.is_wave_active())
+
 func spend_money(amount : int) -> bool:
 	if money >= amount:
 		update_money(amount * -1)
@@ -74,20 +77,22 @@ func update_money(amount : int) -> void:
 	if amount > 0:
 		total_money_earned += amount
 	
-	refresh_money_label()
+	update_side_panel()
 
-func refresh_money_label() -> void:
-	side_panel.money_label.text = "Money: " + str(money)
+#Redundant
+#func update_money_label() -> void:
+	#side_panel.money_label.text = "Money: " + str(money)
 
 func update_lives(amount : int) -> void:
 	lives += amount
-	refresh_lives_label()
+	update_side_panel()
 	
 	if lives <= 0:
 		gui_manager.init_game_over(get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
 
-func refresh_lives_label() -> void:
-	side_panel.lives_label.text = "Lives: " + str(lives)
+#Redundant
+#func update_lives_label() -> void:
+	#side_panel.lives_label.text = "Lives: " + str(lives)
 
 #Currently the selected tower will be displayed over other towers
 func select_tower(tower : Tower) -> void:
@@ -99,7 +104,7 @@ func select_tower(tower : Tower) -> void:
 	#side_panel.set_tower_data_container_visible(true)
 	tower_data_container.set_enabled(true)
 	tower.set_range_indicator_visibility(true)
-	side_panel.tower_data_container.refresh_with_new_tower(tower)
+	side_panel.tower_data_container.update_with_new_tower(tower)
 	
 	tower.set_z_index(0)
 func deselect_tower(tower : Tower) -> void:
@@ -140,9 +145,11 @@ func _on_tower_clicked(tower : Tower) -> void:
 
 func _on_gui_manager_tower_selected(tower : Tower) -> void:
 	tower_cost = tower_cost ** 1.2
-	refresh_money_label()
-	side_panel.refresh_buy_button()
+	update_side_panel()
 	tower_placer.create_temp_tower(tower)
+
+func _on_side_panel_update_requested() -> void:
+	update_side_panel()
 
 func _on_tower_created(new_tower : Tower) -> void:
 	new_tower.clicked.connect(_on_tower_clicked)
@@ -165,9 +172,11 @@ func _on_tower_damage_dealt(amount : int, crit_level : int, pos : Vector2) -> vo
 
 func _on_next_wave_pressed() -> void:
 	wave_manager.start_next_wave()
+	update_side_panel()
 
 func _on_wave_ended() -> void:
-	print_debug("called")
+	#Update side panel gets called from getting money anyway
+	update_side_panel()
 	
 	for t in placed_towers:
 		#FIND A BETTER WAY TO DO THIS AT SOME POINT

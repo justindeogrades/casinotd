@@ -30,6 +30,9 @@ func start_next_wave() -> void:
 		waves[wave_at].start()
 		wave_active = true
 
+func is_wave_active() -> bool:
+	return wave_active
+
 func _on_wave_spawn_reached(mob : Mob) -> void:
 	var pathfollow = PathFollow2D.new()
 	pathfollow.loop = false
