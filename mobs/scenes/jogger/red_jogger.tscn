@@ -1,29 +1,29 @@
 [gd_scene format=3 uid="uid://bk424x52xlkap"]
 
-[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/mob.gd" id="1_6657v"]
-[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="2_xlvhl"]
-[ext_resource type="Texture2D" uid="uid://c25os5koamas8" path="res://mobs/sprites/red_jogger_sheet.png" id="3_6657v"]
+[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/mob.gd" id="1_12lgw"]
+[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="2_4tv0u"]
+[ext_resource type="Texture2D" uid="uid://c25os5koamas8" path="res://mobs/sprites/red_jogger_sheet.png" id="3_bvpjn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6657v"]
 resource_local_to_scene = true
-shader = ExtResource("2_xlvhl")
+shader = ExtResource("2_4tv0u")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlvhl"]
-atlas = ExtResource("3_6657v")
+atlas = ExtResource("3_bvpjn")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5m8t"]
-atlas = ExtResource("3_6657v")
+atlas = ExtResource("3_bvpjn")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2yixu"]
-atlas = ExtResource("3_6657v")
+atlas = ExtResource("3_bvpjn")
 region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cjqg"]
-atlas = ExtResource("3_6657v")
+atlas = ExtResource("3_bvpjn")
 region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
@@ -216,7 +216,7 @@ _data = {
 }
 
 [node name="RedJogger" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
-script = ExtResource("1_6657v")
+script = ExtResource("1_12lgw")
 max_hp = 100
 speed = 100.0
 min_bounty = 1
