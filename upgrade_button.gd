@@ -2,12 +2,15 @@ extends Button
 
 @export var anim_player : AnimationPlayer
 @export var value_labels : Array[Label]
+@export var particles : GPUParticles2D
 
 signal entered
 
 var mouseovered : bool = false
 
 func enter() -> void:
+	particles.global_position = global_position + Vector2(200, 900)
+	print_debug(global_position)
 	anim_player.play("enter")
 
 func emit_entered() -> void:

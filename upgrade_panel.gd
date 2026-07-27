@@ -15,6 +15,8 @@ var upgrade_option : Array[Vector2] = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
 var reroll_cost : int
 var rerolls_remaining : int
 
+var base_card_particles : int = 6
+
 signal upgrade_selected
 signal reroll_pressed
 
@@ -74,6 +76,8 @@ func generate_upgrade_options() -> void:
 		var amount = upgrade_data[att][face]
 		
 		upgrade_button[i].text = face_string + " of " + att_string + ":\n+" + str(amount) + " " + att_string
+		upgrade_button[i].particles.modulate = G.rarity_to_colour(face)
+		upgrade_button[i].particles.amount = base_card_particles * face
 		for j in upgrade_button[i].value_labels:
 			j.text = G.face_to_letter(face)
 			j.set("theme_override_colors/font_color", G.rarity_to_colour(face))

@@ -33,6 +33,8 @@ func init(t : Tower, r : int, b : int, c : bool) -> void:
 	reroll_button.text = "Reroll - $" + str(reroll_cost) 
 	ban_button.text = "Ban - $" + str(ban_cost)
 	
+	text_rect.get_node("AnimationPlayer").play("enter")
+	
 
 func _on_accept_button_pressed() -> void:
 	accepted.emit(tower)
