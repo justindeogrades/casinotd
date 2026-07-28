@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3et3ajfji1nj"]
 
 [ext_resource type="Script" uid="uid://bi2fiuglbfse1" path="res://damage_indicator.gd" id="1_f72eu"]
+[ext_resource type="Texture2D" uid="uid://bgqr8gbk74s26" path="res://particles/particle b.png" id="2_nibuy"]
 
 [sub_resource type="Animation" id="Animation_2su5p"]
 length = 0.001
@@ -23,6 +24,18 @@ tracks/1/path = NodePath("../..:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(-0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -59,7 +72,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("../..:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -69,6 +82,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1), Vector2(1e-05, 1e-05)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:offset_transform_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 1),
+"transitions": PackedFloat32Array(1, 5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nibuy"]
 _data = {
@@ -76,12 +101,31 @@ _data = {
 &"rise": SubResource("Animation_f72eu")
 }
 
-[node name="DamageIndicator" type="Node2D" unique_id=634465355 node_paths=PackedStringArray("crit_label", "damage_label", "anim_player")]
+[sub_resource type="Curve" id="Curve_nibuy"]
+_data = [Vector2(0, 1), 0.0, -0.513773, 0, 1, Vector2(0.7654322, 0.6067416), -1.9029624, -1.9029624, 0, 0, Vector2(1, 0), -2.586636, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nibuy"]
+curve = SubResource("Curve_nibuy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = -500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_nibuy")
+
+[node name="DamageIndicator" type="Node2D" unique_id=634465355 node_paths=PackedStringArray("crit_label", "damage_label", "anim_player", "particles")]
 position = Vector2(0, -50)
 script = ExtResource("1_f72eu")
 crit_label = NodePath("HBoxContainer/CritLabel")
 damage_label = NodePath("HBoxContainer/DamageNumLabel")
 anim_player = NodePath("AnimationPlayer")
+particles = NodePath("GPUParticles2D")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=2112495893]
 anchors_preset = 8
@@ -94,6 +138,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+offset_transform_enabled = true
 
 [node name="CritLabel" type="Label" parent="HBoxContainer" unique_id=809658965]
 layout_mode = 2
@@ -112,3 +157,13 @@ horizontal_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1963354380]
 root_node = NodePath("../HBoxContainer/DamageNumLabel")
 libraries/ = SubResource("AnimationLibrary_nibuy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1416599293]
+emitting = false
+amount = 4
+texture = ExtResource("2_nibuy")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_g4v7s")

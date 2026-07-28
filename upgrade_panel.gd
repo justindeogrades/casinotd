@@ -76,8 +76,13 @@ func generate_upgrade_options() -> void:
 		var amount = upgrade_data[att][face]
 		
 		upgrade_button[i].text = face_string + " of " + att_string + ":\n+" + str(amount) + " " + att_string
-		upgrade_button[i].particles.modulate = G.rarity_to_colour(face)
-		upgrade_button[i].particles.amount = base_card_particles * face
+		#Only emit particles for aces?
+		if face == G.face.ACE:
+			upgrade_button[i].particles.modulate = G.rarity_to_colour(face)
+			upgrade_button[i].particles.amount_ratio = 1
+		else:
+			upgrade_button[i].particles.amount_ratio = 0
+		
 		for j in upgrade_button[i].value_labels:
 			j.text = G.face_to_letter(face)
 			j.set("theme_override_colors/font_color", G.rarity_to_colour(face))

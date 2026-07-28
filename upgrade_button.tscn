@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bk6wtixi48142" path="res://card base.png" id="1_gwg2v"]
 [ext_resource type="Script" uid="uid://c81s30m0o77e5" path="res://upgrade_button.gd" id="2_lcpy1"]
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_lcpy1"]
-[ext_resource type="Texture2D" uid="uid://ckqw84qkaoe7w" path="res://particle.png" id="4_21fsu"]
+[ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="4_m2cuk"]
 [ext_resource type="Texture2D" uid="uid://bog7qk5gkp2ox" path="res://mobs/sprites/mob.png" id="5_m2cuk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcpy1"]
@@ -418,8 +418,8 @@ horizontal_alignment = 1
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1938435759]
 position = Vector2(200, 1080)
 emitting = false
-amount = 6
-texture = ExtResource("4_21fsu")
+amount = 20
+texture = ExtResource("4_m2cuk")
 lifetime = 5.0
 one_shot = true
 explosiveness = 1.0

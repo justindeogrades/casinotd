@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bt6gcfajrb836"]
 
-[ext_resource type="Texture2D" uid="uid://cf1o1mbpew40i" path="res://icon.svg" id="1_7sw24"]
 [ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="1_f1una"]
-[ext_resource type="Texture2D" uid="uid://ckqw84qkaoe7w" path="res://particle.png" id="3_f1una"]
+[ext_resource type="Texture2D" uid="uid://c07i3vjb0goov" path="res://towers/sprites/icon (portrait)/debt wizard icon.png" id="2_f1una"]
+[ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="3_f1una"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_f1una")
@@ -47,13 +47,25 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:offset_transform_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_7pn0v"]
 resource_name = "enter"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -87,6 +99,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:offset_transform_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t76ro"]
 _data = {
@@ -100,8 +124,8 @@ angle_min = -179.99998
 angle_max = 180.00002
 direction = Vector3(1, 1, 0)
 spread = 180.0
-initial_velocity_min = 800.0
-initial_velocity_max = 1000.0
+initial_velocity_min = 1500.0
+initial_velocity_max = 1800.0
 angular_velocity_min = -500.0
 angular_velocity_max = 499.99997
 gravity = Vector3(0, 98, 0)
@@ -112,17 +136,18 @@ custom_minimum_size = Vector2(200, 200)
 offset_right = 200.0
 offset_bottom = 200.0
 size_flags_horizontal = 4
-texture = ExtResource("1_7sw24")
-expand_mode = 1
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+texture = ExtResource("2_f1una")
 stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=394400459]
 libraries/ = SubResource("AnimationLibrary_t76ro")
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="." unique_id=220623457]
-position = Vector2(100, 100.5)
+position = Vector2(250, 250)
 emitting = false
-amount = 20
+amount = 30
 texture = ExtResource("3_f1una")
 lifetime = 2.0
 one_shot = true

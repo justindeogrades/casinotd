@@ -3,12 +3,17 @@ extends Node2D
 @export var crit_label : Label
 @export var damage_label : Label
 @export var anim_player : AnimationPlayer
+@export var particles : GPUParticles2D
 
 var crit_col : Color = Color.YELLOW
 
 func init(amount : int, crit_level : int, pos : Vector2):
 	damage_label.text = str(amount)
 	if crit_level >= 1:
+		#Only particles on crit
+		particles.emitting = true
+		particles.modulate = crit_col
+		
 		#Set colours to crit colour, then decide text based on crit level
 		crit_label.set("theme_override_colors/font_color", crit_col)
 		damage_label.set("theme_override_colors/font_color", crit_col)
