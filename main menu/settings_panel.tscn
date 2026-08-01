@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bxrvkd1lrg7sg"]
+
+[ext_resource type="Script" uid="uid://bylduuergy5as" path="res://main menu/settings_panel.gd" id="1_1wrka"]
+
+[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "close_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -120.0
+offset_right = 130.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1wrka")
+fullscreen_button = NodePath("MarginContainer/VBoxContainer/GridContainer/FullscreenButton")
+close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1482379764]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2022674417]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1324326392]
+layout_mode = 2
+text = "Settings:"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1431516753]
+layout_mode = 2
+columns = 2
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1838667438]
+layout_mode = 2
+text = "Fullscreen:"
+
+[node name="FullscreenButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=47271636]
+layout_mode = 2
+
+[node name="MusicVolLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1767611457]
+layout_mode = 2
+text = "Music volume:"
+
+[node name="MusicVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1889026143]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+value = 80.0
+
+[node name="SFXVolLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1910465942]
+layout_mode = 2
+text = "SFX volume:"
+
+[node name="SFXVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1683634943]
+layout_mode = 2
+value = 80.0
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1255385746]
+layout_mode = 2
+text = "Close"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
