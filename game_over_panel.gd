@@ -1,10 +1,16 @@
 extends PanelContainer
 
+@export var game_over_label : Label
 @export var stat_names_label : Label
 @export var stat_data_label : Label
 @export var confirm_button : Button
 
-func init(waves_survived : int, damage_dealt : int, money_earned : int, mvp : Tower) -> void:
+func init(victory: bool, waves_survived : int, damage_dealt : int, money_earned : int, mvp : Tower) -> void:
+	if victory:
+		game_over_label.text = "You win!"
+	else:
+		game_over_label.text = "Game over (you suck)"
+	
 	var mvp_data_string : String
 	
 	if mvp != null:

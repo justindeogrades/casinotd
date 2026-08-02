@@ -9,9 +9,9 @@ var map_instance : Node2D
 func _ready() -> void:
 	init_main_menu()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("quit"):
-		init_main_menu()
+#func _unhandled_input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("quit"):
+		#init_main_menu()
 
 func init_main_menu() -> void:
 	remove_all_children()
@@ -28,8 +28,9 @@ func init_map() -> void:
 	map_instance = map.instantiate()
 	add_child(map_instance)
 	
-	#map_instance/$Player.game_over.connect(_on_game_over)
-	map_instance.get_node("Player").game_over.connect(_on_game_over)
+	var player = map_instance.get_node("Player")
+	player.game_over.connect(_on_game_over)
+	player.get_node("PausePanel").quit_confirmed.connect(_on_pause_menu_quit_confirmed)
 
 func remove_all_children() -> void:
 	for i in get_children():
@@ -42,4 +43,7 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_game_over() -> void:
+	init_main_menu()
+
+func _on_pause_menu_quit_confirmed() -> void:
 	init_main_menu()

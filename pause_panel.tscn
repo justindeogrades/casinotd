@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dsdivye5cb7iy"]
+
+[ext_resource type="Script" uid="uid://bu4ovck2vbbu7" path="res://pause_panel.gd" id="1_lbt5x"]
+[ext_resource type="PackedScene" uid="uid://bxrvkd1lrg7sg" path="res://main menu/settings_panel.tscn" id="2_p6ksa"]
+
+[node name="PausePanel" type="PanelContainer" unique_id=193320078 node_paths=PackedStringArray("main_container", "settings_container", "confirm_quit_container", "resume_button", "settings_button", "quit_button")]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1809.0
+offset_bottom = -952.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lbt5x")
+main_container = NodePath("MainContainer")
+settings_container = NodePath("SettingsContainer")
+confirm_quit_container = NodePath("ConfirmQuitContainer")
+resume_button = NodePath("MainContainer/ResumeButton")
+settings_button = NodePath("MainContainer/SettingsButton")
+quit_button = NodePath("MainContainer/QuitButton")
+
+[node name="MainContainer" type="VBoxContainer" parent="." unique_id=1523005822]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer" unique_id=200309053]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="MainContainer" unique_id=580481355]
+layout_mode = 2
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="MainContainer" unique_id=756385275]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MainContainer" unique_id=1838062775]
+layout_mode = 2
+text = "Quit to menu"
+
+[node name="SettingsContainer" parent="." unique_id=1838194872 instance=ExtResource("2_p6ksa")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ConfirmQuitContainer" type="VBoxContainer" parent="." unique_id=1872563930]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AreYouSureLabel" type="Label" parent="ConfirmQuitContainer" unique_id=147297854]
+layout_mode = 2
+text = "Are you sure you want to return to the main menu?
+Progress will not be saved."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmQuitContainer" unique_id=384403403]
+layout_mode = 2
+
+[node name="YesButton" type="Button" parent="ConfirmQuitContainer/HBoxContainer" unique_id=1991321755]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="ConfirmQuitContainer/HBoxContainer" unique_id=1599153344]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[connection signal="pressed" from="MainContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ConfirmQuitContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ConfirmQuitContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

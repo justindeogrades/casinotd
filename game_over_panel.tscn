@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aion"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="GameOverPanel" type="PanelContainer" unique_id=1062773904 node_paths=PackedStringArray("stat_names_label", "stat_data_label", "confirm_button")]
+[node name="GameOverPanel" type="PanelContainer" unique_id=1062773904 node_paths=PackedStringArray("game_over_label", "stat_names_label", "stat_data_label", "confirm_button")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -20,6 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3aion")
 script = ExtResource("1_gj7sw")
+game_over_label = NodePath("MarginContainer/VBoxContainer/GameOverLabel")
 stat_names_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/StatNameLabel")
 stat_data_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/StatDataLabel")
 confirm_button = NodePath("MarginContainer/VBoxContainer/ConfirmButton")

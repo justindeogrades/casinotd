@@ -88,7 +88,7 @@ func update_lives(amount : int) -> void:
 	update_side_panel()
 	
 	if lives <= 0:
-		gui_manager.init_game_over(get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
+		gui_manager.init_game_over(false, get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
 
 #Redundant
 #func update_lives_label() -> void:
@@ -174,15 +174,18 @@ func _on_next_wave_pressed() -> void:
 	wave_manager.start_next_wave()
 	update_side_panel()
 
-func _on_wave_ended() -> void:
-	#Update side panel gets called from getting money anyway
-	update_side_panel()
-	
-	for t in placed_towers:
-		#FIND A BETTER WAY TO DO THIS AT SOME POINT
-		if t.tower_name == "Counterfeit Machine":
-			update_money(200)
-			t.anim_player.play("print")
+func _on_wave_ended(all_waves_ended : bool) -> void:
+	if all_waves_ended:
+		gui_manager.init_game_over(true, get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
+	else:
+		#Update side panel gets called from getting money anyway
+		update_side_panel()
+		
+		for t in placed_towers:
+			#FIND A BETTER WAY TO DO THIS AT SOME POINT
+			if t.tower_name == "Counterfeit Machine":
+				update_money(200)
+				t.anim_player.play("print")
 
 func _on_game_over_confirmed() -> void:
 	get_tree().paused = false

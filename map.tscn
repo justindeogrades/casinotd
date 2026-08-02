@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxgm5ilq32svq" path="res://towers/tower_placer.tscn" id="5_sb2pt"]
 [ext_resource type="Script" uid="uid://ct0pijroh7m73" path="res://damage_indicator_placer.gd" id="6_0t07s"]
 [ext_resource type="PackedScene" uid="uid://ccpmycj5vtnwl" path="res://gui_manager.tscn" id="7_6qsgm"]
+[ext_resource type="PackedScene" uid="uid://dsdivye5cb7iy" path="res://pause_panel.tscn" id="7_71pa8"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
@@ -45,3 +46,10 @@ polygon = PackedVector2Array(0, 320, 480, 320, 480, 160, 721, 160, 721, 320, 112
 script = ExtResource("6_0t07s")
 
 [node name="GUIManager" parent="Player" unique_id=1782215696 instance=ExtResource("7_6qsgm")]
+
+[node name="PausePanel" parent="Player" unique_id=193320078 instance=ExtResource("7_71pa8")]
+visible = false
+z_index = 1001
+z_as_relative = false
+offset_right = 0.0
+offset_bottom = 0.0
