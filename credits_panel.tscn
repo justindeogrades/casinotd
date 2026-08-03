@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bs1oxmvgstayd"]
+
+[ext_resource type="Script" uid="uid://c4lajf26knrma" path="res://credits_panel.gd" id="1_jbcsw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 64
+
+[node name="CreditsPanel" type="PanelContainer" unique_id=602466445 node_paths=PackedStringArray("return_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jbcsw")
+return_button = NodePath("VBoxContainer/ReturnButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1109521099]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 160
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=564546897]
+layout_mode = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1650703191]
+layout_mode = 2
+text = "A game by Justin Deogrades
+
+Graphics by Stephen Salion and Vinayak Pathak
+
+Assets used:
+
+Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1098708683]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return to main menu"

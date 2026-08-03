@@ -5,7 +5,12 @@ extends PanelContainer
 @export var stat_data_label : Label
 @export var confirm_button : Button
 
+var win : bool = false
+
+signal confirmed(victory : bool)
+
 func init(victory: bool, waves_survived : int, damage_dealt : int, money_earned : int, mvp : Tower) -> void:
+	win = victory
 	if victory:
 		game_over_label.text = "You win!"
 	else:
@@ -32,3 +37,7 @@ func init(victory: bool, waves_survived : int, damage_dealt : int, money_earned 
 	money_earned,
 	mvp_data_string,
 	]
+
+
+func _on_confirm_button_pressed() -> void:
+	confirmed.emit(win)

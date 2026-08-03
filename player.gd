@@ -187,9 +187,9 @@ func _on_wave_ended(all_waves_ended : bool) -> void:
 				update_money(200)
 				t.anim_player.play("print")
 
-func _on_game_over_confirmed() -> void:
+func _on_game_over_confirmed(win : bool) -> void:
 	get_tree().paused = false
-	game_over.emit()
+	game_over.emit(win)
 
 func is_tower_mouseovered(tower : Tower) -> bool:
 	if tower != null:

@@ -42,8 +42,11 @@ func _on_play_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
-func _on_game_over() -> void:
+func _on_game_over(win : bool) -> void:
 	init_main_menu()
+	
+	if win:
+		main_menu_instance.open_credits()
 
 func _on_pause_menu_quit_confirmed() -> void:
 	init_main_menu()

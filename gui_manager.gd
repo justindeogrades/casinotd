@@ -23,7 +23,7 @@ var quick_spins_enabled : bool = false
 
 signal tower_selected(tower : Tower)
 signal next_wave_pressed
-signal game_over_confirmed
+signal game_over_confirmed(win : bool)
 
 func _ready() -> void:
 	player = get_parent()
@@ -56,7 +56,7 @@ func init_game_over(victory : bool, waves_survived : int, damage_dealt : int, mo
 	
 	game_over_panel = game_over_panel_resource.instantiate()
 	game_over_panel.init(victory, waves_survived, damage_dealt, money_earned, mvp)
-	game_over_panel.confirm_button.pressed.connect(_on_game_over_confirm_button_pressed)
+	game_over_panel.confirmed.connect(_on_game_over_confirmed)
 	add_child(game_over_panel)
 
 func start_slot_machine(is_reroll : bool) -> void:
@@ -171,5 +171,5 @@ func _on_tower_selected_panel_banned(tower : Tower) -> void:
 func _on_next_wave_button_pressed() -> void:
 	next_wave_pressed.emit()
 
-func _on_game_over_confirm_button_pressed() -> void:
-	game_over_confirmed.emit()
+func _on_game_over_confirmed(win : bool) -> void:
+	game_over_confirmed.emit(win)

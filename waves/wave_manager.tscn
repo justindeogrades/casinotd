@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bk424x52xlkap" path="res://mobs/scenes/jogger/red_jogger.tscn" id="4_iakiv"]
 [ext_resource type="PackedScene" uid="uid://cvdpfmb3ldi44" path="res://mobs/scenes/roller/red_roller.tscn" id="5_2xtue"]
 
-[sub_resource type="Resource" id="Resource_iakiv"]
+[sub_resource type="Resource" id="Resource_2xtue"]
 resource_local_to_scene = true
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("4_iakiv")
@@ -14,7 +14,7 @@ mob_count = 6
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
-[sub_resource type="Resource" id="Resource_2ewgq"]
+[sub_resource type="Resource" id="Resource_iakiv"]
 resource_local_to_scene = true
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
@@ -22,47 +22,9 @@ mob_count = 6
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
-[sub_resource type="Resource" id="Resource_d0drh"]
-resource_local_to_scene = true
-script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("4_iakiv")
-mob_count = 15
-spawn_interval = 0.5
-metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
-
-[sub_resource type="Resource" id="Resource_b1o8j"]
-resource_local_to_scene = true
-script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("4_iakiv")
-mob_count = 10
-spawn_interval = 0.1
-metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
-
-[sub_resource type="Resource" id="Resource_hj8xs"]
-resource_local_to_scene = true
-script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("4_iakiv")
-mob_count = 20
-spawn_interval = 0.2
-metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
-
-[sub_resource type="Resource" id="Resource_bsev2"]
-resource_local_to_scene = true
-script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("4_iakiv")
-mob_count = 30
-spawn_interval = 0.1
-metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
-
 [node name="WaveManager" type="Node" unique_id=1820962353 node_paths=PackedStringArray("waves")]
 script = ExtResource("1_244l3")
-waves = [NodePath("Wave0"), NodePath("Wave1"), NodePath("Wave2")]
+waves = [NodePath("Wave0")]
 
 [node name="Wave0" parent="." unique_id=1681385698 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_iakiv"), SubResource("Resource_2ewgq")])
-
-[node name="Wave1" parent="." unique_id=1031682683 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_d0drh"), SubResource("Resource_b1o8j")])
-
-[node name="Wave2" parent="." unique_id=1854923843 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_hj8xs"), SubResource("Resource_bsev2")])
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_2xtue"), SubResource("Resource_iakiv")])
