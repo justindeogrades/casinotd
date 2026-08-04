@@ -38,6 +38,8 @@ func _ready() -> void:
 	pass
 
 func init(quick_spins_enabled : bool, banned_towers : Array) -> void:
+	AudioManager.slot_machine_sfx.play()
+	
 	#Does nothing because speed is set every frame?
 	#speed = randomize_speed(base_speed, speed_randomness_range)
 	
@@ -78,8 +80,14 @@ func _process(delta: float) -> void:
 	frames_since_start += 1
 	
 	if x >= 1:
-		var selected_tower = selected_symbol.get_tower()
-		tower_selected.emit(selected_tower, is_tower_bannable(selected_tower))
+		end_spin()
+
+func end_spin() -> void:
+	#Ends from the tower selected panel
+	#AudioManager.slot_machine_sfx.stop()
+	
+	var selected_tower = selected_symbol.get_tower()
+	tower_selected.emit(selected_tower, is_tower_bannable(selected_tower))
 
 func sort_towers(banned_towers : Array) -> void:
 	for i in all_towers:

@@ -21,8 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://bmx6o2pcy35hs" path="res://slot machine/symbol.tscn" id="18_to7mw"]
 
 [sub_resource type="Curve" id="Curve_agdmm"]
-_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.099999994, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(0.95, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 5
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -2.814, -2.814, 0, 0, Vector2(0.95, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 metadata/_snap_enabled = true
 metadata/_snap_count = 100
 
@@ -31,7 +31,7 @@ process_mode = 3
 script = ExtResource("1_agdmm")
 all_towers = Array[Resource]([ExtResource("2_80ex4"), ExtResource("3_to7mw"), ExtResource("4_77381"), ExtResource("5_yyrfw"), ExtResource("6_1mhi3"), ExtResource("7_m5w0t"), ExtResource("8_3fmpb"), ExtResource("2_by4c8"), ExtResource("10_r1c5y"), ExtResource("3_wn12k"), ExtResource("7_m4ibu"), ExtResource("13_lbft1"), ExtResource("14_8riac"), ExtResource("15_2cifo"), ExtResource("16_gcmh8"), ExtResource("4_m4ibu")])
 symbol_resource = ExtResource("18_to7mw")
-base_speed = 80.0
+base_speed = 100.0
 base_spin_time = 8.0
 speed_randomness_range = 1.0
 spin_time_randomness_range = 0.5

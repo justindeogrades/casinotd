@@ -33,8 +33,9 @@ func init(t : Tower, r : int, b : int, c : bool) -> void:
 	reroll_button.text = "Reroll - $" + str(reroll_cost) 
 	ban_button.text = "Ban - $" + str(ban_cost)
 	
-	text_rect.get_node("AnimationPlayer").play("enter")
+	text_rect.anim_completed.connect(_on_text_rect_anim_completed)
 	
+	text_rect.get_node("AnimationPlayer").play("enter")
 
 func _on_accept_button_pressed() -> void:
 	accepted.emit(tower)
@@ -49,3 +50,7 @@ func _on_ban_button_pressed() -> void:
 		banned.emit(tower)
 	else:
 		ban_button.text = "Can't ban all towers of a rarity"
+
+func _on_text_rect_anim_completed() -> void:
+	AudioManager.slot_machine_sfx.stop()
+	AudioManager.selecteds[tower.get_rarity()].play()

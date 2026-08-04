@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="1_f1una"]
 [ext_resource type="Texture2D" uid="uid://c07i3vjb0goov" path="res://towers/sprites/icon (portrait)/debt wizard icon.png" id="2_f1una"]
 [ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="3_f1una"]
+[ext_resource type="Script" uid="uid://vtkcsg8mupu7" path="res://tower_texture_rect.gd" id="3_pd2ih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_f1una")
@@ -62,7 +63,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_7pn0v"]
 resource_name = "enter"
-length = 0.1
+length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = false
@@ -111,6 +112,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(2, 2), Vector2(1, 1)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_anim_completed"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t76ro"]
 _data = {
@@ -140,6 +155,7 @@ offset_transform_enabled = true
 offset_transform_scale = Vector2(2, 2)
 texture = ExtResource("2_f1una")
 stretch_mode = 4
+script = ExtResource("3_pd2ih")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=394400459]
 libraries/ = SubResource("AnimationLibrary_t76ro")

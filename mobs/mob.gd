@@ -32,6 +32,7 @@ func _ready() -> void:
 	#hp_label.position = Vector2(0, 15)
 	update_hp_label()
 
+#Damage sound is called from the damage indicator
 func take_damage(damage : int) -> void:
 	hp -= damage
 	

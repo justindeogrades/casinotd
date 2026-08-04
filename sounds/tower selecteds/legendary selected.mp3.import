@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://db5x0qvvw02pm"
+path="res://.godot/imported/legendary selected.mp3-4d8624e402edcdf63f61cb1eb4be7e9f.mp3str"
+
+[deps]
+
+source_file="res://sounds/tower selecteds/legendary selected.mp3"
+dest_files=["res://.godot/imported/legendary selected.mp3-4d8624e402edcdf63f61cb1eb4be7e9f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
