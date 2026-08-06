@@ -22,6 +22,9 @@ extends Node
 @export var shoot_a_sfx : AudioStreamPlayer
 @export var shoot_b_sfx : AudioStreamPlayer
 @export var cob_cannon_projectile_explosion_sfx : AudioStreamPlayer
+@export_category("Tower Placement")
+@export var tower_placement_success_sfx : AudioStreamPlayer
+@export var tower_placement_failure_sfx : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
 

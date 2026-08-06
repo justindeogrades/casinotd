@@ -27,7 +27,10 @@ func _process(delta : float) -> void:
 	
 	if Input.is_action_just_pressed("place_tower") and tower_ghost != null:
 		if get_tower_placement_validity(tower_ghost.position):
+			AudioManager.tower_placement_success_sfx.play()
 			place_tower(get_viewport().get_mouse_position())
+		else:
+			AudioManager.tower_placement_failure_sfx.play()
 		#new_tower.mousebox/$CollisionShape2D.mouse_entered.connect(_on_tower_mouse_entered)
 		#new_tower.mousebox/$CollisionShape2D.mouse_exited.connect(_on_tower_mouse_exited)
 		#if new_tower != null:

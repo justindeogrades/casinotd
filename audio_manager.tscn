@@ -16,8 +16,10 @@
 [ext_resource type="AudioStream" uid="uid://b5clrsvyd245w" path="res://sounds/buttons/button click.mp3" id="14_86pii"]
 [ext_resource type="AudioStream" uid="uid://cxw1vtapw43h" path="res://sounds/projectiles/shoot a.mp3" id="15_mfnxe"]
 [ext_resource type="AudioStream" uid="uid://civ0y4y5cf7yj" path="res://sounds/projectiles/shoot b.mp3" id="16_astvc"]
+[ext_resource type="AudioStream" uid="uid://dg3qsteenxjvg" path="res://sounds/tower placement/tower placement success.mp3" id="17_ma34g"]
+[ext_resource type="AudioStream" uid="uid://dynvx2dpsw25o" path="res://sounds/tower placement/tower placement fail.mp3" id="18_hokuy"]
 
-[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "slot_machine_sfx")]
+[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "tower_placement_success_sfx", "tower_placement_failure_sfx", "slot_machine_sfx")]
 process_mode = 3
 script = ExtResource("1_jisk1")
 hit_sfx = NodePath("HitSFX")
@@ -36,6 +38,8 @@ button_hover_sfx = NodePath("ButtonHoverSFX")
 button_pressed_sfx = NodePath("ButtonPressedSFX")
 shoot_a_sfx = NodePath("ShootASFX")
 shoot_b_sfx = NodePath("ShootBSFX")
+tower_placement_success_sfx = NodePath("TowerPlacementSuccessSFX")
+tower_placement_failure_sfx = NodePath("TowerPlacementFailureSFX")
 slot_machine_sfx = NodePath("SlotMachineSFX")
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="." unique_id=1999294846]
@@ -102,3 +106,11 @@ max_polyphony = 10
 [node name="ShootBSFX" type="AudioStreamPlayer" parent="." unique_id=77002401]
 stream = ExtResource("16_astvc")
 max_polyphony = 10
+
+[node name="TowerPlacementSuccessSFX" type="AudioStreamPlayer" parent="." unique_id=1242488556]
+stream = ExtResource("17_ma34g")
+volume_db = -8.0
+
+[node name="TowerPlacementFailureSFX" type="AudioStreamPlayer" parent="." unique_id=863056945]
+stream = ExtResource("18_hokuy")
+volume_db = -8.0

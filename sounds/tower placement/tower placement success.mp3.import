@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dg3qsteenxjvg"
+path="res://.godot/imported/tower placement success.mp3-d5b89b5e3ea1d8943bfbd1680d74325b.mp3str"
+
+[deps]
+
+source_file="res://sounds/tower placement/tower placement success.mp3"
+dest_files=["res://.godot/imported/tower placement success.mp3-d5b89b5e3ea1d8943bfbd1680d74325b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
