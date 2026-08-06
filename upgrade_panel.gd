@@ -75,13 +75,14 @@ func generate_upgrade_options() -> void:
 		var face_string = face_to_string(face)
 		var amount = upgrade_data[att][face]
 		
+		upgrade_button[i].face = face
 		upgrade_button[i].text = face_string + " of " + att_string + ":\n+" + str(amount) + " " + att_string
 		#Only emit particles for aces?
-		if face == G.face.ACE:
-			upgrade_button[i].particles.modulate = G.rarity_to_colour(face)
-			upgrade_button[i].particles.amount_ratio = 1
-		else:
-			upgrade_button[i].particles.amount_ratio = 0
+		#if face == G.face.ACE:
+			#upgrade_button[i].particles.modulate = G.rarity_to_colour(face)
+			#upgrade_button[i].particles.amount_ratio = 1
+		#else:
+			#upgrade_button[i].particles.amount_ratio = 0
 		
 		for j in upgrade_button[i].value_labels:
 			j.text = G.face_to_letter(face)

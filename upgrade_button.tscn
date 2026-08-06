@@ -419,6 +419,7 @@ horizontal_alignment = 1
 position = Vector2(200, 1080)
 emitting = false
 amount = 20
+amount_ratio = 0.0
 texture = ExtResource("4_m2cuk")
 lifetime = 5.0
 one_shot = true

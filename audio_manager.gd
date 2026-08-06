@@ -11,6 +11,10 @@ extends Node
 @export var uncommon_selected_sfx : AudioStreamPlayer
 @export var rare_selected_sfx : AudioStreamPlayer
 @export var legendary_selected_sfx : AudioStreamPlayer
+@export_category("Cards")
+@export var card_deal_sfx : AudioStreamPlayer
+@export var card_hover_sfx : AudioStreamPlayer
+@export var card_sparkle_sfx : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
 

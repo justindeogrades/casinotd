@@ -9,8 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://ce7uqfjh18grc" path="res://sounds/tower selecteds/rare selected.mp3" id="7_op7ad"]
 [ext_resource type="AudioStream" uid="uid://db5x0qvvw02pm" path="res://sounds/tower selecteds/legendary selected.mp3" id="8_wby2p"]
 [ext_resource type="AudioStream" uid="uid://cm3tofg44qf8d" path="res://sounds/slot machine.mp3" id="9_7fh0q"]
+[ext_resource type="AudioStream" uid="uid://b0dlx65vmcw3j" path="res://sounds/cards/card deal.mp3" id="10_wby2p"]
+[ext_resource type="AudioStream" uid="uid://dqfyr3gtcbt63" path="res://sounds/cards/card hover.mp3" id="11_14skr"]
+[ext_resource type="AudioStream" uid="uid://dttp41sl3stvx" path="res://sounds/cards/card sparkle.mp3" id="12_14skr"]
 
-[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "slot_machine_sfx")]
+[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "slot_machine_sfx")]
 script = ExtResource("1_jisk1")
 hit_sfx = NodePath("HitSFX")
 crit_sfx = NodePath("CritSFX")
@@ -21,6 +24,9 @@ common_selected_sfx = NodePath("CommonSelectedSFX")
 uncommon_selected_sfx = NodePath("UncommonSelectedSFX")
 rare_selected_sfx = NodePath("RareSelectedSFX")
 legendary_selected_sfx = NodePath("LegendarySelectedSFX")
+card_deal_sfx = NodePath("CardDealSFX")
+card_hover_sfx = NodePath("CardHoverSFX")
+card_sparkle_sfx = NodePath("CardSparkleSFX")
 slot_machine_sfx = NodePath("SlotMachineSFX")
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="." unique_id=1999294846]
@@ -57,3 +63,16 @@ volume_db = -8.0
 [node name="SlotMachineSFX" type="AudioStreamPlayer" parent="." unique_id=339486579]
 stream = ExtResource("9_7fh0q")
 volume_db = -8.0
+
+[node name="CardDealSFX" type="AudioStreamPlayer" parent="." unique_id=547433287]
+stream = ExtResource("10_wby2p")
+volume_db = -8.0
+
+[node name="CardHoverSFX" type="AudioStreamPlayer" parent="." unique_id=1994208322]
+stream = ExtResource("11_14skr")
+volume_db = -8.0
+
+[node name="CardSparkleSFX" type="AudioStreamPlayer" parent="." unique_id=1133533908]
+stream = ExtResource("12_14skr")
+volume_db = -8.0
+max_polyphony = 3

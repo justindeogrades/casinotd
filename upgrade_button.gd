@@ -4,13 +4,22 @@ extends Button
 @export var value_labels : Array[Label]
 @export var particles : GPUParticles2D
 
+var face : int
+
 signal entered
 
 var mouseovered : bool = false
 
 func enter() -> void:
+	AudioManager.card_deal_sfx.play()
+	if face == G.face.ACE:
+		AudioManager.card_sparkle_sfx.play()
+		particles.modulate = G.rarity_to_colour(face)
+		particles.amount_ratio = 1
+	else:
+		particles.amount_ratio = 0
+	
 	particles.global_position = global_position + Vector2(200, 900)
-	print_debug(global_position)
 	anim_player.play("enter")
 
 func emit_entered() -> void:
@@ -20,10 +29,12 @@ func emit_entered() -> void:
 func enable() -> void:
 	disabled = false
 	if mouseovered:
+		AudioManager.card_hover_sfx.play()
 		anim_player.play("select")
 
 func _on_mouse_entered() -> void:
 	if not disabled:
+		AudioManager.card_hover_sfx.play()
 		anim_player.play("select")
 	mouseovered = true
 
