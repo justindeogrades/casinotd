@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://cirk3dm142bob" path="res://gui_manager.gd" id="1_u2v4l"]
 [ext_resource type="PackedScene" uid="uid://drdnfmqh4cgyc" path="res://game_over_panel.tscn" id="2_dsghq"]
 [ext_resource type="PackedScene" uid="uid://d4khifhmpum45" path="res://upgrade_panel.tscn" id="2_u2v4l"]
+[ext_resource type="PackedScene" uid="uid://bxgvifohgxnrc" path="res://wave_clear_label.tscn" id="5_6xnkp"]
 
-[node name="GUIManager" type="Container" unique_id=1431720799 node_paths=PackedStringArray("side_panel", "upgrade_panel")]
+[node name="GUIManager" type="Container" unique_id=1431720799 node_paths=PackedStringArray("side_panel", "upgrade_panel", "wave_clear_indicator")]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_u2v4l")
 side_panel = NodePath("SidePanel")
 upgrade_panel = NodePath("UpgradePanel")
+wave_clear_indicator = NodePath("WaveClearIndicator")
 game_over_panel_resource = ExtResource("2_dsghq")
 ban_cost = 25
 ban_cost_mult = 1.1
@@ -26,3 +28,5 @@ layout_direction = 1
 [node name="UpgradePanel" parent="." unique_id=1179414208 instance=ExtResource("2_u2v4l")]
 visible = false
 layout_mode = 2
+
+[node name="WaveClearIndicator" parent="." unique_id=1274438482 instance=ExtResource("5_6xnkp")]

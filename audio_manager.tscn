@@ -18,8 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://civ0y4y5cf7yj" path="res://sounds/projectiles/shoot b.mp3" id="16_astvc"]
 [ext_resource type="AudioStream" uid="uid://dg3qsteenxjvg" path="res://sounds/tower placement/tower placement success.mp3" id="17_ma34g"]
 [ext_resource type="AudioStream" uid="uid://dynvx2dpsw25o" path="res://sounds/tower placement/tower placement fail.mp3" id="18_hokuy"]
+[ext_resource type="AudioStream" uid="uid://dmqyvi4fywcbl" path="res://sounds/wave clear.mp3" id="19_hokuy"]
 
-[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "tower_placement_success_sfx", "tower_placement_failure_sfx", "slot_machine_sfx")]
+[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "tower_placement_success_sfx", "tower_placement_failure_sfx", "slot_machine_sfx", "wave_clear_sfx")]
 process_mode = 3
 script = ExtResource("1_jisk1")
 hit_sfx = NodePath("HitSFX")
@@ -41,6 +42,7 @@ shoot_b_sfx = NodePath("ShootBSFX")
 tower_placement_success_sfx = NodePath("TowerPlacementSuccessSFX")
 tower_placement_failure_sfx = NodePath("TowerPlacementFailureSFX")
 slot_machine_sfx = NodePath("SlotMachineSFX")
+wave_clear_sfx = NodePath("WaveClearSFX")
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="." unique_id=1999294846]
 stream = ExtResource("2_bq1v2")
@@ -113,4 +115,8 @@ volume_db = -8.0
 
 [node name="TowerPlacementFailureSFX" type="AudioStreamPlayer" parent="." unique_id=863056945]
 stream = ExtResource("18_hokuy")
+volume_db = -8.0
+
+[node name="WaveClearSFX" type="AudioStreamPlayer" parent="." unique_id=683059450]
+stream = ExtResource("19_hokuy")
 volume_db = -8.0

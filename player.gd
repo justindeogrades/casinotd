@@ -56,7 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/cob_cannon.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/mrmouse.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/tree.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
@@ -178,6 +178,10 @@ func _on_wave_ended(all_waves_ended : bool) -> void:
 	if all_waves_ended:
 		gui_manager.init_game_over(true, get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
 	else:
+		print_debug("reached b")
+		gui_manager.wave_clear_indicator.enter_player.play("enter")
+		gui_manager.wave_clear_indicator.flash_player.play("flash")
+		
 		#Update side panel gets called from getting money anyway
 		update_side_panel()
 		

@@ -2,6 +2,7 @@ extends Container
 
 @export var side_panel : PanelContainer
 @export var upgrade_panel : PanelContainer
+@export var wave_clear_indicator : Node
 
 @export var game_over_panel_resource : Resource
 

@@ -27,6 +27,7 @@ extends Node
 @export var tower_placement_failure_sfx : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
+@export var wave_clear_sfx : AudioStreamPlayer
 
 @onready var hits : Array[AudioStreamPlayer] = [hit_sfx, crit_sfx, doublecrit_sfx, triplecrit_sfx, multicrit_sfx]
 @onready var selecteds : Array[AudioStreamPlayer] = [common_selected_sfx, uncommon_selected_sfx, rare_selected_sfx, legendary_selected_sfx]

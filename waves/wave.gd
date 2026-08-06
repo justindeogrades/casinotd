@@ -27,9 +27,12 @@ func spawn_mob(mob : Mob):
 	#print_debug("Spawning mob " + str(mob_at) + " in segment " + str(segment_at))
 	mob_at += 1
 	interval_timer.start(segments[segment_at].spawn_interval)
+	
+	decide_what_to_do_next()
 
 func _on_interval_timer_timeout() -> void:
-	decide_what_to_do_next()
+	spawn_mob(segments[segment_at].mob_preload.instantiate())
+	#decide_what_to_do_next()
 
 func _on_mob_deleted(mob : Mob) -> void:
 	active_mobs.erase(mob)
@@ -39,9 +42,7 @@ func _on_mob_deleted(mob : Mob) -> void:
 		print_debug("wave ended!")
 
 func decide_what_to_do_next() -> void:
-	if mob_at < segments[segment_at].mob_count:
-		spawn_mob(segments[segment_at].mob_preload.instantiate())
-	else:
+	if mob_at >= segments[segment_at].mob_count:
 		if segment_at + 1 < segments.size():
 			segment_at += 1
 			mob_at = 0
@@ -50,3 +51,23 @@ func decide_what_to_do_next() -> void:
 			#end()
 			interval_timer.stop()
 			all_mobs_spawned = true
+	#if mob_at < segments[segment_at].mob_count:
+		#spawn_mob(segments[segment_at].mob_preload.instantiate())
+	#else:
+		#if segment_at + 1 < segments.size():
+			#segment_at += 1
+			#mob_at = 0
+			#spawn_mob(segments[segment_at].mob_preload.instantiate())
+		#else:
+			##end()
+			#interval_timer.stop()
+			#all_mobs_spawned = true
+
+func are_all_mobs_in_segment_spawned() -> bool:
+	if mob_at < segments[segment_at].mob_count:
+		return true
+	return false
+func is_this_the_last_segment() -> bool:
+	if segment_at + 1 >= segments.size():
+		return true
+	return false

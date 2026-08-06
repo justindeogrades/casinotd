@@ -24,7 +24,10 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [node name="WaveManager" type="Node" unique_id=1820962353 node_paths=PackedStringArray("waves")]
 script = ExtResource("1_244l3")
-waves = [NodePath("Wave0")]
+waves = [NodePath("Wave0"), NodePath("Wave1")]
 
 [node name="Wave0" parent="." unique_id=1681385698 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_2xtue"), SubResource("Resource_iakiv")])
+
+[node name="Wave1" parent="." unique_id=2031830906 instance=ExtResource("2_1872v")]
 segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_2xtue"), SubResource("Resource_iakiv")])
