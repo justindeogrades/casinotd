@@ -18,8 +18,13 @@ extends Node
 @export_category("Buttons")
 @export var button_hover_sfx : AudioStreamPlayer
 @export var button_pressed_sfx : AudioStreamPlayer
+@export_category("Projectiles")
+@export var shoot_a_sfx : AudioStreamPlayer
+@export var shoot_b_sfx : AudioStreamPlayer
+@export var cob_cannon_projectile_explosion_sfx : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
 
 @onready var hits : Array[AudioStreamPlayer] = [hit_sfx, crit_sfx, doublecrit_sfx, triplecrit_sfx, multicrit_sfx]
 @onready var selecteds : Array[AudioStreamPlayer] = [common_selected_sfx, uncommon_selected_sfx, rare_selected_sfx, legendary_selected_sfx]
+@onready var shoots : Array[AudioStreamPlayer] = [shoot_a_sfx, shoot_b_sfx]

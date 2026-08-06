@@ -109,6 +109,9 @@ func rotate_sprite_to_target(target : Vector2) -> void:
 	sprite.rotate(PI / 2)
 
 func shoot(type : int, dir : Vector2, target : Mob) -> void:
+	var sound_index = randi_range(0, AudioManager.shoots.size() - 1)
+	AudioManager.shoots[sound_index].play()
+	
 	match type:
 		G.type.VOLLEY:
 			if attribute[G.att.PROJ_COUNT] > 1:
