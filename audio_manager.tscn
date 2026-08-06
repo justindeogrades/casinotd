@@ -12,8 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://b0dlx65vmcw3j" path="res://sounds/cards/card deal.mp3" id="10_wby2p"]
 [ext_resource type="AudioStream" uid="uid://dqfyr3gtcbt63" path="res://sounds/cards/card hover.mp3" id="11_14skr"]
 [ext_resource type="AudioStream" uid="uid://dttp41sl3stvx" path="res://sounds/cards/card sparkle.mp3" id="12_14skr"]
+[ext_resource type="AudioStream" uid="uid://ddsovcqtbu428" path="res://sounds/buttons/button hover.mp3" id="13_fckgx"]
+[ext_resource type="AudioStream" uid="uid://b5clrsvyd245w" path="res://sounds/buttons/button click.mp3" id="14_86pii"]
 
-[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "slot_machine_sfx")]
+[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "slot_machine_sfx")]
+process_mode = 3
 script = ExtResource("1_jisk1")
 hit_sfx = NodePath("HitSFX")
 crit_sfx = NodePath("CritSFX")
@@ -27,6 +30,8 @@ legendary_selected_sfx = NodePath("LegendarySelectedSFX")
 card_deal_sfx = NodePath("CardDealSFX")
 card_hover_sfx = NodePath("CardHoverSFX")
 card_sparkle_sfx = NodePath("CardSparkleSFX")
+button_hover_sfx = NodePath("ButtonHoverSFX")
+button_pressed_sfx = NodePath("ButtonPressedSFX")
 slot_machine_sfx = NodePath("SlotMachineSFX")
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="." unique_id=1999294846]
@@ -74,5 +79,14 @@ volume_db = -8.0
 
 [node name="CardSparkleSFX" type="AudioStreamPlayer" parent="." unique_id=1133533908]
 stream = ExtResource("12_14skr")
+volume_db = -8.0
+max_polyphony = 3
+
+[node name="ButtonHoverSFX" type="AudioStreamPlayer" parent="." unique_id=675011951]
+stream = ExtResource("13_fckgx")
+volume_db = -8.0
+
+[node name="ButtonPressedSFX" type="AudioStreamPlayer" parent="." unique_id=363636281]
+stream = ExtResource("14_86pii")
 volume_db = -8.0
 max_polyphony = 3

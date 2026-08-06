@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dsdivye5cb7iy"]
 
 [ext_resource type="Script" uid="uid://bu4ovck2vbbu7" path="res://pause_panel.gd" id="1_lbt5x"]
+[ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="2_itk7j"]
 [ext_resource type="PackedScene" uid="uid://bxrvkd1lrg7sg" path="res://main menu/settings_panel.tscn" id="2_p6ksa"]
 
 [node name="PausePanel" type="PanelContainer" unique_id=193320078 node_paths=PackedStringArray("main_container", "settings_container", "confirm_quit_container", "resume_button", "settings_button", "quit_button")]
@@ -34,14 +35,17 @@ horizontal_alignment = 1
 [node name="ResumeButton" type="Button" parent="MainContainer" unique_id=580481355]
 layout_mode = 2
 text = "Resume"
+script = ExtResource("2_itk7j")
 
 [node name="SettingsButton" type="Button" parent="MainContainer" unique_id=756385275]
 layout_mode = 2
 text = "Settings"
+script = ExtResource("2_itk7j")
 
 [node name="QuitButton" type="Button" parent="MainContainer" unique_id=1838062775]
 layout_mode = 2
 text = "Quit to menu"
+script = ExtResource("2_itk7j")
 
 [node name="SettingsContainer" parent="." unique_id=1838194872 instance=ExtResource("2_p6ksa")]
 visible = false
@@ -68,11 +72,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Yes"
+script = ExtResource("2_itk7j")
 
 [node name="NoButton" type="Button" parent="ConfirmQuitContainer/HBoxContainer" unique_id=1599153344]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "No"
+script = ExtResource("2_itk7j")
 
 [connection signal="pressed" from="MainContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MainContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

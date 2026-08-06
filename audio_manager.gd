@@ -15,6 +15,9 @@ extends Node
 @export var card_deal_sfx : AudioStreamPlayer
 @export var card_hover_sfx : AudioStreamPlayer
 @export var card_sparkle_sfx : AudioStreamPlayer
+@export_category("Buttons")
+@export var button_hover_sfx : AudioStreamPlayer
+@export var button_pressed_sfx : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
 

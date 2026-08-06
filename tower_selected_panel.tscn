@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_ivcjy"]
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_8ib3p"]
 [ext_resource type="PackedScene" uid="uid://bt6gcfajrb836" path="res://tower_texture_rect.tscn" id="4_8ib3p"]
+[ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="5_td502"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3vdb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -80,14 +81,17 @@ alignment = 1
 [node name="AcceptButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=989045164]
 layout_mode = 2
 text = "Accept"
+script = ExtResource("5_td502")
 
 [node name="RerollButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=116455840]
 layout_mode = 2
 text = "Reroll"
+script = ExtResource("5_td502")
 
 [node name="BanButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2010722326]
 layout_mode = 2
 text = "Ban"
+script = ExtResource("5_td502")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RerollButton" to="." method="_on_reroll_button_pressed"]

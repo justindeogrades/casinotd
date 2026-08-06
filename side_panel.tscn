@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccdrtrhyrswhl" path="res://tower_data_container.tscn" id="1_3e5kq"]
 [ext_resource type="Script" uid="uid://b5i7806biqy3k" path="res://side_panel.gd" id="1_4mnfi"]
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_3aion"]
+[ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="4_c3vdb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivcjy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -64,13 +65,16 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Quick spins"
+script = ExtResource("4_c3vdb")
 
 [node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=678389016]
 layout_mode = 2
 text = "Buy tower"
+script = ExtResource("4_c3vdb")
 
 [node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2064955684]
 layout_mode = 2
 text = "Next Wave"
+script = ExtResource("4_c3vdb")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/BuyButton" to="." method="_on_buy_button_pressed"]
