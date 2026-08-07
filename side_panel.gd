@@ -1,7 +1,9 @@
 extends PanelContainer
 
 @export var money_label : Label
-@export var lives_label : Label
+@export var wave_label : Label
+@export var money_feed_container : VBoxContainer
+@export var money_feed_resource : Resource
 @export var tower_data_container : VBoxContainer
 @export var quick_spins_box : CheckBox
 @export var buy_button : Button
@@ -28,10 +30,16 @@ func init_buttons_array() -> void:
 	buttons.append(tower_data_container.prio_back_button)
 	buttons.append(tower_data_container.upgrade_button)
 
+func add_money_feed_label(amount : int) -> void:
+	var money_feed_instance = money_feed_resource.instantiate()
+	money_feed_instance.init(amount)
+	money_feed_container.add_child(money_feed_instance)
+	money_feed_container.move_child(money_feed_instance, 0)
+
 #ONLY to be called from the player
-func update_all(money : int, lives : int, tower_cost : int, wave_active : bool):
+func update_all(money : int, wave_at : int, tower_cost : int, wave_active : bool):
 	money_label.text = "Money: " + str(money)
-	lives_label.text = "Lives: " + str(lives)
+	wave_label.text = "Waves cleared: " + str(wave_at)
 	
 	update_buy_button(money, tower_cost)
 	tower_data_container.update_upgrade_button()

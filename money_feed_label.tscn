@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dtwdw5c1s2kwk"]
+
+[ext_resource type="Script" uid="uid://bgpcgpnmgs5b3" path="res://money_feed_label.gd" id="1_s0ehm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+resource_local_to_scene = true
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_r35r1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_tav0r"]
+resource_name = "enter_and_exit"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khdjw"]
+_data = {
+&"RESET": SubResource("Animation_r35r1"),
+&"enter_and_exit": SubResource("Animation_tav0r")
+}
+
+[node name="MoneyFeedLabel" type="Label" unique_id=465154220 node_paths=PackedStringArray("anim_player")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Moeny"
+label_settings = SubResource("LabelSettings_g4v7s")
+script = ExtResource("1_s0ehm")
+positive_col = Color(0.2, 0.59607846, 0.29411766, 1)
+negative_col = Color(0.76862746, 0.14117648, 0.1882353, 1)
+anim_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=47367350]
+libraries/ = SubResource("AnimationLibrary_khdjw")

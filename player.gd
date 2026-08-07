@@ -56,14 +56,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/mrmouse.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/debt_prophet.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/tree.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/photocopier.tscn").instantiate( ))
 
 func update_side_panel() -> void:
-	side_panel.update_all(money, lives, tower_cost, wave_manager.is_wave_active())
+	side_panel.update_all(money, get_wave_at(), tower_cost, wave_manager.is_wave_active())
 
 func spend_money(amount : int) -> bool:
 	if money >= amount:
@@ -77,6 +77,7 @@ func update_money(amount : int) -> void:
 	if amount > 0:
 		total_money_earned += amount
 	
+	side_panel.add_money_feed_label(amount)
 	update_side_panel()
 
 #Redundant
@@ -178,7 +179,6 @@ func _on_wave_ended(all_waves_ended : bool) -> void:
 	if all_waves_ended:
 		gui_manager.init_game_over(true, get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
 	else:
-		print_debug("reached b")
 		gui_manager.wave_clear_indicator.enter_player.play("enter")
 		gui_manager.wave_clear_indicator.flash_player.play("flash")
 		
