@@ -25,6 +25,13 @@ extends Node
 @export_category("Tower Placement")
 @export var tower_placement_success_sfx : AudioStreamPlayer
 @export var tower_placement_failure_sfx : AudioStreamPlayer
+@export_category("Money")
+@export var money_gain_a_sfx : AudioStreamPlayer
+@export var money_gain_b_sfx : AudioStreamPlayer
+@export var money_gain_c_sfx : AudioStreamPlayer
+@export var money_gain_d_sfx : AudioStreamPlayer
+@export var money_spend_a_sfx : AudioStreamPlayer
+@export var money_spend_b_sfx : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
 @export var wave_clear_sfx : AudioStreamPlayer
@@ -32,3 +39,5 @@ extends Node
 @onready var hits : Array[AudioStreamPlayer] = [hit_sfx, crit_sfx, doublecrit_sfx, triplecrit_sfx, multicrit_sfx]
 @onready var selecteds : Array[AudioStreamPlayer] = [common_selected_sfx, uncommon_selected_sfx, rare_selected_sfx, legendary_selected_sfx]
 @onready var shoots : Array[AudioStreamPlayer] = [shoot_a_sfx, shoot_b_sfx]
+@onready var money_gains : Array[AudioStreamPlayer] = [money_gain_a_sfx, money_gain_b_sfx, money_gain_c_sfx, money_gain_d_sfx]
+@onready var money_spends : Array[AudioStreamPlayer] = [money_spend_a_sfx, money_spend_b_sfx]

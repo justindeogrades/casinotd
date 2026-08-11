@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bylduuergy5as" path="res://main menu/settings_panel.gd" id="1_1wrka"]
 
-[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "close_button")]
+[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "close_button", "music_slider", "sfx_slider")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,6 +17,8 @@ grow_vertical = 2
 script = ExtResource("1_1wrka")
 fullscreen_button = NodePath("MarginContainer/VBoxContainer/GridContainer/FullscreenButton")
 close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
+music_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/MusicVolSlider")
+sfx_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/SFXVolSlider")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1482379764]
 layout_mode = 2
@@ -51,7 +53,9 @@ text = "Music volume:"
 [node name="MusicVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1889026143]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-value = 80.0
+max_value = 1.0
+step = 0.1
+value = 0.8
 
 [node name="SFXVolLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1910465942]
 layout_mode = 2
@@ -59,10 +63,14 @@ text = "SFX volume:"
 
 [node name="SFXVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1683634943]
 layout_mode = 2
-value = 80.0
+max_value = 1.0
+step = 0.1
+value = 0.8
 
 [node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1255385746]
 layout_mode = 2
 text = "Close"
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]

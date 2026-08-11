@@ -72,6 +72,15 @@ func spend_money(amount : int) -> bool:
 	return false
 
 func update_money(amount : int) -> void:
+	var sound_index : int
+	var sound_array : Array
+	if amount >= 0:
+		sound_array = AudioManager.money_gains
+	else:
+		sound_array = AudioManager.money_spends
+	sound_index = randi_range(0, sound_array.size() - 1)
+	sound_array[sound_index].play()
+	
 	money += amount
 	
 	if amount > 0:

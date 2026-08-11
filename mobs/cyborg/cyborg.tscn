@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://04toaerhubm" path="res://mobs/cyborg/DMG4.png" id="7_52ugv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxl2"]
+resource_local_to_scene = true
 shader = ExtResource("2_x2ahy")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0

@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://8tc4k5v7gub6" path="res://waves/wave_manager.gd" id="1_244l3"]
 [ext_resource type="PackedScene" uid="uid://ckan168pt1jmg" path="res://waves/scenes/wave_0.tscn" id="2_1872v"]
 [ext_resource type="Script" uid="uid://bya4jcpwx7ot5" path="res://waves/wave_segment.gd" id="3_2vcsd"]
-[ext_resource type="PackedScene" uid="uid://50ka67xngwdw" path="res://mobs/cyborg/cyborg.tscn" id="4_2ewgq"]
 [ext_resource type="PackedScene" uid="uid://bk424x52xlkap" path="res://mobs/scenes/jogger/red_jogger.tscn" id="4_iakiv"]
 [ext_resource type="PackedScene" uid="uid://cvdpfmb3ldi44" path="res://mobs/scenes/roller/red_roller.tscn" id="5_2xtue"]
 
 [sub_resource type="Resource" id="Resource_d0drh"]
 resource_local_to_scene = true
 script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("4_2ewgq")
-mob_count = 1
+mob_preload = ExtResource("4_iakiv")
+mob_count = 10
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 

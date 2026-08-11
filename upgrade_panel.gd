@@ -120,6 +120,8 @@ func _on_reroll_button_pressed() -> void:
 		reroll_pressed.emit()
 
 func _on_upgrade_selected(b : Button) -> void:
+	AudioManager.button_pressed_sfx.play()
+	
 	var button_index = upgrade_button.find(b)
 	var att = upgrade_option[button_index].x
 	var amount = upgrade_option[button_index].y

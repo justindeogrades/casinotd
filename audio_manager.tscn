@@ -19,8 +19,14 @@
 [ext_resource type="AudioStream" uid="uid://dg3qsteenxjvg" path="res://sounds/tower placement/tower placement success.mp3" id="17_ma34g"]
 [ext_resource type="AudioStream" uid="uid://dynvx2dpsw25o" path="res://sounds/tower placement/tower placement fail.mp3" id="18_hokuy"]
 [ext_resource type="AudioStream" uid="uid://dmqyvi4fywcbl" path="res://sounds/wave clear.mp3" id="19_hokuy"]
+[ext_resource type="AudioStream" uid="uid://4hp61muslqu3" path="res://sounds/money/money gain a.mp3" id="20_rfos7"]
+[ext_resource type="AudioStream" uid="uid://ddneukm706wlj" path="res://sounds/money/money gain b.mp3" id="21_o2ba0"]
+[ext_resource type="AudioStream" uid="uid://dfdduw3rwgpuo" path="res://sounds/money/money gain c.mp3" id="22_e4pva"]
+[ext_resource type="AudioStream" uid="uid://bxy8k81wnk7la" path="res://sounds/money/money gain d.mp3" id="23_hbb3y"]
+[ext_resource type="AudioStream" uid="uid://do1muwvixxbey" path="res://sounds/money/money spend a.mp3" id="24_wxfw7"]
+[ext_resource type="AudioStream" uid="uid://bh5s7rmw753rq" path="res://sounds/money/money spend b.mp3" id="25_7l730"]
 
-[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "tower_placement_success_sfx", "tower_placement_failure_sfx", "slot_machine_sfx", "wave_clear_sfx")]
+[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "tower_placement_success_sfx", "tower_placement_failure_sfx", "money_gain_a_sfx", "money_gain_b_sfx", "money_gain_c_sfx", "money_gain_d_sfx", "money_spend_a_sfx", "money_spend_b_sfx", "slot_machine_sfx", "wave_clear_sfx")]
 process_mode = 3
 script = ExtResource("1_jisk1")
 hit_sfx = NodePath("HitSFX")
@@ -41,6 +47,12 @@ shoot_a_sfx = NodePath("ShootASFX")
 shoot_b_sfx = NodePath("ShootBSFX")
 tower_placement_success_sfx = NodePath("TowerPlacementSuccessSFX")
 tower_placement_failure_sfx = NodePath("TowerPlacementFailureSFX")
+money_gain_a_sfx = NodePath("MoneyGainASFX")
+money_gain_b_sfx = NodePath("MoneyGainBSFX")
+money_gain_c_sfx = NodePath("MoneyGainCSFX")
+money_gain_d_sfx = NodePath("MoneyGainDSFX")
+money_spend_a_sfx = NodePath("MoneySpendASFX")
+money_spend_b_sfx = NodePath("MoneySpendBSFX")
 slot_machine_sfx = NodePath("SlotMachineSFX")
 wave_clear_sfx = NodePath("WaveClearSFX")
 
@@ -48,75 +60,127 @@ wave_clear_sfx = NodePath("WaveClearSFX")
 stream = ExtResource("2_bq1v2")
 volume_db = -8.0
 max_polyphony = 10
+bus = &"SFX"
 
 [node name="CritSFX" type="AudioStreamPlayer" parent="." unique_id=418606216]
 stream = ExtResource("3_6jj5d")
 volume_db = -8.0
 max_polyphony = 10
+bus = &"SFX"
 
 [node name="DoublecritSFX" type="AudioStreamPlayer" parent="." unique_id=985281775]
 stream = ExtResource("4_5olve")
 volume_db = -8.0
 max_polyphony = 10
+bus = &"SFX"
 
 [node name="CommonSelectedSFX" type="AudioStreamPlayer" parent="." unique_id=150800341]
 stream = ExtResource("5_v0gdi")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="UncommonSelectedSFX" type="AudioStreamPlayer" parent="." unique_id=312265952]
 stream = ExtResource("6_7fh0q")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="RareSelectedSFX" type="AudioStreamPlayer" parent="." unique_id=1205643392]
 stream = ExtResource("7_op7ad")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="LegendarySelectedSFX" type="AudioStreamPlayer" parent="." unique_id=1433543741]
 stream = ExtResource("8_wby2p")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="SlotMachineSFX" type="AudioStreamPlayer" parent="." unique_id=339486579]
 stream = ExtResource("9_7fh0q")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="CardDealSFX" type="AudioStreamPlayer" parent="." unique_id=547433287]
 stream = ExtResource("10_wby2p")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="CardHoverSFX" type="AudioStreamPlayer" parent="." unique_id=1994208322]
 stream = ExtResource("11_14skr")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="CardSparkleSFX" type="AudioStreamPlayer" parent="." unique_id=1133533908]
 stream = ExtResource("12_14skr")
 volume_db = -8.0
 max_polyphony = 3
+bus = &"SFX"
 
 [node name="ButtonHoverSFX" type="AudioStreamPlayer" parent="." unique_id=675011951]
 stream = ExtResource("13_fckgx")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="ButtonPressedSFX" type="AudioStreamPlayer" parent="." unique_id=363636281]
 stream = ExtResource("14_86pii")
 volume_db = -8.0
 max_polyphony = 3
+bus = &"SFX"
 
 [node name="ShootASFX" type="AudioStreamPlayer" parent="." unique_id=1567427277]
 stream = ExtResource("15_mfnxe")
 max_polyphony = 10
+bus = &"SFX"
 
 [node name="ShootBSFX" type="AudioStreamPlayer" parent="." unique_id=77002401]
 stream = ExtResource("16_astvc")
 max_polyphony = 10
+bus = &"SFX"
 
 [node name="TowerPlacementSuccessSFX" type="AudioStreamPlayer" parent="." unique_id=1242488556]
 stream = ExtResource("17_ma34g")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="TowerPlacementFailureSFX" type="AudioStreamPlayer" parent="." unique_id=863056945]
 stream = ExtResource("18_hokuy")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="WaveClearSFX" type="AudioStreamPlayer" parent="." unique_id=683059450]
 stream = ExtResource("19_hokuy")
 volume_db = -8.0
+bus = &"SFX"
+
+[node name="MoneyGainASFX" type="AudioStreamPlayer" parent="." unique_id=1833231688]
+stream = ExtResource("20_rfos7")
+volume_db = -8.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="MoneyGainBSFX" type="AudioStreamPlayer" parent="." unique_id=1333266192]
+stream = ExtResource("21_o2ba0")
+volume_db = -8.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="MoneyGainCSFX" type="AudioStreamPlayer" parent="." unique_id=1528934658]
+stream = ExtResource("22_e4pva")
+volume_db = -8.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="MoneyGainDSFX" type="AudioStreamPlayer" parent="." unique_id=1188284417]
+stream = ExtResource("23_hbb3y")
+volume_db = -8.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="MoneySpendASFX" type="AudioStreamPlayer" parent="." unique_id=1014655130]
+stream = ExtResource("24_wxfw7")
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="MoneySpendBSFX" type="AudioStreamPlayer" parent="." unique_id=1131483659]
+stream = ExtResource("25_7l730")
+max_polyphony = 2
+bus = &"SFX"
