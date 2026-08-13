@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cvdpfmb3ldi44"]
 
-[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/mob.gd" id="1_ypvan"]
-[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="2_4otoc"]
-[ext_resource type="Texture2D" uid="uid://bvvp6nl5yjky7" path="res://mobs/sprites/red_roller_sheet.png" id="3_1li2k"]
+[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/scripts/mob.gd" id="1_ypvan"]
+[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/scripts/hitflash.gdshader" id="2_4otoc"]
+[ext_resource type="Texture2D" uid="uid://bvvp6nl5yjky7" path="res://mobs/sprites/roller/red_roller_sheet.png" id="3_1li2k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6657v"]
 resource_local_to_scene = true

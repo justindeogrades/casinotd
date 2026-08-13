@@ -56,11 +56,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/justice.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/agatha.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/tree.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/bubba.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/photocopier.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/cob_cannon.tscn").instantiate( ))
 
 func update_side_panel() -> void:
 	side_panel.update_all(money, get_wave_at(), tower_cost, wave_manager.is_wave_active())

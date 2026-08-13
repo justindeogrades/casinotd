@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b28k77l8amu4"
-path="res://.godot/imported/DMG2.png-95f793df295e1a52c83ffdf38532d2b9.ctex"
+uid="uid://c8fxblgmmp8x4"
+path="res://.godot/imported/Purple_Jogger.png-a9868a283f89f18e125b2ab2774cf08e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/cyborg/DMG2.png"
-dest_files=["res://.godot/imported/DMG2.png-95f793df295e1a52c83ffdf38532d2b9.ctex"]
+source_file="res://mobs/sprites/jogger/Purple_Jogger.png"
+dest_files=["res://.godot/imported/Purple_Jogger.png-a9868a283f89f18e125b2ab2774cf08e.ctex"]
 
 [params]
 

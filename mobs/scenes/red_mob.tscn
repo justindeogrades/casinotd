@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cfbefdvcqdcm1"]
 
-[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/mob.gd" id="1_07xu4"]
-[ext_resource type="Texture2D" uid="uid://bog7qk5gkp2ox" path="res://mobs/sprites/mob.png" id="2_ljwun"]
-[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="2_ugv5v"]
+[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/scripts/mob.gd" id="1_07xu4"]
+[ext_resource type="Texture2D" path="res://mobs/sprites/mob.png" id="2_ljwun"]
+[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/scripts/hitflash.gdshader" id="2_ugv5v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_py72f"]
 resource_local_to_scene = true

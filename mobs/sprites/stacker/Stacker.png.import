@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c25os5koamas8"
-path="res://.godot/imported/red_jogger_sheet.png-5ff5abd62636511ee3be61e1ec46e43e.ctex"
+uid="uid://crsom3131xhpi"
+path="res://.godot/imported/Stacker.png-0ba6273b0a4a50b2c9953da6848cb7fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/sprites/red_jogger_sheet.png"
-dest_files=["res://.godot/imported/red_jogger_sheet.png-5ff5abd62636511ee3be61e1ec46e43e.ctex"]
+source_file="res://mobs/sprites/stacker/Stacker.png"
+dest_files=["res://.godot/imported/Stacker.png-0ba6273b0a4a50b2c9953da6848cb7fc.ctex"]
 
 [params]
 

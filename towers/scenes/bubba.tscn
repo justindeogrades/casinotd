@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crnclr5kmjmwg" path="res://towers/sprites/icon (portrait)/bubba icon.png" id="2_3l6un"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_sqhwi"]
 [ext_resource type="Texture2D" uid="uid://bsxo5rfq1aw2d" path="res://towers/projectiles/sprites/bubba projectile.png" id="3_sqhwi"]
-[ext_resource type="Texture2D" uid="uid://dtu5dygwm03th" path="res://towers/sprites/overworld/bubba overworld.png" id="4_3l6un"]
+[ext_resource type="Texture2D" uid="uid://df0jry4gxjgrg" path="res://towers/sprites/overworld/snake eyes overworld.png" id="5_3l6un"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -67,7 +67,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("4_3l6un")
+texture = ExtResource("5_3l6un")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

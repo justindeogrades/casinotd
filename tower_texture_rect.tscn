@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bt6gcfajrb836"]
 
-[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/hitflash.gdshader" id="1_f1una"]
+[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/scripts/hitflash.gdshader" id="1_f1una"]
 [ext_resource type="Texture2D" uid="uid://c07i3vjb0goov" path="res://towers/sprites/icon (portrait)/debt wizard icon.png" id="2_f1una"]
 [ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="3_f1una"]
 [ext_resource type="Script" uid="uid://vtkcsg8mupu7" path="res://tower_texture_rect.gd" id="3_pd2ih"]

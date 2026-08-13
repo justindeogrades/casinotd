@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cinnfyakr7fpw"
-path="res://.godot/imported/king_sheet.png-df40ec4eb0858f49a8d2a7771ae4a85a.ctex"
+uid="uid://rr5gatqw5rpw"
+path="res://.godot/imported/legacy red jogger sheet.png-ce96b7435e10c79f358705e124381a48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/cyborg/king_sheet.png"
-dest_files=["res://.godot/imported/king_sheet.png-df40ec4eb0858f49a8d2a7771ae4a85a.ctex"]
+source_file="res://mobs/sprites/legacy red jogger sheet.png"
+dest_files=["res://.godot/imported/legacy red jogger sheet.png-ce96b7435e10c79f358705e124381a48.ctex"]
 
 [params]
 

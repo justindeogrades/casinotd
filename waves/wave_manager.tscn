@@ -3,27 +3,45 @@
 [ext_resource type="Script" uid="uid://8tc4k5v7gub6" path="res://waves/wave_manager.gd" id="1_244l3"]
 [ext_resource type="PackedScene" uid="uid://ckan168pt1jmg" path="res://waves/scenes/wave_0.tscn" id="2_1872v"]
 [ext_resource type="Script" uid="uid://bya4jcpwx7ot5" path="res://waves/wave_segment.gd" id="3_2vcsd"]
-[ext_resource type="PackedScene" uid="uid://50ka67xngwdw" path="res://mobs/cyborg/cyborg.tscn" id="4_2ewgq"]
 [ext_resource type="PackedScene" uid="uid://bk424x52xlkap" path="res://mobs/scenes/jogger/red_jogger.tscn" id="4_iakiv"]
-[ext_resource type="PackedScene" uid="uid://cvdpfmb3ldi44" path="res://mobs/scenes/roller/red_roller.tscn" id="5_2xtue"]
+[ext_resource type="PackedScene" uid="uid://cvdpfmb3ldi44" path="res://mobs/scenes/roller/red_roller.tscn" id="5_0rmi1"]
+[ext_resource type="PackedScene" uid="uid://cda51bk135as5" path="res://mobs/scenes/jogger/green_jogger.tscn" id="5_2xtue"]
+[ext_resource type="PackedScene" uid="uid://t5lqrapd0sma" path="res://mobs/scenes/stacker/red_stacker.tscn" id="6_050mj"]
+[ext_resource type="PackedScene" uid="uid://ci06ajar21sgp" path="res://mobs/scenes/jogger/blue_jogger.tscn" id="6_d0drh"]
+[ext_resource type="PackedScene" uid="uid://ch37lhokhi5h2" path="res://mobs/scenes/jogger/purple_jogger.tscn" id="7_b1o8j"]
+[ext_resource type="PackedScene" uid="uid://bmpihfhuh7316" path="res://mobs/scenes/roller/green_roller.tscn" id="7_pdgic"]
+[ext_resource type="PackedScene" uid="uid://rwygo1cv42mb" path="res://mobs/scenes/jogger/yellow_jogger.tscn" id="8_hj8xs"]
+[ext_resource type="PackedScene" uid="uid://oaj4vnjm0n4h" path="res://mobs/scenes/roller/blue_roller.tscn" id="9_eo7pi"]
+[ext_resource type="PackedScene" uid="uid://c24q5g8ymsda3" path="res://mobs/scenes/stacker/green_stacker.tscn" id="9_lf03j"]
+[ext_resource type="PackedScene" uid="uid://vxp28bcnyo3" path="res://mobs/scenes/roller/purple_roller.tscn" id="11_nlckd"]
+[ext_resource type="PackedScene" uid="uid://bwpsk0m3j08o3" path="res://mobs/scenes/stacker/blue_stacker.tscn" id="12_kfkvv"]
+[ext_resource type="PackedScene" uid="uid://b2cmctr4nxjxs" path="res://mobs/scenes/roller/yellow_roller.tscn" id="13_8iy20"]
+[ext_resource type="PackedScene" uid="uid://bcslktmohx8mx" path="res://mobs/scenes/stacker/purple_stacker.tscn" id="15_agqcf"]
+[ext_resource type="PackedScene" uid="uid://bu6bfo8sln44c" path="res://mobs/scenes/stacker/yellow_stacker.tscn" id="18_pabi4"]
 
-[sub_resource type="Resource" id="Resource_d0drh"]
-resource_local_to_scene = true
-script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("4_2ewgq")
-mob_count = 1
-spawn_interval = 1.0
-metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
-
-[sub_resource type="Resource" id="Resource_b1o8j"]
+[sub_resource type="Resource" id="Resource_bsev2"]
 resource_local_to_scene = true
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("4_iakiv")
+mob_count = 10
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_4v4yo"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("5_0rmi1")
 mob_count = 6
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
-[sub_resource type="Resource" id="Resource_hj8xs"]
+[sub_resource type="Resource" id="Resource_ioqoa"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("6_050mj")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_tpo7x"]
 resource_local_to_scene = true
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
@@ -31,12 +49,101 @@ mob_count = 6
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
+[sub_resource type="Resource" id="Resource_050mj"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("7_pdgic")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_wcbwv"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_0rmi1"]
+resource_local_to_scene = true
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("6_d0drh")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_lf03j"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_eo7pi")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_ilw4a"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("12_kfkvv")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_pdgic"]
+resource_local_to_scene = true
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("7_b1o8j")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_kfkvv"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("11_nlckd")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_xs8qk"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("15_agqcf")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_eo7pi"]
+resource_local_to_scene = true
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("8_hj8xs")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_agqcf"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("13_8iy20")
+mob_count = 6
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_7fx51"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_pabi4")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
 [node name="WaveManager" type="Node" unique_id=1820962353 node_paths=PackedStringArray("waves")]
 script = ExtResource("1_244l3")
-waves = [NodePath("Wave0"), NodePath("Wave1")]
+waves = [NodePath("Wave0"), NodePath("Wave1"), NodePath("Wave2"), NodePath("Wave3"), NodePath("Wave4")]
 
 [node name="Wave0" parent="." unique_id=1681385698 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_d0drh")])
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_bsev2"), SubResource("Resource_4v4yo"), SubResource("Resource_ioqoa")])
 
 [node name="Wave1" parent="." unique_id=2031830906 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_b1o8j"), SubResource("Resource_hj8xs")])
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_tpo7x"), SubResource("Resource_050mj"), SubResource("Resource_wcbwv")])
+
+[node name="Wave2" parent="." unique_id=791719567 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_0rmi1"), SubResource("Resource_lf03j"), SubResource("Resource_ilw4a")])
+
+[node name="Wave3" parent="." unique_id=983325594 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_pdgic"), SubResource("Resource_kfkvv"), SubResource("Resource_xs8qk")])
+
+[node name="Wave4" parent="." unique_id=1240232568 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_eo7pi"), SubResource("Resource_agqcf"), SubResource("Resource_7fx51")])

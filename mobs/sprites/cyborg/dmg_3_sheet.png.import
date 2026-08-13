@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvp6nl5yjky7"
-path="res://.godot/imported/red_roller_sheet.png-e7694273d30bc7ae057660508c67c42c.ctex"
+uid="uid://gqp01cbf2c4r"
+path="res://.godot/imported/dmg_3_sheet.png-47b995c48926165f16b58b46e59d6e72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/sprites/red_roller_sheet.png"
-dest_files=["res://.godot/imported/red_roller_sheet.png-e7694273d30bc7ae057660508c67c42c.ctex"]
+source_file="res://mobs/sprites/cyborg/dmg_3_sheet.png"
+dest_files=["res://.godot/imported/dmg_3_sheet.png-47b995c48926165f16b58b46e59d6e72.ctex"]
 
 [params]
 

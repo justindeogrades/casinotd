@@ -1,45 +1,56 @@
-[gd_scene format=3 uid="uid://bk424x52xlkap"]
+[gd_scene format=3 uid="uid://50ka67xngwdw"]
 
-[ext_resource type="Script" uid="uid://du0yoy4lpa5h6" path="res://mobs/scripts/mob.gd" id="1_12lgw"]
-[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/scripts/hitflash.gdshader" id="2_4tv0u"]
-[ext_resource type="Texture2D" uid="uid://c25os5koamas8" path="res://mobs/sprites/jogger/red_jogger_sheet.png" id="3_bvpjn"]
+[ext_resource type="Shader" uid="uid://by5v2sv1iu8uj" path="res://mobs/scripts/hitflash.gdshader" id="1_x5ywc"]
+[ext_resource type="Script" uid="uid://sufowgnmxlf1" path="res://mobs/scripts/cyborg.gd" id="2_x5ywc"]
+[ext_resource type="Texture2D" uid="uid://cinnfyakr7fpw" path="res://mobs/sprites/cyborg/king_sheet.png" id="3_gm0w1"]
+[ext_resource type="Texture2D" uid="uid://bn2y0h2n7dyst" path="res://mobs/sprites/cyborg/DMG1.png" id="4_gshtl"]
+[ext_resource type="Texture2D" uid="uid://b28k77l8amu4" path="res://mobs/sprites/cyborg/DMG2.png" id="5_nffeg"]
+[ext_resource type="Texture2D" uid="uid://gqp01cbf2c4r" path="res://mobs/sprites/cyborg/dmg_3_sheet.png" id="6_125d3"]
+[ext_resource type="Texture2D" uid="uid://04toaerhubm" path="res://mobs/sprites/cyborg/DMG4.png" id="7_r3wx0"]
+[ext_resource type="Texture2D" uid="uid://bbk3ftj0fwh34" path="res://mobs/sprites/cyborg/DMG5.png" id="8_ujiua"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6657v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxl2"]
 resource_local_to_scene = true
-shader = ExtResource("2_4tv0u")
+shader = ExtResource("1_x5ywc")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlvhl"]
-atlas = ExtResource("3_bvpjn")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6657v"]
+resource_local_to_scene = true
+shader = ExtResource("1_x5ywc")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bqyd"]
+atlas = ExtResource("3_gm0w1")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5m8t"]
-atlas = ExtResource("3_bvpjn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo7r8"]
+atlas = ExtResource("3_gm0w1")
 region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2yixu"]
-atlas = ExtResource("3_bvpjn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxdod"]
+atlas = ExtResource("3_gm0w1")
 region = Rect2(192, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2cjqg"]
-atlas = ExtResource("3_bvpjn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffkgy"]
+atlas = ExtResource("3_gm0w1")
 region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xlvhl")
+"texture": SubResource("AtlasTexture_3bqyd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m5m8t")
+"texture": SubResource("AtlasTexture_wo7r8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2yixu")
+"texture": SubResource("AtlasTexture_fxdod")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2cjqg")
+"texture": SubResource("AtlasTexture_ffkgy")
 }],
 "loop": 1,
 "name": &"default",
@@ -106,6 +117,30 @@ tracks/4/path = NodePath(".:material:shader_parameter/flash_color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..:material:shader_parameter/flash_value")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..:material:shader_parameter/flash_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -191,6 +226,30 @@ tracks/5/keys = {
 "method": &"delete_self"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..:material:shader_parameter/flash_value")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..:material:shader_parameter/flash_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_icwh5"]
 resource_name = "hitflash"
@@ -198,12 +257,12 @@ length = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/path = NodePath("..:material:shader_parameter/flash_value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(0, 0),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
 }
@@ -215,20 +274,64 @@ _data = {
 &"hitflash": SubResource("Animation_icwh5")
 }
 
-[node name="RedJogger" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
-script = ExtResource("1_12lgw")
-max_hp = 100
-speed = 80.0
-min_bounty = 1
-max_bounty = 5
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f15v"]
+atlas = ExtResource("6_125d3")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnjy3"]
+atlas = ExtResource("6_125d3")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fykt"]
+atlas = ExtResource("6_125d3")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq7cv"]
+atlas = ExtResource("6_125d3")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f15v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnjy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fykt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq7cv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="CyborgStacker" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("dmg_1_sprite", "dmg_2_sprite", "dmg_3_sprite", "dmg_4_sprite", "dmg_5_sprite", "hp_label", "sprite", "anim_player")]
+material = SubResource("ShaderMaterial_1jxl2")
+script = ExtResource("2_x5ywc")
+dmg_1_sprite = NodePath("Damage1")
+dmg_2_sprite = NodePath("Damage2")
+dmg_3_sprite = NodePath("Damage3")
+dmg_4_sprite = NodePath("Damage4")
+dmg_5_sprite = NodePath("Damage5")
+max_hp = 10000
+speed = 30.0
+min_bounty = 200
+max_bounty = 400
 hp_label = NodePath("Label")
 sprite = NodePath("AnimatedSprite2D")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239857319]
 material = SubResource("ShaderMaterial_6657v")
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-frame_progress = 0.78606504
+frame = 2
+frame_progress = 0.40602267
 
 [node name="DetectionBox" type="Area2D" parent="." unique_id=1312023931]
 collision_layer = 2
@@ -252,6 +355,32 @@ grow_horizontal = 2
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Damage1" type="Sprite2D" parent="." unique_id=53018761]
+visible = false
+use_parent_material = true
+texture = ExtResource("4_gshtl")
+
+[node name="Damage2" type="Sprite2D" parent="." unique_id=2025304865]
+visible = false
+use_parent_material = true
+texture = ExtResource("5_nffeg")
+
+[node name="Damage3" type="AnimatedSprite2D" parent="." unique_id=780694850]
+visible = false
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+frame = 3
+frame_progress = 1.0
+
+[node name="Damage4" type="Sprite2D" parent="." unique_id=107485720]
+use_parent_material = true
+texture = ExtResource("7_r3wx0")
+
+[node name="Damage5" type="Sprite2D" parent="." unique_id=2097547803]
+visible = false
+use_parent_material = true
+texture = ExtResource("8_ujiua")
 
 [connection signal="mouse_entered" from="DetectionBox" to="." method="_on_detection_box_mouse_entered"]
 [connection signal="mouse_exited" from="DetectionBox" to="." method="_on_detection_box_mouse_exited"]

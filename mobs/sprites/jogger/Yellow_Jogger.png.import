@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btrqfbhn1fo0a"
-path="res://.godot/imported/RedJogger.png-53cf9442d86f01f9a1564dbf10f169ca.ctex"
+uid="uid://7ywcfk0wtwdg"
+path="res://.godot/imported/Yellow_Jogger.png-09a61784c4c5bc08f7f4bb7e4747b39d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/sprites/RedJogger.png"
-dest_files=["res://.godot/imported/RedJogger.png-53cf9442d86f01f9a1564dbf10f169ca.ctex"]
+source_file="res://mobs/sprites/jogger/Yellow_Jogger.png"
+dest_files=["res://.godot/imported/Yellow_Jogger.png-09a61784c4c5bc08f7f4bb7e4747b39d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://04toaerhubm"
-path="res://.godot/imported/DMG4.png-ac65b3361ca8d9859ea368f29cd1c984.ctex"
+uid="uid://rmssn6ipaxd6"
+path="res://.godot/imported/Blue_Jogger.png-f14069a185352e62f4d5e5c6c805ffa5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/cyborg/DMG4.png"
-dest_files=["res://.godot/imported/DMG4.png-ac65b3361ca8d9859ea368f29cd1c984.ctex"]
+source_file="res://mobs/sprites/jogger/Blue_Jogger.png"
+dest_files=["res://.godot/imported/Blue_Jogger.png-f14069a185352e62f4d5e5c6c805ffa5.ctex"]
 
 [params]
 
