@@ -4,6 +4,7 @@ extends Mob
 @export var dmg_2_sprite : Sprite2D
 @export var dmg_3_sprite : AnimatedSprite2D
 @export var dmg_4_sprite : Sprite2D
+@export var dmg_5_sprite : Sprite2D
 
 func take_damage(damage : int) -> void:
 	super(damage)
@@ -14,6 +15,7 @@ func take_damage(damage : int) -> void:
 		dmg_4_sprite.visible = false
 	elif hp < 0.5 * max_hp:
 		dmg_2_sprite.visible = true
+		dmg_5_sprite.visible = true
 	elif hp < 0.75 * max_hp:
 		dmg_1_sprite.visible = true
 

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b28k77l8amu4" path="res://mobs/cyborg/DMG2.png" id="5_7phb7"]
 [ext_resource type="Texture2D" uid="uid://gqp01cbf2c4r" path="res://mobs/cyborg/dmg_3_sheet.png" id="6_qnejx"]
 [ext_resource type="Texture2D" uid="uid://04toaerhubm" path="res://mobs/cyborg/DMG4.png" id="7_52ugv"]
+[ext_resource type="Texture2D" uid="uid://bbk3ftj0fwh34" path="res://mobs/cyborg/DMG5.png" id="8_p7bfa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxl2"]
 resource_local_to_scene = true
@@ -309,13 +310,14 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CyborgStacker" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("dmg_1_sprite", "dmg_2_sprite", "dmg_3_sprite", "dmg_4_sprite", "hp_label", "sprite", "anim_player")]
+[node name="CyborgStacker" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("dmg_1_sprite", "dmg_2_sprite", "dmg_3_sprite", "dmg_4_sprite", "dmg_5_sprite", "hp_label", "sprite", "anim_player")]
 material = SubResource("ShaderMaterial_1jxl2")
 script = ExtResource("1_1jxl2")
 dmg_1_sprite = NodePath("Damage1")
 dmg_2_sprite = NodePath("Damage2")
 dmg_3_sprite = NodePath("Damage3")
 dmg_4_sprite = NodePath("Damage4")
+dmg_5_sprite = NodePath("Damage5")
 max_hp = 10000
 speed = 30.0
 min_bounty = 200
@@ -374,6 +376,11 @@ frame_progress = 1.0
 [node name="Damage4" type="Sprite2D" parent="." unique_id=107485720]
 use_parent_material = true
 texture = ExtResource("7_52ugv")
+
+[node name="Damage5" type="Sprite2D" parent="." unique_id=2097547803]
+visible = false
+use_parent_material = true
+texture = ExtResource("8_p7bfa")
 
 [connection signal="mouse_entered" from="DetectionBox" to="." method="_on_detection_box_mouse_entered"]
 [connection signal="mouse_exited" from="DetectionBox" to="." method="_on_detection_box_mouse_exited"]

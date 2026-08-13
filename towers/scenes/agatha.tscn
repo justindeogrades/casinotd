@@ -54,6 +54,7 @@ process_mode = 1
 script = ExtResource("1_xy4ha")
 attribute = Array[float]([34.0, 60.0, 180.0, 8.0, 2.2, 600.0, 1.0, 5.0])
 tower_name = "Agatha"
+tower_description = "Difference between her and my own grandma is she doesn't see me as a disappointment"
 shot_type = 0
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_w4irv")

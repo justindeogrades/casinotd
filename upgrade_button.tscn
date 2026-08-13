@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_lcpy1"]
 [ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="4_m2cuk"]
 [ext_resource type="Texture2D" uid="uid://bog7qk5gkp2ox" path="res://mobs/sprites/mob.png" id="5_m2cuk"]
+[ext_resource type="Texture2D" uid="uid://vchifcb82ty7" path="res://card suits/damage suit-export.png" id="6_1atmq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcpy1"]
 
@@ -353,7 +354,7 @@ angular_velocity_min = -500.0
 angular_velocity_max = 499.99997
 gravity = Vector3(0, 2000, 0)
 
-[node name="UpgradeButton" type="Button" unique_id=113980835 node_paths=PackedStringArray("anim_player", "value_labels", "particles")]
+[node name="UpgradeButton" type="Button" unique_id=113980835 node_paths=PackedStringArray("anim_player", "value_labels", "suit_rects", "particles")]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -379,6 +380,7 @@ icon_alignment = 1
 script = ExtResource("2_lcpy1")
 anim_player = NodePath("AnimationPlayer")
 value_labels = [NodePath("FaceLabel"), NodePath("FaceLabel2")]
+suit_rects = [NodePath("SuitRect"), NodePath("SuitRect2")]
 particles = NodePath("GPUParticles2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=157345319]
@@ -430,6 +432,27 @@ process_material = SubResource("ParticleProcessMaterial_g4v7s")
 [node name="Sprite2D" type="Sprite2D" parent="GPUParticles2D" unique_id=1078241498]
 visible = false
 texture = ExtResource("5_m2cuk")
+
+[node name="SuitRect" type="TextureRect" parent="." unique_id=1372718548]
+custom_minimum_size = Vector2(40, 72)
+custom_maximum_size = Vector2(40, 72)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 110.0
+offset_right = 72.0
+offset_bottom = 182.0
+texture = ExtResource("6_1atmq")
+
+[node name="SuitRect2" type="TextureRect" parent="." unique_id=1582795131]
+custom_minimum_size = Vector2(40, 72)
+custom_maximum_size = Vector2(40, 72)
+layout_mode = 0
+offset_left = 368.0
+offset_top = 557.0
+offset_right = 408.0
+offset_bottom = 629.0
+rotation = 3.1415927
+texture = ExtResource("6_1atmq")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

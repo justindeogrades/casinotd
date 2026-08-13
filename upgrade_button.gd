@@ -2,6 +2,7 @@ extends Button
 
 @export var anim_player : AnimationPlayer
 @export var value_labels : Array[Label]
+@export var suit_rects : Array[TextureRect]
 @export var particles : GPUParticles2D
 
 var face : int
