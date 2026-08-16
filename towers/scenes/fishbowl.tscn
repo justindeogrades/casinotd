@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b4rln8eq6b56k" path="res://towers/sprites/icon (portrait)/fishbowl icon.png" id="2_tmnoa"]
 [ext_resource type="Texture2D" uid="uid://corjy7ip3wpcd" path="res://towers/sprites/overworld/fishbowl overworld.png" id="4_3twf3"]
 [ext_resource type="Texture2D" uid="uid://bn120e4ykmm66" path="res://towers/projectiles/sprites/fishbowl projectile.png" id="4_tmnoa"]
+[ext_resource type="Texture2D" uid="uid://brohxddhchxue" path="res://towers/sprites/overworld/fishbowl overworld layer.png" id="6_psthg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 50.0
@@ -26,6 +27,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LayerSprite:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_smaqy"]
 resource_name = "shoot"
@@ -42,6 +67,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LayerSprite:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.3),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e607b"]
 _data = {
@@ -49,7 +98,7 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Fishbowl" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Fishbowl" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "layer_sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_b3s7n")
 attribute = Array[float]([10.0, 100.0, 200.0, 10.0, 3.0, 1000.0, 10.0, 0.0])
@@ -58,6 +107,7 @@ tower_description = "Government name is Lein Legweak"
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")
+layer_sprite = NodePath("LayerSprite")
 portrait = ExtResource("2_tmnoa")
 projectile_preload = ExtResource("2_b3s7n")
 projectile_texture = ExtResource("4_tmnoa")
@@ -70,6 +120,11 @@ anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
 texture = ExtResource("4_3twf3")
+
+[node name="LayerSprite" type="Sprite2D" parent="." unique_id=996561806]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_psthg")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

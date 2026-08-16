@@ -1,6 +1,13 @@
 extends Node
 class_name G
 
+const PROJECTILE_Z = 1
+const MOB_Z = 2
+const TOWER_Z = 3
+const SELECTED_TOWER_Z = 4
+const TOWER_GHOST_Z = 5
+const SPLASH_TEXT_Z = 6
+
 enum rarity {
 	COMMON,
 	UNCOMMON,

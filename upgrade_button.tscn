@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://c81s30m0o77e5" path="res://upgrade_button.gd" id="2_lcpy1"]
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_lcpy1"]
 [ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="4_m2cuk"]
-[ext_resource type="Texture2D" uid="uid://bog7qk5gkp2ox" path="res://mobs/sprites/mob.png" id="5_m2cuk"]
 [ext_resource type="Texture2D" uid="uid://vchifcb82ty7" path="res://card suits/damage suit-export.png" id="6_1atmq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcpy1"]
@@ -428,10 +427,6 @@ one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_g4v7s")
-
-[node name="Sprite2D" type="Sprite2D" parent="GPUParticles2D" unique_id=1078241498]
-visible = false
-texture = ExtResource("5_m2cuk")
 
 [node name="SuitRect" type="TextureRect" parent="." unique_id=1372718548]
 custom_minimum_size = Vector2(40, 72)

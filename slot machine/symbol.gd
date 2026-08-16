@@ -33,7 +33,7 @@ func init(s : float, t : Tower, ypos) -> void:
 	position.y = ypos
 	
 	#Ensures it appears in front of towers
-	set_z_index(2)
+	set_z_index(G.SELECTED_TOWER_Z + 1)
 
 #Made redundant
 #Called when the symbol reaches the point at which the next symbol should be created

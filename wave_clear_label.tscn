@@ -111,7 +111,15 @@ initial_velocity_min = 800.0
 initial_velocity_max = 1000.0
 gravity = Vector3(0, 98, 0)
 
-[node name="WaveClearIndicator" type="Node" unique_id=930807068 node_paths=PackedStringArray("enter_player", "flash_player", "particles")]
+[node name="WaveClearIndicator" type="Control" unique_id=739985995 node_paths=PackedStringArray("enter_player", "flash_player", "particles")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_wb7fg")
 enter_player = NodePath("EnterPlayer")
 flash_player = NodePath("FlashPlayer")
@@ -126,15 +134,16 @@ root_node = NodePath("../WaveClearLabel")
 libraries/ = SubResource("AnimationLibrary_r7ctw")
 
 [node name="WaveClearLabel" type="Label" parent="." unique_id=1274438482]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = -11.5
-offset_right = 51.0
-offset_bottom = 11.5
+offset_left = -287.5
+offset_top = -68.5
+offset_right = 287.5
+offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
@@ -145,7 +154,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=674638589]
-position = Vector2(960, 540)
 emitting = false
 amount = 100
 texture = ExtResource("2_0hhca")

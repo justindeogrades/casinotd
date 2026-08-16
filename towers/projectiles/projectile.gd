@@ -19,6 +19,8 @@ func _ready() -> void:
 	linear_velocity = direction * speed
 	$Sprite2D.look_at(position + direction)
 	$Sprite2D.rotate(PI / 2)
+	
+	set_z_index(G.PROJECTILE_Z)
 
 func _physics_process(delta : float) -> void:
 	if position.distance_to(tower.position) > max_dist_from_tower:

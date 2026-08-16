@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dulf4nqg8cgxe" path="res://towers/sprites/icon (portrait)/justice icon.png" id="2_xls0t"]
 [ext_resource type="Texture2D" uid="uid://6x6loaf1186i" path="res://towers/sprites/overworld/justice overworld.png" id="3_erqdl"]
 [ext_resource type="Texture2D" uid="uid://mx0m5oxdwbsl" path="res://towers/projectiles/sprites/justice projectile.png" id="3_m1l8l"]
+[ext_resource type="Texture2D" uid="uid://bw7rptapoki65" path="res://towers/sprites/overworld/justice overworld layer.png" id="6_xym8w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -26,6 +27,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LayerSprite:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_smaqy"]
 resource_name = "shoot"
@@ -42,14 +67,38 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LayerSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LayerSprite:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0, 0.0]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e607b"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kv25g"]
 _data = {
 &"RESET": SubResource("Animation_1jgo1"),
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Justice" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Justice" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "layer_sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_erqdl")
 attribute = Array[float]([18.0, 40.0, 150.0, 15.0, 4.0, 1000.0, 6.0, 0.0])
@@ -58,6 +107,7 @@ tower_description = "He is the law"
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")
+layer_sprite = NodePath("LayerSprite")
 portrait = ExtResource("2_xls0t")
 projectile_preload = ExtResource("2_m1l8l")
 projectile_texture = ExtResource("3_m1l8l")
@@ -70,6 +120,13 @@ anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
 texture = ExtResource("3_erqdl")
+offset = Vector2(0, -35)
+
+[node name="LayerSprite" type="Sprite2D" parent="." unique_id=1937661046]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_xym8w")
+offset = Vector2(0, -35)
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3
@@ -87,12 +144,12 @@ shape = SubResource("CircleShape2D_1jgo1")
 [node name="Cooldown" type="Timer" parent="." unique_id=1627493201]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=798912892]
-libraries/ = SubResource("AnimationLibrary_e607b")
-
 [node name="VolleyCooldownTimer" type="Timer" parent="." unique_id=2027241245]
 
 [node name="ProjectileParent" type="Node" parent="." unique_id=1681410128]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=105794022]
+libraries/ = SubResource("AnimationLibrary_kv25g")
 
 [connection signal="mouse_entered" from="Mousebox" to="." method="_on_mousebox_mouse_entered"]
 [connection signal="mouse_exited" from="Mousebox" to="." method="_on_mousebox_mouse_exited"]

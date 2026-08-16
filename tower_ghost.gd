@@ -5,6 +5,7 @@ var tower : Tower
 func init(t: Tower) -> void:
 	tower = t
 	texture = tower.get_sprite_texture()
+	set_z_index(G.TOWER_GHOST_Z)
 
 func _process(delta: float) -> void:
 	global_position = get_viewport().get_mouse_position()

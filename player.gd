@@ -56,11 +56,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		deselect_tower(selected_tower)
 	
 	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/agatha.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/justice.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/bubba.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/photocopier.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/cob_cannon.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
 
 func update_side_panel() -> void:
 	side_panel.update_all(money, get_wave_at(), tower_cost, wave_manager.is_wave_active())
@@ -116,7 +116,7 @@ func select_tower(tower : Tower) -> void:
 	tower.set_range_indicator_visibility(true)
 	side_panel.tower_data_container.update_with_new_tower(tower)
 	
-	tower.set_z_index(0)
+	tower.set_z_index(G.SELECTED_TOWER_Z)
 func deselect_tower(tower : Tower) -> void:
 	selected_tower = null
 	
@@ -124,7 +124,7 @@ func deselect_tower(tower : Tower) -> void:
 	tower_data_container.set_enabled(false)
 	tower.set_range_indicator_visibility(false)
 	
-	tower.set_z_index(1)
+	tower.set_z_index(G.TOWER_Z)
 
 func get_total_damage_dealt() -> int:
 	var total : int = 0

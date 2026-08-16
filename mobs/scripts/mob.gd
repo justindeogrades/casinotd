@@ -31,6 +31,8 @@ func _ready() -> void:
 	
 	#hp_label.position = Vector2(0, 15)
 	update_hp_label()
+	
+	set_z_index(G.MOB_Z)
 
 #Damage sound is called from the damage indicator
 func take_damage(damage : int) -> void:

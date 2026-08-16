@@ -25,6 +25,7 @@ extends Node2D
 @export_enum("Common", "Uncommon", "Rare", "Legendary") var rarity : int = G.rarity.COMMON
 @export_category("Children")
 @export var sprite : Sprite2D
+@export var layer_sprite : Sprite2D
 @export var portrait : Texture2D
 @export var projectile_preload : Resource
 @export var projectile_texture : Texture2D
@@ -71,7 +72,7 @@ func _ready() -> void:
 		volley_cooldown_timer.timeout.connect(_on_volley_cooldown_timer_timeout)
 	
 	#So tower ghosts dont overlap
-	set_z_index(1)
+	set_z_index(G.TOWER_Z)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and mouseovered:
@@ -107,6 +108,10 @@ func _process(delta: float) -> void:
 func rotate_sprite_to_target(target : Vector2) -> void:
 	sprite.look_at(target)
 	sprite.rotate(PI / 2)
+	
+	if layer_sprite != null:
+		layer_sprite.look_at(target)
+		layer_sprite.rotate(PI / 2)
 
 func shoot(type : int, dir : Vector2, target : Mob) -> void:
 	var sound_index = randi_range(0, AudioManager.shoots.size() - 1)
