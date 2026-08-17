@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwn1w7kcii81k"]
 
 [ext_resource type="Script" uid="uid://di1a6b046iu5g" path="res://towers/projectiles/mrmouse_projectile.gd" id="1_jpv4b"]
-[ext_resource type="Texture2D" uid="uid://bog7qk5gkp2ox" path="res://mobs/sprites/mob.png" id="2_b8acn"]
+[ext_resource type="Texture2D" uid="uid://4coatvy1v32k" path="res://towers/projectiles/sprites/mr mouse projectile.png" id="2_jpv4b"]
 
 [sub_resource type="Curve" id="Curve_b8acn"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
@@ -19,7 +19,7 @@ speed_curve = SubResource("Curve_b8acn")
 line = NodePath("Node/Line2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125238622]
-texture = ExtResource("2_b8acn")
+texture = ExtResource("2_jpv4b")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1431316374]
 collision_mask = 2

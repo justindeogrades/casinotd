@@ -1,11 +1,12 @@
 extends PanelContainer
 
 @export var fullscreen_button : Button
-@export var close_button : Button
 @export var music_slider : HSlider
 @export var sfx_slider : HSlider
 @export var damage_indicators_button : Button
 @export var quick_spins_button : Button
+@export var restore_defaults_button : Button
+@export var close_button : Button
 
 @onready var sfx_bus = AudioServer.get_bus_index("SFX")
 @onready var music_bus = AudioServer.get_bus_index("Music")
@@ -22,6 +23,12 @@ func init() -> void:
 	damage_indicators_button.set_pressed_no_signal(Settings.get_damage_indicators_enabled())
 	quick_spins_button.set_pressed_no_signal(Settings.get_quick_spins_enabled())
 
+func restore_defaults() -> void:
+	fullscreen_button.set_pressed(Settings.DEFAULT_FULLSCREEN_ENABLED)
+	sfx_slider.set_value(Settings.DEFAULT_SFX_SLIDER_VALUE)
+	music_slider.set_value(Settings.DEFAULT_MUSIC_SLIDER_VALUE)
+	damage_indicators_button.set_pressed(Settings.DEFAULT_DAMAGE_INDICATORS_ENABLED)
+	quick_spins_button.set_pressed(Settings.DEFAULT_QUICK_SPINS_ENABLED)
 
 func _on_fullscreen_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -43,3 +50,7 @@ func _on_show_damage_indicators_button_toggled(toggled_on: bool) -> void:
 
 func _on_quick_spins_button_toggled(toggled_on: bool) -> void:
 	Settings.set_quick_spins_enabled(toggled_on)
+
+
+func _on_restore_defaults_button_pressed() -> void:
+	restore_defaults()

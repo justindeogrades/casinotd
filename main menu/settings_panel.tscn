@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bylduuergy5as" path="res://main menu/settings_panel.gd" id="1_1wrka"]
 
-[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "close_button", "music_slider", "sfx_slider", "damage_indicators_button", "quick_spins_button")]
+[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "music_slider", "sfx_slider", "damage_indicators_button", "quick_spins_button", "restore_defaults_button", "close_button")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -16,11 +16,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1wrka")
 fullscreen_button = NodePath("MarginContainer/VBoxContainer/GridContainer/FullscreenButton")
-close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
 music_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/MusicVolSlider")
 sfx_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/SFXVolSlider")
 damage_indicators_button = NodePath("MarginContainer/VBoxContainer/GridContainer/ShowDamageIndicatorsButton")
 quick_spins_button = NodePath("MarginContainer/VBoxContainer/GridContainer/QuickSpinsButton")
+restore_defaults_button = NodePath("MarginContainer/VBoxContainer/RestoreDefaultsButton")
+close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1482379764]
 layout_mode = 2
@@ -83,6 +84,10 @@ text = "Quick buy tower spins"
 [node name="QuickSpinsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1262490571]
 layout_mode = 2
 
+[node name="RestoreDefaultsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=742086315]
+layout_mode = 2
+text = "Restore defaults"
+
 [node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1255385746]
 layout_mode = 2
 text = "Close"
@@ -92,3 +97,4 @@ text = "Close"
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/ShowDamageIndicatorsButton" to="." method="_on_show_damage_indicators_button_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/QuickSpinsButton" to="." method="_on_quick_spins_button_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RestoreDefaultsButton" to="." method="_on_restore_defaults_button_pressed"]

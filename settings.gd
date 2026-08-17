@@ -1,5 +1,6 @@
 extends Node
 
+const DEFAULT_FULLSCREEN_ENABLED : bool = true
 const DEFAULT_SFX_SLIDER_VALUE : float = 0.8
 const DEFAULT_MUSIC_SLIDER_VALUE : float = 0.8
 const DEFAULT_DAMAGE_INDICATORS_ENABLED : bool = true
