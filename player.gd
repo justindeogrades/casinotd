@@ -188,8 +188,7 @@ func _on_wave_ended(all_waves_ended : bool) -> void:
 	if all_waves_ended:
 		gui_manager.init_game_over(true, get_wave_at(), get_total_damage_dealt(), total_money_earned, get_mvp_tower())
 	else:
-		gui_manager.wave_clear_indicator.enter_player.play("enter")
-		gui_manager.wave_clear_indicator.flash_player.play("flash")
+		gui_manager.wave_clear_indicator.start()
 		
 		#Update side panel gets called from getting money anyway
 		update_side_panel()

@@ -38,6 +38,7 @@ func _ready() -> void:
 	pass
 
 func init(quick_spins_enabled : bool, banned_towers : Array) -> void:
+	AudioManager.set_music_low_pass_enabled(true)
 	AudioManager.slot_machine_sfx.play()
 	
 	#Does nothing because speed is set every frame?

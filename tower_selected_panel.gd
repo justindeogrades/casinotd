@@ -52,5 +52,6 @@ func _on_ban_button_pressed() -> void:
 		ban_button.text = "Can't ban all towers of a rarity"
 
 func _on_text_rect_anim_completed() -> void:
+	AudioManager.set_music_low_pass_enabled(false)
 	AudioManager.slot_machine_sfx.stop()
 	AudioManager.selecteds[tower.get_rarity()].play()

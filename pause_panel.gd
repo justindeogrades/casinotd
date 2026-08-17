@@ -29,9 +29,11 @@ func reset() -> void:
 	confirm_quit_container.visible = false
 
 func pause() -> void:
+	AudioManager.set_music_low_pass_enabled(true)
 	visible = true
 	get_tree().paused = true
 func unpause() -> void:
+	AudioManager.set_music_low_pass_enabled(false)
 	visible = false
 	get_tree().paused = false
 

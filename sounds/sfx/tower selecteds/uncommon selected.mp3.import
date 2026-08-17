@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6brry7tduxn2"
+path="res://.godot/imported/uncommon selected.mp3-e92796b867a0080f70d8e21afebf1f34.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/tower selecteds/uncommon selected.mp3"
+dest_files=["res://.godot/imported/uncommon selected.mp3-e92796b867a0080f70d8e21afebf1f34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -46,9 +46,10 @@ func _ready() -> void:
 	#side_panel.visible = true
 
 func hide_upgrade_panel() -> void:
+	AudioManager.set_music_low_pass_enabled(false)
 	upgrade_panel.visible = false
 func show_upgrade_panel() -> void:
-	
+	AudioManager.set_music_low_pass_enabled(true)
 	upgrade_panel.visible = true
 
 func init_game_over(victory : bool, waves_survived : int, damage_dealt : int, money_earned : int, mvp : Tower) -> void:

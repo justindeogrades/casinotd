@@ -32,6 +32,8 @@ extends Node
 @export var money_gain_d_sfx : AudioStreamPlayer
 @export var money_spend_a_sfx : AudioStreamPlayer
 @export var money_spend_b_sfx : AudioStreamPlayer
+@export_category("Songs")
+@export var spin_spin_spin_music : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
 @export var wave_clear_sfx : AudioStreamPlayer
@@ -41,3 +43,8 @@ extends Node
 @onready var shoots : Array[AudioStreamPlayer] = [shoot_a_sfx, shoot_b_sfx]
 @onready var money_gains : Array[AudioStreamPlayer] = [money_gain_a_sfx, money_gain_b_sfx, money_gain_c_sfx, money_gain_d_sfx]
 @onready var money_spends : Array[AudioStreamPlayer] = [money_spend_a_sfx, money_spend_b_sfx]
+
+func set_music_low_pass_enabled(enabled : bool) -> void:
+	var music_bus_index = AudioServer.get_bus_index("Music")
+	var effect = AudioServer.get_bus_effect(music_bus_index, 0)
+	AudioServer.set_bus_effect_enabled(music_bus_index, 0, enabled)

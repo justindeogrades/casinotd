@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh5s7rmw753rq"
+path="res://.godot/imported/money spend b.mp3-0337b37d5536234a63e92c3af223b16a.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/money/money spend b.mp3"
+dest_files=["res://.godot/imported/money spend b.mp3-0337b37d5536234a63e92c3af223b16a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -14,6 +14,8 @@ func _ready() -> void:
 		#init_main_menu()
 
 func init_main_menu() -> void:
+	AudioManager.spin_spin_spin_music.stop()
+	
 	remove_all_children()
 	
 	main_menu_instance = main_menu.instantiate()
@@ -23,6 +25,8 @@ func init_main_menu() -> void:
 	main_menu_instance.quit_button.pressed.connect(_on_quit_button_pressed)
 
 func init_map() -> void:
+	AudioManager.spin_spin_spin_music.play()
+	
 	remove_all_children()
 	
 	map_instance = map.instantiate()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3reeqsk8jomc"
+path="res://.godot/imported/spin, spin, spin unmastered.mp3-b76bfe92e32f337ac6974e45a5b86e33.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/spin, spin, spin unmastered.mp3"
+dest_files=["res://.godot/imported/spin, spin, spin unmastered.mp3-b76bfe92e32f337ac6974e45a5b86e33.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=6.62
+bpm=145.0
+beat_count=208
+bar_beats=4

@@ -11,4 +11,11 @@ func _ready() -> void:
 	set_z_index(G.SPLASH_TEXT_Z)
 
 func play_wave_clear_sound() -> void:
+	AudioManager.set_music_low_pass_enabled(true)
 	AudioManager.wave_clear_sfx.play()
+
+func start() -> void:
+	enter_player.play("enter")
+	flash_player.play("flash")
+func end() -> void:
+	AudioManager.set_music_low_pass_enabled(false)
