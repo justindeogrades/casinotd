@@ -26,6 +26,8 @@ buses/default_bus_layout="uid://bqlirj2vg4im7"
 [autoload]
 
 AudioManager="*uid://ckf0ymtnv8qel"
+Global="*uid://b2r7hfu08oi37"
+Settings="*uid://caqurs8s3unbc"
 
 [display]
 

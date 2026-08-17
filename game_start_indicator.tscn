@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://bxgvifohgxnrc"]
+[gd_scene format=3 uid="uid://ctjjrmt6xgls2"]
 
-[ext_resource type="Script" uid="uid://bdybcu2q0lml0" path="res://wave_clear_label.gd" id="1_wb7fg"]
-[ext_resource type="Texture2D" uid="uid://bgqr8gbk74s26" path="res://particles/particle b.png" id="2_0hhca"]
-[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="2_2gfqm"]
+[ext_resource type="Script" uid="uid://mep04dwryeci" path="res://game_start_indicator.gd" id="1_w801f"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="2_yjakm"]
 
 [sub_resource type="Animation" id="Animation_0hhca"]
 length = 0.001
@@ -17,18 +16,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GPUParticles2D:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_2gfqm"]
@@ -46,17 +33,19 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../GPUParticles2D:emitting")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_wave_clear_sound"
+}]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -65,20 +54,6 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.33333334),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_wave_clear_sound"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -101,7 +76,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Color(1, 0.92156863, 0.34117648, 1), Color(0.85882354, 0.24705882, 0.99215686, 1)]
+"values": [Color(1, 1, 1, 1), Color(0.76862746, 0.14117648, 0.1882353, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r7ctw"]
@@ -112,20 +87,12 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
-font = ExtResource("2_2gfqm")
+font = ExtResource("2_yjakm")
 font_size = 128
 outline_size = 32
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
-particle_flag_disable_z = true
-direction = Vector3(1, 1, 0)
-spread = 180.0
-initial_velocity_min = 800.0
-initial_velocity_max = 1000.0
-gravity = Vector3(0, 98, 0)
-
-[node name="WaveClearIndicator" type="Control" unique_id=739985995 node_paths=PackedStringArray("enter_player", "flash_player", "particles")]
+[node name="GameStartIndicator" type="Control" unique_id=739985995 node_paths=PackedStringArray("game_start_label", "life_timer", "flash_player")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,45 +101,36 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wb7fg")
-enter_player = NodePath("EnterPlayer")
+script = ExtResource("1_w801f")
+game_start_label = NodePath("GameStartLabel")
+life_timer = NodePath("LifeTimer")
 flash_player = NodePath("FlashPlayer")
-particles = NodePath("GPUParticles2D")
-
-[node name="EnterPlayer" type="AnimationPlayer" parent="." unique_id=955904270]
-root_node = NodePath("../WaveClearLabel")
-libraries/ = SubResource("AnimationLibrary_r7ctw")
 
 [node name="FlashPlayer" type="AnimationPlayer" parent="." unique_id=1414517826]
-root_node = NodePath("../WaveClearLabel")
+root_node = NodePath("../GameStartLabel")
 libraries/ = SubResource("AnimationLibrary_r7ctw")
 
-[node name="WaveClearLabel" type="Label" parent="." unique_id=1274438482]
+[node name="GameStartLabel" type="Label" parent="." unique_id=1274438482]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -287.5
+offset_left = -309.0
 offset_top = -68.5
-offset_right = 287.5
+offset_right = 309.0
 offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0, 0)
-text = "WAVE CLEAR!"
+text = "TIME TO COOK"
 label_settings = SubResource("LabelSettings_g4v7s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=674638589]
-emitting = false
-amount = 100
-texture = ExtResource("2_0hhca")
-lifetime = 2.0
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_g4v7s")
+[node name="LifeTimer" type="Timer" parent="." unique_id=52450039]
+wait_time = 2.5
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

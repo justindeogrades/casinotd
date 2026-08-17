@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7hv7onn8kjg6" path="res://waves/wave_manager.tscn" id="4_oysan"]
 [ext_resource type="PackedScene" uid="uid://cxgm5ilq32svq" path="res://towers/tower_placer.tscn" id="5_sb2pt"]
 [ext_resource type="Script" uid="uid://ct0pijroh7m73" path="res://damage_indicator_placer.gd" id="6_0t07s"]
+[ext_resource type="PackedScene" uid="uid://b3et3ajfji1nj" path="res://damage_indicator.tscn" id="6_05x41"]
 [ext_resource type="PackedScene" uid="uid://ccpmycj5vtnwl" path="res://gui_manager.tscn" id="7_6qsgm"]
 [ext_resource type="PackedScene" uid="uid://dsdivye5cb7iy" path="res://pause_panel.tscn" id="7_71pa8"]
 
@@ -44,6 +45,7 @@ polygon = PackedVector2Array(0, 320, 480, 320, 480, 160, 721, 160, 721, 320, 112
 
 [node name="DamageIndicatorPlacer" type="Node" parent="Player" unique_id=1470036407]
 script = ExtResource("6_0t07s")
+damage_indicator_resource = ExtResource("6_05x41")
 
 [node name="GUIManager" parent="Player" unique_id=1782215696 instance=ExtResource("7_6qsgm")]
 

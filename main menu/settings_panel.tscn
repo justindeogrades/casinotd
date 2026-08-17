@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bylduuergy5as" path="res://main menu/settings_panel.gd" id="1_1wrka"]
 
-[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "close_button", "music_slider", "sfx_slider")]
+[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "close_button", "music_slider", "sfx_slider", "damage_indicators_button", "quick_spins_button")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -19,6 +19,8 @@ fullscreen_button = NodePath("MarginContainer/VBoxContainer/GridContainer/Fullsc
 close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
 music_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/MusicVolSlider")
 sfx_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/SFXVolSlider")
+damage_indicators_button = NodePath("MarginContainer/VBoxContainer/GridContainer/ShowDamageIndicatorsButton")
+quick_spins_button = NodePath("MarginContainer/VBoxContainer/GridContainer/QuickSpinsButton")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1482379764]
 layout_mode = 2
@@ -67,6 +69,20 @@ max_value = 1.0
 step = 0.1
 value = 0.8
 
+[node name="ShowDamageIndicatorsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1901870642]
+layout_mode = 2
+text = "Show damage indicators"
+
+[node name="ShowDamageIndicatorsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=932255687]
+layout_mode = 2
+
+[node name="QuickSpinsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=354463878]
+layout_mode = 2
+text = "Quick buy tower spins"
+
+[node name="QuickSpinsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1262490571]
+layout_mode = 2
+
 [node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1255385746]
 layout_mode = 2
 text = "Close"
@@ -74,3 +90,5 @@ text = "Close"
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/ShowDamageIndicatorsButton" to="." method="_on_show_damage_indicators_button_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/QuickSpinsButton" to="." method="_on_quick_spins_button_toggled"]

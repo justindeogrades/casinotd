@@ -37,7 +37,7 @@ func _ready() -> void:
 	#$Line.position.y = $Line.get_viewport_rect().size.y / 2
 	pass
 
-func init(quick_spins_enabled : bool, banned_towers : Array) -> void:
+func init(banned_towers : Array) -> void:
 	AudioManager.set_music_low_pass_enabled(true)
 	AudioManager.slot_machine_sfx.play()
 	
@@ -46,10 +46,10 @@ func init(quick_spins_enabled : bool, banned_towers : Array) -> void:
 	
 	sort_towers(banned_towers)
 	
-	quick_spins = quick_spins_enabled
+	quick_spins = Settings.get_quick_spins_enabled()
 	
 	spin_time = randomize_time(base_spin_time, spin_time_randomness_range)
-	if quick_spins_enabled:
+	if quick_spins:
 		spin_time *= quick_spins_time_mult
 	
 	#print_debug("final speed: " + str(speed))

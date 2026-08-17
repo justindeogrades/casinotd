@@ -5,7 +5,6 @@ extends PanelContainer
 @export var money_feed_container : VBoxContainer
 @export var money_feed_resource : Resource
 @export var tower_data_container : VBoxContainer
-@export var quick_spins_box : CheckBox
 @export var buy_button : Button
 @export var next_wave_button : Button
 
@@ -25,7 +24,6 @@ func _ready() -> void:
 func init_buttons_array() -> void:
 	buttons.append(buy_button)
 	buttons.append(next_wave_button)
-	buttons.append(quick_spins_box)
 	buttons.append(tower_data_container.prio_forward_button)
 	buttons.append(tower_data_container.prio_back_button)
 	buttons.append(tower_data_container.upgrade_button)

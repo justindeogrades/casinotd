@@ -24,7 +24,7 @@ wave_label = NodePath("MarginContainer/VBoxContainer/WaveLabel")
 money_feed_container = NodePath("MarginContainer/VBoxContainer/VBoxContainer/MoneyFeedContainer")
 money_feed_resource = ExtResource("2_xd4xr")
 tower_data_container = NodePath("MarginContainer/VBoxContainer/TowerDataPanel")
-quick_spins_box = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/QuickSpins")
+quick_spins_box = NodePath("")
 buy_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/BuyButton")
 next_wave_button = NodePath("MarginContainer/VBoxContainer/NextWaveButton")
 
@@ -73,12 +73,6 @@ layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=725296658]
 layout_mode = 2
-
-[node name="QuickSpins" type="CheckBox" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=764066361]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Quick spins"
-script = ExtResource("4_c3vdb")
 
 [node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=678389016]
 layout_mode = 2

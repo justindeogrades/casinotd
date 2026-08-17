@@ -14,20 +14,21 @@ func init(amount : int, crit_level : int, pos : Vector2):
 	if crit_level >= 1:
 		var col : Color
 		
+		#Sound will be played from DamageIndicatorParent
 		if crit_level == 1:
-			AudioManager.crit_sfx.play()
+			#AudioManager.crit_sfx.play()
 			col = crit_col
 			crit_label.text = "CRIT!"
 		elif crit_level == 2:
-			AudioManager.doublecrit_sfx.play()
+			#AudioManager.doublecrit_sfx.play()
 			col = doublecrit_col
 			crit_label.text = "DOUBLECRIT!!"
 		elif crit_level == 3:
-			AudioManager.triplecrit_sfx.play()
+			#AudioManager.triplecrit_sfx.play()
 			col = triplecrit_col
 			crit_label.text = "TRIPLECRIT!!!"
 		else:
-			AudioManager.multicrit_sfx.play()
+			#AudioManager.multicrit_sfx.play()
 			col = triplecrit_col
 			crit_label.text = str(crit_level) + "x CRIT!!!"
 		
