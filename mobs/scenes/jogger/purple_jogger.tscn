@@ -217,7 +217,7 @@ _data = {
 
 [node name="PurpleJogger" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
 script = ExtResource("1_46rr5")
-max_hp = 2400
+max_hp = 6400
 speed = 100.0
 min_bounty = 80
 max_bounty = 100

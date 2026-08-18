@@ -34,6 +34,8 @@ func _on_hitbox_area_entered(area : Area2D) -> void:
 	
 	if not target.is_dying():
 		if not exploding:
+			AudioManager.cob_cannon_projectile_explosion_sfx.play()
+			
 			exploding = true
 			hitbox_shape.shape.radius = 120
 			linear_velocity = Vector2.ZERO

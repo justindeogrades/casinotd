@@ -217,7 +217,7 @@ _data = {
 
 [node name="YellowRoller" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
 script = ExtResource("1_4v4yo")
-max_hp = 800
+max_hp = 2000
 speed = 550.0
 min_bounty = 200
 max_bounty = 250

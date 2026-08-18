@@ -5,6 +5,9 @@ extends Mob
 @export var dmg_3_sprite : AnimatedSprite2D
 @export var dmg_4_sprite : Sprite2D
 @export var dmg_5_sprite : Sprite2D
+@export var speed_boost_amount : int
+
+@onready var base_speed = speed
 
 func take_damage(damage : int) -> void:
 	super(damage)
@@ -16,6 +19,9 @@ func take_damage(damage : int) -> void:
 	elif hp < 0.5 * max_hp:
 		dmg_2_sprite.visible = true
 		dmg_5_sprite.visible = true
+		
+		if speed == base_speed:
+			speed += speed_boost_amount
 	elif hp < 0.75 * max_hp:
 		dmg_1_sprite.visible = true
 

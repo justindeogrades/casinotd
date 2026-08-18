@@ -70,7 +70,8 @@ func _process(delta: float) -> void:
 #Called when mob reaches the exit, just deletes the pathfollow for now
 func leak() -> void:
 	player.update_lives(-1)
-	delete_self()
+	#Not deleting the escaped mob cause the game just ends anyway
+	#delete_self()
 
 func roll_bounty() -> int:
 	return randi_range(min_bounty, max_bounty)
@@ -86,7 +87,7 @@ func update_hp_label() -> void:
 func is_dying() -> bool:
 	return dying
 
-func _on_detection_box_mouse_entered() -> void:
-	hp_label.visible = true
-func _on_detection_box_mouse_exited() -> void:
-	hp_label.visible = false
+#func _on_detection_box_mouse_entered() -> void:
+	#hp_label.visible = true
+#func _on_detection_box_mouse_exited() -> void:
+	#hp_label.visible = false

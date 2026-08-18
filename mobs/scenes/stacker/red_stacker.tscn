@@ -217,7 +217,7 @@ _data = {
 
 [node name="RedStacker" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
 script = ExtResource("1_7ki8c")
-max_hp = 1000
+max_hp = 5000
 speed = 50.0
 min_bounty = 35
 max_bounty = 50

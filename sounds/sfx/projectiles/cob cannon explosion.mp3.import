@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckq2qoix7x5jk"
+path="res://.godot/imported/cob cannon explosion.mp3-c6847a2ff30be96cf3c41260e4c52eae.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/projectiles/cob cannon explosion.mp3"
+dest_files=["res://.godot/imported/cob cannon explosion.mp3-c6847a2ff30be96cf3c41260e4c52eae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

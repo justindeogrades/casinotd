@@ -52,9 +52,8 @@ _data = {
 [node name="MrMouse" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_8bjts")
-attribute = Array[float]([30.0, 40.0, 300.0, 10.0, 3.0, 1000.0, 1.0, 6.0])
+attribute = Array[float]([28.0, 30.0, 300.0, 12.0, 3.3, 1000.0, 1.0, 6.0])
 tower_name = "Mr. Mouse"
-tower_description = "Who do you think built the pyramids?"
 shot_type = 0
 rarity = 1
 sprite = NodePath("Sprite2D")

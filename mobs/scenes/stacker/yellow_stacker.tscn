@@ -217,7 +217,7 @@ _data = {
 
 [node name="YellowStacker" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
 script = ExtResource("1_jx2hu")
-max_hp = 375000
+max_hp = 350000
 speed = 90.0
 min_bounty = 1000
 max_bounty = 2000

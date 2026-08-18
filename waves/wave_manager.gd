@@ -44,8 +44,6 @@ func _on_wave_spawn_reached(mob : Mob) -> void:
 	pathfollow.add_child(mob)
 
 func _on_wave_ended() -> void:
-	print_debug("reached a")
-	
 	wave_active = false
 	wave_at += 1
 	

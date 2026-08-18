@@ -19,7 +19,7 @@ side_panel = NodePath("SidePanel")
 upgrade_panel = NodePath("UpgradePanel")
 wave_clear_indicator = NodePath("WaveClearIndicator")
 game_over_panel_resource = ExtResource("2_dsghq")
-ban_cost = 25
+ban_cost = 31
 ban_cost_mult = 1.1
 
 [node name="SidePanel" parent="." unique_id=841411776 instance=ExtResource("1_joh0p")]
