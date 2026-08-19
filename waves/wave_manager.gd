@@ -2,12 +2,14 @@ extends Node
 
 @export var path : Path2D
 @export var waves : Array[Wave]
+#Should be 0 unless for testing purposes
+@export var starting_wave : int = 0
 
 #var mob_preload = preload("res://mobs/scenes/red_mob.tscn")
 #var mob_to_spawn : Mob
 
-var wave_at : int = 0
-var wave_active : bool = false
+@onready var wave_at : int = starting_wave
+@onready var wave_active : bool = false
 
 signal wave_ended(last_wave : bool)
 

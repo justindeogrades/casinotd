@@ -52,7 +52,7 @@ _data = {
 [node name="DebtSage" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_0plqt")
-attribute = Array[float]([30.0, 100.0, 200.0, 18.0, 3.4, 1000.0, 1.0, 0.0])
+attribute = Array[float]([30.0, 100.0, 200.0, 18.0, 3.4, 800.0, 1.0, 0.0])
 tower_name = "Debt Sage"
 tower_description = "He offers much wisdom, but no financial advice"
 rarity = 1

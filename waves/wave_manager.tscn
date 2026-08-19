@@ -12,6 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://bmpihfhuh7316" path="res://mobs/scenes/roller/green_roller.tscn" id="7_pdgic"]
 [ext_resource type="PackedScene" uid="uid://oaj4vnjm0n4h" path="res://mobs/scenes/roller/blue_roller.tscn" id="9_eo7pi"]
 [ext_resource type="PackedScene" uid="uid://c24q5g8ymsda3" path="res://mobs/scenes/stacker/green_stacker.tscn" id="9_lf03j"]
+[ext_resource type="PackedScene" uid="uid://vxp28bcnyo3" path="res://mobs/scenes/roller/purple_roller.tscn" id="13_lf03j"]
+[ext_resource type="PackedScene" uid="uid://rwygo1cv42mb" path="res://mobs/scenes/jogger/yellow_jogger.tscn" id="14_kfkvv"]
+[ext_resource type="PackedScene" uid="uid://bwpsk0m3j08o3" path="res://mobs/scenes/stacker/blue_stacker.tscn" id="15_agqcf"]
+[ext_resource type="PackedScene" uid="uid://b2cmctr4nxjxs" path="res://mobs/scenes/roller/yellow_roller.tscn" id="16_pabi4"]
+[ext_resource type="PackedScene" uid="uid://bcslktmohx8mx" path="res://mobs/scenes/stacker/purple_stacker.tscn" id="17_wcbwv"]
+[ext_resource type="PackedScene" uid="uid://bu6bfo8sln44c" path="res://mobs/scenes/stacker/yellow_stacker.tscn" id="18_ilw4a"]
+[ext_resource type="PackedScene" uid="uid://50ka67xngwdw" path="res://mobs/scenes/cyborg/cyborg.tscn" id="19_xs8qk"]
 
 [sub_resource type="Resource" id="Resource_x5ywc"]
 script = ExtResource("3_2vcsd")
@@ -47,7 +54,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 resource_local_to_scene = true
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("4_iakiv")
-mob_count = 8
+mob_count = 10
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -97,14 +104,14 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_gm0w1"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_0rmi1")
-mob_count = 25
+mob_count = 30
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_4ltjw"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 6
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -118,7 +125,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_2ciko"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 6
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -132,7 +139,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_2d8lc"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 6
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -146,7 +153,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_f1ijc"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 6
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -160,7 +167,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_vtctg"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_0rmi1")
-mob_count = 8
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -174,7 +181,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_bsev2"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_0rmi1")
-mob_count = 8
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -188,7 +195,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_0rmi1"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_0rmi1")
-mob_count = 8
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -202,7 +209,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_eo7pi"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_0rmi1")
-mob_count = 8
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -223,50 +230,50 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_fx7pp"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("6_d0drh")
-mob_count = 10
+mob_count = 15
 spawn_interval = 2.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_1yeuo"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 10
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_nffeg"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("7_pdgic")
-mob_count = 1
-spawn_interval = 0.1
+mob_count = 3
+spawn_interval = 0.2
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_lf03j"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 10
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_kfkvv"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("7_pdgic")
-mob_count = 1
-spawn_interval = 0.1
+mob_count = 3
+spawn_interval = 0.2
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_pabi4"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 10
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_wcbwv"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("7_pdgic")
-mob_count = 1
-spawn_interval = 0.1
+mob_count = 3
+spawn_interval = 0.2
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_125d3"]
@@ -279,7 +286,7 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_tgjg7"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("6_d0drh")
-mob_count = 15
+mob_count = 25
 spawn_interval = 0.8
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
@@ -293,78 +300,85 @@ metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 [sub_resource type="Resource" id="Resource_1axhx"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("5_2xtue")
-mob_count = 15
+mob_count = 20
 spawn_interval = 2.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_sp747"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("6_d0drh")
-mob_count = 10
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_1a6td"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("7_pdgic")
-mob_count = 1
-spawn_interval = 0.1
+mob_count = 4
+spawn_interval = 0.2
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_fettu"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("6_d0drh")
-mob_count = 10
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_yva1t"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("7_pdgic")
-mob_count = 1
-spawn_interval = 0.1
+mob_count = 4
+spawn_interval = 0.2
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_kb7gl"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("6_d0drh")
-mob_count = 10
-spawn_interval = 0.5
-metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
-
-[sub_resource type="Resource" id="Resource_v5r32"]
-script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("7_pdgic")
-mob_count = 1
-spawn_interval = 0.1
-metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
-
-[sub_resource type="Resource" id="Resource_gc1k0"]
-script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("6_d0drh")
-mob_count = 10
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_8i4nh"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("7_pdgic")
-mob_count = 1
-spawn_interval = 0.1
+mob_count = 4
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_gc1k0"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("6_d0drh")
+mob_count = 12
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_v5r32"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("7_pdgic")
+mob_count = 4
+spawn_interval = 0.2
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_81spq"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("6_d0drh")
-mob_count = 10
+mob_count = 12
 spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_pa8s0"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("7_pdgic")
-mob_count = 5
-spawn_interval = 0.4
+mob_count = 6
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_a3v5p"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("7_pdgic")
+mob_count = 15
+spawn_interval = 0.5
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [sub_resource type="Resource" id="Resource_e7w15"]
@@ -458,23 +472,499 @@ mob_count = 20
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
+[sub_resource type="Resource" id="Resource_dvan4"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 6
+spawn_interval = 2.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_iseg8"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_hr1sv"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("7_b1o8j")
+mob_count = 8
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_52q0q"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_tk5pt"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("7_b1o8j")
+mob_count = 8
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
 [sub_resource type="Resource" id="Resource_owkvt"]
 script = ExtResource("3_2vcsd")
 mob_preload = ExtResource("9_lf03j")
 mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_i2jd4"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("7_b1o8j")
+mob_count = 8
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_wueeh"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_eo7pi")
+mob_count = 10
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_y5551"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_82g3m"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("13_lf03j")
+mob_count = 5
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_ouw5f"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_uqqfs"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("13_lf03j")
+mob_count = 5
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_p02qh"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_qgkuq"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("13_lf03j")
+mob_count = 5
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_qjbvg"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("9_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_4l112"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("13_lf03j")
+mob_count = 5
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_baodh"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 10
+spawn_interval = 2.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_2t5es"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("13_lf03j")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_2xxnd"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("15_agqcf")
+mob_count = 1
 spawn_interval = 2.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
-[sub_resource type="Resource" id="Resource_dvan4"]
+[sub_resource type="Resource" id="Resource_fpm5x"]
 script = ExtResource("3_2vcsd")
-mob_preload = ExtResource("9_eo7pi")
+mob_preload = ExtResource("13_lf03j")
+mob_count = 15
+spawn_interval = 2.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_jcnom"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("15_agqcf")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_70ffe"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 10
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_bldx3"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("15_agqcf")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_kyfox"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 10
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_rof01"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("15_agqcf")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_1li6q"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
 mob_count = 20
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_is0g3"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 12
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_q7by1"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 2
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_s552u"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 12
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_hd24l"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 2
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_5dcmf"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 12
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_1sbbv"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 2
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_j1agw"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 12
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_r2la6"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 2
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_qnp8s"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("17_wcbwv")
+mob_count = 4
+spawn_interval = 3.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_vhuod"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("17_wcbwv")
+mob_count = 4
+spawn_interval = 3.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_xjtkq"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("15_agqcf")
+mob_count = 25
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_ijhsh"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 3
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_1ksrh"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("17_wcbwv")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_opwnm"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 25
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_hv5xn"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 40
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_3yn7h"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_qr8dw"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("17_wcbwv")
+mob_count = 20
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_6qydj"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 10
+spawn_interval = 2.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_1t3d8"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_ssocd"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 10
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_tveea"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_jg8jl"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 10
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_23oiv"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_exp1h"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 10
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_m105a"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 80
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_ypi72"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("19_xs8qk")
+mob_count = 1
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_eeb0u"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("14_kfkvv")
+mob_count = 60
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_cmeyb"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 40
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_rmf1f"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 3
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_gslxw"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 10
+spawn_interval = 0.1
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_x6abu"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 3
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_0bjrl"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 10
+spawn_interval = 0.1
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_6f6f6"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 3
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_ejf5t"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 10
+spawn_interval = 0.1
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_tu5fa"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 3
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_o8yyi"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 10
+spawn_interval = 0.1
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_m0aap"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("18_ilw4a")
+mob_count = 30
+spawn_interval = 0.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_ksewv"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 20
+spawn_interval = 0.2
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_i7jwd"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("19_xs8qk")
+mob_count = 5
+spawn_interval = 2.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_y4o2y"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 20
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_qmxdi"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("19_xs8qk")
+mob_count = 8
+spawn_interval = 2.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_2vsk0"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 20
+spawn_interval = 1.0
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_chxuk"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("19_xs8qk")
+mob_count = 10
+spawn_interval = 1.5
+metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
+
+[sub_resource type="Resource" id="Resource_vyvi5"]
+script = ExtResource("3_2vcsd")
+mob_preload = ExtResource("16_pabi4")
+mob_count = 30
 spawn_interval = 1.0
 metadata/_custom_type_script = "uid://bya4jcpwx7ot5"
 
 [node name="WaveManager" type="Node" unique_id=1820962353 node_paths=PackedStringArray("waves")]
 script = ExtResource("1_244l3")
-waves = [NodePath("Wave0"), NodePath("Wave1"), NodePath("Wave2"), NodePath("Wave3"), NodePath("Wave4"), NodePath("Wave5"), NodePath("Wave6"), NodePath("Wave7"), NodePath("Wave8"), NodePath("Wave9"), NodePath("Wave10"), NodePath("Wave11"), NodePath("Wave12")]
+waves = [NodePath("Wave0"), NodePath("Wave1"), NodePath("Wave2"), NodePath("Wave3"), NodePath("Wave4"), NodePath("Wave5"), NodePath("Wave6"), NodePath("Wave7"), NodePath("Wave8"), NodePath("Wave9"), NodePath("Wave10"), NodePath("Wave11"), NodePath("Wave12"), NodePath("Wave13"), NodePath("Wave14"), NodePath("Wave15"), NodePath("Wave16"), NodePath("Wave17"), NodePath("Wave18"), NodePath("Wave19"), NodePath("Wave20"), NodePath("Wave21"), NodePath("Wave22"), NodePath("Wave23"), NodePath("Wave24"), NodePath("Wave25"), NodePath("Wave26"), NodePath("Wave27"), NodePath("Wave28"), NodePath("Wave29"), NodePath("Wave30"), NodePath("Wave31"), NodePath("Wave32"), NodePath("Wave33"), NodePath("Wave34"), NodePath("Wave35"), NodePath("Wave36"), NodePath("Wave37"), NodePath("Wave38"), NodePath("Wave39")]
 
 [node name="Wave0" parent="." unique_id=1681385698 instance=ExtResource("2_1872v")]
 segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_x5ywc")])
@@ -516,10 +1006,10 @@ segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_tgjg7")])
 segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_njup8"), SubResource("Resource_1axhx")])
 
 [node name="Wave13" parent="." unique_id=488828160 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_sp747"), SubResource("Resource_1a6td"), SubResource("Resource_fettu"), SubResource("Resource_yva1t"), SubResource("Resource_kb7gl"), SubResource("Resource_v5r32"), SubResource("Resource_gc1k0"), SubResource("Resource_8i4nh"), SubResource("Resource_81spq"), SubResource("Resource_pa8s0")])
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_sp747"), SubResource("Resource_1a6td"), SubResource("Resource_fettu"), SubResource("Resource_yva1t"), SubResource("Resource_kb7gl"), SubResource("Resource_8i4nh"), SubResource("Resource_gc1k0"), SubResource("Resource_v5r32"), SubResource("Resource_81spq"), SubResource("Resource_pa8s0")])
 
 [node name="Wave14" parent="." unique_id=812949191 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_e7w15")])
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_a3v5p"), SubResource("Resource_e7w15")])
 
 [node name="Wave15" parent="." unique_id=1258457010 instance=ExtResource("2_1872v")]
 segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_lq4ej"), SubResource("Resource_et6ud")])
@@ -531,4 +1021,67 @@ segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_m7gws"), SubReso
 segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_63gyb"), SubResource("Resource_t8h4y")])
 
 [node name="Wave18" parent="." unique_id=750112590 instance=ExtResource("2_1872v")]
-segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_owkvt"), SubResource("Resource_dvan4")])
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_dvan4")])
+
+[node name="Wave19" parent="." unique_id=18394668 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_iseg8"), SubResource("Resource_hr1sv"), SubResource("Resource_52q0q"), SubResource("Resource_tk5pt"), SubResource("Resource_owkvt"), SubResource("Resource_i2jd4"), SubResource("Resource_wueeh")])
+
+[node name="Wave20" parent="." unique_id=1930805937 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_y5551"), SubResource("Resource_82g3m"), SubResource("Resource_ouw5f"), SubResource("Resource_uqqfs"), SubResource("Resource_p02qh"), SubResource("Resource_qgkuq"), SubResource("Resource_qjbvg"), SubResource("Resource_4l112")])
+
+[node name="Wave21" parent="." unique_id=583768182 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_baodh"), SubResource("Resource_2t5es")])
+
+[node name="Wave22" parent="." unique_id=327768330 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_2xxnd"), SubResource("Resource_fpm5x")])
+
+[node name="Wave23" parent="." unique_id=1658311435 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_jcnom"), SubResource("Resource_70ffe"), SubResource("Resource_bldx3"), SubResource("Resource_kyfox"), SubResource("Resource_rof01")])
+
+[node name="Wave24" parent="." unique_id=1091839979 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_1li6q")])
+
+[node name="Wave25" parent="." unique_id=826679576 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_is0g3"), SubResource("Resource_q7by1"), SubResource("Resource_s552u"), SubResource("Resource_hd24l"), SubResource("Resource_5dcmf"), SubResource("Resource_1sbbv"), SubResource("Resource_j1agw"), SubResource("Resource_r2la6")])
+
+[node name="Wave26" parent="." unique_id=2097974712 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_qnp8s")])
+
+[node name="Wave27" parent="." unique_id=1218933377 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_vhuod")])
+
+[node name="Wave28" parent="." unique_id=2008538424 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_xjtkq"), SubResource("Resource_ijhsh")])
+
+[node name="Wave29" parent="." unique_id=1432113663 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_1ksrh"), SubResource("Resource_opwnm")])
+
+[node name="Wave30" parent="." unique_id=1765670643 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_hv5xn"), SubResource("Resource_3yn7h")])
+
+[node name="Wave31" parent="." unique_id=79842381 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_qr8dw"), SubResource("Resource_6qydj")])
+
+[node name="Wave32" parent="." unique_id=1825884800 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_1t3d8"), SubResource("Resource_ssocd"), SubResource("Resource_tveea"), SubResource("Resource_jg8jl"), SubResource("Resource_23oiv"), SubResource("Resource_exp1h")])
+
+[node name="Wave33" parent="." unique_id=1379714285 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_m105a")])
+
+[node name="Wave34" parent="." unique_id=1613486615 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_ypi72")])
+
+[node name="Wave35" parent="." unique_id=409029532 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_eeb0u"), SubResource("Resource_cmeyb")])
+
+[node name="Wave36" parent="." unique_id=1496309310 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_rmf1f"), SubResource("Resource_gslxw"), SubResource("Resource_x6abu"), SubResource("Resource_0bjrl"), SubResource("Resource_6f6f6"), SubResource("Resource_ejf5t"), SubResource("Resource_tu5fa"), SubResource("Resource_o8yyi")])
+
+[node name="Wave37" parent="." unique_id=104773562 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_m0aap")])
+
+[node name="Wave38" parent="." unique_id=396276514 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_m0aap"), SubResource("Resource_ksewv")])
+
+[node name="Wave39" parent="." unique_id=24053241 instance=ExtResource("2_1872v")]
+segments = Array[ExtResource("3_2vcsd")]([SubResource("Resource_i7jwd"), SubResource("Resource_y4o2y"), SubResource("Resource_qmxdi"), SubResource("Resource_2vsk0"), SubResource("Resource_chxuk"), SubResource("Resource_vyvi5")])
