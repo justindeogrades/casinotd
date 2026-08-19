@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_lcpy1"]
 [ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="4_m2cuk"]
 [ext_resource type="Texture2D" uid="uid://vchifcb82ty7" path="res://card suits/damage suit-export.png" id="6_1atmq"]
+[ext_resource type="Texture2D" uid="uid://bof6xgq3r6c85" path="res://card suits/damage speed suit no outline.png" id="6_uunqy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcpy1"]
 
@@ -379,7 +380,7 @@ icon_alignment = 1
 script = ExtResource("2_lcpy1")
 anim_player = NodePath("AnimationPlayer")
 value_labels = [NodePath("FaceLabel"), NodePath("FaceLabel2")]
-suit_rects = [NodePath("SuitRect"), NodePath("SuitRect2")]
+suit_rects = [NodePath("SuitRect"), NodePath("SuitRect2"), NodePath("CenterSuitRect")]
 particles = NodePath("GPUParticles2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=157345319]
@@ -448,6 +449,19 @@ offset_right = 408.0
 offset_bottom = 629.0
 rotation = 3.1415927
 texture = ExtResource("6_1atmq")
+
+[node name="CenterSuitRect" type="TextureRect" parent="." unique_id=1352767981]
+visible = false
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 667.0
+offset_transform_enabled = true
+texture = ExtResource("6_uunqy")
+
+[node name="UpgradeLabel" type="Label" parent="." unique_id=1245772486]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

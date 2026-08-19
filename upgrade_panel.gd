@@ -4,6 +4,9 @@ extends PanelContainer
 @export var upgrade_button : Array[Button]
 @export var reroll_button : Button
 
+@export var suit_textures : Array[Texture2D]
+@export var suit_no_outline_textures : Array[Texture2D]
+
 var upgrade_data : Array[Array]
 
 #Expressed in percentages (100 times proportion)
@@ -89,6 +92,7 @@ func generate_upgrade_options() -> void:
 			j.text = G.face_to_letter(face)
 			j.set("theme_override_colors/font_color", col)
 		for k in upgrade_button[i].suit_rects:
+			k.texture = suit_textures[att]
 			k.modulate = col
 		
 		upgrade_option[i] = Vector2(att, amount)

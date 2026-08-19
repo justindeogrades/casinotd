@@ -2,7 +2,23 @@
 
 [ext_resource type="Script" uid="uid://2gqpjrk4kg3j" path="res://upgrade_panel.gd" id="1_sn7ge"]
 [ext_resource type="PackedScene" uid="uid://ddaemipr5nqv0" path="res://upgrade_button.tscn" id="2_q6t7t"]
+[ext_resource type="Texture2D" uid="uid://vchifcb82ty7" path="res://card suits/damage suit-export.png" id="2_ssfrx"]
+[ext_resource type="Texture2D" uid="uid://d3j2oxxnnoha7" path="res://card suits/attack speed suit.png" id="3_mychj"]
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_tnm5o"]
+[ext_resource type="Texture2D" uid="uid://bdje2f0yipnca" path="res://card suits/range suit.png" id="4_kgigo"]
+[ext_resource type="Texture2D" uid="uid://bjbouk5vrrcx3" path="res://card suits/crit chance suit.png" id="5_3yofy"]
+[ext_resource type="Texture2D" uid="uid://dsytc7a4aocsp" path="res://card suits/crit multiplier suit.png" id="6_h8wmn"]
+[ext_resource type="Texture2D" uid="uid://fua4ybe7pm5q" path="res://card suits/projectile speed suit.png" id="7_6sjwt"]
+[ext_resource type="Texture2D" uid="uid://eioraiud8d4l" path="res://card suits/projectile count suit.png" id="8_4f3c4"]
+[ext_resource type="Texture2D" uid="uid://b1cy33p68ofld" path="res://card suits/pierce suit.png" id="9_lybmh"]
+[ext_resource type="Texture2D" uid="uid://bof6xgq3r6c85" path="res://card suits/damage speed suit no outline.png" id="10_1h12t"]
+[ext_resource type="Texture2D" uid="uid://cjnc0dp8ikk0q" path="res://card suits/attack speed suit no outline.png" id="11_5ck34"]
+[ext_resource type="Texture2D" uid="uid://djpjljxom85ei" path="res://card suits/range suit no outline.png" id="12_mlrky"]
+[ext_resource type="Texture2D" uid="uid://dq4vbc8qjog28" path="res://card suits/crit chance suit no outline.png" id="13_pf0vb"]
+[ext_resource type="Texture2D" uid="uid://swj5eser7ni7" path="res://card suits/crit multiplier suit no outline.png" id="14_b4ivd"]
+[ext_resource type="Texture2D" uid="uid://brx41vlm4b1q4" path="res://card suits/projectile speed suit no outline.png" id="15_3vbq4"]
+[ext_resource type="Texture2D" uid="uid://cy5bwhvl2jwwr" path="res://card suits/projectile count suit no outline.png" id="16_fcwuf"]
+[ext_resource type="Texture2D" uid="uid://dkylqq1lshsws" path="res://card suits/pierce suit no outline.png" id="17_l0daa"]
 
 [sub_resource type="Theme" id="Theme_61ynj"]
 default_base_scale = 1.0
@@ -16,6 +32,8 @@ anchor_bottom = 1.0
 script = ExtResource("1_sn7ge")
 upgrade_button = [NodePath("VBoxContainer/HBoxContainer/UpgradeButton"), NodePath("VBoxContainer/HBoxContainer/UpgradeButton2"), NodePath("VBoxContainer/HBoxContainer/UpgradeButton3")]
 reroll_button = NodePath("VBoxContainer/RerollButton")
+suit_textures = Array[Texture2D]([ExtResource("2_ssfrx"), ExtResource("3_mychj"), ExtResource("4_kgigo"), ExtResource("5_3yofy"), ExtResource("6_h8wmn"), ExtResource("7_6sjwt"), ExtResource("8_4f3c4"), ExtResource("9_lybmh")])
+suit_no_outline_textures = Array[Texture2D]([ExtResource("10_1h12t"), ExtResource("11_5ck34"), ExtResource("12_mlrky"), ExtResource("13_pf0vb"), ExtResource("14_b4ivd"), ExtResource("15_3vbq4"), ExtResource("16_fcwuf"), ExtResource("17_l0daa")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=448866194]
 layout_mode = 2
