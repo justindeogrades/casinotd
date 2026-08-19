@@ -101,6 +101,68 @@ _data = {
 &"rise": SubResource("Animation_f72eu")
 }
 
+[sub_resource type="Animation" id="Animation_nibuy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CritLabel:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_0kcir"]
+resource_name = "flash"
+length = 0.19999999999999998
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../HBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0.76862746, 0.14117648, 0.1882353, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CritLabel:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.76862746, 0.14117648, 0.1882353, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8wcc"]
+_data = {
+&"RESET": SubResource("Animation_nibuy"),
+&"flash": SubResource("Animation_0kcir")
+}
+
 [sub_resource type="Curve" id="Curve_nibuy"]
 _data = [Vector2(0, 1), 0.0, -0.513773, 0, 1, Vector2(0.7654322, 0.6067416), -1.9029624, -1.9029624, 0, 0, Vector2(1, 0), -2.586636, 0.0, 1, 0]
 point_count = 3
@@ -119,12 +181,13 @@ initial_velocity_max = 500.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_nibuy")
 
-[node name="DamageIndicator" type="Node2D" unique_id=634465355 node_paths=PackedStringArray("crit_label", "damage_label", "anim_player", "particles")]
+[node name="DamageIndicator" type="Node2D" unique_id=634465355 node_paths=PackedStringArray("crit_label", "damage_label", "rise_player", "flash_player", "particles")]
 position = Vector2(0, -50)
 script = ExtResource("1_f72eu")
 crit_label = NodePath("HBoxContainer/CritLabel")
 damage_label = NodePath("HBoxContainer/DamageNumLabel")
-anim_player = NodePath("AnimationPlayer")
+rise_player = NodePath("RisePlayer")
+flash_player = NodePath("FlashPlayer")
 particles = NodePath("GPUParticles2D")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=2112495893]
@@ -154,9 +217,13 @@ theme_override_constants/outline_size = 5
 text = "test"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1963354380]
+[node name="RisePlayer" type="AnimationPlayer" parent="." unique_id=1963354380]
 root_node = NodePath("../HBoxContainer/DamageNumLabel")
 libraries/ = SubResource("AnimationLibrary_nibuy")
+
+[node name="FlashPlayer" type="AnimationPlayer" parent="." unique_id=166487907]
+root_node = NodePath("../HBoxContainer")
+libraries/ = SubResource("AnimationLibrary_s8wcc")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1416599293]
 emitting = false

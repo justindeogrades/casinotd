@@ -2,7 +2,8 @@ extends Node2D
 
 @export var crit_label : Label
 @export var damage_label : Label
-@export var anim_player : AnimationPlayer
+@export var rise_player : AnimationPlayer
+@export var flash_player : AnimationPlayer
 @export var particles : GPUParticles2D
 
 var crit_col : Color = Color.from_rgba8(255, 235, 87)
@@ -27,10 +28,12 @@ func init(amount : int, crit_level : int, pos : Vector2):
 			#AudioManager.triplecrit_sfx.play()
 			col = triplecrit_col
 			crit_label.text = "TRIPLECRIT!!!"
+			flash_player.play("flash")
 		else:
 			#AudioManager.multicrit_sfx.play()
 			col = triplecrit_col
 			crit_label.text = str(crit_level) + "x CRIT!!!"
+			flash_player.play("flash")
 		
 		#Only particles on crit
 		particles.emitting = true
@@ -42,6 +45,6 @@ func init(amount : int, crit_level : int, pos : Vector2):
 	else:
 		AudioManager.hit_sfx.play()
 	global_position = pos
-	anim_player.play("rise")
+	rise_player.play("rise")
 	
 	set_z_index(2 + crit_level)
