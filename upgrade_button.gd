@@ -3,6 +3,8 @@ extends Button
 @export var anim_player : AnimationPlayer
 @export var value_labels : Array[Label]
 @export var suit_rects : Array[TextureRect]
+@export var center_suit_rect : TextureRect
+@export var upgrade_label : Label
 @export var particles : GPUParticles2D
 
 var face : int

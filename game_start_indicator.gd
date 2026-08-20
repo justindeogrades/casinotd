@@ -8,10 +8,8 @@ var col_a = Color.from_rgba8(196, 36, 48)
 var col_b = Color.WHITE
 
 var texts : Array[String] = [
-	"GAME START A",
-	"GAME START B",
-	"GAME START C",
-	"GAME START D"
+	"TIME TO COOK",
+	"WE'RE GOING ALL IN"
 ]
 
 func _ready() -> void:

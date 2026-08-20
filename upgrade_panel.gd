@@ -37,7 +37,7 @@ func initialize_upgrade_data_array() -> void:
 	
 	upgrade_data[G.att.DAMAGE] = [8, 12, 18, 30]
 	upgrade_data[G.att.ATTACK_SPEED] = [15, 25, 40, 58]
-	upgrade_data[G.att.RANGE] = [10, 15, 20, 30]
+	upgrade_data[G.att.RANGE] = [20, 24, 30, 40]
 	upgrade_data[G.att.CRIT_CHANCE] = [5, 8, 12, 20]
 	upgrade_data[G.att.CRIT_MULT] = [1, 1.4, 2, 2.8]
 	upgrade_data[G.att.PROJ_SPEED] = [200, 220, 250, 300]
@@ -80,7 +80,7 @@ func generate_upgrade_options() -> void:
 		var col = G.rarity_to_colour(face)
 		
 		upgrade_button[i].face = face
-		upgrade_button[i].text = face_string + " of " + att_string + ":\n+" + str(amount) + " " + att_string
+		upgrade_button[i].upgrade_label.text = face_string + " of " + att_string + ":\n+" + str(amount) + " " + att_string
 		#Only emit particles for aces?
 		#if face == G.face.ACE:
 			#upgrade_button[i].particles.modulate = G.rarity_to_colour(face)
@@ -94,6 +94,8 @@ func generate_upgrade_options() -> void:
 		for k in upgrade_button[i].suit_rects:
 			k.texture = suit_textures[att]
 			k.modulate = col
+		upgrade_button[i].center_suit_rect.texture = suit_no_outline_textures[att]
+		upgrade_button[i].center_suit_rect.modulate = col
 		
 		upgrade_option[i] = Vector2(att, amount)
 

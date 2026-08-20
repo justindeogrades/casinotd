@@ -354,7 +354,13 @@ angular_velocity_min = -500.0
 angular_velocity_max = 499.99997
 gravity = Vector3(0, 2000, 0)
 
-[node name="UpgradeButton" type="Button" unique_id=113980835 node_paths=PackedStringArray("anim_player", "value_labels", "suit_rects", "particles")]
+[sub_resource type="LabelSettings" id="LabelSettings_1atmq"]
+font = ExtResource("3_lcpy1")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+outline_size = 8
+
+[node name="UpgradeButton" type="Button" unique_id=113980835 node_paths=PackedStringArray("anim_player", "value_labels", "suit_rects", "center_suit_rect", "upgrade_label", "particles")]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -374,13 +380,14 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_m2cuk")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1atmq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uunqy")
 disabled = true
-text = "Upgrade"
 icon = ExtResource("1_gwg2v")
 icon_alignment = 1
 script = ExtResource("2_lcpy1")
 anim_player = NodePath("AnimationPlayer")
 value_labels = [NodePath("FaceLabel"), NodePath("FaceLabel2")]
-suit_rects = [NodePath("SuitRect"), NodePath("SuitRect2"), NodePath("CenterSuitRect")]
+suit_rects = [NodePath("SuitRect"), NodePath("SuitRect2")]
+center_suit_rect = NodePath("CenterSuitRect")
+upgrade_label = NodePath("UpgradeLabel")
 particles = NodePath("GPUParticles2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=157345319]
@@ -451,7 +458,6 @@ rotation = 3.1415927
 texture = ExtResource("6_1atmq")
 
 [node name="CenterSuitRect" type="TextureRect" parent="." unique_id=1352767981]
-visible = false
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 667.0
@@ -459,9 +465,15 @@ offset_transform_enabled = true
 texture = ExtResource("6_uunqy")
 
 [node name="UpgradeLabel" type="Label" parent="." unique_id=1245772486]
+custom_minimum_size = Vector2(400, 667)
+custom_maximum_size = Vector2(400, 667)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "yo"
+label_settings = SubResource("LabelSettings_1atmq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

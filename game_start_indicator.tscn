@@ -130,7 +130,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LifeTimer" type="Timer" parent="." unique_id=52450039]
-wait_time = 2.5
+wait_time = 2.6999999999999997
 autostart = true
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
