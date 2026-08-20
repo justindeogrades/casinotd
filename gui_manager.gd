@@ -19,7 +19,8 @@ var slot_machine : Node
 var tower_selected_panel : PanelContainer
 var game_over_panel : PanelContainer
 
-var reroll_cost_mult : float = 0.25
+#For rerolling towers
+var reroll_cost_mult : float = 0.4
 
 signal tower_selected(tower : Tower)
 signal next_wave_pressed
@@ -99,9 +100,6 @@ func resolve_tower_selected_panel() -> void:
 func _on_buy_button_pressed() -> void:
 	if player.spend_money(player.tower_cost):
 		start_slot_machine(false)
-	#Get rid of this later lmao
-	else:
-		side_panel.buy_button.text = "try again when u get some money, buddy"
 
 func _on_upgrade_button_pressed(tower : Tower) -> void:
 	if player.spend_money(tower.upgrade_cost):

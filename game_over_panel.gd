@@ -14,7 +14,7 @@ func init(victory: bool, waves_survived : int, damage_dealt : int, money_earned 
 	if victory:
 		game_over_label.text = "You win!"
 	else:
-		game_over_label.text = "Game over (you suck)"
+		game_over_label.text = "Game over (you suck 😂🫵)"
 	
 	var mvp_data_string : String
 	

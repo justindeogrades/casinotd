@@ -17,6 +17,10 @@ var lives : int = max_lives
 var total_money_earned : int = 0
 
 var tower_cost : int = 20
+var tower_cost_mult : float = 1.17
+#Does nothing rn, rerolls are handled by the gui manager, delegate rerolls to the player object later
+var reroll_cost_mult : float = 0.4
+var max_rerolls : int
 
 var placed_towers : Array[Tower]
 
@@ -154,7 +158,7 @@ func _on_tower_clicked(tower : Tower) -> void:
 	#call_deferred("select_tower", tower)
 
 func _on_gui_manager_tower_selected(tower : Tower) -> void:
-	tower_cost = tower_cost ** 1.2
+	tower_cost = tower_cost ** tower_cost_mult
 	update_side_panel()
 	tower_placer.create_temp_tower(tower)
 
