@@ -10,6 +10,8 @@ var crit_col : Color = Color.from_rgba8(255, 235, 87)
 var doublecrit_col : Color = Color.from_rgba8(255, 80, 0)
 var triplecrit_col : Color = Color.from_rgba8(196, 36, 48)
 
+var rise_anim_name : String = "rise"
+
 func init(amount : int, crit_level : int, pos : Vector2):
 	damage_label.text = str(amount)
 	if crit_level >= 1:
@@ -29,11 +31,13 @@ func init(amount : int, crit_level : int, pos : Vector2):
 			col = triplecrit_col
 			crit_label.text = "TRIPLECRIT!!!"
 			flash_player.play("flash")
+			rise_anim_name = "multicrit_rise"
 		else:
 			#AudioManager.multicrit_sfx.play()
 			col = triplecrit_col
 			crit_label.text = str(crit_level) + "x CRIT!!!"
 			flash_player.play("flash")
+			rise_anim_name = "multicrit_rise"
 		
 		#Only particles on crit
 		particles.emitting = true
@@ -45,6 +49,6 @@ func init(amount : int, crit_level : int, pos : Vector2):
 	else:
 		AudioManager.hit_sfx.play()
 	global_position = pos
-	rise_player.play("rise")
+	rise_player.play(rise_anim_name)
 	
 	set_z_index(2 + crit_level)

@@ -65,6 +65,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		tower_placer.create_temp_tower(load("res://towers/scenes/cob_cannon.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
+	
+	if Input.is_action_just_pressed("cheat_money"):
+		update_money(50000)
 
 func update_side_panel() -> void:
 	side_panel.update_all(money, get_wave_at(), tower_cost, compute_reroll_cost(), compute_max_rerolls(), wave_manager.is_wave_active())
