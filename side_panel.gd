@@ -6,6 +6,7 @@ extends PanelContainer
 @export var money_feed_resource : Resource
 @export var tower_data_container : VBoxContainer
 @export var buy_button : Button
+@export var reroll_label : Label
 @export var next_wave_button : Button
 
 var player : Node
@@ -35,9 +36,10 @@ func add_money_feed_label(amount : int) -> void:
 	money_feed_container.move_child(money_feed_instance, 0)
 
 #ONLY to be called from the player
-func update_all(money : int, wave_at : int, tower_cost : int, wave_active : bool):
+func update_all(money : int, wave_at : int, tower_cost : int, reroll_cost : int, max_rerolls : int, wave_active : bool):
 	money_label.text = "Money: " + str(money)
 	wave_label.text = "Waves cleared: " + str(wave_at)
+	reroll_label.text = "Reroll cost - $" + str(reroll_cost) + " (max " + str(max_rerolls) + ")"
 	
 	update_buy_button(money, tower_cost)
 	tower_data_container.update_upgrade_button()

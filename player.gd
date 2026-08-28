@@ -67,7 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
 
 func update_side_panel() -> void:
-	side_panel.update_all(money, get_wave_at(), tower_cost, wave_manager.is_wave_active())
+	side_panel.update_all(money, get_wave_at(), tower_cost, compute_reroll_cost(), compute_max_rerolls(), wave_manager.is_wave_active())
 
 func spend_money(amount : int) -> bool:
 	if money >= amount:
@@ -129,6 +129,11 @@ func deselect_tower(tower : Tower) -> void:
 	tower.set_range_indicator_visibility(false)
 	
 	tower.set_z_index(G.TOWER_Z)
+
+func compute_reroll_cost() -> int:
+	return tower_cost * reroll_cost_mult
+func compute_max_rerolls() -> int:
+	return placed_towers.size()
 
 func get_total_damage_dealt() -> int:
 	var total : int = 0

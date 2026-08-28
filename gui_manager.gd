@@ -20,7 +20,7 @@ var tower_selected_panel : PanelContainer
 var game_over_panel : PanelContainer
 
 #For rerolling towers
-var reroll_cost_mult : float = 0.4
+var rerolls_remaining : int
 
 signal tower_selected(tower : Tower)
 signal next_wave_pressed
@@ -64,6 +64,11 @@ func start_slot_machine(is_reroll : bool) -> void:
 	get_tree().paused = true
 	#PhysicsServer2D.set_active(true)
 	
+	if is_reroll:
+		rerolls_remaining -= 1
+	else:
+		rerolls_remaining = player.compute_max_rerolls()
+	
 	#Switching hiding the side panel for disabling its buttons
 	#hide_side_panel()
 	#hide_upgrade_panel()
@@ -75,19 +80,19 @@ func start_slot_machine(is_reroll : bool) -> void:
 	add_child(slot_machine)
 
 func create_tower_selected_panel(tower : Tower, bannable : bool) -> void:
-	var reroll_cost = compute_reroll_cost()
+	var reroll_cost = player.compute_reroll_cost()
 	
 	tower_selected_panel = tower_selected_panel_preload.instantiate()
-	tower_selected_panel.init(tower, reroll_cost, ban_cost, bannable)
+	tower_selected_panel.init(tower, reroll_cost, rerolls_remaining, ban_cost, bannable)
 	tower_selected_panel.accepted.connect(_on_tower_selected_panel_accepted)
 	tower_selected_panel.rerolled.connect(_on_tower_selected_panel_rerolled)
 	tower_selected_panel.banned.connect(_on_tower_selected_panel_banned)
 	add_child(tower_selected_panel)
 
 #For tower rerolls
-func compute_reroll_cost() -> int:
-	#Casting player tower cost to float for division then back to int cause i dont fucking care anymore
-	return int(float(player.tower_cost) * reroll_cost_mult)
+#func compute_reroll_cost() -> int:
+	##Casting player tower cost to float for division then back to int cause i dont fucking care anymore
+	#return int(float(player.tower_cost) * reroll_cost_mult)
 
 func update_ban_cost() -> void:
 	ban_cost = ban_cost ** ban_cost_mult
@@ -145,7 +150,7 @@ func _on_tower_selected_panel_accepted(tower : Tower) -> void:
 
 #This is for rerolling towers
 func _on_tower_selected_panel_rerolled(reroll_cost : float) -> void:
-	if player.spend_money(int(reroll_cost)):
+	if player.spend_money(reroll_cost):
 		start_slot_machine(true)
 		tower_selected_panel.queue_free()
 

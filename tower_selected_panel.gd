@@ -10,6 +10,7 @@ extends PanelContainer
 
 var tower : Tower
 var reroll_cost : int
+var rerolls_remaining : int
 var ban_cost : int
 var can_ban : bool
 
@@ -17,9 +18,10 @@ signal accepted(tower : Tower)
 signal rerolled(cost : int)
 signal banned(tower : Tower)
 
-func init(t : Tower, r : int, b : int, c : bool) -> void:
+func init(t : Tower, rc : int, rr : int, b : int, c : bool) -> void:
 	tower = t
-	reroll_cost = r
+	reroll_cost = rc
+	rerolls_remaining = rr
 	ban_cost = b
 	can_ban = c
 	
@@ -30,7 +32,7 @@ func init(t : Tower, r : int, b : int, c : bool) -> void:
 	name_label.text = tower.get_tower_name()
 	description_label.text = tower.get_tower_description()
 	text_rect.texture = tower.get_portrait_texture()
-	reroll_button.text = "Reroll - $" + str(reroll_cost) 
+	reroll_button.text = "Reroll - $" + str(reroll_cost) + " (" + str(rerolls_remaining) + " remaining)"
 	ban_button.text = "Ban - $" + str(ban_cost)
 	
 	text_rect.anim_completed.connect(_on_text_rect_anim_completed)
@@ -42,7 +44,8 @@ func _on_accept_button_pressed() -> void:
 
 
 func _on_reroll_button_pressed() -> void:
-	rerolled.emit(reroll_cost)
+	if rerolls_remaining > 0:
+		rerolled.emit(reroll_cost)
 
 
 func _on_ban_button_pressed() -> void:

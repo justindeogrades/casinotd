@@ -9,6 +9,7 @@ extends Control
 @export var prio_forward_button : Button
 @export var prio_back_button : Button
 @export var upgrade_button : Button
+@export var reroll_label : Label
 
 var tower : Tower = null
 var player : Node
@@ -37,6 +38,7 @@ func update_with_new_tower(new_tower : Tower) -> void:
 	level_label.text = "Level " + str(tower.level)
 	name_label.text = tower.tower_name
 	total_damage_label.text = str(tower.total_damage_dealt) + " damage dealt"
+	reroll_label.text = "Reroll cost - $" + str(int(tower.upgrade_cost * 0.2)) + " (max " + str(tower.level) + ")"
 	
 	var format_attribute_names_string = "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s"
 	attribute_names_label.text = format_attribute_names_string % [
@@ -97,13 +99,11 @@ func _on_upgrade_button_pressed() -> void:
 
 func _on_prio_back_pressed() -> void:
 	var new_prio = posmod(tower.get_target_priority() - 1, G.prio.size())
-	print_debug("setting target prio to " + str(new_prio))
 	tower.set_target_priority(new_prio)
 	update_priority_label()
 
 func _on_prio_forward_pressed() -> void:
 	var new_prio = posmod(tower.get_target_priority() + 1, G.prio.size())
-	print_debug("setting target prio to " + str(new_prio))
 	tower.set_target_priority(new_prio)
 	update_priority_label()
 

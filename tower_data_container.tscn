@@ -25,7 +25,7 @@ font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_rfdo1"]
 font_size = 12
 
-[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("level_label", "name_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "prio_forward_button", "prio_back_button", "upgrade_button")]
+[node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("level_label", "name_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "prio_forward_button", "prio_back_button", "upgrade_button", "reroll_label")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 95.0
@@ -40,7 +40,8 @@ attribute_names_label = NodePath("HBoxContainer/AttributeNames")
 attribute_data_label = NodePath("HBoxContainer/AttributeData")
 prio_forward_button = NodePath("TargetPrioContainer/PrioForward")
 prio_back_button = NodePath("TargetPrioContainer/PrioBack")
-upgrade_button = NodePath("UpgradeButton")
+upgrade_button = NodePath("VBoxContainer/UpgradeButton")
+reroll_label = NodePath("VBoxContainer/RerollLabel")
 
 [node name="Level" type="Label" parent="." unique_id=379655162]
 layout_mode = 2
@@ -106,12 +107,19 @@ Yo"
 label_settings = SubResource("LabelSettings_rfdo1")
 horizontal_alignment = 2
 
-[node name="UpgradeButton" type="Button" parent="." unique_id=1128259857]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1502654924]
+layout_mode = 2
+
+[node name="UpgradeButton" type="Button" parent="VBoxContainer" unique_id=1128259857]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_61ynj")
 text = "Placeholder"
 script = ExtResource("3_gxmpf")
 
+[node name="RerollLabel" type="Label" parent="VBoxContainer" unique_id=619348683]
+layout_mode = 2
+text = "Reroll cost - $0 (max 0)"
+
 [connection signal="pressed" from="TargetPrioContainer/PrioBack" to="." method="_on_prio_back_pressed"]
 [connection signal="pressed" from="TargetPrioContainer/PrioForward" to="." method="_on_prio_forward_pressed"]
-[connection signal="pressed" from="UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
