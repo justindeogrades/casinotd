@@ -20,14 +20,16 @@ func init() -> void:
 	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus))
 	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(music_bus))
 	
-	damage_indicators_button.set_pressed_no_signal(Settings.get_damage_indicators_enabled())
+	damage_indicators_button.select(Settings.get_damage_indicators_enabled())
 	quick_spins_button.set_pressed_no_signal(Settings.get_quick_spins_enabled())
 
 func restore_defaults() -> void:
 	fullscreen_button.set_pressed(Settings.DEFAULT_FULLSCREEN_ENABLED)
 	sfx_slider.set_value(Settings.DEFAULT_SFX_SLIDER_VALUE)
 	music_slider.set_value(Settings.DEFAULT_MUSIC_SLIDER_VALUE)
-	damage_indicators_button.set_pressed(Settings.DEFAULT_DAMAGE_INDICATORS_ENABLED)
+	damage_indicators_button.select(Settings.DEFAULT_DAMAGE_INDICATORS_ENABLED)
+	#Manually calling this because the select method doesnt trigger the signal
+	Settings.set_damage_indicators_enabled(damage_indicators_button.selected)
 	quick_spins_button.set_pressed(Settings.DEFAULT_QUICK_SPINS_ENABLED)
 
 func _on_fullscreen_button_toggled(toggled_on: bool) -> void:
@@ -45,8 +47,9 @@ func _on_music_vol_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
 
 
-func _on_show_damage_indicators_button_toggled(toggled_on: bool) -> void:
-	Settings.set_damage_indicators_enabled(toggled_on)
+#Show damage indicators is no longer a binary choice
+#func _on_show_damage_indicators_button_toggled(toggled_on: bool) -> void:
+	#Settings.set_damage_indicators_enabled(toggled_on)
 
 func _on_quick_spins_button_toggled(toggled_on: bool) -> void:
 	Settings.set_quick_spins_enabled(toggled_on)
@@ -54,3 +57,7 @@ func _on_quick_spins_button_toggled(toggled_on: bool) -> void:
 
 func _on_restore_defaults_button_pressed() -> void:
 	restore_defaults()
+
+
+func _on_show_damage_indicators_button_item_selected(index: int) -> void:
+	Settings.set_damage_indicators_enabled(index)
