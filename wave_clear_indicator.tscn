@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxgvifohgxnrc"]
 
 [ext_resource type="Script" uid="uid://bdybcu2q0lml0" path="res://wave_clear_indicator.gd" id="1_rk561"]
-[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="2_vfbll"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="2_vfbll"]
 [ext_resource type="Texture2D" uid="uid://bgqr8gbk74s26" path="res://particles/particle b.png" id="3_kr6px"]
 
 [sub_resource type="Animation" id="Animation_0hhca"]

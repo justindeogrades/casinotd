@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bqc1ytovt4oid"
-path="res://.godot/imported/Pixelta.ttf-ce097a437497c779d0650359379c8cd9.fontdata"
+path="res://.godot/imported/Pixelta.ttf-8b97caab1a6d09374cda68767dfffb93.fontdata"
 
 [deps]
 
-source_file="res://Pixelta.ttf"
-dest_files=["res://.godot/imported/Pixelta.ttf-ce097a437497c779d0650359379c8cd9.fontdata"]
+source_file="res://fonts/Pixelta.ttf"
+dest_files=["res://.godot/imported/Pixelta.ttf-8b97caab1a6d09374cda68767dfffb93.fontdata"]
 
 [params]
 

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cv3i870tbs3ui"]
+
+[ext_resource type="Texture2D" uid="uid://dvgnf2takg7yj" path="res://main menu/Game_Logo.png" id="1_q5sut"]
+[ext_resource type="Script" uid="uid://dfh43rhjqfl1m" path="res://main menu/game_logo.gd" id="2_ha2bw"]
+
+[sub_resource type="Animation" id="Animation_45qoi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6fy38"]
+resource_name = "float"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_auhsi"]
+_data = {
+&"RESET": SubResource("Animation_45qoi"),
+&"float": SubResource("Animation_6fy38")
+}
+
+[node name="GameLogo" type="TextureRect" unique_id=1297391719]
+offset_transform_enabled = true
+texture = ExtResource("1_q5sut")
+script = ExtResource("2_ha2bw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1336715320]
+libraries/ = SubResource("AnimationLibrary_auhsi")

@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Container
 
 @export var play_button : Button
 @export var settings_button : Button

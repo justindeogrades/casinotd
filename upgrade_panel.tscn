@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ddaemipr5nqv0" path="res://upgrade_button.tscn" id="2_q6t7t"]
 [ext_resource type="Texture2D" uid="uid://vchifcb82ty7" path="res://card suits/damage suit-export.png" id="2_ssfrx"]
 [ext_resource type="Texture2D" uid="uid://d3j2oxxnnoha7" path="res://card suits/attack speed suit.png" id="3_mychj"]
-[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_tnm5o"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="3_tnm5o"]
 [ext_resource type="Texture2D" uid="uid://bdje2f0yipnca" path="res://card suits/range suit.png" id="4_kgigo"]
 [ext_resource type="Texture2D" uid="uid://bjbouk5vrrcx3" path="res://card suits/crit chance suit.png" id="5_3yofy"]
 [ext_resource type="Texture2D" uid="uid://dsytc7a4aocsp" path="res://card suits/crit multiplier suit.png" id="6_h8wmn"]
@@ -26,7 +26,6 @@ default_font = ExtResource("3_tnm5o")
 default_font_size = 32
 
 [node name="UpgradePanel" type="PanelContainer" unique_id=1179414208 node_paths=PackedStringArray("upgrade_button", "reroll_button")]
-anchors_preset = -1
 anchor_right = 0.8
 anchor_bottom = 1.0
 script = ExtResource("1_sn7ge")

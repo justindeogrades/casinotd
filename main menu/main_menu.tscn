@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dnolrhksnqfqg" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="PackedScene" uid="uid://bxrvkd1lrg7sg" path="res://main menu/settings_panel.tscn" id="2_8f8xy"]
+[ext_resource type="Texture2D" uid="uid://b4anfgc10l2ts" path="res://main menu/menubg.png" id="2_45qoi"]
+[ext_resource type="PackedScene" uid="uid://cv3i870tbs3ui" path="res://main menu/game_logo.tscn" id="3_45qoi"]
 [ext_resource type="PackedScene" uid="uid://bs1oxmvgstayd" path="res://credits_panel.tscn" id="3_m48o8"]
+[ext_resource type="Theme" uid="uid://befdv2ny1undv" path="res://themes/main_menu.tres" id="4_6fy38"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
-font_size = 64
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45qoi"]
 
-[node name="MainMenu" type="PanelContainer" unique_id=383456029 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "main_container", "settings_panel", "credits_panel")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6fy38"]
+
+[node name="MainMenu" type="PanelContainer" unique_id=85288571 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "main_container", "settings_panel", "credits_panel")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_45qoi")
 script = ExtResource("1_06t4h")
 play_button = NodePath("MainContainer/Play")
 settings_button = NodePath("MainContainer/SettingsButton")
@@ -24,34 +29,48 @@ main_container = NodePath("MainContainer")
 settings_panel = NodePath("SettingsContainer")
 credits_panel = NodePath("CreditsPanel")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=215468517]
+layout_mode = 2
+texture = ExtResource("2_45qoi")
+
 [node name="MainContainer" type="VBoxContainer" parent="." unique_id=799274812]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
 alignment = 1
 
-[node name="Label" type="Label" parent="MainContainer" unique_id=543394127]
+[node name="GameLogo" parent="MainContainer" unique_id=1297391719 instance=ExtResource("3_45qoi")]
 layout_mode = 2
-text = "Triplecrit Casino"
-label_settings = SubResource("LabelSettings_g4v7s")
-horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer" unique_id=1983068803]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+custom_maximum_size = Vector2(-1, 100)
+layout_mode = 2
 
 [node name="Play" type="Button" parent="MainContainer" unique_id=892382361]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+size_flags_horizontal = 4
+theme = ExtResource("4_6fy38")
 text = "Play"
 
 [node name="SettingsButton" type="Button" parent="MainContainer" unique_id=236772801]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+size_flags_horizontal = 4
+theme = ExtResource("4_6fy38")
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="MainContainer" unique_id=1716488311]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+size_flags_horizontal = 4
+theme = ExtResource("4_6fy38")
 text = "Credits"
 
 [node name="Quit" type="Button" parent="MainContainer" unique_id=977555569]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+size_flags_horizontal = 4
+theme = ExtResource("4_6fy38")
 text = "Quit"
 
 [node name="SettingsContainer" parent="." unique_id=1838194872 instance=ExtResource("2_8f8xy")]
@@ -59,6 +78,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6fy38")
 
 [node name="CreditsPanel" parent="." unique_id=602466445 instance=ExtResource("3_m48o8")]
 visible = false

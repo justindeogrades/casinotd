@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bk6wtixi48142" path="res://card base.png" id="1_gwg2v"]
 [ext_resource type="Script" uid="uid://c81s30m0o77e5" path="res://upgrade_button.gd" id="2_lcpy1"]
-[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_lcpy1"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="3_lcpy1"]
 [ext_resource type="Texture2D" uid="uid://gyj1kq745rys" path="res://particles/particle a.png" id="4_m2cuk"]
 [ext_resource type="Texture2D" uid="uid://vchifcb82ty7" path="res://card suits/damage suit-export.png" id="6_1atmq"]
 [ext_resource type="Texture2D" uid="uid://bof6xgq3r6c85" path="res://card suits/damage speed suit no outline.png" id="6_uunqy"]
@@ -362,7 +362,6 @@ outline_size = 8
 
 [node name="UpgradeButton" type="Button" unique_id=113980835 node_paths=PackedStringArray("anim_player", "value_labels", "suit_rects", "center_suit_rect", "upgrade_label", "particles")]
 self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -0.00024414063

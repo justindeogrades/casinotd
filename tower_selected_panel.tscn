@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bs630ldcawgsd" path="res://tower_selected_panel.gd" id="1_36mrh"]
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_ivcjy"]
-[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="3_8ib3p"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="3_8ib3p"]
 [ext_resource type="PackedScene" uid="uid://bt6gcfajrb836" path="res://tower_texture_rect.tscn" id="4_8ib3p"]
 [ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="5_td502"]
 
@@ -16,7 +16,6 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="TowerSelectedPanel" type="PanelContainer" unique_id=2137036721 node_paths=PackedStringArray("accept_button", "reroll_button", "ban_button", "rarity_label", "name_label", "description_label", "text_rect")]
-anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

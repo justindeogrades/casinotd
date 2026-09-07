@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctjjrmt6xgls2"]
 
 [ext_resource type="Script" uid="uid://mep04dwryeci" path="res://game_start_indicator.gd" id="1_w801f"]
-[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="2_yjakm"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="2_yjakm"]
 
 [sub_resource type="Animation" id="Animation_0hhca"]
 length = 0.001

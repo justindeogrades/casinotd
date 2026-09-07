@@ -1,0 +1,35 @@
+[gd_resource type="Theme" format=3 uid="uid://befdv2ny1undv"]
+
+[ext_resource type="FontFile" uid="uid://jnd2pjhmm8ot" path="res://fonts/Tengoku.ttf" id="1_djdlk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va2tg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djdlk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_058lc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ik4eo"]
+
+[resource]
+default_font = ExtResource("1_djdlk")
+default_font_size = 24
+Button/colors/font_color = Color(0, 0, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 32
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_va2tg")
+Button/styles/hover = SubResource("StyleBoxEmpty_djdlk")
+Button/styles/normal = SubResource("StyleBoxEmpty_058lc")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ik4eo")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccdrtrhyrswhl"]
 
 [ext_resource type="Script" uid="uid://6owfyw5x5cm6" path="res://tower_data_container.gd" id="1_07o6m"]
-[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://Pixelta.ttf" id="2_61ynj"]
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="2_61ynj"]
 [ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="3_gxmpf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ahax"]
@@ -26,7 +26,6 @@ font_size = 12
 font_size = 12
 
 [node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("level_label", "name_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "prio_forward_button", "prio_back_button", "upgrade_button", "reroll_label")]
-anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 95.0
 grow_vertical = 2
