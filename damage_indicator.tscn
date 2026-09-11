@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3et3ajfji1nj"]
 
 [ext_resource type="Script" uid="uid://bi2fiuglbfse1" path="res://damage_indicator.gd" id="1_f72eu"]
+[ext_resource type="FontFile" uid="uid://jnd2pjhmm8ot" path="res://fonts/Tengoku.ttf" id="2_0kcir"]
 [ext_resource type="Texture2D" uid="uid://bgqr8gbk74s26" path="res://particles/particle b.png" id="2_nibuy"]
 
 [sub_resource type="Animation" id="Animation_2su5p"]
@@ -275,7 +276,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 40.0
+offset_right = 43.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -286,6 +287,7 @@ offset_transform_enabled = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_0kcir")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 
@@ -293,6 +295,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_0kcir")
 text = "test"
 horizontal_alignment = 1
 
