@@ -1,5 +1,6 @@
 extends Node
 
+@export var fadeout_rect : Resource
 @export var main_menu : Resource
 @export var map : Resource
 
@@ -41,7 +42,11 @@ func remove_all_children() -> void:
 		i.queue_free()
 
 func _on_play_button_pressed() -> void:
-	init_map()
+	var fadeout = fadeout_rect.instantiate()
+	fadeout.faded.connect(init_map)
+	add_child(fadeout)
+	
+	AudioManager.fade_song_out()
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

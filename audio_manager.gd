@@ -51,7 +51,16 @@ func change_song_to(next_song : AudioStreamPlayer) -> void:
 	if current_song != null:
 		current_song.stop()
 	current_song = next_song
+	current_song.volume_db = -6
 	current_song.play()
+
+func fade_song_out() -> void:
+	if current_song == null:
+		push_error("No song playing!")
+		return
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(current_song, "volume_linear", 0, 2)
 
 func set_music_low_pass_enabled(enabled : bool) -> void:
 	var music_bus_index = AudioServer.get_bus_index("Music")

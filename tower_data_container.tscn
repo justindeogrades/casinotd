@@ -26,6 +26,7 @@ font_size = 12
 font_size = 12
 
 [node name="TowerDataContainer" type="VBoxContainer" unique_id=935058739 node_paths=PackedStringArray("level_label", "name_label", "total_damage_label", "priority_label", "attribute_names_label", "attribute_data_label", "prio_forward_button", "prio_back_button", "upgrade_button", "reroll_label")]
+anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 95.0
 grow_vertical = 2
