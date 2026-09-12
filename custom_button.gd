@@ -1,3 +1,4 @@
+class_name CustomButton
 extends Button
 
 func _ready() -> void:

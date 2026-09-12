@@ -27,8 +27,9 @@
 [ext_resource type="AudioStream" uid="uid://do1muwvixxbey" path="res://sounds/sfx/money/money spend a.mp3" id="24_wxfw7"]
 [ext_resource type="AudioStream" uid="uid://bh5s7rmw753rq" path="res://sounds/sfx/money/money spend b.mp3" id="25_7l730"]
 [ext_resource type="AudioStream" uid="uid://d3reeqsk8jomc" path="res://sounds/music/spin, spin, spin unmastered.mp3" id="26_o2ba0"]
+[ext_resource type="AudioStream" uid="uid://crk5rqvlak1jx" path="res://sounds/music/i need to gamble.mp3" id="28_hbb3y"]
 
-[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "cob_cannon_projectile_explosion_sfx", "tower_placement_success_sfx", "tower_placement_failure_sfx", "money_gain_a_sfx", "money_gain_b_sfx", "money_gain_c_sfx", "money_gain_d_sfx", "money_spend_a_sfx", "money_spend_b_sfx", "spin_spin_spin_music", "slot_machine_sfx", "wave_clear_sfx")]
+[node name="AudioManager" type="Node" unique_id=331373769 node_paths=PackedStringArray("hit_sfx", "crit_sfx", "doublecrit_sfx", "triplecrit_sfx", "multicrit_sfx", "common_selected_sfx", "uncommon_selected_sfx", "rare_selected_sfx", "legendary_selected_sfx", "card_deal_sfx", "card_hover_sfx", "card_sparkle_sfx", "button_hover_sfx", "button_pressed_sfx", "shoot_a_sfx", "shoot_b_sfx", "cob_cannon_projectile_explosion_sfx", "tower_placement_success_sfx", "tower_placement_failure_sfx", "money_gain_a_sfx", "money_gain_b_sfx", "money_gain_c_sfx", "money_gain_d_sfx", "money_spend_a_sfx", "money_spend_b_sfx", "spin_spin_spin_music", "i_need_to_gamble_music", "slot_machine_sfx", "wave_clear_sfx")]
 process_mode = 3
 script = ExtResource("1_jisk1")
 hit_sfx = NodePath("HitSFX")
@@ -57,6 +58,7 @@ money_gain_d_sfx = NodePath("MoneyGainDSFX")
 money_spend_a_sfx = NodePath("MoneySpendASFX")
 money_spend_b_sfx = NodePath("MoneySpendBSFX")
 spin_spin_spin_music = NodePath("SpinSpinSpinMusic")
+i_need_to_gamble_music = NodePath("INeedToGambleMusic")
 slot_machine_sfx = NodePath("SlotMachineSFX")
 wave_clear_sfx = NodePath("WaveClearSFX")
 
@@ -191,5 +193,10 @@ bus = &"SFX"
 
 [node name="SpinSpinSpinMusic" type="AudioStreamPlayer" parent="." unique_id=1632400807]
 stream = ExtResource("26_o2ba0")
+volume_db = -6.0
+bus = &"Music"
+
+[node name="INeedToGambleMusic" type="AudioStreamPlayer" parent="." unique_id=157687437]
+stream = ExtResource("28_hbb3y")
 volume_db = -6.0
 bus = &"Music"

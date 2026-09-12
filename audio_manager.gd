@@ -1,5 +1,7 @@
 extends Node
 
+var current_song : AudioStreamPlayer = null
+
 @export_category("Hits")
 @export var hit_sfx : AudioStreamPlayer
 @export var crit_sfx : AudioStreamPlayer
@@ -34,6 +36,7 @@ extends Node
 @export var money_spend_b_sfx : AudioStreamPlayer
 @export_category("Songs")
 @export var spin_spin_spin_music : AudioStreamPlayer
+@export var i_need_to_gamble_music : AudioStreamPlayer
 @export_category("Other")
 @export var slot_machine_sfx : AudioStreamPlayer
 @export var wave_clear_sfx : AudioStreamPlayer
@@ -43,6 +46,12 @@ extends Node
 @onready var shoots : Array[AudioStreamPlayer] = [shoot_a_sfx, shoot_b_sfx]
 @onready var money_gains : Array[AudioStreamPlayer] = [money_gain_a_sfx, money_gain_b_sfx, money_gain_c_sfx, money_gain_d_sfx]
 @onready var money_spends : Array[AudioStreamPlayer] = [money_spend_a_sfx, money_spend_b_sfx]
+
+func change_song_to(next_song : AudioStreamPlayer) -> void:
+	if current_song != null:
+		current_song.stop()
+	current_song = next_song
+	current_song.play()
 
 func set_music_low_pass_enabled(enabled : bool) -> void:
 	var music_bus_index = AudioServer.get_bus_index("Music")

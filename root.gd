@@ -14,7 +14,7 @@ func _ready() -> void:
 		#init_main_menu()
 
 func init_main_menu() -> void:
-	AudioManager.spin_spin_spin_music.stop()
+	AudioManager.change_song_to(AudioManager.i_need_to_gamble_music)
 	
 	remove_all_children()
 	
@@ -25,7 +25,7 @@ func init_main_menu() -> void:
 	main_menu_instance.quit_button.pressed.connect(_on_quit_button_pressed)
 
 func init_map() -> void:
-	AudioManager.spin_spin_spin_music.play()
+	AudioManager.change_song_to(AudioManager.spin_spin_spin_music)
 	
 	remove_all_children()
 	

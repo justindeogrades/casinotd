@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b4anfgc10l2ts" path="res://main menu/menubg.png" id="2_45qoi"]
 [ext_resource type="PackedScene" uid="uid://cv3i870tbs3ui" path="res://main menu/game_logo.tscn" id="3_45qoi"]
 [ext_resource type="PackedScene" uid="uid://bs1oxmvgstayd" path="res://credits_panel.tscn" id="3_m48o8"]
-[ext_resource type="Theme" uid="uid://befdv2ny1undv" path="res://themes/main_menu.tres" id="4_6fy38"]
+[ext_resource type="Theme" uid="uid://befdv2ny1undv" path="res://themes/main menu/main_menu.tres" id="4_6fy38"]
+[ext_resource type="Script" uid="uid://5lkadq7t85tm" path="res://main_menu_button.gd" id="5_auhsi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djdlk"]
 
@@ -54,24 +55,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_6fy38")
 text = "Play"
+script = ExtResource("5_auhsi")
 
 [node name="SettingsButton" type="Button" parent="MainContainer" unique_id=236772801]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_6fy38")
 text = "Settings"
+script = ExtResource("5_auhsi")
 
 [node name="CreditsButton" type="Button" parent="MainContainer" unique_id=1716488311]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_6fy38")
 text = "Credits"
+script = ExtResource("5_auhsi")
 
 [node name="Quit" type="Button" parent="MainContainer" unique_id=977555569]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_6fy38")
 text = "Quit"
+script = ExtResource("5_auhsi")
 
 [node name="SettingsContainer" parent="." unique_id=1838194872 instance=ExtResource("2_8f8xy")]
 visible = false

@@ -16,6 +16,7 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="TowerSelectedPanel" type="PanelContainer" unique_id=2137036721 node_paths=PackedStringArray("accept_button", "reroll_button", "ban_button", "rarity_label", "name_label", "description_label", "text_rect")]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bxrvkd1lrg7sg"]
 
 [ext_resource type="Script" uid="uid://bylduuergy5as" path="res://main menu/settings_panel.gd" id="1_1wrka"]
+[ext_resource type="Theme" uid="uid://befdv2ny1undv" path="res://themes/main menu/main_menu.tres" id="2_5u86k"]
+[ext_resource type="Texture2D" uid="uid://bjnx821pehcii" path="res://main menu/settings_bar.png" id="2_8pc50"]
+[ext_resource type="Script" uid="uid://5lkadq7t85tm" path="res://main_menu_button.gd" id="4_nfcwg"]
 
 [node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "music_slider", "sfx_slider", "damage_indicators_button", "quick_spins_button", "restore_defaults_button", "close_button")]
 anchors_preset = 8
@@ -23,60 +26,75 @@ quick_spins_button = NodePath("MarginContainer/VBoxContainer/GridContainer/Quick
 restore_defaults_button = NodePath("MarginContainer/VBoxContainer/RestoreDefaultsButton")
 close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1718315707]
+layout_mode = 2
+texture = ExtResource("2_8pc50")
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1482379764]
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2022674417]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1324326392]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "Settings:"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1431516753]
 layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 32
 columns = 2
 
 [node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1838667438]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "Fullscreen:"
 
 [node name="FullscreenButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=47271636]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 
 [node name="MusicVolLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1767611457]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "Music volume:"
 
 [node name="MusicVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1889026143]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 max_value = 1.0
 step = 0.1
 value = 0.8
 
 [node name="SFXVolLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1910465942]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "SFX volume:"
 
 [node name="SFXVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1683634943]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 max_value = 1.0
 step = 0.1
 value = 0.8
 
 [node name="ShowDamageIndicatorsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1901870642]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "Show damage indicators"
 
 [node name="ShowDamageIndicatorsButton" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1582020608]
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("2_5u86k")
 selected = 0
 item_count = 3
 popup/item_0/text = "Always"
@@ -88,18 +106,24 @@ popup/item_2/id = 2
 
 [node name="QuickSpinsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=354463878]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "Quick buy tower spins"
 
 [node name="QuickSpinsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1262490571]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 
 [node name="RestoreDefaultsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=742086315]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "Restore defaults"
+script = ExtResource("4_nfcwg")
 
 [node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1255385746]
 layout_mode = 2
+theme = ExtResource("2_5u86k")
 text = "Close"
+script = ExtResource("4_nfcwg")
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
