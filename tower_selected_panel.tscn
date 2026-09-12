@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_ivcjy"]
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="3_8ib3p"]
 [ext_resource type="PackedScene" uid="uid://bt6gcfajrb836" path="res://tower_texture_rect.tscn" id="4_8ib3p"]
+[ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="5_ql2u2"]
 [ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="5_td502"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3vdb"]
@@ -27,6 +28,7 @@ offset_right = 77.0
 offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_ql2u2")
 theme_override_styles/panel = SubResource("StyleBoxFlat_c3vdb")
 script = ExtResource("1_36mrh")
 accept_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/AcceptButton")
@@ -67,12 +69,14 @@ theme_override_font_sizes/font_size = 32
 text = "Tower name"
 horizontal_alignment = 1
 
-[node name="TowerDescLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1469220483]
-layout_mode = 2
-horizontal_alignment = 1
-
 [node name="TowerTextureRect" parent="MarginContainer/VBoxContainer" unique_id=243993199 instance=ExtResource("4_8ib3p")]
 layout_mode = 2
+
+[node name="TowerDescLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1469220483]
+layout_mode = 2
+theme = ExtResource("5_ql2u2")
+theme_type_variation = &"StatsLabel"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1016170974]
 layout_mode = 2
@@ -80,15 +84,19 @@ alignment = 1
 
 [node name="AcceptButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=989045164]
 layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_ql2u2")
 text = "Accept"
 script = ExtResource("5_td502")
 
 [node name="RerollButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=116455840]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Reroll"
 script = ExtResource("5_td502")
 
 [node name="BanButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2010722326]
+visible = false
 layout_mode = 2
 text = "Ban"
 script = ExtResource("5_td502")

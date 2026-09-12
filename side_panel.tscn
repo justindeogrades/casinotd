@@ -2,12 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ccdrtrhyrswhl" path="res://tower_data_container.tscn" id="1_3e5kq"]
 [ext_resource type="Script" uid="uid://b5i7806biqy3k" path="res://side_panel.gd" id="1_4mnfi"]
+[ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="1_akbnd"]
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_3aion"]
 [ext_resource type="PackedScene" uid="uid://dtwdw5c1s2kwk" path="res://money_feed_label.tscn" id="2_xd4xr"]
 [ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="4_c3vdb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivcjy"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="SidePanel" type="PanelContainer" unique_id=841411776 node_paths=PackedStringArray("money_label", "wave_label", "money_feed_container", "tower_data_container", "buy_button", "reroll_label", "next_wave_button")]
 custom_maximum_size = Vector2(384, -1)
@@ -17,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ivcjy")
+theme = ExtResource("1_akbnd")
 script = ExtResource("1_4mnfi")
 money_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/MoneyLabel")
 wave_label = NodePath("MarginContainer/VBoxContainer/WaveLabel")
@@ -81,6 +79,8 @@ script = ExtResource("4_c3vdb")
 
 [node name="RerollCostLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1494054832]
 layout_mode = 2
+theme = ExtResource("1_akbnd")
+theme_type_variation = &"StatsLabel"
 text = "Reroll cost - 0$ (0 max)"
 
 [node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2064955684]

@@ -10,10 +10,12 @@ func init(amount : int) -> void:
 	
 	if amount >= 0:
 		sign_char = "+"
-		label_settings.font_color = positive_col
+		#label_settings.font_color = positive_col
+		set("theme_override_colors/font_color", positive_col)
 	else:
 		sign_char = ""
-		label_settings.font_color = negative_col
+		#label_settings.font_color = negative_col
+		set("theme_override_colors/font_color", negative_col)
 	
 	text = sign_char + str(amount)
 	

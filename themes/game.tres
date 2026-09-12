@@ -1,3 +1,34 @@
 [gd_resource type="Theme" format=3 uid="uid://dl4tj1nwwtawn"]
 
+[ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="1_l3b0n"]
+[ext_resource type="FontFile" uid="uid://jnd2pjhmm8ot" path="res://fonts/Tengoku.ttf" id="1_t4v3v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4v3v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06t7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wssda"]
+
 [resource]
+default_font = ExtResource("1_l3b0n")
+default_font_size = 32
+ArrowButton/base_type = &"Button"
+ArrowButton/colors/font_color = Color(0.91764706, 0.19607843, 0.23529412, 1)
+ArrowButton/colors/font_hover_color = Color(1, 1, 1, 1)
+ArrowButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+ArrowButton/constants/outline_size = 8
+ArrowButton/font_sizes/font_size = 48
+ArrowButton/fonts/font = ExtResource("1_t4v3v")
+ArrowButton/styles/disabled = SubResource("StyleBoxEmpty_t4v3v")
+ArrowButton/styles/hover = SubResource("StyleBoxEmpty_06t7k")
+ArrowButton/styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+ArrowButton/styles/pressed = SubResource("StyleBoxEmpty_wssda")
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 6
+Button/font_sizes/font_size = 20
+Label/constants/outline_size = 8
+StatsLabel/base_type = &"Label"
+StatsLabel/constants/outline_size = 6
+StatsLabel/font_sizes/font_size = 20

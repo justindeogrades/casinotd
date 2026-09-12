@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://dtwdw5c1s2kwk"]
 
+[ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="1_r35r1"]
 [ext_resource type="Script" uid="uid://bgpcgpnmgs5b3" path="res://money_feed_label.gd" id="1_s0ehm"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
-resource_local_to_scene = true
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_r35r1"]
 length = 0.001
@@ -64,8 +60,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_r35r1")
+theme_type_variation = &"StatsLabel"
 text = "Moeny"
-label_settings = SubResource("LabelSettings_g4v7s")
 script = ExtResource("1_s0ehm")
 positive_col = Color(0.2, 0.59607846, 0.29411766, 1)
 negative_col = Color(0.76862746, 0.14117648, 0.1882353, 1)

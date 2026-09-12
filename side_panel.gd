@@ -12,11 +12,15 @@ extends PanelContainer
 var player : Node
 var buttons : Array[Button]
 
+var max_waves : int
+
 signal update_requested
 
 func _ready() -> void:
 	player = get_parent().get_parent()
 	tower_data_container.player = player
+	
+	max_waves = player.wave_manager.waves.size()
 	
 	init_buttons_array()
 	
@@ -38,7 +42,7 @@ func add_money_feed_label(amount : int) -> void:
 #ONLY to be called from the player
 func update_all(money : int, wave_at : int, tower_cost : int, reroll_cost : int, max_rerolls : int, wave_active : bool):
 	money_label.text = "Money: " + str(money)
-	wave_label.text = "Waves cleared: " + str(wave_at)
+	wave_label.text = "Waves cleared: " + str(wave_at) + " / " + str(max_waves)
 	reroll_label.text = "Reroll cost - $" + str(reroll_cost) + " (max " + str(max_rerolls) + ")"
 	
 	update_buy_button(money, tower_cost)
