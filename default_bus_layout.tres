@@ -7,6 +7,14 @@ resource_name = "Limiter"
 resource_name = "LowPassFilter"
 cutoff_hz = 1500.0
 
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
+resource_name = "HardLimiter"
+ceiling_db = -2.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_g28q7"]
+resource_name = "HardLimiter"
+ceiling_db = -2.0
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
 bus/0/effect/0/enabled = true
@@ -24,3 +32,19 @@ bus/2/volume_db = -1.9147635
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectLowPassFilter_j3pel")
 bus/2/effect/0/enabled = false
+bus/3/name = &"Hit"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"SFX"
+bus/3/effect/0/effect = SubResource("AudioEffectHardLimiter_j3pel")
+bus/3/effect/0/enabled = true
+bus/4/name = &"Multicrit"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"SFX"
+bus/4/effect/0/effect = SubResource("AudioEffectHardLimiter_g28q7")
+bus/4/effect/0/enabled = true

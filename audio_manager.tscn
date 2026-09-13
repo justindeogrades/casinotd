@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cdq2qxu5vw043" path="res://audio_manager.gd" id="1_jisk1"]
 [ext_resource type="AudioStream" uid="uid://crde3psayunhc" path="res://sounds/sfx/hits/hit.mp3" id="2_bq1v2"]
 [ext_resource type="AudioStream" uid="uid://b7wf4lhek3crh" path="res://sounds/sfx/hits/crit.mp3" id="3_6jj5d"]
-[ext_resource type="AudioStream" uid="uid://bg4go2hxqy1yv" path="res://sounds/sfx/hits/doublecrit.mp3" id="4_5olve"]
+[ext_resource type="AudioStream" uid="uid://w2fcticd2w8s" path="res://sounds/sfx/hits/doublecrit new.mp3" id="4_hbb3y"]
 [ext_resource type="AudioStream" uid="uid://dd067cjqxeb5p" path="res://sounds/sfx/tower selecteds/common selected.mp3" id="5_v0gdi"]
 [ext_resource type="AudioStream" uid="uid://b6brry7tduxn2" path="res://sounds/sfx/tower selecteds/uncommon selected.mp3" id="6_7fh0q"]
 [ext_resource type="AudioStream" uid="uid://ce7uqfjh18grc" path="res://sounds/sfx/tower selecteds/rare selected.mp3" id="7_op7ad"]
@@ -66,16 +66,16 @@ wave_clear_sfx = NodePath("WaveClearSFX")
 stream = ExtResource("2_bq1v2")
 volume_db = -8.0
 max_polyphony = 10
-bus = &"SFX"
+bus = &"Hit"
 
 [node name="CritSFX" type="AudioStreamPlayer" parent="." unique_id=418606216]
 stream = ExtResource("3_6jj5d")
 volume_db = -8.0
 max_polyphony = 10
-bus = &"SFX"
+bus = &"Hit"
 
 [node name="DoublecritSFX" type="AudioStreamPlayer" parent="." unique_id=985281775]
-stream = ExtResource("4_5olve")
+stream = ExtResource("4_hbb3y")
 volume_db = -8.0
 max_polyphony = 10
 bus = &"SFX"

@@ -16,8 +16,8 @@ var money : int = 50
 var lives : int = max_lives
 var total_money_earned : int = 0
 
-var tower_cost : int = 20
-var tower_cost_mult : float = 1.17
+var tower_cost : int = 40
+var tower_cost_mult : float = 1.15
 #Does nothing rn, rerolls are handled by the gui manager, delegate rerolls to the player object later
 var reroll_cost_mult : float = 0.4
 var max_rerolls : int
