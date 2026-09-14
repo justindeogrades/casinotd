@@ -52,8 +52,8 @@ _data = {
 [node name="Bubba" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
 process_mode = 1
 script = ExtResource("1_rhwp3")
-attribute = Array[float]([12.0, 100.0, 200.0, 8.0, 6.0, 800.0, 2.0, 0.0])
-tower_name = "Bubba"
+attribute = Array[float]([24.0, 100.0, 200.0, 8.0, 4.2, 800.0, 2.0, 0.0])
+tower_name = "Snake eyes"
 projectile_rotation_speed = 1.0
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_3l6un")

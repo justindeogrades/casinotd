@@ -37,7 +37,7 @@ func initialize_upgrade_data_array() -> void:
 	
 	upgrade_data[G.att.DAMAGE] = [8, 12, 18, 30]
 	upgrade_data[G.att.ATTACK_SPEED] = [15, 25, 40, 58]
-	upgrade_data[G.att.RANGE] = [20, 24, 30, 40]
+	upgrade_data[G.att.RANGE] = [40, 46, 54, 80]
 	upgrade_data[G.att.CRIT_CHANCE] = [5, 8, 12, 20]
 	upgrade_data[G.att.CRIT_MULT] = [1, 1.4, 2, 2.8]
 	upgrade_data[G.att.PROJ_SPEED] = [200, 220, 250, 300]
