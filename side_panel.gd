@@ -41,7 +41,7 @@ func add_money_feed_label(amount : int) -> void:
 
 #ONLY to be called from the player
 func update_all(money : int, wave_at : int, tower_cost : int, reroll_cost : int, max_rerolls : int, wave_active : bool):
-	money_label.text = "Money: " + str(money)
+	money_label.set_effective_value(money)
 	wave_label.text = "Waves cleared: " + str(wave_at) + " / " + str(max_waves)
 	reroll_label.text = "Reroll cost - $" + str(reroll_cost) + " (max " + str(max_rerolls) + ")"
 	

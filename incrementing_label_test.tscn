@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://vo3n6iaxwhvr"]
+
+[ext_resource type="Script" uid="uid://bvvcgquj6su1t" path="res://incrementing_label.gd" id="1_s3vvo"]
+
+[node name="IncrementingLabelTest" type="Label" unique_id=6316014]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_s3vvo")

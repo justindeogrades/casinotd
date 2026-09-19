@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="2_61ynj"]
 [ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="3_1cen2"]
 [ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="3_gxmpf"]
+[ext_resource type="Script" uid="uid://bvvcgquj6su1t" path="res://incrementing_label.gd" id="4_7ny44"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ahax"]
 content_margin_left = 10.0
@@ -23,7 +24,7 @@ theme = SubResource("Theme_kcg5i")
 script = ExtResource("1_07o6m")
 level_label = NodePath("Level")
 name_label = NodePath("Name")
-total_damage_label = NodePath("TotalDamage")
+total_damage_label = NodePath("HBoxContainer2/TotalDamage")
 priority_label = NodePath("TargetPrioContainer/PriorityLabel")
 attribute_names_label = NodePath("HBoxContainer/AttributeNames")
 attribute_data_label = NodePath("HBoxContainer/AttributeData")
@@ -42,12 +43,24 @@ layout_mode = 2
 theme = ExtResource("3_1cen2")
 text = "Placeholder"
 
-[node name="TotalDamage" type="Label" parent="." unique_id=676793867]
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=679640595]
+layout_mode = 2
+
+[node name="TotalDamage" type="Label" parent="HBoxContainer2" unique_id=676793867]
 layout_mode = 2
 theme = ExtResource("3_1cen2")
 theme_type_variation = &"StatsLabel"
 theme_override_fonts/font = ExtResource("2_61ynj")
 text = "Placeholder"
+script = ExtResource("4_7ny44")
+base_increment_per_second = 4
+difference_threshold = 100
+
+[node name="Dealt" type="Label" parent="HBoxContainer2" unique_id=1044893777]
+layout_mode = 2
+theme = ExtResource("3_1cen2")
+theme_type_variation = &"StatsLabel"
+text = "damage dealt"
 
 [node name="TargetPrioContainer" type="HBoxContainer" parent="." unique_id=1597427011]
 layout_mode = 2

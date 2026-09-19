@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 
 func update() -> void:
 	if tower != null:
-		total_damage_label.text = str(tower.total_damage_dealt) + " damage dealt"
+		total_damage_label.set_effective_value(tower.total_damage_dealt)
 
 func update_with_new_tower(new_tower : Tower) -> void:
 	#Setting tower's range visibility has been delegated to the Player object
@@ -37,7 +37,8 @@ func update_with_new_tower(new_tower : Tower) -> void:
 	
 	level_label.text = "Level " + str(tower.level)
 	name_label.text = tower.tower_name
-	total_damage_label.text = str(tower.total_damage_dealt) + " damage dealt"
+	total_damage_label.set_effective_value(tower.total_damage_dealt)
+	total_damage_label.fix_displayed_value()
 	reroll_label.text = "Reroll cost - $" + str(int(tower.upgrade_cost * 0.2)) + " (max " + str(tower.level) + ")"
 	
 	var format_attribute_names_string = "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s"
