@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://brx41vlm4b1q4" path="res://card suits/projectile speed suit no outline.png" id="15_3vbq4"]
 [ext_resource type="Texture2D" uid="uid://cy5bwhvl2jwwr" path="res://card suits/projectile count suit no outline.png" id="16_fcwuf"]
 [ext_resource type="Texture2D" uid="uid://dkylqq1lshsws" path="res://card suits/pierce suit no outline.png" id="17_l0daa"]
+[ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="20_5ck34"]
 
 [sub_resource type="Theme" id="Theme_61ynj"]
 default_base_scale = 1.0
@@ -26,6 +27,7 @@ default_font = ExtResource("3_tnm5o")
 default_font_size = 32
 
 [node name="UpgradePanel" type="PanelContainer" unique_id=1179414208 node_paths=PackedStringArray("upgrade_button", "reroll_button")]
+anchors_preset = -1
 anchor_right = 0.8
 anchor_bottom = 1.0
 script = ExtResource("1_sn7ge")
@@ -59,4 +61,6 @@ theme = SubResource("Theme_61ynj")
 
 [node name="RerollButton" type="Button" parent="VBoxContainer" unique_id=1611209290]
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("20_5ck34")
 text = "Reroll"

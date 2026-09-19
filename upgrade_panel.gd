@@ -122,6 +122,11 @@ func refresh_reroll_button(with_new_tower : bool) -> void:
 		rerolls_remaining = tower_to_upgrade.level
 	reroll_cost = tower_to_upgrade.upgrade_cost * 0.2
 	reroll_button.text = "Reroll - $" + str(reroll_cost) + " (" + str(rerolls_remaining) + " remaining)"
+	
+	if rerolls_remaining <= 0:
+		reroll_button.disabled = true
+	else:
+		reroll_button.disabled = false
 
 func _on_reroll_button_pressed() -> void:
 	if rerolls_remaining > 0:

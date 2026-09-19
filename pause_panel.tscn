@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dsdivye5cb7iy"]
 
+[ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="1_24vxm"]
 [ext_resource type="Script" uid="uid://bu4ovck2vbbu7" path="res://pause_panel.gd" id="1_lbt5x"]
 [ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="2_itk7j"]
 [ext_resource type="PackedScene" uid="uid://bxrvkd1lrg7sg" path="res://main menu/settings_panel.tscn" id="2_p6ksa"]
@@ -13,6 +14,7 @@ offset_right = -1809.0
 offset_bottom = -952.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_24vxm")
 script = ExtResource("1_lbt5x")
 main_container = NodePath("MainContainer")
 settings_container = NodePath("SettingsContainer")

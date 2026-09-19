@@ -22,8 +22,6 @@ func _process(delta: float) -> void:
 		if displayed_val < effective_val:
 			displayed_val = effective_val
 	text = str(displayed_val)
-	
-	print_debug(ips)
 
 func set_effective_value(v : int) -> void:
 	effective_val = v

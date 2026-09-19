@@ -35,6 +35,9 @@ func init(t : Tower, rc : int, rr : int, b : int, c : bool) -> void:
 	reroll_button.text = "Reroll - $" + str(reroll_cost) + " (" + str(rerolls_remaining) + " remaining)"
 	ban_button.text = "Ban - $" + str(ban_cost)
 	
+	if rerolls_remaining <= 0:
+		reroll_button.disabled = true
+	
 	text_rect.anim_completed.connect(_on_text_rect_anim_completed)
 	
 	text_rect.get_node("AnimationPlayer").play("enter")

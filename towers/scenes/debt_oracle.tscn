@@ -54,6 +54,7 @@ process_mode = 1
 script = ExtResource("1_ddm65")
 attribute = Array[float]([30.0, 100.0, 200.0, 24.0, 3.8, 800.0, 1.0, 0.0])
 tower_name = "Debt Oracle"
+tower_description = "Has seen long past the end of our world, but still has seen no end to his own debt."
 rarity = 2
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_dwtdo")
