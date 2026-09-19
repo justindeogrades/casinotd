@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://drdnfmqh4cgyc"]
 
+[ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="1_7o30t"]
 [ext_resource type="Script" uid="uid://tavrr3vmc0d" path="res://game_over_panel.gd" id="1_gj7sw"]
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_vkad1"]
 
@@ -18,6 +19,7 @@ offset_right = 83.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7o30t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_3aion")
 script = ExtResource("1_gj7sw")
 game_over_label = NodePath("MarginContainer/VBoxContainer/GameOverLabel")
@@ -54,9 +56,11 @@ layout_mode = 2
 
 [node name="StatNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1485401588]
 layout_mode = 2
+theme_type_variation = &"StatsLabel"
 
 [node name="StatDataLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1352459931]
 layout_mode = 2
+theme_type_variation = &"StatsLabel"
 horizontal_alignment = 2
 
 [node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=567200367]
