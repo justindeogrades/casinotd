@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c6s2r6m62chsx" path="res://towers/projectiles/cob_cannon_projectile.tscn" id="2_btwuv"]
 [ext_resource type="Texture2D" uid="uid://cmamxta8qiv0k" path="res://towers/sprites/icon (portrait)/cob cannon icon.png" id="2_e1jqy"]
 [ext_resource type="Texture2D" uid="uid://cbjuw6u8v2i6s" path="res://towers/projectiles/sprites/cob cannon projectile.png" id="3_e1jqy"]
-[ext_resource type="Texture2D" uid="uid://byauj3cccwuh" path="res://towers/sprites/overworld/cob cannon overworld.png" id="3_hk0bd"]
+[ext_resource type="Texture2D" uid="uid://cw1k5qcle1nsh" path="res://towers/sprites/overworld/cob cannon overworld new.png" id="5_e1jqy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smaqy"]
 radius = 30.0
@@ -69,7 +69,7 @@ projectile_parent = NodePath("ProjectileParent")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
-texture = ExtResource("3_hk0bd")
+texture = ExtResource("5_e1jqy")
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

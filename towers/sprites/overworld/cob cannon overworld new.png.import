@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b54aqqtsk46oe"
-path="res://.godot/imported/debt sage.png-ce06664116292440ddf11a4d18d83f9f.ctex"
+uid="uid://cw1k5qcle1nsh"
+path="res://.godot/imported/cob cannon overworld new.png-fca6fe1a4ec18c2d681df974d50d6edd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/sprites/icon (portrait)/debt sage.png"
-dest_files=["res://.godot/imported/debt sage.png-ce06664116292440ddf11a4d18d83f9f.ctex"]
+source_file="res://towers/sprites/overworld/cob cannon overworld new.png"
+dest_files=["res://.godot/imported/cob cannon overworld new.png-fca6fe1a4ec18c2d681df974d50d6edd.ctex"]
 
 [params]
 

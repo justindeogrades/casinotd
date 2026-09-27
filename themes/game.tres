@@ -2,6 +2,10 @@
 
 [ext_resource type="FontFile" uid="uid://bqc1ytovt4oid" path="res://fonts/Pixelta.ttf" id="1_l3b0n"]
 [ext_resource type="FontFile" uid="uid://jnd2pjhmm8ot" path="res://fonts/Tengoku.ttf" id="1_t4v3v"]
+[ext_resource type="Texture2D" uid="uid://584eqxqcqd8l" path="res://themes/button/button disabled.png" id="2_y5dgy"]
+[ext_resource type="Texture2D" uid="uid://dgkpqg0yuw6t0" path="res://themes/button/button hovered.png" id="3_q38ii"]
+[ext_resource type="Texture2D" uid="uid://bv5mqm8ylg1ct" path="res://themes/button/button pressed.png" id="4_bu8be"]
+[ext_resource type="Texture2D" uid="uid://b47yhlnikrydk" path="res://themes/button/button_nineslice.png" id="4_q38ii"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4v3v"]
 
@@ -10,6 +14,34 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wssda"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bu8be"]
+texture = ExtResource("2_y5dgy")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4bx4"]
+texture = ExtResource("3_q38ii")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eu8ft"]
+texture = ExtResource("4_q38ii")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_such2"]
+texture = ExtResource("4_bu8be")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [resource]
 default_font = ExtResource("1_l3b0n")
@@ -28,6 +60,10 @@ ArrowButton/styles/pressed = SubResource("StyleBoxEmpty_wssda")
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 6
 Button/font_sizes/font_size = 20
+Button/styles/disabled = SubResource("StyleBoxTexture_bu8be")
+Button/styles/hover = SubResource("StyleBoxTexture_n4bx4")
+Button/styles/normal = SubResource("StyleBoxTexture_eu8ft")
+Button/styles/pressed = SubResource("StyleBoxTexture_such2")
 Label/constants/outline_size = 8
 StatsLabel/base_type = &"Label"
 StatsLabel/constants/outline_size = 6
