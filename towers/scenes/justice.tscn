@@ -120,8 +120,10 @@ anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
 texture = ExtResource("3_erqdl")
+offset = Vector2(0, -35)
 
 [node name="LayerSprite" type="Sprite2D" parent="." unique_id=1937661046]
+visible = false
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_xym8w")

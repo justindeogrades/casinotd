@@ -69,6 +69,7 @@ anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
 texture = ExtResource("4_0plqt")
+offset = Vector2(5, -35)
 
 [node name="Mousebox" type="Area2D" parent="." unique_id=1883154837]
 process_mode = 3

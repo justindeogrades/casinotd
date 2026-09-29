@@ -316,6 +316,9 @@ func get_portrait_texture() -> Resource:
 func get_sprite_texture() -> Texture2D:
 	return sprite.texture
 
+func get_sprite_offset() -> Vector2:
+	return sprite.offset
+
 func get_projectile_texture() -> Texture2D:
 	return projectile_texture
 
