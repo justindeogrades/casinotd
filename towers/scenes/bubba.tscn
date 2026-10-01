@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5ebspkyaf3tq"]
 
 [ext_resource type="Script" uid="uid://tijr7yr80s8" path="res://towers/scripts/tower.gd" id="1_rhwp3"]
-[ext_resource type="Texture2D" uid="uid://crnclr5kmjmwg" path="res://towers/sprites/icon (portrait)/bubba icon.png" id="2_3l6un"]
+[ext_resource type="Texture2D" uid="uid://ibq1xcxh8i2f" path="res://towers/sprites/icon (portrait)/snake eyes icon.png" id="2_3l6un"]
 [ext_resource type="PackedScene" uid="uid://djxqhi15t6mar" path="res://towers/projectiles/projectile.tscn" id="2_sqhwi"]
 [ext_resource type="Texture2D" uid="uid://bsxo5rfq1aw2d" path="res://towers/projectiles/sprites/bubba projectile.png" id="3_sqhwi"]
 [ext_resource type="Texture2D" uid="uid://df0jry4gxjgrg" path="res://towers/sprites/overworld/snake eyes overworld.png" id="5_3l6un"]

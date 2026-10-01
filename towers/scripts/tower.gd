@@ -317,7 +317,9 @@ func get_sprite_texture() -> Texture2D:
 	return sprite.texture
 
 func get_sprite_offset() -> Vector2:
-	return sprite.offset
+	if sprite is Sprite2D:
+		return sprite.offset
+	return Vector2.ZERO
 
 func get_projectile_texture() -> Texture2D:
 	return projectile_texture
