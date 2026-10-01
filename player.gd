@@ -68,6 +68,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("cheat_money"):
 		update_money(50000)
+	if Input.is_action_just_pressed("cheat_wave"):
+		wave_manager.wave_at += 1
 
 func update_side_panel() -> void:
 	side_panel.update_all(money, get_wave_at(), tower_cost, compute_reroll_cost(), compute_max_rerolls(), wave_manager.is_wave_active())
@@ -176,6 +178,10 @@ func _on_side_panel_update_requested() -> void:
 func _on_tower_created(new_tower : Tower) -> void:
 	new_tower.clicked.connect(_on_tower_clicked)
 	new_tower.damage_dealt.connect(_on_tower_damage_dealt)
+	
+	#side_panel.tower_data_container.set_enabled(true)
+	#side_panel.tower_data_container.update_with_new_tower(new_tower)
+	select_tower(new_tower)
 	
 	placed_towers.append(new_tower)
 	#gui_manager.hide_side_panel()

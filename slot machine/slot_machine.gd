@@ -61,9 +61,11 @@ func init(banned_towers : Array) -> void:
 		create_symbol(viewport_y - symbol_y_offset * i)
 	
 	#Ensures it appears in front of towers
-	$ColorRect.set_z_index(G.SELECTED_TOWER_Z + 1)
+	#$ColorRect.set_z_index(G.SELECTED_TOWER_Z + 1)
+	$ColorRect.set_z_index(G.SYMBOL_Z - 1)
 	#Ensures it appears in front of symbols
-	$TextureRect.set_z_index(G.SELECTED_TOWER_Z + 2)
+	#$TextureRect.set_z_index(G.SELECTED_TOWER_Z + 2)
+	$TextureRect.set_z_index(G.SYMBOL_Z + 1)
 
 
 

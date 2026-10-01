@@ -6,7 +6,8 @@ const MOB_Z = 2
 const TOWER_Z = 3
 const SELECTED_TOWER_Z = 4
 const TOWER_GHOST_Z = 5
-const SPLASH_TEXT_Z = 6
+const SYMBOL_Z = 7
+const SPLASH_TEXT_Z = 9
 
 enum rarity {
 	COMMON,

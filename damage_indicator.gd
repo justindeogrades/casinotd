@@ -51,4 +51,4 @@ func init(amount : int, crit_level : int, pos : Vector2):
 	global_position = pos
 	rise_player.play(rise_anim_name)
 	
-	set_z_index(2 + crit_level)
+	set_z_index(G.TOWER_Z + 1 + crit_level)
