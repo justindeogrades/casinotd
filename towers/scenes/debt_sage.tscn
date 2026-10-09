@@ -55,6 +55,7 @@ script = ExtResource("1_0plqt")
 attribute = Array[float]([30.0, 100.0, 200.0, 18.0, 3.4, 800.0, 1.0, 0.0])
 tower_name = "Debt Sage"
 tower_description = "He offers much wisdom, but no financial advice"
+projectile_rotation_speed = 6.283
 rarity = 1
 sprite = NodePath("Sprite2D")
 portrait = ExtResource("2_7sbgs")
