@@ -7,10 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bs1oxmvgstayd" path="res://credits_panel.tscn" id="3_m48o8"]
 [ext_resource type="Theme" uid="uid://befdv2ny1undv" path="res://themes/main menu/main_menu.tres" id="4_6fy38"]
 [ext_resource type="Script" uid="uid://5lkadq7t85tm" path="res://main_menu_button.gd" id="5_auhsi"]
+[ext_resource type="Shader" uid="uid://oe4o7u0w52nr" path="res://main menu/vhs.gdshader" id="8_ldhbh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djdlk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6fy38"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("8_ldhbh")
+shader_parameter/color_offset_multiplier = 0.002000000095
+shader_parameter/black_offset_multiplier = 0.02000000095
+shader_parameter/color_offset = 0.0010000033073799958
+shader_parameter/blur_amount = 0.0
 
 [node name="MainMenu" type="PanelContainer" unique_id=85288571 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "main_container", "settings_panel", "credits_panel")]
 anchors_preset = 15
@@ -88,6 +96,11 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_6fy38")
 [node name="CreditsPanel" parent="." unique_id=602466445 instance=ExtResource("3_m48o8")]
 visible = false
 layout_mode = 2
+
+[node name="VHSFilter" type="ColorRect" parent="." unique_id=1763139109]
+material = SubResource("ShaderMaterial_g4v7s")
+layout_mode = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="MainContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
