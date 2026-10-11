@@ -66,7 +66,7 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="DebtProphet" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="DebtProphet" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "mousebox", "anim_player")]
 process_mode = 1
 script = ExtResource("1_riva6")
 attribute = Array[float]([30.0, 100.0, 200.0, 30.0, 4.0, 800.0, 3.0, 0.0])
@@ -83,6 +83,7 @@ range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
 volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 projectile_parent = NodePath("ProjectileParent")
+mousebox = NodePath("Mousebox")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]

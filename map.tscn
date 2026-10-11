@@ -16,6 +16,7 @@ _data = {
 point_count = 16
 
 [node name="Map" type="Node2D" unique_id=1374250404]
+y_sort_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1632705422]
 offset_right = 1920.0

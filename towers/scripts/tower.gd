@@ -42,6 +42,8 @@ extends Node2D
 signal clicked(tower : Tower)
 signal damage_dealt(amount : int, crit : int, pos : Vector2)
 
+const mousebox_radius : float = 50
+
 #@onready var cooldown_seconds = 50 / attack_speed
 @onready var cooldown_seconds = 50 / attribute[G.att.ATTACK_SPEED]
 
@@ -67,6 +69,8 @@ func _ready() -> void:
 	#Make a unique shape so updating it doesn't update all shapes
 	#range_collision.shape = range_collision.shape.duplicate(true)
 	update_range()
+	
+	mousebox.get_child(0).shape.radius = mousebox_radius
 	
 	if shot_type == G.type.VOLLEY:
 		volley_cooldown_timer.timeout.connect(_on_volley_cooldown_timer_timeout)

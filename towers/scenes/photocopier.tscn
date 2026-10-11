@@ -159,7 +159,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
 
-[node name="CounterfeitMachine" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("anim_sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="CounterfeitMachine" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("anim_sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "mousebox", "anim_player")]
 process_mode = 1
 script = ExtResource("1_qkpo7")
 anim_sprite = NodePath("Sprite2D")
@@ -176,6 +176,7 @@ range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
 volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 projectile_parent = NodePath("ProjectileParent")
+mousebox = NodePath("Mousebox")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1755012685]

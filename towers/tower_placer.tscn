@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxgm5ilq32svq"]
+[gd_scene format=3 uid="uid://cxgm5ilq32svq"]
 
 [ext_resource type="Script" uid="uid://bwftf7vrxfath" path="res://tower_placer.gd" id="1_s1ypq"]
 
-[node name="TowerPlacer" type="Node"]
+[node name="TowerPlacer" type="Node2D" unique_id=689466191]
+y_sort_enabled = true
 script = ExtResource("1_s1ypq")

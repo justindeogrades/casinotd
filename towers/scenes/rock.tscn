@@ -50,7 +50,7 @@ _data = {
 &"shoot": SubResource("Animation_smaqy")
 }
 
-[node name="Rock" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "anim_player")]
+[node name="Rock" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "mousebox", "anim_player")]
 process_mode = 1
 script = ExtResource("1_d5ojh")
 attribute = Array[float]([78.0, 50.0, 200.0, 8.0, 2.8, 400.0, 5.0, 0.0])
@@ -68,6 +68,7 @@ range_collision = NodePath("Range/CollisionShape2D")
 cooldown_timer = NodePath("Cooldown")
 volley_cooldown_timer = NodePath("VolleyCooldownTimer")
 projectile_parent = NodePath("ProjectileParent")
+mousebox = NodePath("Mousebox")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Cracks" type="Sprite2D" parent="." unique_id=1858050715]
