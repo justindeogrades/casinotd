@@ -42,6 +42,10 @@ func _on_wave_spawn_reached(mob : Mob) -> void:
 	#pathfollow.rotates = false
 	pathfollow.rotates = true
 	path.add_child(pathfollow)
+	#Sort to be rendered last i.e. first mob to spawn will be shown on top
+	#Should we enable y sort on path2d?
+	path.move_child(pathfollow, 0)
+	
 	mob.player = get_parent()
 	pathfollow.add_child(mob)
 

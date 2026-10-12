@@ -221,6 +221,7 @@ max_hp = 15000
 speed = 80.0
 min_bounty = 500
 max_bounty = 1000
+type = 2
 hp_label = NodePath("Label")
 sprite = NodePath("AnimatedSprite2D")
 anim_player = NodePath("AnimationPlayer")

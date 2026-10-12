@@ -2,12 +2,12 @@ extends Node
 class_name G
 
 const PROJECTILE_Z = 1
-const MOB_Z = 2
-const TOWER_Z = 3
-const SELECTED_TOWER_Z = 4
-const TOWER_GHOST_Z = 5
-const SYMBOL_Z = 7
-const SPLASH_TEXT_Z = 9
+const MOB_Z = [2, 3, 4, 5]
+const TOWER_Z = 6
+const SELECTED_TOWER_Z = 7
+const TOWER_GHOST_Z = 8
+const SYMBOL_Z = 10
+const SPLASH_TEXT_Z = 11
 
 enum rarity {
 	COMMON,

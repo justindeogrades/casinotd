@@ -7,7 +7,7 @@ extends Node2D
 @export var speed : float
 @export var min_bounty : int
 @export var max_bounty : int
-@export var is_boss : bool
+@export_enum("Jogger", "Roller", "Stacker", "Cyborg") var type : int
 @export_category("Components")
 @export var hp_label : Label
 @export var sprite : AnimatedSprite2D
@@ -32,7 +32,7 @@ func _ready() -> void:
 	#hp_label.position = Vector2(0, 15)
 	update_hp_label()
 	
-	set_z_index(G.MOB_Z)
+	set_z_index(G.MOB_Z[type])
 
 #Damage sound is called from the damage indicator
 func take_damage(damage : int) -> void:
