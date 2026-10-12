@@ -62,7 +62,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("cheat_tower_1"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/justice.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_2"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/debt_prophet.tscn").instantiate( ))
+		tower_placer.create_temp_tower(load("res://towers/scenes/whitebeard.tscn").instantiate( ))
 	if Input.is_action_just_pressed("cheat_tower_3"):
 		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
 	
