@@ -52,6 +52,7 @@ var mobs_in_range : Array[Mob]
 var target_prio : int = G.prio.FIRST
 var kills : int = 0
 var total_damage_dealt : int = 0
+var damage_dealt_this_round : int = 0
 var upgrade_cost : int = 10
 
 #signal mouse_hovering
@@ -341,6 +342,11 @@ func update_range() -> void:
 func update_cooldown() -> void:
 	cooldown_seconds = 50 / attribute[G.att.ATTACK_SPEED]
 
+func get_damage_dealt_this_round() -> int:
+	return damage_dealt_this_round
+func reset_damage_dealt_this_round() -> void:
+	damage_dealt_this_round = 0
+
 #Mousebox processes even when paused so you cant stack towers
 func _on_mousebox_mouse_entered() -> void:
 	mouseovered = true
@@ -350,6 +356,7 @@ func _on_mousebox_mouse_exited() -> void:
 
 func _on_projectile_damage_dealt(a : int, c : int, p : Vector2) -> void:
 	total_damage_dealt += a
+	damage_dealt_this_round += a
 	damage_dealt.emit(a, c, p)
 
 func _draw() -> void:

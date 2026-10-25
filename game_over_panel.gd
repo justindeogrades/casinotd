@@ -12,7 +12,7 @@ signal confirmed(victory : bool)
 func init(victory: bool, waves_survived : int, damage_dealt : int, money_earned : int, mvp : Tower) -> void:
 	win = victory
 	if victory:
-		game_over_label.text = "You win!"
+		game_over_label.text = "You win! (get a job)"
 	else:
 		game_over_label.text = "Game over (you suck 😂🫵)"
 	

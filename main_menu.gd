@@ -7,10 +7,15 @@ extends Container
 @export var main_container : VBoxContainer
 @export var settings_panel : PanelContainer
 @export var credits_panel : PanelContainer
+#Temporary
+@export var demo_label : Label
+@export var demo_label_player : AnimationPlayer
 
 func _ready() -> void:
 	settings_panel.close_button.pressed.connect(_on_settings_panel_close_button_pressed)
 	credits_panel.return_button.pressed.connect(_on_credits_panel_return_button_pressed)
+	#Ugly because temporary
+	demo_label_player.play("flash")
 
 func reset_visibilities() -> void:
 	main_container.visible = true

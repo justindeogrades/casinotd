@@ -72,12 +72,16 @@ static func rarity_to_colour(r : int) -> Color:
 	match r:
 		rarity.COMMON:
 			return Color.from_rgba8(90, 197, 79)
+			#return Color.from_rgba8(90, 255, 79, 255)
 		rarity.UNCOMMON:
 			return Color.from_rgba8(12, 241, 255)
+			#return Color.from_rgba8(12, 241, 255)
 		rarity.RARE:
 			return Color.from_rgba8(196, 36, 48)
+			#return Color.from_rgba8(255, 36, 48, 255)
 		rarity.LEGENDARY:
 			return Color.from_rgba8(255, 200, 37)
+			#return Color.from_rgba8(255, 255, 37, 255)
 		_:
 			push_error("Attempting to convert invalid rarity to colour!")
 			return Color.WHITE

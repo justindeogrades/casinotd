@@ -6,6 +6,9 @@ func rotate_sprite_to_target(target : Vector2) -> void:
 	anim_sprite.look_at(target)
 	anim_sprite.rotate(PI / 2)
 
+func get_money_to_print() -> int:
+	return int(damage_dealt_this_round * 0.1 + 100)
+
 func get_sprite_texture() -> Texture2D:
 	var frame_index : int = anim_sprite.get_frame()
 	var animation_name : String = anim_sprite.animation

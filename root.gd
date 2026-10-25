@@ -1,5 +1,6 @@
 extends Node
 
+@export var fadein_rect : Resource
 @export var fadeout_rect : Resource
 @export var main_menu : Resource
 @export var map : Resource
@@ -24,6 +25,8 @@ func init_main_menu() -> void:
 	
 	main_menu_instance.play_button.pressed.connect(_on_play_button_pressed)
 	main_menu_instance.quit_button.pressed.connect(_on_quit_button_pressed)
+	
+	add_child(fadein_rect.instantiate())
 
 func init_map() -> void:
 	AudioManager.change_song_to(AudioManager.spin_spin_spin_music)

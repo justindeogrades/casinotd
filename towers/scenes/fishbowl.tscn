@@ -101,8 +101,9 @@ _data = {
 [node name="Fishbowl" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "layer_sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "mousebox", "anim_player")]
 process_mode = 1
 script = ExtResource("1_b3s7n")
-attribute = Array[float]([18.0, 100.0, 160.0, 11.0, 2.5, 500.0, 10.0, 0.0])
+attribute = Array[float]([22.0, 100.0, 160.0, 9.0, 2.1, 500.0, 10.0, 1.0])
 tower_name = "Fishbowl"
+tower_description = "Government name: Lein Legweak"
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")

@@ -101,9 +101,9 @@ _data = {
 [node name="Justice" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "layer_sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "mousebox", "anim_player")]
 process_mode = 1
 script = ExtResource("1_erqdl")
-attribute = Array[float]([18.0, 40.0, 150.0, 15.0, 4.0, 1000.0, 6.0, 0.0])
+attribute = Array[float]([18.0, 40.0, 150.0, 15.0, 4.0, 1200.0, 6.0, 0.0])
 tower_name = "Justice"
-tower_description = "He is the law"
+tower_description = "His bodycam? Never once turned on."
 shot_type = 0
 rarity = 2
 sprite = NodePath("Sprite2D")

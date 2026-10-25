@@ -59,17 +59,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("place_tower") and not is_tower_mouseovered(selected_tower) and selected_tower != null:
 		deselect_tower(selected_tower)
 	
-	if Input.is_action_just_pressed("cheat_tower_1"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/justice.tscn").instantiate( ))
-	if Input.is_action_just_pressed("cheat_tower_2"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/whitebeard.tscn").instantiate( ))
-	if Input.is_action_just_pressed("cheat_tower_3"):
-		tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
-	
-	if Input.is_action_just_pressed("cheat_money"):
-		update_money(50000)
-	if Input.is_action_just_pressed("cheat_wave"):
-		wave_manager.wave_at += 1
+	if OS.is_debug_build():
+		if Input.is_action_just_pressed("cheat_tower_1"):
+			tower_placer.create_temp_tower(load("res://towers/scenes/photocopier.tscn").instantiate( ))
+		if Input.is_action_just_pressed("cheat_tower_2"):
+			tower_placer.create_temp_tower(load("res://towers/scenes/specimen.tscn").instantiate( ))
+		if Input.is_action_just_pressed("cheat_tower_3"):
+			tower_placer.create_temp_tower(load("res://towers/scenes/fishbowl.tscn").instantiate( ))
+		
+		if Input.is_action_just_pressed("cheat_money"):
+			update_money(50000)
+		if Input.is_action_just_pressed("cheat_wave"):
+			wave_manager.wave_at += 1
 
 func update_side_panel() -> void:
 	side_panel.update_all(money, get_wave_at(), tower_cost, compute_reroll_cost(), compute_max_rerolls(), wave_manager.is_wave_active())
@@ -214,8 +215,10 @@ func _on_wave_ended(all_waves_ended : bool) -> void:
 		for t in placed_towers:
 			#FIND A BETTER WAY TO DO THIS AT SOME POINT
 			if t.tower_name == "Counterfeit Machine":
-				update_money(200)
+				update_money(100 + t.get_money_to_print())
 				t.anim_player.play("print")
+			
+			t.reset_damage_dealt_this_round()
 
 func _on_game_over_confirmed(win : bool) -> void:
 	get_tree().paused = false
