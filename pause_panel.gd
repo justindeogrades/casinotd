@@ -2,12 +2,14 @@ extends PanelContainer
 
 @export var main_container : Container
 @export var settings_container : Container
+@export var confirm_restart_container : Container
 @export var confirm_quit_container : Container
 
 @export var resume_button : Button
 @export var settings_button : Button
 @export var quit_button : Button
 
+signal restart_confirmed
 signal quit_confirmed
 
 func _ready() -> void:
@@ -26,6 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func reset() -> void:
 	main_container.visible = true
 	settings_container.visible = false
+	confirm_restart_container.visible = false
 	confirm_quit_container.visible = false
 
 func pause() -> void:
@@ -48,6 +51,9 @@ func _on_settings_button_pressed() -> void:
 	main_container.visible = false
 	settings_container.visible = true
 
+func _on_restart_button_pressed() -> void:
+	main_container.visible = false
+	confirm_restart_container.visible = true
 
 func _on_quit_button_pressed() -> void:
 	main_container.visible = false
@@ -56,10 +62,14 @@ func _on_quit_button_pressed() -> void:
 func _on_close_button_pressed() -> void:
 	reset()
 
-func _on_yes_button_pressed() -> void:
+func _on_yes_restart_button_pressed() -> void:
+	unpause()
+	restart_confirmed.emit()
+func _on_no_restart_button_pressed() -> void:
+	reset()
+
+func _on_yes_quit_button_pressed() -> void:
 	unpause()
 	quit_confirmed.emit()
-
-
-func _on_no_button_pressed() -> void:
+func _on_no_quit_button_pressed() -> void:
 	reset()

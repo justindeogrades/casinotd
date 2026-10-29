@@ -24,6 +24,7 @@ func init_main_menu() -> void:
 	add_child(main_menu_instance)
 	
 	main_menu_instance.play_button.pressed.connect(_on_play_button_pressed)
+
 	main_menu_instance.quit_button.pressed.connect(_on_quit_button_pressed)
 	
 	add_child(fadein_rect.instantiate())
@@ -38,6 +39,7 @@ func init_map() -> void:
 	
 	var player = map_instance.get_node("Player")
 	player.game_over.connect(_on_game_over)
+	player.get_node("PausePanel").restart_confirmed.connect(_on_pause_menu_restart_confirmed)
 	player.get_node("PausePanel").quit_confirmed.connect(_on_pause_menu_quit_confirmed)
 
 func remove_all_children() -> void:
@@ -60,5 +62,7 @@ func _on_game_over(win : bool) -> void:
 	if win:
 		main_menu_instance.open_credits()
 
+func _on_pause_menu_restart_confirmed() -> void:
+	init_map()
 func _on_pause_menu_quit_confirmed() -> void:
 	init_main_menu()
