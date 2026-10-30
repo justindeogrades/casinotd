@@ -72,6 +72,7 @@ mousebox = NodePath("Mousebox")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Cracks" type="Sprite2D" parent="." unique_id=1858050715]
+z_as_relative = false
 texture = ExtResource("3_kfcc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959191235]
