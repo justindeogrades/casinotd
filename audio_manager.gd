@@ -47,6 +47,12 @@ var current_song : AudioStreamPlayer = null
 @onready var money_gains : Array[AudioStreamPlayer] = [money_gain_a_sfx, money_gain_b_sfx, money_gain_c_sfx, money_gain_d_sfx]
 @onready var money_spends : Array[AudioStreamPlayer] = [money_spend_a_sfx, money_spend_b_sfx]
 
+func play_sound_with_random_pitch(sound : AudioStreamPlayer, range : float) -> void:
+	var pitch_offset = randf_range(-range, range)
+	
+	sound.pitch_scale = 1 + pitch_offset
+	sound.play()
+
 func change_song_to(next_song : AudioStreamPlayer) -> void:
 	if current_song != null:
 		current_song.stop()

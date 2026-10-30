@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc5jc2cv72y58"
+path="res://.godot/imported/crit new.mp3-0c4c77ee07a945f966448da7d63fd50a.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/hits/crit new.mp3"
+dest_files=["res://.godot/imported/crit new.mp3-0c4c77ee07a945f966448da7d63fd50a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

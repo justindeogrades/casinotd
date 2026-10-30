@@ -1,5 +1,10 @@
 extends Node
 
+enum damage_sfx {
+	ALWAYS,
+	ONLY_CRITS,
+	NEVER
+}
 enum damage_indicators {
 	ALWAYS,
 	ONLY_CRITS,

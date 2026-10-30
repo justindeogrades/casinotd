@@ -9,9 +9,10 @@ func create_damage_indicator(amount : int, crit_level : int, pos : Vector2):
 		add_child(indicator_instance)
 	
 	if crit_level == 0:
-		AudioManager.hit_sfx.play()
+		#AudioManager.hit_sfx.play()
+		AudioManager.play_sound_with_random_pitch(AudioManager.hit_sfx, 0.1)
 	elif crit_level == 1:
-		AudioManager.crit_sfx.play()
+		AudioManager.play_sound_with_random_pitch(AudioManager.crit_sfx, 0.05)
 	elif crit_level == 2:
 		AudioManager.doublecrit_sfx.play()
 	elif crit_level == 3:
