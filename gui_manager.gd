@@ -128,7 +128,10 @@ func _on_reroll_pressed() -> void:
 
 func _on_upgrade_selected(tower : Tower, att : int, amount : float) -> void:
 	tower.upgrade_attribute(att, amount)
-	tower.upgrade_cost = tower.upgrade_cost ** 1.2
+	#Old model
+	#tower.upgrade_cost = tower.upgrade_cost ** 1.2
+	#New model
+	tower.upgrade_cost = tower.upgrade_cost ** 1.08 + 30 * (tower.level - 1)
 	side_panel.tower_data_container.update_with_new_tower(tower)
 	
 	get_tree().paused = false

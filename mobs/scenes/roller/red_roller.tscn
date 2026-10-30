@@ -217,10 +217,10 @@ _data = {
 
 [node name="RedRoller" type="CharacterBody2D" unique_id=1735515673 node_paths=PackedStringArray("hp_label", "sprite", "anim_player")]
 script = ExtResource("1_ypvan")
-max_hp = 50
+max_hp = 40
 speed = 300.0
-min_bounty = 1
-max_bounty = 5
+min_bounty = 5
+max_bounty = 10
 type = 1
 hp_label = NodePath("Label")
 sprite = NodePath("AnimatedSprite2D")

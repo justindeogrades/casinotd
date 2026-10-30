@@ -169,7 +169,10 @@ func _on_tower_clicked(tower : Tower) -> void:
 	#call_deferred("select_tower", tower)
 
 func _on_gui_manager_tower_selected(tower : Tower) -> void:
-	tower_cost = tower_cost ** tower_cost_mult
+	#Old model
+	#tower_cost = tower_cost ** tower_cost_mult
+	#New model
+	tower_cost = tower_cost ** 1.1 + 50 * (placed_towers.size() + 1)
 	update_side_panel()
 	tower_placer.create_temp_tower(tower)
 
