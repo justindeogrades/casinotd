@@ -4,6 +4,7 @@ extends Container
 @export var settings_button : Button
 @export var credits_button : Button
 @export var quit_button : Button
+@export var clear_save_data_button : Button
 @export var main_container : VBoxContainer
 @export var settings_panel : PanelContainer
 @export var credits_panel : PanelContainer
@@ -36,3 +37,7 @@ func _on_credits_button_pressed() -> void:
 	open_credits()
 func _on_credits_panel_return_button_pressed() -> void:
 	reset_visibilities()
+
+
+func _on_clear_save_data_button_pressed() -> void:
+	SaveManager.clear_save_data()

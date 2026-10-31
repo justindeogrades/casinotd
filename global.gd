@@ -80,7 +80,7 @@ static func rarity_to_colour(r : int) -> Color:
 			return Color.from_rgba8(196, 36, 48)
 			#return Color.from_rgba8(255, 36, 48, 255)
 		rarity.LEGENDARY:
-			return Color.from_rgba8(255, 200, 37)
+			return Color.from_rgba8(255, 200, 37, 255)
 			#return Color.from_rgba8(255, 255, 37, 255)
 		_:
 			push_error("Attempting to convert invalid rarity to colour!")

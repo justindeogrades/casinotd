@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://8e42mdf7dhfo"]
+
+[ext_resource type="Script" uid="uid://cnrufdmrl6ahc" path="res://new_best_icon.gd" id="1_78ury"]
+[ext_resource type="Texture2D" uid="uid://0qikfpt18xdk" path="res://particles/particle a no outline.png" id="2_yh8ib"]
+[ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="3_4vlce"]
+
+[sub_resource type="Curve" id="Curve_tnb8u"]
+_data = [Vector2(0, 0), 0.0, 8.130785, 0, 1, Vector2(0.098236784, 0.7987422), 8.130785, -0.88823706, 1, 1, Vector2(0.9974811, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g4v7s"]
+curve = SubResource("Curve_tnb8u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xek0j"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = -200.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_g4v7s")
+
+[sub_resource type="Animation" id="Animation_3om84"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_g3jry"]
+resource_name = "flash"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.78431374, 0.14509805, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.78431374, 0.14509805, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iqo2e"]
+resource_name = "resize"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ctvqh"]
+_data = {
+&"RESET": SubResource("Animation_3om84"),
+&"flash": SubResource("Animation_g3jry"),
+&"resize": SubResource("Animation_iqo2e")
+}
+
+[node name="NewBestIcon" type="Control" unique_id=984166928 node_paths=PackedStringArray("resize_player", "flash_player")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+script = ExtResource("1_78ury")
+resize_player = NodePath("ResizePlayer")
+flash_player = NodePath("FlashPlayer")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=883304464]
+modulate = Color(1, 0.78431374, 0.14509805, 1)
+position = Vector2(31, 12)
+amount = 4
+texture = ExtResource("2_yh8ib")
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xek0j")
+
+[node name="Text" type="Label" parent="." unique_id=2087500393]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+offset_transform_enabled = true
+theme = ExtResource("3_4vlce")
+theme_type_variation = &"StatsLabel"
+text = "new best!"
+
+[node name="ResizePlayer" type="AnimationPlayer" parent="." unique_id=1372866386]
+libraries/ = SubResource("AnimationLibrary_ctvqh")
+
+[node name="FlashPlayer" type="AnimationPlayer" parent="." unique_id=538072181]
+libraries/ = SubResource("AnimationLibrary_ctvqh")

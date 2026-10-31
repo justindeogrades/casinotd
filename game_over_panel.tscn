@@ -3,11 +3,13 @@
 [ext_resource type="Theme" uid="uid://dl4tj1nwwtawn" path="res://themes/game.tres" id="1_7o30t"]
 [ext_resource type="Script" uid="uid://tavrr3vmc0d" path="res://game_over_panel.gd" id="1_gj7sw"]
 [ext_resource type="Texture2D" uid="uid://cubilvk248mbf" path="res://panel nineslice.png" id="2_vkad1"]
+[ext_resource type="PackedScene" uid="uid://8e42mdf7dhfo" path="res://new_best_icon.tscn" id="4_lf0co"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aion"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="GameOverPanel" type="PanelContainer" unique_id=1062773904 node_paths=PackedStringArray("game_over_label", "stat_names_label", "stat_data_label", "confirm_button")]
+[node name="GameOverPanel" type="PanelContainer" unique_id=1062773904 node_paths=PackedStringArray("game_over_label", "run_data_labels", "best_data_labels", "new_best_icons", "confirm_button")]
+custom_minimum_size = Vector2(1000, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -23,8 +25,9 @@ theme = ExtResource("1_7o30t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_3aion")
 script = ExtResource("1_gj7sw")
 game_over_label = NodePath("MarginContainer/VBoxContainer/GameOverLabel")
-stat_names_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/StatNameLabel")
-stat_data_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/StatDataLabel")
+run_data_labels = [NodePath("MarginContainer/VBoxContainer/GridContainer/RunLabel"), NodePath("MarginContainer/VBoxContainer/GridContainer/RunLabel2"), NodePath("MarginContainer/VBoxContainer/GridContainer/RunLabel3"), NodePath("MarginContainer/VBoxContainer/GridContainer/RunLabel4")]
+best_data_labels = [NodePath("MarginContainer/VBoxContainer/GridContainer/BestLabel"), NodePath("MarginContainer/VBoxContainer/GridContainer/BestLabel2"), NodePath("MarginContainer/VBoxContainer/GridContainer/BestLabel3"), NodePath("MarginContainer/VBoxContainer/GridContainer/BestLabel4")]
+new_best_icons = [NodePath("MarginContainer/VBoxContainer/GridContainer/NewBestIcon"), NodePath("MarginContainer/VBoxContainer/GridContainer/NewBestIcon2"), NodePath("MarginContainer/VBoxContainer/GridContainer/NewBestIcon3"), NodePath("MarginContainer/VBoxContainer/GridContainer/NewBestIcon4")]
 confirm_button = NodePath("MarginContainer/VBoxContainer/ConfirmButton")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=809813411]
@@ -51,17 +54,99 @@ theme_override_font_sizes/font_size = 32
 text = "Game over (you suck)"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1255567806]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1493261904]
+layout_mode = 2
+columns = 4
+
+[node name="StatHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1485401588]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stat:"
+
+[node name="RunHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1352459931]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "This run:"
+
+[node name="Blank" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=457380760]
 layout_mode = 2
 
-[node name="StatNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1485401588]
+[node name="BestHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=914446381]
 layout_mode = 2
-theme_type_variation = &"StatsLabel"
+size_flags_horizontal = 3
+text = "Best:"
 
-[node name="StatDataLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1352459931]
+[node name="StatWavesSurvived" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1005136674]
 layout_mode = 2
 theme_type_variation = &"StatsLabel"
-horizontal_alignment = 2
+text = "Waves survived"
+
+[node name="RunLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=210302590]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
+
+[node name="NewBestIcon" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=984166928 instance=ExtResource("4_lf0co")]
+layout_mode = 2
+
+[node name="BestLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1756865929]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
+
+[node name="StatDamageDealt" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1219867142]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "Total damage dealt"
+
+[node name="RunLabel2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1731169218]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
+
+[node name="NewBestIcon2" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1640105804 instance=ExtResource("4_lf0co")]
+layout_mode = 2
+
+[node name="BestLabel2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=460134329]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
+
+[node name="StatMoneyEarned" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1766635906]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "Total money earned"
+
+[node name="RunLabel3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1019627074]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
+
+[node name="NewBestIcon3" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=353348526 instance=ExtResource("4_lf0co")]
+layout_mode = 2
+
+[node name="BestLabel3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1966218194]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
+
+[node name="StatMVP" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=167039585]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "MVP"
+
+[node name="RunLabel4" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1666396476]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
+
+[node name="NewBestIcon4" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1886588950 instance=ExtResource("4_lf0co")]
+layout_mode = 2
+
+[node name="BestLabel4" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1221572969]
+layout_mode = 2
+theme_type_variation = &"StatsLabel"
+text = "0"
 
 [node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=567200367]
 layout_mode = 2

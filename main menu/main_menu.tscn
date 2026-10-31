@@ -57,7 +57,7 @@ shader_parameter/black_offset_multiplier = 0.02000000095
 shader_parameter/color_offset = 0.00100000330737999
 shader_parameter/blur_amount = 0.0
 
-[node name="MainMenu" type="PanelContainer" unique_id=85288571 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "main_container", "settings_panel", "credits_panel", "demo_label", "demo_label_player")]
+[node name="MainMenu" type="PanelContainer" unique_id=85288571 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "clear_save_data_button", "main_container", "settings_panel", "credits_panel", "demo_label", "demo_label_player")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,6 +71,7 @@ play_button = NodePath("MainContainer/Play")
 settings_button = NodePath("MainContainer/SettingsButton")
 credits_button = NodePath("MainContainer/CreditsButton")
 quit_button = NodePath("MainContainer/Quit")
+clear_save_data_button = NodePath("MainContainer/ClearSaveDataButton")
 main_container = NodePath("MainContainer")
 settings_panel = NodePath("SettingsContainer")
 credits_panel = NodePath("CreditsPanel")
@@ -140,6 +141,10 @@ horizontal_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainContainer/DemoLabel" unique_id=1333932990]
 libraries/ = SubResource("AnimationLibrary_iohqi")
 
+[node name="ClearSaveDataButton" type="Button" parent="MainContainer" unique_id=1062752653]
+layout_mode = 2
+text = "Erase save data"
+
 [node name="SettingsContainer" parent="." unique_id=1838194872 instance=ExtResource("2_8f8xy")]
 visible = false
 layout_mode = 2
@@ -158,3 +163,4 @@ mouse_filter = 2
 
 [connection signal="pressed" from="MainContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainContainer/ClearSaveDataButton" to="." method="_on_clear_save_data_button_pressed"]
