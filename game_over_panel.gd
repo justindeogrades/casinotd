@@ -111,7 +111,7 @@ func init_label_array(label_array : Array[Label], data : Array) -> void:
 	label_array[DAMAGE_DEALT].text = str(data[DAMAGE_DEALT])
 	label_array[MONEY_EARNED].text = str(data[MONEY_EARNED])
 	if data[MVP_NAME] != " ":
-		label_array[3].text = "Level " + str(data[MVP_LEVEL]) + " " + data[MVP_NAME] + " with " + str(data[MVP_DAMAGE]) + " damage dealt"
+		label_array[3].text = "Level " + str(data[MVP_LEVEL]) + " " + data[MVP_NAME] + " with\n" + str(data[MVP_DAMAGE]) + " damage dealt"
 	else:
 		label_array[3].text = "None"
 

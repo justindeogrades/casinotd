@@ -4,8 +4,9 @@
 [ext_resource type="Theme" uid="uid://befdv2ny1undv" path="res://themes/main menu/main_menu.tres" id="2_5u86k"]
 [ext_resource type="Texture2D" uid="uid://bjnx821pehcii" path="res://main menu/settings_bar.png" id="2_8pc50"]
 [ext_resource type="Script" uid="uid://5lkadq7t85tm" path="res://main_menu_button.gd" id="4_nfcwg"]
+[ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="5_xpqtt"]
 
-[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("fullscreen_button", "music_slider", "sfx_slider", "damage_indicators_button", "quick_spins_button", "restore_defaults_button", "close_button")]
+[node name="SettingsContainer" type="PanelContainer" unique_id=1838194872 node_paths=PackedStringArray("main_container", "confirm_clear_container", "confirm_restart_container", "fullscreen_button", "music_slider", "sfx_slider", "damage_indicators_button", "quick_spins_button", "restore_defaults_button", "close_button")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,14 +18,18 @@ offset_right = 130.0
 offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_5u86k")
 script = ExtResource("1_1wrka")
-fullscreen_button = NodePath("MarginContainer/VBoxContainer/GridContainer/FullscreenButton")
-music_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/MusicVolSlider")
-sfx_slider = NodePath("MarginContainer/VBoxContainer/GridContainer/SFXVolSlider")
-damage_indicators_button = NodePath("MarginContainer/VBoxContainer/GridContainer/ShowDamageIndicatorsButton")
-quick_spins_button = NodePath("MarginContainer/VBoxContainer/GridContainer/QuickSpinsButton")
-restore_defaults_button = NodePath("MarginContainer/VBoxContainer/RestoreDefaultsButton")
-close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
+main_container = NodePath("MarginContainer/MainContainer")
+confirm_clear_container = NodePath("MarginContainer/ConfirmClearContainer")
+confirm_restart_container = NodePath("MarginContainer/ConfirmRestartContainer")
+fullscreen_button = NodePath("MarginContainer/MainContainer/GridContainer/FullscreenButton")
+music_slider = NodePath("MarginContainer/MainContainer/GridContainer/MusicVolSlider")
+sfx_slider = NodePath("MarginContainer/MainContainer/GridContainer/SFXVolSlider")
+damage_indicators_button = NodePath("MarginContainer/MainContainer/GridContainer/ShowDamageIndicatorsButton")
+quick_spins_button = NodePath("MarginContainer/MainContainer/GridContainer/QuickSpinsButton")
+restore_defaults_button = NodePath("MarginContainer/MainContainer/RestoreDefaultsButton")
+close_button = NodePath("MarginContainer/MainContainer/CloseButton")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1718315707]
 layout_mode = 2
@@ -33,40 +38,40 @@ texture = ExtResource("2_8pc50")
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1482379764]
 layout_mode = 2
 theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
+theme_override_constants/margin_top = 96
 theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_bottom = 96
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2022674417]
+[node name="MainContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2022674417]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1324326392]
+[node name="Label" type="Label" parent="MarginContainer/MainContainer" unique_id=1324326392]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "Settings:"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1431516753]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MainContainer" unique_id=1431516753]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 32
 columns = 2
 
-[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1838667438]
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/MainContainer/GridContainer" unique_id=1838667438]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "Fullscreen:"
 
-[node name="FullscreenButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=47271636]
+[node name="FullscreenButton" type="CheckButton" parent="MarginContainer/MainContainer/GridContainer" unique_id=47271636]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 
-[node name="MusicVolLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1767611457]
+[node name="MusicVolLabel" type="Label" parent="MarginContainer/MainContainer/GridContainer" unique_id=1767611457]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "Music volume:"
 
-[node name="MusicVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1889026143]
+[node name="MusicVolSlider" type="HSlider" parent="MarginContainer/MainContainer/GridContainer" unique_id=1889026143]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("2_5u86k")
@@ -74,24 +79,24 @@ max_value = 1.0
 step = 0.1
 value = 0.8
 
-[node name="SFXVolLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1910465942]
+[node name="SFXVolLabel" type="Label" parent="MarginContainer/MainContainer/GridContainer" unique_id=1910465942]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "SFX volume:"
 
-[node name="SFXVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1683634943]
+[node name="SFXVolSlider" type="HSlider" parent="MarginContainer/MainContainer/GridContainer" unique_id=1683634943]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 max_value = 1.0
 step = 0.1
 value = 0.8
 
-[node name="ShowDamageIndicatorsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1901870642]
+[node name="ShowDamageIndicatorsLabel" type="Label" parent="MarginContainer/MainContainer/GridContainer" unique_id=1901870642]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "Show damage indicators"
 
-[node name="ShowDamageIndicatorsButton" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1582020608]
+[node name="ShowDamageIndicatorsButton" type="OptionButton" parent="MarginContainer/MainContainer/GridContainer" unique_id=1582020608]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("2_5u86k")
@@ -104,31 +109,95 @@ popup/item_1/id = 1
 popup/item_2/text = "Never"
 popup/item_2/id = 2
 
-[node name="QuickSpinsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=354463878]
+[node name="QuickSpinsLabel" type="Label" parent="MarginContainer/MainContainer/GridContainer" unique_id=354463878]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "Quick buy tower spins"
 
-[node name="QuickSpinsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1262490571]
+[node name="QuickSpinsButton" type="CheckButton" parent="MarginContainer/MainContainer/GridContainer" unique_id=1262490571]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 
-[node name="RestoreDefaultsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=742086315]
+[node name="RestoreDefaultsButton" type="Button" parent="MarginContainer/MainContainer" unique_id=742086315]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "Restore defaults"
 script = ExtResource("4_nfcwg")
 
-[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1255385746]
+[node name="CloseButton" type="Button" parent="MarginContainer/MainContainer" unique_id=1255385746]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
 text = "Close"
 script = ExtResource("4_nfcwg")
 
-[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/GridContainer/ShowDamageIndicatorsButton" to="." method="_on_show_damage_indicators_button_item_selected"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/ShowDamageIndicatorsButton" to="." method="_on_show_damage_indicators_button_toggled"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/QuickSpinsButton" to="." method="_on_quick_spins_button_toggled"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/RestoreDefaultsButton" to="." method="_on_restore_defaults_button_pressed"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainContainer" unique_id=1423824938]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ClearSaveDataButton" type="Button" parent="MarginContainer/MainContainer" unique_id=363763295]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Erase all saved data (handle with care!)"
+
+[node name="ConfirmClearContainer" type="VBoxContainer" parent="MarginContainer" unique_id=255398997]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AreYouSureLabel" type="Label" parent="MarginContainer/ConfirmClearContainer" unique_id=2072215402]
+layout_mode = 2
+text = "Are you sure you would like to erase all your saved data?
+Once it is erased it cannot be recovered.
+This will also require the game to restart."
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ConfirmClearContainer" unique_id=1458542947]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ConfirmClearContainer" unique_id=1332248367]
+layout_mode = 2
+
+[node name="YesClearButton" type="Button" parent="MarginContainer/ConfirmClearContainer/HBoxContainer" unique_id=73086501]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 16
+text = "Yes, erase all my saved data"
+script = ExtResource("5_xpqtt")
+
+[node name="NoClearButton" type="Button" parent="MarginContainer/ConfirmClearContainer/HBoxContainer" unique_id=519415609]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 16
+text = "No, do not erase my data"
+script = ExtResource("5_xpqtt")
+
+[node name="ConfirmRestartContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1069690799]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ConfirmRestartContainer" unique_id=1157074347]
+layout_mode = 2
+text = "Saved data erased. The game will now restart."
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ConfirmRestartContainer" unique_id=419678513]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ConfirmRestartButton" type="Button" parent="MarginContainer/ConfirmRestartContainer" unique_id=1241358619]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "calm"
+
+[connection signal="toggled" from="MarginContainer/MainContainer/GridContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="MarginContainer/MainContainer/GridContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/MainContainer/GridContainer/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="item_selected" from="MarginContainer/MainContainer/GridContainer/ShowDamageIndicatorsButton" to="." method="_on_show_damage_indicators_button_item_selected"]
+[connection signal="toggled" from="MarginContainer/MainContainer/GridContainer/ShowDamageIndicatorsButton" to="." method="_on_show_damage_indicators_button_toggled"]
+[connection signal="toggled" from="MarginContainer/MainContainer/GridContainer/QuickSpinsButton" to="." method="_on_quick_spins_button_toggled"]
+[connection signal="pressed" from="MarginContainer/MainContainer/RestoreDefaultsButton" to="." method="_on_restore_defaults_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainContainer/ClearSaveDataButton" to="." method="_on_clear_save_data_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ConfirmClearContainer/HBoxContainer/YesClearButton" to="." method="_on_yes_clear_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ConfirmClearContainer/HBoxContainer/NoClearButton" to="." method="_on_no_clear_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ConfirmRestartContainer/ConfirmRestartButton" to="." method="_on_confirm_restart_button_pressed"]

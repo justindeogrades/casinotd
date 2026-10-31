@@ -1,5 +1,8 @@
 extends PanelContainer
 
+@export var main_container : VBoxContainer
+@export var confirm_clear_container : VBoxContainer
+@export var confirm_restart_container : VBoxContainer
 @export var fullscreen_button : Button
 @export var music_slider : HSlider
 @export var sfx_slider : HSlider
@@ -7,6 +10,7 @@ extends PanelContainer
 @export var quick_spins_button : Button
 @export var restore_defaults_button : Button
 @export var close_button : Button
+@export var clear_save_data_button : Button
 
 @onready var sfx_bus = AudioServer.get_bus_index("SFX")
 @onready var music_bus = AudioServer.get_bus_index("Music")
@@ -61,3 +65,22 @@ func _on_restore_defaults_button_pressed() -> void:
 
 func _on_show_damage_indicators_button_item_selected(index: int) -> void:
 	Settings.set_damage_indicators_enabled(index)
+
+
+func _on_clear_save_data_button_pressed() -> void:
+	main_container.visible = false
+	confirm_clear_container.visible = true
+
+func _on_yes_clear_button_pressed() -> void:
+	SaveManager.clear_save_data()
+	
+	confirm_clear_container.visible = false
+	confirm_restart_container.visible = true
+func _on_no_clear_button_pressed() -> void:
+	main_container.visible = true
+	confirm_clear_container.visible = false
+
+
+func _on_confirm_restart_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://root.tscn")

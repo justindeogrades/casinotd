@@ -132,6 +132,7 @@ text = "0"
 
 [node name="StatMVP" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=167039585]
 layout_mode = 2
+size_flags_vertical = 0
 theme_type_variation = &"StatsLabel"
 text = "MVP"
 
