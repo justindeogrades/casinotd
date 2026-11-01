@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d2i1oedr11tvu" path="res://custom_button.gd" id="4_c3vdb"]
 [ext_resource type="Script" uid="uid://bvvcgquj6su1t" path="res://incrementing_label.gd" id="5_f6g3w"]
 
-[node name="SidePanel" type="PanelContainer" unique_id=841411776 node_paths=PackedStringArray("money_label", "wave_label", "money_feed_container", "tower_data_container", "buy_button", "reroll_label", "next_wave_button")]
+[node name="SidePanel" type="PanelContainer" unique_id=841411776 node_paths=PackedStringArray("money_label", "wave_label", "best_wave_label", "money_feed_container", "tower_data_container", "buy_button", "reroll_label", "next_wave_button")]
 custom_maximum_size = Vector2(384, -1)
 anchors_preset = -1
 anchor_left = 0.8
@@ -19,7 +19,8 @@ grow_vertical = 2
 theme = ExtResource("1_akbnd")
 script = ExtResource("1_4mnfi")
 money_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MoneyLabel")
-wave_label = NodePath("MarginContainer/VBoxContainer/WaveLabel")
+wave_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer3/WaveLabel")
+best_wave_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer3/BestWaveLabel")
 money_feed_container = NodePath("MarginContainer/VBoxContainer/VBoxContainer/MoneyFeedContainer")
 money_feed_resource = ExtResource("2_xd4xr")
 tower_data_container = NodePath("MarginContainer/VBoxContainer/TowerDataPanel")
@@ -46,9 +47,17 @@ theme_override_constants/margin_bottom = 48
 layout_mode = 2
 theme_override_constants/separation = 35
 
-[node name="WaveLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1194718420]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=274821320]
+layout_mode = 2
+
+[node name="WaveLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer3" unique_id=1194718420]
 layout_mode = 2
 text = "Lives"
+
+[node name="BestWaveLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer3" unique_id=1527324813]
+layout_mode = 2
+theme = ExtResource("1_akbnd")
+theme_type_variation = &"StatsLabel"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=784403783]
 layout_mode = 2

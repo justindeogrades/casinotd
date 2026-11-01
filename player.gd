@@ -8,6 +8,10 @@ extends Node
 @export_category("Actions")
 @export var tower_placer : Node
 @export var wave_manager : Node
+@export_category("Headstart changes")
+@export var headstart_waves_skipped : int = 4
+#Approximately 75 enemies in the first 4 waves, each with expected $6 drop
+@export var headstart_money_bonus : int = 450
 
 var side_panel : PanelContainer
 var tower_data_container : VBoxContainer
@@ -43,6 +47,9 @@ func _ready() -> void:
 	update_side_panel()
 	tower_placer.tower_created.connect(_on_tower_created)
 	tower_placer.tower_placed.connect(_on_tower_placed)
+	
+	if Settings.get_headstart_enabled():
+		apply_headstart()
 
 #func _process(delta : float) -> void:
 	#if Input.is_action_just_released("place_tower"):
@@ -74,6 +81,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func update_side_panel() -> void:
 	side_panel.update_all(money, get_wave_at(), tower_cost, compute_reroll_cost(), compute_max_rerolls(), wave_manager.is_wave_active())
+
+func apply_headstart() -> void:
+	wave_manager.set_wave_at(headstart_waves_skipped)
+	update_money(headstart_money_bonus)
 
 func spend_money(amount : int) -> bool:
 	if money >= amount:

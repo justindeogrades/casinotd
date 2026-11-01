@@ -16,6 +16,8 @@ func _ready() -> void:
 		#init_main_menu()
 
 func init_main_menu() -> void:
+	get_tree().paused = false
+	
 	AudioManager.change_song_to(AudioManager.i_need_to_gamble_music)
 	
 	remove_all_children()
@@ -23,7 +25,7 @@ func init_main_menu() -> void:
 	main_menu_instance = main_menu.instantiate()
 	add_child(main_menu_instance)
 	
-	main_menu_instance.play_button.pressed.connect(_on_play_button_pressed)
+	main_menu_instance.confirm_play_button.pressed.connect(_on_confirm_play_button_pressed)
 
 	main_menu_instance.quit_button.pressed.connect(_on_quit_button_pressed)
 	
@@ -46,7 +48,7 @@ func remove_all_children() -> void:
 	for i in get_children():
 		i.queue_free()
 
-func _on_play_button_pressed() -> void:
+func _on_confirm_play_button_pressed() -> void:
 	var fadeout = fadeout_rect.instantiate()
 	fadeout.faded.connect(init_map)
 	add_child(fadeout)

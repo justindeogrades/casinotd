@@ -2,6 +2,7 @@ extends PanelContainer
 
 @export var money_label : Label
 @export var wave_label : Label
+@export var best_wave_label : Label
 @export var money_feed_container : VBoxContainer
 @export var money_feed_resource : Resource
 @export var tower_data_container : VBoxContainer
@@ -21,6 +22,8 @@ func _ready() -> void:
 	tower_data_container.player = player
 	
 	max_waves = player.wave_manager.waves.size()
+	
+	best_wave_label.text = "Best: " + str(SaveManager.load_file()["best_waves_survived"])
 	
 	init_buttons_array()
 	

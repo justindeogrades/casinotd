@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://befdv2ny1undv" path="res://themes/main menu/main_menu.tres" id="4_6fy38"]
 [ext_resource type="Script" uid="uid://5lkadq7t85tm" path="res://main_menu_button.gd" id="5_auhsi"]
 [ext_resource type="Shader" uid="uid://oe4o7u0w52nr" path="res://main menu/vhs.gdshader" id="8_ldhbh"]
+[ext_resource type="Texture2D" uid="uid://bjnx821pehcii" path="res://main menu/settings_bar.png" id="9_5qo5t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djdlk"]
 
@@ -57,7 +58,7 @@ shader_parameter/black_offset_multiplier = 0.02000000095
 shader_parameter/color_offset = 0.00100000330737999
 shader_parameter/blur_amount = 0.0
 
-[node name="MainMenu" type="PanelContainer" unique_id=85288571 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "main_container", "settings_panel", "credits_panel", "demo_label", "demo_label_player")]
+[node name="MainMenu" type="PanelContainer" unique_id=85288571 node_paths=PackedStringArray("play_button", "confirm_play_button", "back_button", "headstart_button", "settings_button", "credits_button", "quit_button", "main_container", "play_container", "settings_panel", "credits_panel", "demo_label", "demo_label_player")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,10 +69,14 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_djdlk")
 script = ExtResource("1_06t4h")
 play_button = NodePath("MainContainer/Play")
+confirm_play_button = NodePath("PlayContainer/MarginContainer/VBoxContainer/ConfirmPlayButton")
+back_button = NodePath("PlayContainer/MarginContainer/VBoxContainer/BackButton")
+headstart_button = NodePath("PlayContainer/MarginContainer/VBoxContainer/GridContainer/HeadstartButton")
 settings_button = NodePath("MainContainer/SettingsButton")
 credits_button = NodePath("MainContainer/CreditsButton")
 quit_button = NodePath("MainContainer/Quit")
 main_container = NodePath("MainContainer")
+play_container = NodePath("PlayContainer")
 settings_panel = NodePath("SettingsContainer")
 credits_panel = NodePath("CreditsPanel")
 demo_label = NodePath("MainContainer/DemoLabel")
@@ -156,5 +161,71 @@ material = SubResource("ShaderMaterial_g4v7s")
 layout_mode = 2
 mouse_filter = 2
 
+[node name="PlayContainer" type="PanelContainer" parent="." unique_id=258153825]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_6fy38")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PlayContainer" unique_id=72639880]
+layout_mode = 2
+texture = ExtResource("9_5qo5t")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayContainer" unique_id=1616481184]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayContainer/MarginContainer" unique_id=1312833814]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="GridContainer" type="GridContainer" parent="PlayContainer/MarginContainer/VBoxContainer" unique_id=1816432742]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="DifficultyLabel" type="Label" parent="PlayContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1036300216]
+layout_mode = 2
+text = "Difficulty:"
+
+[node name="OptionButton" type="OptionButton" parent="PlayContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1944352931]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "Impossible"
+popup/item_0/id = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=799709394]
+layout_mode = 2
+
+[node name="HeadstartLabel" type="Label" parent="PlayContainer/MarginContainer/VBoxContainer/GridContainer/VBoxContainer" unique_id=844996588]
+layout_mode = 2
+text = "Head start:"
+
+[node name="Label" type="Label" parent="PlayContainer/MarginContainer/VBoxContainer/GridContainer/VBoxContainer" unique_id=1741955408]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "(unlocked after clearing
+20 waves)"
+
+[node name="HeadstartButton" type="CheckBox" parent="PlayContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=2106742538]
+layout_mode = 2
+
+[node name="ConfirmPlayButton" type="Button" parent="PlayContainer/MarginContainer/VBoxContainer" unique_id=1345787899]
+layout_mode = 2
+text = "Play"
+
+[node name="BackButton" type="Button" parent="PlayContainer/MarginContainer/VBoxContainer" unique_id=856301147]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MainContainer/Play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="toggled" from="PlayContainer/MarginContainer/VBoxContainer/GridContainer/HeadstartButton" to="." method="_on_headstart_button_toggled"]
+[connection signal="pressed" from="PlayContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
