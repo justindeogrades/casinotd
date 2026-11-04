@@ -23,6 +23,9 @@ func _ready() -> void:
 		headstart_button.disabled = true
 	else:
 		headstart_button.disabled = false
+	#Save your previous headstart setting
+	headstart_button.set_pressed_no_signal(Settings.get_headstart_enabled())
+	
 	#Ugly because temporary
 	demo_label_player.play("flash")
 

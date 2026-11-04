@@ -59,6 +59,7 @@ shader_parameter/color_offset = 0.00100000330737999
 shader_parameter/blur_amount = 0.0
 
 [node name="MainMenu" type="PanelContainer" unique_id=85288571 node_paths=PackedStringArray("play_button", "confirm_play_button", "back_button", "headstart_button", "settings_button", "credits_button", "quit_button", "main_container", "play_container", "settings_panel", "credits_panel", "demo_label", "demo_label_player")]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -213,11 +214,17 @@ layout_mode = 2
 
 [node name="ConfirmPlayButton" type="Button" parent="PlayContainer/MarginContainer/VBoxContainer" unique_id=1345787899]
 layout_mode = 2
+theme = ExtResource("4_6fy38")
+theme_type_variation = &"SmallButton"
 text = "Play"
+script = ExtResource("5_auhsi")
 
 [node name="BackButton" type="Button" parent="PlayContainer/MarginContainer/VBoxContainer" unique_id=856301147]
 layout_mode = 2
+theme = ExtResource("4_6fy38")
+theme_type_variation = &"SmallButton"
 text = "Back"
+script = ExtResource("5_auhsi")
 
 [node name="VHSFilter" type="ColorRect" parent="." unique_id=1763139109]
 material = SubResource("ShaderMaterial_g4v7s")

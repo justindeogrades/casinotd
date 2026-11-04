@@ -121,12 +121,14 @@ theme = ExtResource("2_5u86k")
 [node name="RestoreDefaultsButton" type="Button" parent="MarginContainer/MainContainer" unique_id=742086315]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
+theme_type_variation = &"SmallButton"
 text = "Restore defaults"
 script = ExtResource("4_nfcwg")
 
 [node name="CloseButton" type="Button" parent="MarginContainer/MainContainer" unique_id=1255385746]
 layout_mode = 2
 theme = ExtResource("2_5u86k")
+theme_type_variation = &"SmallButton"
 text = "Close"
 script = ExtResource("4_nfcwg")
 
