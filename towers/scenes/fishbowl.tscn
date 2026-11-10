@@ -103,6 +103,7 @@ process_mode = 1
 script = ExtResource("1_b3s7n")
 attribute = Array[float]([22.0, 100.0, 160.0, 9.0, 2.1, 500.0, 10.0, 1.0])
 tower_name = "Fishbowl"
+gameplay_description = "Sprays heavily damaging but inaccurate flames out of his jetpack."
 tower_description = "Government name: Lein Legweak"
 shot_type = 0
 rarity = 2

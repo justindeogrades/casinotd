@@ -5,6 +5,7 @@ extends PanelContainer
 @export var ban_button : Button
 @export var rarity_label : Label
 @export var name_label : Label
+@export var gameplay_label : Label
 @export var description_label : Label
 @export var text_rect : TextureRect
 
@@ -30,7 +31,8 @@ func init(t : Tower, rc : int, rr : int, b : int, c : bool) -> void:
 	rarity_label.label_settings.font_color = G.rarity_to_colour(rarity)
 	
 	name_label.text = tower.get_tower_name()
-	description_label.text = tower.get_tower_description()
+	gameplay_label.text = tower.get_gameplay_description()
+	description_label.text = "\"" + tower.get_tower_description() + "\""
 	text_rect.texture = tower.get_portrait_texture()
 	reroll_button.text = "Reroll - $" + str(reroll_cost) + " (" + str(rerolls_remaining) + " remaining)"
 	ban_button.text = "Ban - $" + str(ban_cost)

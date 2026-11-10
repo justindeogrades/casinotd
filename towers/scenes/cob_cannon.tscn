@@ -54,6 +54,9 @@ process_mode = 1
 script = ExtResource("1_hk0bd")
 attribute = Array[float]([315.0, 25.0, 300.0, 5.0, 1.5, 200.0, 1.0, 0.0])
 tower_name = "Cob Cannon"
+gameplay_description = "Fires a very slow-moving explosive that deals massive 
+damage to everything in its blast radius.
+Projectiles explode on impact, and cannot pierce."
 tower_description = "Literally just the cob cannon from PvZ. Come fuck with me Mohammed bin Salman"
 shot_type = 0
 rarity = 3

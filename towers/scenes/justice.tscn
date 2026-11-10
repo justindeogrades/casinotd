@@ -103,6 +103,7 @@ process_mode = 1
 script = ExtResource("1_erqdl")
 attribute = Array[float]([18.0, 40.0, 150.0, 15.0, 4.0, 1200.0, 6.0, 0.0])
 tower_name = "Justice"
+gameplay_description = "6-round mag dumps the first thing he sees."
 tower_description = "His bodycam? Never once turned on."
 shot_type = 0
 rarity = 2

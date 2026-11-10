@@ -54,6 +54,7 @@ process_mode = 1
 script = ExtResource("1_tnpkm")
 attribute = Array[float]([30.0, 65.0, 240.0, 11.0, 2.5, 1500.0, 1.0, 0.0])
 tower_name = "Specimen-777"
+gameplay_description = "Shoots accurate and long-ranged lasers from his zapper."
 tower_description = "Fled his whole planet to escape his galactic gambling debt"
 shot_type = 0
 sprite = NodePath("Sprite2D")

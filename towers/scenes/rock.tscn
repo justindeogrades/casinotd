@@ -55,6 +55,8 @@ process_mode = 1
 script = ExtResource("1_d5ojh")
 attribute = Array[float]([78.0, 50.0, 200.0, 8.0, 2.8, 400.0, 5.0, 0.0])
 tower_name = "1.2 Ton Rock"
+gameplay_description = "Fires five slow-moving but heavily 
+damaging rocks in all directions around it."
 tower_description = "Getting dangerously close to my lateral raise"
 shot_type = 2
 projectile_rotation_speed = 1.0

@@ -54,6 +54,7 @@ process_mode = 1
 script = ExtResource("1_ddm65")
 attribute = Array[float]([30.0, 100.0, 200.0, 24.0, 3.8, 800.0, 1.0, 0.0])
 tower_name = "Debt Oracle"
+gameplay_description = "Crits are even more likely and even more powerful."
 tower_description = "Knows the end of our world, but not the end of his own debt."
 projectile_rotation_speed = 9.425
 rarity = 2

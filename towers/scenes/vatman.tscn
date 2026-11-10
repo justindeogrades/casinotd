@@ -52,8 +52,10 @@ _data = {
 [node name="Vatman" type="Node2D" unique_id=479165124 node_paths=PackedStringArray("sprite", "range_area", "range_collision", "cooldown_timer", "volley_cooldown_timer", "projectile_parent", "mousebox", "anim_player")]
 process_mode = 1
 script = ExtResource("1_lv1jq")
-attribute = Array[float]([44.0, 65.0, 240.0, 18.0, 3.2, 850.0, 1.0, 2.0])
+attribute = Array[float]([44.0, 65.0, 240.0, 18.0, 3.2, 950.0, 1.0, 3.0])
 tower_name = "Vatman"
+gameplay_description = "Throws a boomerang that travels in a circle,
+dealing high damage and even higher critical damage"
 tower_description = "Don't ask him what happened in Uzbekistan."
 projectile_rotation_speed = 8.0
 rarity = 1

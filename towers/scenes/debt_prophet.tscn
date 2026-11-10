@@ -71,6 +71,7 @@ process_mode = 1
 script = ExtResource("1_riva6")
 attribute = Array[float]([30.0, 100.0, 200.0, 40.0, 4.0, 800.0, 3.0, 0.0])
 tower_name = "Debt prophet"
+gameplay_description = "Throws 3 spread-out attacks with extremely powerful crits. "
 tower_description = "A credit score of negative infinity is a type of inner peace..."
 projectile_rotation_speed = 12.566
 rarity = 3

@@ -54,6 +54,7 @@ process_mode = 1
 script = ExtResource("1_rhwp3")
 attribute = Array[float]([24.0, 75.0, 200.0, 17.0, 3.3, 800.0, 2.0, 0.0])
 tower_name = "Snake eyes"
+gameplay_description = "Throws two dice with powerful crits."
 tower_description = "1 in 36 chance of getting a venomous bite."
 projectile_rotation_speed = 1.0
 sprite = NodePath("Sprite2D")

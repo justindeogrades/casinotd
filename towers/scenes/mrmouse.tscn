@@ -54,6 +54,8 @@ process_mode = 1
 script = ExtResource("1_8bjts")
 attribute = Array[float]([28.0, 30.0, 300.0, 12.0, 3.3, 1000.0, 1.0, 6.0])
 tower_name = "King Mousenkhamen"
+gameplay_description = "Throws out a cable and pulls it back, dealing 
+damage both on the way out and way back"
 tower_description = "Who do you think built the pyramids?"
 shot_type = 0
 rarity = 1

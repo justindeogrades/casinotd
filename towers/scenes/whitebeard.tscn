@@ -56,6 +56,9 @@ script = ExtResource("1_a0hxs")
 bird_resource = ExtResource("5_a0hxs")
 attribute = Array[float]([25.0, 150.0, 80.0, 30.0, 5.0, 1200.0, 1.0, 5.0])
 tower_name = "Whitebeard & Quilly"
+gameplay_description = "Whitebeard rapidly stabs with his sword dealing deadly critical damage at close range. 
+Quilly constantly flies in a circle, dealing damage to everything she touches. 
+Quilly's radius scales with range, and her speed scales with projectile speed."
 tower_description = "Left the high seas for the slotto machines"
 shot_type = 0
 rarity = 2

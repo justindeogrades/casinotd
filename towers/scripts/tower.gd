@@ -17,6 +17,7 @@ extends Node2D
 #]
 #Getter is get_tower_name cause get_name is built in fucking weirdos
 @export var tower_name : String = "Tower"
+@export_multiline var gameplay_description = "Does something."
 @export var tower_description : String = "A tower."
 @export_enum("Volley", "Fan", "Surround") var shot_type : int = G.type.FAN
 #Radians per second
@@ -308,6 +309,9 @@ func get_target_priority() -> int:
 
 func get_tower_name() -> String:
 	return tower_name
+
+func get_gameplay_description() -> String:
+	return gameplay_description
 
 func get_tower_description() -> String:
 	return tower_description

@@ -54,6 +54,8 @@ process_mode = 1
 script = ExtResource("1_01ksj")
 attribute = Array[float]([16.0, 120.0, 280.0, 16.0, 3.6, 1200.0, 16.0, 1.0])
 tower_name = "Ar'Borus, Terror of the Woods"
+gameplay_description = "Rapidly fires deadly long-ranged pine 
+needles in all directions around him"
 tower_description = "Agatha's potted plant."
 shot_type = 2
 rarity = 3
